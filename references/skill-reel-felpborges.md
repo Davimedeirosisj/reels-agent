@@ -1,0 +1,28 @@
+# Referência técnica prioritária — skill-reel (Felpborges)
+
+**Projeto original:** https://github.com/Felpborges/skill-reel
+
+**Autor:** Felpborges. **Tipo:** skill de edição automática para Claude Code. **Status no nosso projeto:** referência técnica externa; **não integrada nem testada localmente**.
+
+## Por que é importante
+
+O projeto declara um fluxo próximo do objetivo do Reels Agent: receber uma gravação bruta de alguém falando, limpar erros e pausas, criar composição vertical 9:16 com legendas sincronizadas, elementos animados ligados a palavras-chave, efeitos sonoros, verificação de zonas seguras e exportação de MP4.
+
+## Componentes para estudar primeiro
+
+1. `SKILL.md` — orquestração de ponta a ponta.
+2. `corte/` — detecção e conferência de cortes por áudio e transcrição.
+3. `modelo/` — motor VSL de composição e renderização.
+4. `ESTILO.md` e `regras-da-casa.md` — critérios visuais e editoriais.
+5. `ferramentas/` — enquadramento, âncoras, áudio final, zonas seguras e verificação.
+
+## Integração futura
+
+- Preservar os prompts originais verificáveis de Prompt Motion/Motif como prioridade para motion graphics.
+- Adaptar as ideias do pipeline de corte e composição ao perfil de pregações, entrevistas e podcasts.
+- Respeitar 1080×1920, tipografia GoBold Bold branca em caixa alta nos títulos, e mensagem bíblica como prioridade editorial.
+- Testar com vídeo próprio, comparar resultado e documentar problemas antes de prometer edição totalmente automática.
+
+## Licenciamento
+
+Não foi encontrado arquivo `LICENSE` na raiz do repositório durante a consulta. **Não copiar ou redistribuir o código do projeto sem verificar permissão/licença com o autor.** Este documento é somente um índice de referência com link e descrição.
