@@ -20,6 +20,7 @@ export function Captions({ segments, style = {}, accent }) {
     minFontSize = 38,
     boxColor,
     boxOpacity,
+    motion,
     ...custom
   } = style;
   const appearance = captionAppearance(style);
@@ -46,7 +47,7 @@ export function Captions({ segments, style = {}, accent }) {
     : tokens;
   const layout = maxLines
     ? layoutCaptionTokens(layoutTokens, browserTextMeasurer(base), {
-        width: base.width ?? videoWidth - Number(base.left) - Number(base.right),
+        width: (base.width ?? videoWidth - Number(base.left) - Number(base.right)) - (motion ? (maxWords || 5)*8 : 0),
         maxLines,
         fontSize: base.fontSize,
         minFontSize,
@@ -68,10 +69,15 @@ export function Captions({ segments, style = {}, accent }) {
           : mode === 'block' || mode === 'accessible'
             ? false
             : f >= w.from && f < w.to;
+      const impact=motion && semantic && highlight
+        ? Math.sin(Math.PI*Math.min(1,Math.max(0,(f-w.from)/Math.min(6,Math.max(1,w.to-w.from))))) : 0;
       return (
         <span
           key={i}
           style={{
+            display: motion ? 'inline-block' : undefined,
+            transform: motion ? `scale(${1+impact*((motion.highlightScale ?? 1.08)-1)})` : undefined,
+            marginRight: motion && i<row.length-1 ? 8 : undefined,
             color: highlight ? accent : appearance.color,
             background: appearance.background,
             padding: '4px 3px',
@@ -90,6 +96,7 @@ export function Captions({ segments, style = {}, accent }) {
       style={{
         ...base,
         fontSize: layout.fontSize,
+        transform: motion ? `translateY(${Math.max(0,1-(f-s.from)/7)*(motion.slidePx||8)}px)` : base.transform,
         clipPath:
           mode === 'mask' ? `inset(0 ${Math.max(0, 100 - (f - s.from) * 20)}% 0 0)` : undefined,
       }}

@@ -59,7 +59,7 @@ function TimedMotion({ event, accent }) {
     lerp(frame, Math.max(8, n - 8), Math.max(9, n), 1, 0),
   );
   return (
-    <AbsoluteFill style={{ opacity, pointerEvents: 'none' }}>
+    <AbsoluteFill style={{ opacity: event.layout==='hook' ? lerp(frame,Math.max(0,n-8),n,1,0) : opacity, pointerEvents: 'none' }}>
       <MotionLibrary
         {...event}
         variant={event.kind}
@@ -91,6 +91,10 @@ export const PastoralReel = ({
     captions = captionsForTimeline(transcript.segments, clips, fps);
   const frame = useCurrentFrame(),
     transition = transitionAt(frame, motions, fps, width);
+  const inset = Math.max(0,...(theme.graphicWindows || []).map(w=>{
+    const a=Math.round(w.start*fps), b=Math.round(w.end*fps);
+    return frame<a||frame>b?0:Math.min(lerp(frame,a,a+10,0,1),lerp(frame,b-10,b,1,0));
+  }));
   const layers = (layer) =>
     motions
       .filter(
@@ -116,9 +120,12 @@ export const PastoralReel = ({
         fontFamily: theme.fontFamily || 'Arial, sans-serif',
       }}
     >
+      {theme.techBackground && <AbsoluteFill style={{background:'radial-gradient(ellipse at 50% 65%,#00D08418,transparent 65%),#07100F'}}/>}
       <AbsoluteFill
         style={{
-          transform: `translateX(${transition.x}px) scale(${transition.scale})`,
+          transform: `translateX(${transition.x}px) translateY(${-210*inset}px) scale(${transition.scale*(1-.28*inset)})`,
+          borderRadius: inset ? 28*inset : 0,
+          overflow: 'hidden',
           filter: transition.blur ? `blur(${transition.blur}px)` : undefined,
         }}
       >
@@ -146,6 +153,7 @@ export const PastoralReel = ({
               style={{ background: 'linear-gradient(transparent 55%,rgba(0,0,0,.7))' }}
             />
           )}
+          {theme.vignette && <AbsoluteFill style={{background:'radial-gradient(ellipse at 50% 40%,transparent 40%,rgba(0,0,0,.24) 100%)',pointerEvents:'none'}}/>}
           {title && (
             <Sequence
               from={Math.round((title.start || 0) * fps)}

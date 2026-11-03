@@ -17,6 +17,7 @@ import { DiagramGraphic } from './DiagramGraphic';
 import { EducationalGraphic } from './EducationalGraphic';
 import { SceneThree } from './SceneThree';
 import { SCENE3D_KINDS } from './scene3d.mjs';
+import { TechGraphic } from './TechGraphic';
 export { MOTION_VARIANTS } from './motion-kinds.mjs';
 export function MotionLibrary({
   variant = 'kinetic',
@@ -44,6 +45,8 @@ export function MotionLibrary({
   ...options
 }) {
   if (!MOTION_VARIANTS.includes(variant)) throw new Error(`Motion inconnu: ${variant}`);
+  if (variant === 'blueprint' && options.design === 'pastoral-tech')
+    return <TechGraphic {...options} frame={f} fps={fps} position={position} text={text} subtitle={subtitle} items={items} accent={accent}/>;
   const p = ease(f, 0, 25),
     s = spring({ frame: f, fps, config: { damping: 18, stiffness: 130 } }),
     box = {

@@ -1,0 +1,105 @@
+{
+  "recordedAtUtc": "2026-11-03T18:00:54.633Z",
+  "scope": "Re-edit from the user-supplied JSON art direction; technical aggregates only",
+  "sourceFingerprint": "f12696138c18df795152c8c622dca48fb239657eed211c352bd6d7d03c5c739a",
+  "fingerprintScheme": "normalized-source-and-lock-v2",
+  "latestSourceValidatedByRender": true,
+  "mp4": {
+    "sha256": "1fe8ec4c3feac9d703a12476db997a877d871f5beeb36bba1a3a8ec35b6bffe6",
+    "bytes": 52964491,
+    "videoDuration": 70.3,
+    "fileDuration": 70.4,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "frames": 2109,
+    "codec": "h264",
+    "pixelFormat": "yuv420p",
+    "colorSpace": "bt709",
+    "audioCodec": "aac",
+    "audioSampleRate": "48000",
+    "fullDecodePassed": true
+  },
+  "direction": {
+    "palette": [
+      "#07100F",
+      "#050606",
+      "#00D084",
+      "#18F0A0",
+      "#49E6D1",
+      "#F5F7F6"
+    ],
+    "graphics": 13,
+    "sfxEntries": 20,
+    "sourceClips": 7,
+    "quietCuts": 6,
+    "maximumDigitalPunchIn": 1.055,
+    "techniques": [
+      "Graphic hook with original voice",
+      "Animated portrait inset and return to full frame",
+      "Thin-border dark cards",
+      "Progressive line icons and diagrams",
+      "Full-screen educational insert",
+      "8px caption slide and up to 1.08 keyword scale",
+      "Subtle vignette and restrained color adjustment",
+      "Original ambient bed with ducking",
+      "Original whoosh, click and sub accents"
+    ],
+    "statisticsInvented": false,
+    "exactExternalReferenceReproduction": false
+  },
+  "captions": {
+    "words": 104,
+    "pages": 41,
+    "maxLines": 2,
+    "tokenOrderPreserved": true,
+    "source": "Previously measured Whisper large-v3 on the same source",
+    "humanReviewed": false
+  },
+  "audio": {
+    "integratedLufs": -15.95,
+    "truePeakDbtp": -1.94,
+    "waveformWindows": 36,
+    "minimumCorrelation": 0.967547200861762,
+    "maximumAbsoluteLagMs": 0,
+    "sfxVerified": 20,
+    "sfxMinimumCorrelation": 0.899749171760582,
+    "musicVerified": true,
+    "musicResidualCorrelation": 0.9851783695391817,
+    "duckingGainRange": [
+      0.052,
+      0.085
+    ],
+    "comparisonBandHz": 7000
+  },
+  "spatial": {
+    "sampleCount": 265,
+    "faceSamples": 203,
+    "conflicts": 0,
+    "continuousCoverageProven": false,
+    "fullGraphicInsertsExcludedFromFaceOcclusionChecks": true
+  },
+  "tests": {
+    "javascriptPassed": 76
+  },
+  "review": {
+    "type": "Agent review under user delegation",
+    "humanReviewed": false,
+    "jobHash": "8d6a8ac64994b66c02d85570ccd9d80e99586fe03b84985a1ae25731ae13e4c6",
+    "assetHash": "1914346a933a9d6cc848388c9be4783a92e8eba951321d2c9b3f4de0bd92ff2f",
+    "deliveryByteIdenticalToReviewedRender": true,
+    "limitations": [
+      "ASR can contain transcription and timing errors.",
+      "Some source frames already crop the person at frame edges.",
+      "Face detection and visual inspection do not prove every pixel between samples.",
+      "The generic prompt library is a repertoire, not a claim that all 100 techniques were used."
+    ]
+  },
+  "organizedProject": {
+    "separateAudioStems": 3,
+    "editableSubtitles": true,
+    "graphicEvents": true,
+    "promptCopy": true,
+    "sourceVideoExternal": true
+  }
+}
