@@ -42,6 +42,10 @@ export function mapMedia(job, mapper) {
   const props = structuredClone(job),
     mapping = new Map(mediaReferences(job).map((s) => [s, mapper(s)]));
   for (const c of props.clips) c.source = mapping.get(c.source);
+  for (const clip of props.foregroundPreparation?.geometry?.clips || [])
+    if (mapping.has(clip.source)) clip.source = mapping.get(clip.source);
+  for (const item of props.foregroundPreparation?.sourceBinding || [])
+    if (mapping.has(item.source)) item.source = mapping.get(item.source);
   for (const s of props.transcript?.segments || [])
     if (s.source && mapping.has(s.source)) s.source = mapping.get(s.source);
   if (props.foregroundSrc) props.foregroundSrc = mapping.get(props.foregroundSrc);

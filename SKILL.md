@@ -34,6 +34,8 @@ Conferir cortes, sincronia, safe areas, legibilidade, picos de áudio, erros de 
 ## Status
 Motor executável em desenvolvimento. A entrada atual usa `clips`, `transcript`, `motions`, `operations`, câmera, tema e áudio em JSON. Consulte `docs/EXECUCAO.md` para comandos; `docs/COBERTURA.md` para cobertura individual e `docs/STATUS-IMPLEMENTACAO.md` para testes/pendências. A biblioteca tem 56 componentes, incluindo cenas Three.js, além de cor por tomada, duas linhas medidas e revisão editável das legendas. Uma pregação real completa teve MP4 e áudio testados; a revisão humana das legendas e da fidelidade permanece pendente. Os resultados não comprovam reprodução premium de todas as referências.
 
+Para gráficos atrás da pessoa, use `foreground` antes de `preview`; o comando prepara câmera/cortes/cor, calcula alpha e recusa uma camada desatualizada. Veja `docs/ETAPA-RECORTE-AUTOMATICO.md`. Use o efeito somente quando fizer sentido para a mensagem e confira bordas e legibilidade.
+
 Curadoria: `prompts/external-verified.json` registra 124 publicações Prompt Motion com autoria e links, correspondendo a 111 textos normalizados distintos. `prompts/motif-attribution.json` verifica 45 páginas individuais Motif. Consulte os originais antes de criar a direção visual. Os fingerprints comprovam disponibilidade dos textos, não execução nem licença para republicá-los.
 
 ## REGRA FUNDAMENTAL: NÃO ENGESSAR A EDIÇÃO

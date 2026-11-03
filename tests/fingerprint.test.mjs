@@ -15,6 +15,7 @@ test('approval fingerprint ignores checkout line endings and binds dependencies 
     'tools/engine.mjs',
     'tools/review_page.mjs',
     'tools/fingerprint.mjs',
+    'tools/media_cache.mjs',
     'package-lock.json',
   ];
   for (const file of files) fs.writeFileSync(path.join(fixture, file), 'same\ncontent\n');

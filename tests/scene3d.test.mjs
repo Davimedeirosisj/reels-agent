@@ -1,6 +1,22 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { camera3dAt, inspectGlb, validateScene3d } from '../src/scene3d.mjs';
+test('primitive arguments allow zero angles, a cone tip and boolean caps', () => {
+  const base = { kind: 'light3d', evidence: 'Authored geometry fixture' };
+  for (const node of [
+    { geometry: 'cylinder', args: [0, 1, 2, 32, 1, false, 0, Math.PI * 2] },
+    { geometry: 'sphere', args: [1, 32, 16, 0, Math.PI * 2, 0, Math.PI] },
+    { geometry: 'torus', args: [1, 0.2, 16, 32, Math.PI] },
+  ])
+    assert.deepEqual(validateScene3d({ ...base, scene: { nodes: [node] } }), []);
+  for (const node of [
+    { geometry: 'cylinder', args: [0, 0, 2] },
+    { geometry: 'cylinder', args: [1, 1, -2] },
+    { geometry: 'sphere', args: [true] },
+    { geometry: 'torus', args: [1, 0.2, 16, 32, 0] },
+  ])
+    assert.ok(validateScene3d({ ...base, scene: { nodes: [node] } }).length);
+});
 test('3D camera is seekable and interpolates position, target and field of view', () => {
   const keys = [
     { time: 0, position: [2, 0, 6], target: [0, 0, 0], fov: 40 },

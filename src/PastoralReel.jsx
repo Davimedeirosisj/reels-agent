@@ -15,6 +15,7 @@ import { Captions } from './Captions';
 import { musicGain } from './captions.mjs';
 import { cameraAt, transitionAt } from './camera.mjs';
 import { ColorGrade } from './ColorGrade';
+import { foregroundAvailable, foregroundActive } from './foreground.mjs';
 export const media = (src) =>
   /^(https?:|data:|blob:)/.test(src) ? src : staticFile(src.replace(/^\//, ''));
 const lerp = (f, a, b, x, y) =>
@@ -78,6 +79,8 @@ export const PastoralReel = ({
   theme = {},
   captionStyle = {},
   foregroundSrc,
+  foregroundPreparation,
+  sourceOnly = false,
   music,
   sfx = [],
   debugSafeAreas = false,
@@ -90,7 +93,11 @@ export const PastoralReel = ({
     transition = transitionAt(frame, motions, fps, width);
   const layers = (layer) =>
     motions
-      .filter((m) => (m.layer || 'front') === layer)
+      .filter(
+        (m) =>
+          (m.layer || 'front') === layer &&
+          (layer !== 'behind' || foregroundAvailable(foregroundPreparation, frame)),
+      )
       .map((m, i) => (
         <Sequence
           key={i}
@@ -121,67 +128,75 @@ export const PastoralReel = ({
           </Sequence>
         ))}
       </AbsoluteFill>
-      {layers('behind')}
-      {foregroundSrc && (
-        <OffthreadVideo
-          transparent
-          muted
-          src={media(foregroundSrc)}
-          style={{ width: '100%', height: '100%', objectFit: theme.fit || 'contain' }}
-        />
-      )}
-      {theme.gradient && (
-        <AbsoluteFill style={{ background: 'linear-gradient(transparent 55%,rgba(0,0,0,.7))' }} />
-      )}
-      {title && (
-        <Sequence
-          from={Math.round((title.start || 0) * fps)}
-          durationInFrames={Math.round((title.duration || 3) * fps)}
-        >
-          <TimedMotion
-            event={{
-              ...title,
-              kind: 'title',
-              start: 0,
-              end: title.duration || 3,
-              position: title.position || { x: 85, y: 190, width: 880 },
-            }}
-            accent={accent}
-          />
-        </Sequence>
-      )}
-      {layers('front')}
-      {captionStyle.enabled !== false && (
-        <Captions segments={captions} style={captionStyle} accent={accent} />
-      )}
-      {music && (
-        <Audio
-          src={media(music.source)}
-          volume={(f) =>
-            music.duck === false ? (music.volume ?? 0.08) : musicGain(f, captions, music)
-          }
-          loopVolumeCurveBehavior="extend"
-          loop
-        />
-      )}
-      {sfx.map((s, i) => (
-        <Sequence
-          key={i}
-          from={Math.round(s.start * fps)}
-          durationInFrames={Math.round(s.duration * fps)}
-        >
-          <Audio src={media(s.source)} volume={s.volume ?? 0.12} />
-        </Sequence>
-      ))}
-      {debugSafeAreas && (
-        <AbsoluteFill
-          style={{
-            border: 'solid 2px #77ffaa',
-            inset: '150px 105px 270px 85px',
-            width: 'auto',
-            height: 'auto',
-          }}
-        />
+      {!sourceOnly && (
+        <>
+          {layers('behind')}
+          {foregroundActive({ foregroundSrc, foregroundPreparation, motions, fps }, frame) && (
+            <AbsoluteFill>
+              <OffthreadVideo
+                transparent
+                muted
+                src={media(foregroundSrc)}
+                style={{ width: '100%', height: '100%', objectFit: theme.fit || 'contain' }}
+              />
+            </AbsoluteFill>
+          )}
+          {theme.gradient && (
+            <AbsoluteFill
+              style={{ background: 'linear-gradient(transparent 55%,rgba(0,0,0,.7))' }}
+            />
+          )}
+          {title && (
+            <Sequence
+              from={Math.round((title.start || 0) * fps)}
+              durationInFrames={Math.round((title.duration || 3) * fps)}
+            >
+              <TimedMotion
+                event={{
+                  ...title,
+                  kind: 'title',
+                  start: 0,
+                  end: title.duration || 3,
+                  position: title.position || { x: 85, y: 190, width: 880 },
+                }}
+                accent={accent}
+              />
+            </Sequence>
+          )}
+          {layers('front')}
+          {captionStyle.enabled !== false && (
+            <Captions segments={captions} style={captionStyle} accent={accent} />
+          )}
+          {music && (
+            <Audio
+              src={media(music.source)}
+              volume={(f) =>
+                music.duck === false ? (music.volume ?? 0.08) : musicGain(f, captions, music)
+              }
+              loopVolumeCurveBehavior="extend"
+              loop
+            />
+          )}
+          {sfx.map((s, i) => (
+            <Sequence
+              key={i}
+              from={Math.round(s.start * fps)}
+              durationInFrames={Math.round(s.duration * fps)}
+            >
+              <Audio src={media(s.source)} volume={s.volume ?? 0.12} />
+            </Sequence>
+          ))}
+          {debugSafeAreas && (
+            <AbsoluteFill
+              style={{
+                border: 'solid 2px #77ffaa',
+                inset: '150px 105px 270px 85px',
+                width: 'auto',
+                height: 'auto',
+              }}
+            />
+          )}
+        </>
       )}
     </AbsoluteFill>
   );

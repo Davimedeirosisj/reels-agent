@@ -3,6 +3,7 @@ import { validateGraph, graphLayout } from './diagrams.mjs';
 import { validateEducation } from './education.mjs';
 import { validateColor } from './color.mjs';
 import { validateScene3d } from './scene3d.mjs';
+import { foregroundMatches } from './foreground.mjs';
 export const frames = (seconds, fps) => Math.round(seconds * fps);
 const finite = (n) => typeof n === 'number' && Number.isFinite(n);
 // One source of truth for video, audio, captions and the review.
@@ -61,6 +62,10 @@ export function validateJob(job) {
     if (job[k] !== undefined && (!Number.isInteger(job[k]) || job[k] < 64 || job[k] % 2))
       errors.push(`${k} deve ser inteiro par >=64`);
   if (!Array.isArray(job.clips) || !job.clips.length) errors.push('clips não pode estar vazio');
+  if (!foregroundMatches(job))
+    errors.push(
+      'Recorte preparado ficou desatualizado: gere a camada novamente após alterar cortes, câmera, cor ou formato',
+    );
   const last = new Map();
   const style = job.captionStyle || {};
   if (

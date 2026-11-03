@@ -6,7 +6,13 @@ export function layoutCaptionTokens(
   { width, maxLines = 2, fontSize = 56, minFontSize = 38, padding = 6, prefix = '' } = {},
 ) {
   if (
+    !Number.isFinite(width) ||
     !(width > 0) ||
+    !Number.isFinite(fontSize) ||
+    !Number.isFinite(minFontSize) ||
+    minFontSize <= 0 ||
+    !Number.isFinite(padding) ||
+    padding < 0 ||
     !Number.isInteger(maxLines) ||
     maxLines < 1 ||
     maxLines > 4 ||
@@ -43,11 +49,13 @@ export function layoutCaptionTokens(
     };
     return solve(0, count);
   };
-  for (let size = fontSize; size >= minFontSize; size--)
+  for (let size = fontSize; ; size = Math.max(minFontSize, size - 1)) {
     for (let count = 1; count <= Math.min(maxLines, tokens.length); count++) {
       const found = partition(size, count);
       if (found) return { rows: found.rows, fontSize: size, overflow: false };
     }
+    if (size === minFontSize) break;
+  }
   return { rows: [tokens], fontSize: minFontSize, overflow: true };
 }
 

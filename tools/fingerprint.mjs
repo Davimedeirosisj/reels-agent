@@ -19,6 +19,7 @@ export function rendererFingerprint(root) {
     'tools/engine.mjs',
     'tools/review_page.mjs',
     'tools/fingerprint.mjs',
+    'tools/media_cache.mjs',
   ].sort();
   const digest = crypto.createHash('sha256').update(FINGERPRINT_SCHEME + '\0');
   for (const file of files) {

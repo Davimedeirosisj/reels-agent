@@ -1,10 +1,10 @@
 {
   "clientDate": "2026-11-03",
-  "recordedAtUtc": "2026-11-03T03:51:45.032Z",
-  "scope": "Synthetic fixtures only",
+  "recordedAtUtc": "2026-11-03T10:10:22.890Z",
+  "scope": "Synthetic editing fixtures plus authorized real-video technical foreground samples; aggregates only",
   "demo": {
     "statusAtTimeOfRender": "passed",
-    "sha256": "b78477125846d235354a6fbcc1deea5a144c04083e0e1d1f9c7a7790a6c209ff",
+    "sha256": "91336cbd9ed341c1360fc7e87d0ad382a904d5317dc8a4ad69ae171aad6b9198",
     "duration": 9.685,
     "video": {
       "codec": "h264",
@@ -42,6 +42,8 @@
   },
   "regression": {
     "passed": true,
+    "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
+    "outputHash": "bc6704b3bd0f9d04b355a287c8dad1d0dd33fc8e09ee67c5fada90112a5f9f93",
     "colors": [
       [
         253,
@@ -71,6 +73,8 @@
   },
   "composition": {
     "passed": true,
+    "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
+    "outputHash": "31eae2b0e49dc9b187938aad41c3ea9db6dd18dd27a5496d7bcf897f5b33f6c1",
     "colors": [
       [
         253,
@@ -94,6 +98,72 @@
       "Music volume recovers after the speech range"
     ],
     "synthetic": true
+  },
+  "foreground": {
+    "passed": true,
+    "scope": "Authorized real-video technical sample only; not editorial approval or proof of all mask edges",
+    "seconds": 4,
+    "frames": 120,
+    "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
+    "width": 1080,
+    "height": 1920,
+    "alphaSample": {
+      "frame": 0,
+      "minimum": 0,
+      "maximum": 255
+    },
+    "fullAlphaDecodePassed": true,
+    "cacheReuseVerified": true,
+    "occludedLetterPixels": 4743,
+    "visibleLetterPixels": 507,
+    "meanRgbErrorInOpaqueCore": 6.030922763370581,
+    "meanRgbErrorInTransparentBackground": 0.45825115055884286,
+    "editedSourceSha256": "7c7abdf6b8758202306d5de05cce2313eaba4e8a1b1fc70d3ec4b28cdfaac951",
+    "foregroundSha256": "9916bd00bade75e849c672159e34e32bb217fb300dbfeca35aebb0c764d7a444",
+    "previewSha256": "21b5665d180274669fa3f1609fe026999bf7bcd08a8e2727f86aaf13bed80398",
+    "staleGeometryRejected": true,
+    "manualEdgeReviewRequired": true,
+    "checks": [
+      "Edited camera/color/trim prepared before segmentation",
+      "Actual VP9 alpha decoded",
+      "Text visible in the background and occluded on the person core",
+      "Fresh preparation reused without recomputation",
+      "Stale camera geometry rejected"
+    ]
+  },
+  "foregroundCache": {
+    "passed": true,
+    "scope": "Authorized short sample; reuses validated edited-source after a missing mask manifest and changed encoder quality",
+    "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
+    "frames": 120,
+    "editedSourceReused": true,
+    "editedSourceSha256": "7c7abdf6b8758202306d5de05cce2313eaba4e8a1b1fc70d3ec4b28cdfaac951",
+    "editedSourceModificationTimeUnchanged": true,
+    "regeneratedMaskQualityCrf": 18,
+    "regeneratedMaskSha256": "44688d0d9102a67f31ea2ebd5a8f758cd8fd1ac9c7060bcf19825cef21765741",
+    "fullAlphaDecodePassed": true,
+    "secondPreparationFullyReused": true
+  },
+  "foregroundTimeline": {
+    "passed": true,
+    "scope": "Authorized technical six-second cut/zoom/alpha sample; not an editorial proposal or approval",
+    "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
+    "clips": 2,
+    "frames": 180,
+    "cutFrame": 90,
+    "temporalMaskResetAtCut": true,
+    "cameraAndGeometryTransitionPrepared": true,
+    "fullAlphaDecodePassed": true,
+    "emptyFrames": 0,
+    "previewSha256": "f30dfc42e8ab4f5125a4fc90e69d5f17fbca342dbca8d9996c92b55053031c78",
+    "audioComparison": {
+      "passed": true,
+      "sampledWindows": 1,
+      "windowSeconds": 4,
+      "minimumCorrelation": 0.9999256666202515,
+      "maximumAbsoluteLagMs": 0
+    },
+    "manualEdgeAndEditorialReviewRequired": true
   },
   "color": {
     "passed": true,
@@ -288,7 +358,7 @@
   "review": {
     "passed": true,
     "syntheticBindingOnly": true,
-    "sourceFingerprint": "d47fade9ba3675235b6251fa8e5762ef9f1dfb876d8840d1fd09773dbc9f4b3f",
+    "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
     "checks": [
       "HTML correction controls ran in Chrome",
       "Approval blocked while transcript edits are pending",
@@ -302,7 +372,7 @@
     "passed": true,
     "syntheticFixtureOnly": true,
     "realSermonApproved": false,
-    "sourceFingerprint": "d47fade9ba3675235b6251fa8e5762ef9f1dfb876d8840d1fd09773dbc9f4b3f",
+    "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
     "finalSha256": "bc6704b3bd0f9d04b355a287c8dad1d0dd33fc8e09ee67c5fada90112a5f9f93",
     "frames": "60",
     "checks": [
@@ -312,10 +382,10 @@
       "Changed editorial job rejected after approval"
     ]
   },
-  "sourceFingerprint": "d47fade9ba3675235b6251fa8e5762ef9f1dfb876d8840d1fd09773dbc9f4b3f",
+  "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
   "fingerprintScheme": "normalized-source-and-lock-v2",
   "latestSourceValidatedByRender": true,
-  "pending": "Full individual recipe/reference coverage and human editorial approval remain incomplete. This file records synthetic fixtures; real-sermon-results.json records real preview tests separately.",
+  "pending": "Full individual recipe/reference coverage and human editorial approval remain incomplete. This file records synthetic fixtures and technical foreground samples; real-sermon-results.json records the full real preview separately.",
   "asr": {
     "backend": "whisper",
     "model": "tiny",

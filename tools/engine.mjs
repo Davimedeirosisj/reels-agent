@@ -11,6 +11,9 @@ import { mediaReferences, mapMedia } from '../src/media-layout.mjs';
 import { SCENE3D_KINDS, inspectGlb } from '../src/scene3d.mjs';
 import { makeReviewPage } from './review_page.mjs';
 import { rendererFingerprint, FINGERPRINT_SCHEME } from './fingerprint.mjs';
+import { sourceOnlyJob } from '../src/foreground.mjs';
+import { fileDigest, cacheMedia, stageCachedMedia } from './media_cache.mjs';
+export { fileDigest } from './media_cache.mjs';
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const read = (p) => JSON.parse(fs.readFileSync(p, 'utf8').replace(/^\uFEFF/, ''));
 export const write = (p, data) => {
@@ -32,7 +35,7 @@ function run(program, args, options = {}) {
   if (r.status !== 0) throw new Error(`${program} falhou (${r.status}): ${r.stderr || r.stdout}`);
   return r;
 }
-const probe = (p) =>
+export const probe = (p) =>
   JSON.parse(
     run('ffprobe', ['-v', 'error', '-show_streams', '-show_format', '-of', 'json', p]).stdout,
   );
@@ -43,19 +46,6 @@ function localFile(source) {
     : path.resolve(root, 'public', source.replace(/^\//, ''));
   if (!fs.statSync(p).isFile()) throw new Error(`Mídia ausente: ${p}`);
   return p;
-}
-export function fileDigest(file) {
-  const digest = crypto.createHash('sha256'),
-    buffer = Buffer.alloc(1024 * 1024),
-    fd = fs.openSync(file, 'r');
-  try {
-    let count;
-    while ((count = fs.readSync(fd, buffer, 0, buffer.length, null)) > 0)
-      digest.update(buffer.subarray(0, count));
-  } finally {
-    fs.closeSync(fd);
-  }
-  return digest.digest('hex');
 }
 function assetHash(job) {
   const entries = mediaReferences(job)
@@ -68,6 +58,18 @@ function rendererHash() {
 }
 function inspectAssets(job) {
   const inspections = {};
+  if (job.foregroundPreparation) {
+    if (job.foregroundPreparation.rendererFingerprint !== rendererFingerprint(root))
+      throw new Error('Motor mudou; prepare novamente a camada de recorte alinhada');
+    for (const item of job.foregroundPreparation.sourceBinding || [])
+      if (fileDigest(localFile(item.source)) !== item.sha256)
+        throw new Error('Mídia original mudou; prepare o recorte novamente');
+    if (
+      !job.foregroundSrc ||
+      fileDigest(localFile(job.foregroundSrc)) !== job.foregroundPreparation.foregroundSha256
+    )
+      throw new Error('Camada de recorte mudou; prepare e revise novamente');
+  }
   for (const event of job.motions || [])
     if (SCENE3D_KINDS.includes(event.kind) && event.asset)
       inspectGlb(fs.readFileSync(localFile(event.asset)));
@@ -81,21 +83,35 @@ function inspectAssets(job) {
   return inspections;
 }
 function stage(job, id) {
-  const assets = path.join(root, 'public', '.jobs', id);
-  fs.mkdirSync(assets, { recursive: true });
-  const mapping = new Map();
-  const copy = (source) => {
-    if (!mapping.has(source)) {
-      const p = localFile(source),
-        name = crypto.createHash('sha1').update(p).digest('hex').slice(0, 12) + path.extname(p);
-      fs.copyFileSync(p, path.join(assets, name));
-      mapping.set(source, name);
-    }
-    return mapping.get(source);
+  const parent = path.join(root, 'public', '.jobs');
+  fs.mkdirSync(parent, { recursive: true });
+  const assets = fs.mkdtempSync(path.join(parent, id.slice(0, 12) + '-')),
+    mapping = new Map(),
+    entries = [],
+    hashes = [];
+  for (const source of mediaReferences(job).sort()) {
+    const p = localFile(source),
+      cached = cacheMedia(p, path.join(root, 'cache', 'media')),
+      name = crypto.createHash('sha1').update(p).digest('hex').slice(0, 12) + path.extname(p);
+    entries.push(stageCachedMedia(cached, path.join(assets, name)));
+    hashes.push([source, cached.sha256]);
+    mapping.set(source, name);
+  }
+  return {
+    props: mapMedia(job, (s) => mapping.get(s)),
+    publicDir: assets,
+    entries,
+    snapshotHash: crypto.createHash('sha256').update(JSON.stringify(hashes)).digest('hex'),
   };
-  return { props: mapMedia(job, copy), publicDir: assets };
 }
-export function validateMedia(file, job) {
+function verifyStage(job, staged) {
+  if (
+    assetHash(job) !== staged.snapshotHash ||
+    staged.entries.some((entry) => fileDigest(entry.file) !== entry.sha256)
+  )
+    throw new Error('Mídia mudou durante o render; a prévia não pode ser aprovada');
+}
+export function validateMedia(file, job, { videoOnly = false } = {}) {
   const meta = probe(file),
     v = meta.streams.find((s) => s.codec_type === 'video'),
     a = meta.streams.find((s) => s.codec_type === 'audio'),
@@ -107,27 +123,22 @@ export function validateMedia(file, job) {
   if (v?.pix_fmt !== 'yuv420p') errors.push('Formato de pixel diferente de yuv420p');
   if (v?.nb_frames && Number(v.nb_frames) !== validateJob(job).durationInFrames)
     errors.push('Quantidade de frames divergente da EDL');
-  if (!a) errors.push('Stream de áudio ausente');
-  if (a?.codec_name !== 'aac') errors.push('Codec de áudio diferente de AAC');
+  if (!videoOnly && !a) errors.push('Stream de áudio ausente');
+  if (!videoOnly && a?.codec_name !== 'aac') errors.push('Codec de áudio diferente de AAC');
+  if (videoOnly && a) errors.push('Preparação visual deve ficar sem áudio');
   if (a && v && Math.abs(Number(a.duration) - Number(v.duration)) > 0.12)
     errors.push('Durações de áudio e vídeo divergentes');
   if (Math.abs(Number(meta.format.duration) - expected) > 0.16)
     errors.push('Duração divergente da EDL');
   const decoded = run('ffmpeg', ['-v', 'error', '-xerror', '-i', file, '-f', 'null', '-']);
   if (decoded.stderr.trim()) errors.push(decoded.stderr.trim());
-  const volume = run('ffmpeg', [
-    '-hide_banner',
-    '-i',
-    file,
-    '-af',
-    'volumedetect',
-    '-f',
-    'null',
-    '-',
-  ]).stderr;
-  const peak = Number(volume.match(/max_volume:\s*(-?[\d.]+)/)?.[1]);
-  const mean = Number(volume.match(/mean_volume:\s*(-?[\d.]+)/)?.[1]);
-  if (!Number.isFinite(peak) || peak >= 0) errors.push('Pico de áudio inválido ou clipado');
+  const volume = videoOnly
+    ? ''
+    : run('ffmpeg', ['-hide_banner', '-i', file, '-af', 'volumedetect', '-f', 'null', '-']).stderr;
+  const peak = videoOnly ? null : Number(volume.match(/max_volume:\s*(-?[\d.]+)/)?.[1]);
+  const mean = videoOnly ? null : Number(volume.match(/mean_volume:\s*(-?[\d.]+)/)?.[1]);
+  if (!videoOnly && (!Number.isFinite(peak) || peak >= 0))
+    errors.push('Pico de áudio inválido ou clipado');
   return {
     status: errors.length ? 'failed' : 'passed',
     errors,
@@ -139,7 +150,58 @@ export function validateMedia(file, job) {
     meanDb: mean,
     sha256: fileDigest(file),
     editorialReview: 'required',
+    videoOnly,
   };
+}
+export async function renderSourceVideo(input, file) {
+  const job = sourceOnlyJob(applyOperations(input)),
+    check = validateJob(job);
+  if (check.errors.length) throw new Error(check.errors.join('\n'));
+  inspectAssets(job);
+  const output = path.resolve(file),
+    key = (p) => (process.platform === 'win32' ? path.resolve(p).toLowerCase() : path.resolve(p));
+  if (job.clips.some((c) => key(localFile(c.source)) === key(output)))
+    throw new Error('A preparação não pode sobrescrever a gravação de origem');
+  fs.mkdirSync(path.dirname(output), { recursive: true });
+  const staged = stage(job, hash(job));
+  const { bundle } = await import('@remotion/bundler'),
+    { selectComposition, renderMedia } = await import('@remotion/renderer');
+  const serveUrl = await bundle({
+      entryPoint: path.join(root, 'src/index.jsx'),
+      publicDir: staged.publicDir,
+      onProgress: () => {},
+    }),
+    browserExecutable = process.env.REELS_BROWSER;
+  const composition = await selectComposition({
+    serveUrl,
+    id: 'PastoralReel',
+    inputProps: staged.props,
+    browserExecutable,
+  });
+  let last = 0;
+  await renderMedia({
+    serveUrl,
+    composition,
+    inputProps: staged.props,
+    browserExecutable,
+    codec: 'h264',
+    muted: true,
+    pixelFormat: 'yuv420p',
+    colorSpace: 'bt709',
+    imageFormat: 'png',
+    outputLocation: output,
+    concurrency: 2,
+    onProgress: ({ progress }) => {
+      if (progress === 1 || Date.now() - last > 10000) {
+        console.log(`Preparação visual ${Math.round(progress * 100)}%`);
+        last = Date.now();
+      }
+    },
+  });
+  verifyStage(job, staged);
+  const report = validateMedia(output, job, { videoOnly: true });
+  if (report.errors.length) throw new Error(report.errors.join('\n'));
+  return report;
 }
 function normalize(input, output, options = {}) {
   const i = options.integrated ?? -16,
@@ -193,9 +255,15 @@ async function main() {
   const [command, jobPath, ...args] = process.argv.slice(2);
   if (!command || !jobPath)
     throw new Error(
-      'Uso: node tools/engine.mjs validate|plan|color-plan|preview|approve|final job.json [diretório ou review.json]',
+      'Uso: node tools/engine.mjs validate|plan|color-plan|foreground|preview|approve|final job.json [diretório ou review.json]',
     );
   const job = applyOperations(read(jobPath));
+  if (command === 'foreground') {
+    const { prepareForeground } = await import('./prepare_foreground.mjs');
+    const result = await prepareForeground(job, args[0] || path.join(root, 'output', 'foreground'));
+    console.log(result);
+    return;
+  }
   const check = validateJob(job);
   if (check.errors.length) throw new Error(check.errors.join('\n'));
   if (command === 'color-plan') {
@@ -326,6 +394,7 @@ async function main() {
       }
     },
   });
+  verifyStage(job, staged);
   if (job.audio?.normalize === false) fs.copyFileSync(raw, file);
   else write(path.join(dir, `${command}-audio.json`), normalize(raw, file, job.audio));
   const report = validateMedia(file, job);

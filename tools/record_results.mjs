@@ -19,7 +19,41 @@ const currentBinding = (folder) => {
 const renderFingerprint = currentBinding(demoFolder).rendererHash;
 if (currentFingerprint !== renderFingerprint)
   throw new Error('Source changed after preview; rerender before publishing current evidence');
+if (showcase.sourceFingerprint !== currentFingerprint)
+  throw new Error('Gallery source fingerprint is missing or stale');
 const additional = {};
+for (const [assertions, folder] of [
+  [regression, 'regression'],
+  [composition, 'composition-regression'],
+]) {
+  if (
+    !assertions.passed ||
+    assertions.sourceFingerprint !== currentFingerprint ||
+    currentBinding('output/' + folder).rendererHash !== currentFingerprint ||
+    fileDigest(path.join(root, 'output', folder, 'preview.mp4')) !== assertions.outputHash
+  )
+    throw new Error('Core cut/composition evidence is stale: ' + folder);
+}
+for (const [name, folder] of [
+  ['foreground', 'foreground-real-regression'],
+  ['foregroundCache', 'foreground-cache-regression'],
+  ['foregroundTimeline', 'foreground-timeline-regression'],
+]) {
+  const assertions = read(path.join(root, 'output', folder, 'assertions.json'));
+  if (!assertions.passed || assertions.sourceFingerprint !== currentFingerprint)
+    throw new Error('Foreground evidence is stale: ' + name);
+  if (
+    name === 'foreground' &&
+    fileDigest(path.join(root, 'output', folder, 'behind/preview.mp4')) !== assertions.previewSha256
+  )
+    throw new Error('Foreground preview changed after comparison');
+  if (
+    name === 'foregroundTimeline' &&
+    fileDigest(path.join(root, 'output', folder, 'preview.mp4')) !== assertions.previewSha256
+  )
+    throw new Error('Foreground timeline preview changed after comparison');
+  additional[name] = assertions;
+}
 for (const [name, folder] of [
   ['color', 'color-regression'],
   ['captionLayout', 'caption-layout-regression'],
@@ -78,7 +112,8 @@ write(path.join(dir, 'render-results.json'), {
     new Date(),
   ),
   recordedAtUtc: new Date().toISOString(),
-  scope: 'Synthetic fixtures only',
+  scope:
+    'Synthetic editing fixtures plus authorized real-video technical foreground samples; aggregates only',
   demo: brief(demo),
   showcase: brief(showcase),
   regression,
@@ -90,7 +125,7 @@ write(path.join(dir, 'render-results.json'), {
   fingerprintScheme: FINGERPRINT_SCHEME,
   latestSourceValidatedByRender: true,
   pending:
-    'Full individual recipe/reference coverage and human editorial approval remain incomplete. This file records synthetic fixtures; real-sermon-results.json records real preview tests separately.',
+    'Full individual recipe/reference coverage and human editorial approval remain incomplete. This file records synthetic fixtures and technical foreground samples; real-sermon-results.json records the full real preview separately.',
   asr: {
     backend: 'whisper',
     model: 'tiny',

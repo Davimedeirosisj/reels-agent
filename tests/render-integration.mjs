@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { root, write } from '../tools/engine.mjs';
+import { root, write, fileDigest } from '../tools/engine.mjs';
+import { rendererFingerprint } from '../tools/fingerprint.mjs';
 const cmd = (p, a, binary = false) => {
   const r = spawnSync(p, a, {
     encoding: binary ? null : 'utf8',
@@ -131,6 +132,8 @@ assert.ok(Math.abs(frequencies[0] - 440) < 10, `First audio cut incorrect: ${fre
 assert.ok(Math.abs(frequencies[1] - 880) < 10, `Second audio cut incorrect: ${frequencies[1]}`);
 write(path.join(dir, 'assertions.json'), {
   passed: true,
+  sourceFingerprint: rendererFingerprint(root),
+  outputHash: fileDigest(preview),
   colors,
   frequencies,
   removedSourceInterval: [1, 2],

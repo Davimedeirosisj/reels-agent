@@ -4,6 +4,8 @@ import { bundle } from '@remotion/bundler';
 import { selectComposition, renderMedia } from '@remotion/renderer';
 import { root, write, validateMedia } from './engine.mjs';
 import { MOTION_VARIANTS } from '../src/motion-kinds.mjs';
+import { rendererFingerprint } from './fingerprint.mjs';
+const sourceFingerprint = rendererFingerprint(root);
 const kinds = MOTION_VARIANTS.filter((k) => k !== 'pause'),
   dir = path.join(root, 'output', 'showcase');
 fs.mkdirSync(dir, { recursive: true });
@@ -48,6 +50,9 @@ await renderMedia({
 const report = validateMedia(file, {
   clips: [{ source: 'fixture', start: 0, end: kinds.length * 1.8 }],
 });
+if (rendererFingerprint(root) !== sourceFingerprint)
+  throw new Error('Source changed during gallery render; rerender before recording');
+report.sourceFingerprint = sourceFingerprint;
 write(path.join(dir, 'validation.json'), report);
 write(path.join(dir, 'components.json'), {
   frameStep: 54,

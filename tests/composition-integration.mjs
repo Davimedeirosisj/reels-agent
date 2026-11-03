@@ -2,7 +2,8 @@ import path from 'node:path';
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { root, write } from '../tools/engine.mjs';
+import { root, write, fileDigest } from '../tools/engine.mjs';
+import { rendererFingerprint } from '../tools/fingerprint.mjs';
 const run = (p, args, binary = false) => {
   const r = spawnSync(p, args, {
     encoding: binary ? null : 'utf8',
@@ -124,6 +125,8 @@ const amplitudes = [0.3, 1.4].map((t) => {
 assert.ok(amplitudes[1] > amplitudes[0] * 3, `Music should recover after speech: ${amplitudes}`);
 write(path.join(dir, 'assertions.json'), {
   passed: true,
+  sourceFingerprint: rendererFingerprint(root),
+  outputHash: fileDigest(path.join(dir, 'preview.mp4')),
   colors,
   music220HzAmplitude: amplitudes,
   recoveryRatio: amplitudes[1] / amplitudes[0],

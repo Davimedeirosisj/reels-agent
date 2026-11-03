@@ -1,0 +1,12 @@
+{
+  "scope": "Synthetic FFmpeg color bars and local Windows TTS only",
+  "file": "edit-contact-sheet.jpg",
+  "sha256": "7e831651a8aebe95e22c6c5e846a8e8f6d6091e0b4abeef94f1fac22762a684d",
+  "factory": "tools/create_demo.ps1",
+  "factorySha256": "26a3fbf0b9ae41208c4231d0f5c172c08aa42b30d4ad6cab67440f2aa4b50771",
+  "sourceFactory": "FFmpeg testsrc2; Windows Zira speech synthesizer",
+  "fixtureIsSermon": false,
+  "visuallyInspected": true,
+  "visualObservation": "RGB test bars, geometric test patterns and technical demonstration captions; no photographed people or sermon footage",
+  "matchesLocalSyntheticDemoContact": true
+}

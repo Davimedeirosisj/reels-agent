@@ -1,6 +1,41 @@
 export const SCENE3D_KINDS = ['product3d', 'ui3d', 'light3d'];
 const finite = (x) => typeof x === 'number' && Number.isFinite(x);
 const vector = (v) => Array.isArray(v) && v.length === 3 && v.every(finite);
+const geometryArguments = {
+  box: { defaults: [1, 1, 1, 1, 1, 1], positive: [0, 1, 2], segments: { 3: 1, 4: 1, 5: 1 } },
+  sphere: {
+    defaults: [1, 32, 16, 0, Math.PI * 2, 0, Math.PI],
+    positive: [0, 4, 6],
+    segments: { 1: 3, 2: 2 },
+  },
+  cylinder: {
+    defaults: [1, 1, 1, 32, 1, false, 0, Math.PI * 2],
+    positive: [2, 7],
+    nonnegative: [0, 1],
+    segments: { 3: 3, 4: 1 },
+    boolean: 5,
+  },
+  torus: { defaults: [1, 0.4, 12, 48, Math.PI * 2], positive: [0, 1, 4], segments: { 2: 3, 3: 3 } },
+  plane: { defaults: [1, 1, 1, 1], positive: [0, 1], segments: { 2: 1, 3: 1 } },
+};
+function validGeometryArguments(node) {
+  if (node.args === undefined) return true;
+  const spec = geometryArguments[node.geometry];
+  if (!spec || !Array.isArray(node.args) || node.args.length > spec.defaults.length) return false;
+  const args = spec.defaults.map((value, i) => (i < node.args.length ? node.args[i] : value));
+  if (args.some((value, i) => (i === spec.boolean ? typeof value !== 'boolean' : !finite(value))))
+    return false;
+  if (spec.positive?.some((i) => args[i] <= 0) || spec.nonnegative?.some((i) => args[i] < 0))
+    return false;
+  if (
+    Object.entries(spec.segments || {}).some(
+      ([i, min]) => !Number.isInteger(args[i]) || args[i] < min,
+    )
+  )
+    return false;
+  if (node.geometry === 'cylinder' && args[0] === 0 && args[1] === 0) return false;
+  return true;
+}
 export function validateScene3d(event) {
   if (!SCENE3D_KINDS.includes(event.kind)) return [];
   const scene = event.scene || {},
@@ -33,11 +68,7 @@ export function validateScene3d(event) {
       errors.push('Geometria 3D desconhecida');
     for (const key of ['position', 'rotation', 'scale'])
       if (node[key] !== undefined && !vector(node[key])) errors.push(`Node 3D: ${key} inválido`);
-    if (
-      node.args !== undefined &&
-      (!Array.isArray(node.args) || node.args.some((n) => !finite(n) || n <= 0))
-    )
-      errors.push('Argumentos de geometria inválidos');
+    if (!validGeometryArguments(node)) errors.push('Argumentos de geometria inválidos');
   }
   let previous = -1;
   for (const key of scene.camera || []) {

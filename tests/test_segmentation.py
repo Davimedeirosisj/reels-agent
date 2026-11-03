@@ -8,6 +8,21 @@ segment = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(segment)
 
 class SegmentationTests(unittest.TestCase):
+    def test_motion_warp_moves_previous_alpha_without_a_trailing_silhouette(self):
+        previous=np.zeros((20,20),np.float32);previous[5:15,4:9]=1
+        flow=np.zeros((20,20,2),np.float32);flow[...,0]=-3
+        aligned=segment.warp_previous_mask(previous,flow)
+        self.assertEqual(segment.mask_bounds(aligned),{'x':7,'y':5,'width':5,'height':10})
+        self.assertEqual(float(aligned[:,4:7].max()),0)
+    def test_regions_cover_movement_between_samples_and_missing_ranges_keep_exact_frames(self):
+        tracks=[{'frame':0,'bounds':{'x':2,'y':3,'width':5,'height':6}},
+                {'frame':1,'bounds':{'x':8,'y':3,'width':5,'height':6}},
+                {'frame':2,'bounds':None},{'frame':3,'bounds':None},
+                {'frame':4,'bounds':{'x':4,'y':3,'width':5,'height':6}}]
+        regions=segment.track_regions(tracks,10)
+        self.assertEqual(regions[0]['width'],11)
+        self.assertEqual(regions[0]['end'],.5)
+        self.assertEqual(segment.missing_ranges(tracks),[{'from':2,'to':4}])
     @unittest.skipUnless((Path(__file__).parents[1]/'cache/models/selfie_segmenter.tflite').is_file(), 'Optional model not downloaded')
     def test_alpha_video_encoder_and_decoder(self):
         folder = Path(__file__).parents[1]/'output/segmentation-regression'

@@ -5,6 +5,16 @@ const tokens = 'Preserve a mensagem e todo o seu contexto'
   .split(' ')
   .map((word, i) => ({ word, from: i * 10, to: i * 10 + 10 }));
 const measure = (text, size) => text.length * size * 0.5;
+test('fractional maximum still checks the exact minimum font size', () => {
+  const result = layoutCaptionTokens([{ word: 'abcdefghij', from: 0, to: 30 }], measure, {
+    width: 106,
+    fontSize: 20.5,
+    minFontSize: 20,
+    maxLines: 1,
+  });
+  assert.equal(result.overflow, false);
+  assert.equal(result.fontSize, 20);
+});
 test('balanced lines preserve tokens and timestamps while fitting measured width', () => {
   const result = layoutCaptionTokens(tokens, measure, {
     width: 350,

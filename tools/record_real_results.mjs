@@ -6,6 +6,7 @@ import { rendererFingerprint, FINGERPRINT_SCHEME } from './fingerprint.mjs';
 import { root, read, write, fileDigest } from './engine.mjs';
 import { captionsForTimeline } from '../src/editorial.mjs';
 import { captionPages } from '../src/captions.mjs';
+import { foregroundActive } from '../src/foreground.mjs';
 if (!process.argv[2])
   throw new Error('Uso: node tools/record_real_results.mjs DIRETORIO_DA_PREVIA');
 const folder = path.resolve(process.argv[2]);
@@ -42,6 +43,43 @@ const captionText = pages
   .flatMap((s) => s.words || [])
   .map((w) => w.word || w.text)
   .join(' ');
+let foreground = null;
+if (job.foregroundPreparation) {
+  const preparation = job.foregroundPreparation;
+  const layer = path.resolve(job.foregroundSrc);
+  const layerReport = read(layer.replace(/\.[^.]+$/, '.json'));
+  if (
+    preparation.rendererFingerprint !== sourceFingerprint ||
+    fileDigest(layer) !== preparation.foregroundSha256 ||
+    layerReport.frames !== Number(report.video.nb_frames) ||
+    !preparation.fullAlphaDecodePassed
+  )
+    throw new Error('Foreground evidence does not match the rendered full timeline');
+  foreground = {
+    frames: layerReport.frames,
+    width: layerReport.width,
+    height: layerReport.height,
+    fps: layerReport.fps,
+    fullTimelineProcessed: true,
+    appliedOnlyDuringBehindEvents: true,
+    expectedActiveForegroundFrames: Array.from({ length: layerReport.frames }, (_, frame) =>
+      foregroundActive(job, frame),
+    ).filter(Boolean).length,
+    behindEventCount: (job.motions || []).filter((m) => m.layer === 'behind').length,
+    emptyFrames: layerReport.emptyFrames,
+    missingRangeCount: layerReport.missingRanges.length,
+    meanForegroundFraction: layerReport.meanForegroundFraction,
+    modelSha256: layerReport.modelSha256,
+    layerSha256: preparation.foregroundSha256,
+    motionCompensated: layerReport.motionCompensated,
+    smoothing: layerReport.smoothing,
+    encoding: layerReport.encoding,
+    elapsedSeconds: layerReport.elapsedSeconds,
+    outputBytes: layerReport.outputBytes,
+    fullAlphaDecodePassed: true,
+    manualEdgeReviewRequired: true,
+  };
+}
 const result = {
   recordedAtUtc: new Date().toISOString(),
   scope: 'User-authorized real sermon preview; technical metadata only',
@@ -108,11 +146,14 @@ const result = {
     maximumAbsoluteLagMs: fidelity.maximumAbsoluteLagMs,
     scope: fidelity.scope,
   },
+  foreground,
   editorialApproval: false,
   limitations: [
     'Human listening and full transcript review remain required; ASR is a draft.',
     'Sampled waveform agreement does not certify full semantic/theological fidelity.',
-    'Four source-frame person masks were inspected privately; lectern/glass/finger edges still require review. No full-video alpha applied.',
+    foreground
+      ? 'Full-timeline foreground inferred and decoded; composited only during behind events. Lectern/glass/finger edges still require full human review.'
+      : 'No full-timeline foreground was prepared for this output; separate mask tests do not prove it.',
     'No premium equivalence claim for all external references; their assets and exact timing remain separately unverified.',
     'GoBold was unavailable; installed Arial was used. Source media, transcript and stills remain local.',
   ],
