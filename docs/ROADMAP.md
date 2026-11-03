@@ -6,7 +6,7 @@
 - [x] Implementar transcrição com timestamps
 - [ ] Criar EDL e motor de cortes
 - [ ] Integrar legendas
-- [ ] Integrar Remotion e biblioteca de motion graphics
+- [x] Integrar Remotion e composição base de motion graphics
 - [ ] Gerar prévia e interface de aprovação
 - [x] Adicionar teste reproduzível e vídeo de demonstração local
 
