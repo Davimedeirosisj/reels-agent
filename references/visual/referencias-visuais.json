@@ -1,0 +1,89 @@
+{
+  "library": "Reels Agent — Referências visuais",
+  "version": "1.0",
+  "status": "PNG files delivered as downloadable ZIP; images not yet uploaded to GitHub",
+  "count": 10,
+  "selection_rule": "Use contextually; do not impose fixed visual template",
+  "references": [
+    {
+      "id": "V01",
+      "filename": "IMG_9924.png",
+      "title": "Tipografia cinematográfica com glow",
+      "source_type": "user-provided screenshot",
+      "motion_timing_verified": false,
+      "usage": "visual reference for adaptive sermon reels; preserve meaning and speaker visibility"
+    },
+    {
+      "id": "V02",
+      "filename": "IMG_9923.png",
+      "title": "Painel de títulos e entrevistas",
+      "source_type": "user-provided screenshot",
+      "motion_timing_verified": false,
+      "usage": "visual reference for adaptive sermon reels; preserve meaning and speaker visibility"
+    },
+    {
+      "id": "V03",
+      "filename": "IMG_9922.png",
+      "title": "Palavras-chave e números",
+      "source_type": "user-provided screenshot",
+      "motion_timing_verified": false,
+      "usage": "visual reference for adaptive sermon reels; preserve meaning and speaker visibility"
+    },
+    {
+      "id": "V04",
+      "filename": "IMG_9921.png",
+      "title": "Valores e lettering misto",
+      "source_type": "user-provided screenshot",
+      "motion_timing_verified": false,
+      "usage": "visual reference for adaptive sermon reels; preserve meaning and speaker visibility"
+    },
+    {
+      "id": "V05",
+      "filename": "IMG_9920.png",
+      "title": "Tipografia em camadas",
+      "source_type": "user-provided screenshot",
+      "motion_timing_verified": false,
+      "usage": "visual reference for adaptive sermon reels; preserve meaning and speaker visibility"
+    },
+    {
+      "id": "V06",
+      "filename": "IMG_9918.png",
+      "title": "Objeto 3D e metáfora visual",
+      "source_type": "user-provided screenshot",
+      "motion_timing_verified": false,
+      "usage": "visual reference for adaptive sermon reels; preserve meaning and speaker visibility"
+    },
+    {
+      "id": "V07",
+      "filename": "IMG_9915.png",
+      "title": "Interface e grids",
+      "source_type": "user-provided screenshot",
+      "motion_timing_verified": false,
+      "usage": "visual reference for adaptive sermon reels; preserve meaning and speaker visibility"
+    },
+    {
+      "id": "V08",
+      "filename": "IMG_9914.png",
+      "title": "Janela de terminal",
+      "source_type": "user-provided screenshot",
+      "motion_timing_verified": false,
+      "usage": "visual reference for adaptive sermon reels; preserve meaning and speaker visibility"
+    },
+    {
+      "id": "V09",
+      "filename": "IMG_9912.png",
+      "title": "Infográfico técnico",
+      "source_type": "user-provided screenshot",
+      "motion_timing_verified": false,
+      "usage": "visual reference for adaptive sermon reels; preserve meaning and speaker visibility"
+    },
+    {
+      "id": "V10",
+      "filename": "IMG_9910.png",
+      "title": "Produto em painel técnico",
+      "source_type": "user-provided screenshot",
+      "motion_timing_verified": false,
+      "usage": "visual reference for adaptive sermon reels; preserve meaning and speaker visibility"
+    }
+  ]
+}
