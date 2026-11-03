@@ -33,3 +33,17 @@ Conferir cortes, sincronia, safe areas, legibilidade, picos de áudio, erros de 
 
 ## Status
 Especificação inicial. Não pressupõe integração instalada ou execução bem-sucedida.
+
+## REGRA FUNDAMENTAL: NÃO ENGESSAR A EDIÇÃO
+
+Este documento descreve **padrões adaptáveis, não presets obrigatórios**. A Skill deve exercer julgamento editorial sobre cada gravação e obedecer ao pedido específico do usuário.
+
+- Aceitar tanto culto inteiro quanto trecho pré-selecionado; um ou vários cortes; vídeo vertical ou outro formato solicitado.
+- Duração, ritmo, intensidade dos zooms, estilo de legendas, tipografia, posição do título, trilha, B-roll, efeitos e motion graphics são **decisões contextuais**, não quantidades fixas.
+- GoBold Bold, branco, caixa alta e 1080×1920 são **preferências padrão**, não limitações; referências e instruções explícitas do usuário podem substituí-las.
+- O princípio de títulos com problema humano é **uma heurística**, não fórmula obrigatória; em alguns trechos é melhor usar pergunta, versículo, frase direta ou nenhum título.
+- Não aplicar efeitos só porque estão disponíveis; um Reel contemplativo pode funcionar melhor sem efeitos, e outro pode pedir edição mais enérgica.
+- As referências dos sites são repertório criativo, **não um cardápio fechado**; combinar, adaptar ou deixar de usar quando não fizer sentido.
+- Preservar sempre a fidelidade à fala, o contexto bíblico e a integridade do conteúdo. Essas são restrições editoriais, não estéticas.
+- Quando houver conflito entre padrão e instrução do usuário, prevalece a instrução atual, exceto se distorcer fatos ou criar problemas de direitos.
+- Não interromper o fluxo para perguntar escolhas cosméticas; usar julgamento profissional e explicar as escolhas quando útil.
