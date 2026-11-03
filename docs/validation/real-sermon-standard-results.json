@@ -1,0 +1,123 @@
+{
+  "recordedAtUtc": "2026-11-03T11:15:44.426Z",
+  "scope": "User-authorized real sermon preview; technical metadata only",
+  "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+  "fingerprintScheme": "normalized-source-and-lock-v2",
+  "latestSourceValidatedByRender": false,
+  "mp4": {
+    "status": "passed",
+    "sha256": "941d04c1e8f50ae5e9ddd95adb9b3428aaf9a394142e7047f40755624f5b985f",
+    "duration": 144.1,
+    "expectedVideoDuration": 144.03333333333333,
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "frames": "4321",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    },
+    "audio": {
+      "codec": "aac",
+      "sampleRate": "48000",
+      "channels": 2,
+      "peakDb": -1.3,
+      "meanDb": -20.6,
+      "integratedLufs": -16.05,
+      "truePeakDbtp": -1.27
+    },
+    "fullDecodePassed": true
+  },
+  "edit": {
+    "clipCount": 1,
+    "fullSourceRetainedInOrder": true,
+    "addedMusic": false,
+    "sfxCount": 0,
+    "motionCount": 4,
+    "fit": "contain",
+    "protectedAreaConflictCount": 1,
+    "captionReadingWarningCount": 10
+  },
+  "transcription": {
+    "backend": "whisper",
+    "model": "small",
+    "humanReviewed": false,
+    "agentOrthographicCorrectionCount": 2,
+    "segmentCount": 20,
+    "wordCount": 232,
+    "pointTimestampCount": 2,
+    "pointTimestampHandling": "Text retained on adjacent caption pages; no estimated word duration or active highlight",
+    "allAlignedTranscriptWordsRetainedInCaptionPages": true
+  },
+  "audioComparison": {
+    "passed": true,
+    "sampledWindows": 9,
+    "windowSeconds": 4,
+    "minimumCorrelation": 0.9857419187886106,
+    "maximumAbsoluteLagMs": 0,
+    "scope": "Sampled waveform agreement against the EDL; not proof of complete speech or editorial fidelity."
+  },
+  "foreground": {
+    "frames": 4321,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "fullTimelineProcessed": true,
+    "appliedOnlyDuringBehindEvents": true,
+    "expectedActiveForegroundFrames": 72,
+    "behindEventCount": 1,
+    "emptyFrames": 0,
+    "missingRangeCount": 0,
+    "meanForegroundFraction": 0.5565498868663947,
+    "modelSha256": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
+    "layerSha256": "fda50114c99c6b9cdbe41634910d8b7b2ba66aeb2edd7e47bb3c36eac9ed089b",
+    "motionCompensated": true,
+    "smoothing": 0.15,
+    "encoding": {
+      "codec": "vp9",
+      "alpha": true,
+      "crf": 16,
+      "lossless": false,
+      "threads": 8,
+      "transparentRgbZeroed": true
+    },
+    "elapsedSeconds": 523.0469999999987,
+    "outputBytes": 137721843,
+    "fullAlphaDecodePassed": true,
+    "manualEdgeReviewRequired": true,
+    "encodedMaskInspection": {
+      "sampledFrames": 10,
+      "actualEncodedAlphaDecoded": true,
+      "maximumOpaqueCoreMeanRgbError": 1.9914439916610718,
+      "scope": "Selected frames only; no claim of full edge approval"
+    }
+  },
+  "spatialReview": {
+    "sampledFrames": 541,
+    "samplesWithFaces": 512,
+    "samplesTouchingFrameEdge": 100,
+    "missingDetectionIntervalCount": 37,
+    "uniqueEventsWithPotentialConflicts": 1,
+    "faceModelSha256": "b4578f35940bf5a1a655214a1cce5cab13eba73c1297cd78e1a04c2380b0152f",
+    "continuousFaceCoverageProven": false,
+    "manualReviewRequired": true,
+    "scope": "Measured sampled face regions versus declared event rectangles; no identity recognition or automatic framing approval",
+    "unassessed": [
+      "Actual animated glyph/3D bounds",
+      "Caption raster bounds",
+      "Decorative light/particle layers",
+      "Hands, microphone and Bible"
+    ]
+  },
+  "editorialApproval": false,
+  "limitations": [
+    "Human listening and full transcript review remain required; ASR is a draft.",
+    "Sampled waveform agreement does not certify full semantic/theological fidelity.",
+    "Full-timeline foreground inferred and decoded; composited only during behind events. Lectern/glass/finger edges still require full human review.",
+    "No premium equivalence claim for all external references; their assets and exact timing remain separately unverified.",
+    "GoBold was unavailable; installed Arial was used. Source media, transcript and stills remain local."
+  ],
+  "historicalEvidence": true,
+  "variant": "Prior standard captions; immutable render evidence for that source fingerprint"
+}

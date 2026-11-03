@@ -7,6 +7,7 @@ import { root, read, write, fileDigest, hash } from './engine.mjs';
 import { captionsForTimeline } from '../src/editorial.mjs';
 import { captionPages } from '../src/captions.mjs';
 import { foregroundActive } from '../src/foreground.mjs';
+import { exportSrt } from './export_captions.mjs';
 if (!process.argv[2])
   throw new Error('Uso: node tools/record_real_results.mjs DIRETORIO_DA_PREVIA');
 const folder = path.resolve(process.argv[2]);
@@ -43,6 +44,13 @@ const captionText = pages
   .flatMap((s) => s.words || [])
   .map((w) => w.word || w.text)
   .join(' ');
+const subtitleSidecars = {};
+for (const format of ['srt', 'vtt']) {
+  const file = path.join(folder, 'captions.' + format);
+  if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== exportSrt(job, format))
+    throw new Error('Subtitle sidecar is missing or does not match this timeline: ' + format);
+  subtitleSidecars[format] = { sha256: fileDigest(file), cueCount: pages.length };
+}
 let foreground = null;
 let spatialReview = null;
 if (job.foregroundPreparation) {
@@ -180,6 +188,17 @@ const result = {
       'Text retained on adjacent caption pages; no estimated word duration or active highlight',
     allAlignedTranscriptWordsRetainedInCaptionPages: spokenText === captionText,
   },
+  captions: {
+    mode: job.captionStyle?.mode || 'karaoke',
+    burnedIn: job.captionStyle?.enabled !== false,
+    pageCount: pages.length,
+    sidecars: subtitleSidecars,
+    nominalWorstCaseContrast: quality.captionContrast?.minimumContrast ?? null,
+    contrastScope: quality.captionContrast?.scope,
+    speakerAndSignificantSoundAnnotationsReviewed: false,
+    fullAccessibilityCertification: false,
+  },
+  visualPace: quality.visualPace,
   audioComparison: {
     passed: fidelity.passed,
     sampledWindows: fidelity.windows.length,
@@ -194,6 +213,7 @@ const result = {
   limitations: [
     'Human listening and full transcript review remain required; ASR is a draft.',
     'Sampled waveform agreement does not certify full semantic/theological fidelity.',
+    'Caption contrast and subtitle files do not certify complete accessibility; speaker identification, meaningful sounds and reading pace still require review.',
     foreground
       ? 'Full-timeline foreground inferred and decoded; composited only during behind events. Lectern/glass/finger edges still require full human review.'
       : 'No full-timeline foreground was prepared for this output; separate mask tests do not prove it.',

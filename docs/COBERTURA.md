@@ -55,7 +55,7 @@ Os 100 autorais têm uma entrada individual. Mapeamento não é evidência de co
 | A047 | legenda em bloco | captions: block | implemented-unverified |
 | A048 | legenda acompanhando voz | captions: word-timestamps | implemented-unverified |
 | A049 | legenda com cor pontual | captions: active-color | implemented-unverified |
-| A050 | legenda acessível | captions: partial-accessibility | partial |
+| A050 | legenda acessível | captions: partial-accessibility-with-contrast-and-sidecars | partial |
 | A051 | ilustração de conceito | broll: requires-asset | requires-asset |
 | A052 | composição split screen | split-screen: requires-panel-assets | requires-asset |
 | A053 | sobreposição de captura | broll: requires-asset | requires-asset |
@@ -101,7 +101,7 @@ Os 100 autorais têm uma entrada individual. Mapeamento não é evidência de co
 | A093 | efeitos sonoros sutis | post: sfx | implemented-unverified |
 | A094 | revisão de safe areas | post: partial-safe-areas | partial |
 | A095 | checagem de legendas | post: editable-transcript-review-with-alignment-reset | implemented-unverified |
-| A096 | controle de ritmo | post: partial-pace | partial |
+| A096 | controle de ritmo | post: visual-pace-review-and-opt-in-decoration-spacing | implemented-unverified |
 | A097 | continuidade de cor | post: per-clip-color-matrix-and-measured-neutral-patch-match | implemented-unverified |
 | A098 | validação de frames | post: decode-validation | implemented-unverified |
 | A099 | prévia com aprovação | post: review-hash | implemented-unverified |

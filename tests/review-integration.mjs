@@ -24,6 +24,16 @@ const job = {
     ],
   },
   approval: { jobHash: 'old-fixture-only' },
+  motions: [
+    {
+      kind: 'title',
+      text: 'Texto',
+      start: 0,
+      end: 0.7,
+      anchor: { phrase: 'Texto' },
+      resolvedSpeechAnchor: { start: { source: 'fixture', sourceStart: 10, sourceEnd: 10.3 } },
+    },
+  ],
 };
 const binding = {
   jobHash: 'fixture-only',
@@ -68,20 +78,27 @@ try {
     HTMLAnchorElement.prototype.click = function () {};
     const input = document.querySelector('textarea');
     input.value = 'Texto corrigido.';
-    document.querySelectorAll('input[type=checkbox]').forEach((el) => (el.checked = true));
+    ['messageFaithful', 'captionsCorrect', 'framingSafe', 'audioClear'].forEach(
+      (id) => (document.getElementById(id).checked = true),
+    );
     document.getElementById('save').click();
     const blocked =
       downloads.length === 0 && alerts.some((message) => message.includes('correções'));
     document.getElementById('corrections').click();
     await pending;
     const corrected = downloads[0];
+    document.getElementById('keep-anchor-timing').checked = true;
+    document.getElementById('corrections').click();
+    await pending;
+    const manualTiming = downloads[1];
     input.value = 'Texto de teste.';
     document.getElementById('save').click();
     await pending;
     return {
       blocked,
       corrected,
-      review: downloads[1],
+      manualTiming,
+      review: downloads[2],
       seek: document.querySelector('[data-seek]').dataset.seek,
     };
   });
@@ -90,6 +107,9 @@ try {
   assert.deepEqual(result.corrected.transcript.segments[0].words, []);
   assert.equal(result.corrected.transcript.segments[0].start, 10);
   assert.equal(result.corrected.transcript.segments[0].text, 'Texto corrigido.');
+  assert.equal(result.corrected.motions[0].anchorReview.status, 'needs-realignment');
+  assert.equal(result.manualTiming.motions[0].anchor, undefined);
+  assert.equal(result.manualTiming.motions[0].end, 0.7);
   assert.equal(result.review.jobHash, 'fixture-only');
   assert.equal(result.seek, '0');
   const report = {
@@ -103,6 +123,8 @@ try {
       'Real phrase timestamp retained',
       'Review binds only the unchanged preview',
       'Seek time remapped from the source EDL',
+      'Edited speech anchors require realignment by default',
+      'Explicit checkbox keeps prior visual times without word timing invention',
     ],
   };
   write(path.join(root, 'output/review-regression/assertions.json'), report);

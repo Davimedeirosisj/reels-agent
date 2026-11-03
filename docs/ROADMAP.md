@@ -24,6 +24,9 @@ Não guardar tokens de API no repositório. Verificar licenças e scripts antes 
 - [x] Corrigir transcrição por tempo/ocorrência, rejeitar ambiguidades e proteger os arquivos de entrada na criação do job
 - [x] Sincronizar motions por frase/ocorrência e preservar entradas na exportação; testar intervalos no MP4
 - [x] Acrescentar localização facial por amostragem e auditoria ligada à tomada preparada; cobertura contínua permanece não comprovada
+- [x] Medir contraste configurável das legendas e exportar SRT/WebVTT com os mesmos frames; A050 integral permanece parcial
+- [x] Analisar ritmo visual e espaçar somente decorações explicitamente flexíveis, sem retimar fala/legendas/cortes
+- [x] Reconciliar âncoras após correções da transcrição e testar uma nova prévia do job corrigido
 - [ ] Validar uma pregação real e registrar revisão de fidelidade
 - [x] Renderizar uma pregação real completa e validar MP4, áudio e amostras visuais; revisão editorial humana continua aberta
 

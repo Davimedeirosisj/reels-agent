@@ -16,6 +16,7 @@ import {
   assertRendererUnchanged,
 } from './fingerprint.mjs';
 import { assertOutputsDistinct } from './output_guard.mjs';
+import { exportSrt } from './export_captions.mjs';
 import { sourceOnlyJob } from '../src/foreground.mjs';
 import { fileDigest, cacheMedia, stageCachedMedia } from './media_cache.mjs';
 export { fileDigest } from './media_cache.mjs';
@@ -357,6 +358,8 @@ async function main() {
       'transcript.json',
       'media_probe.json',
       'editorial_quality.json',
+      'captions.srt',
+      'captions.vtt',
       'quality_report.md',
       ...(command === 'preview' ? ['review.html'] : []),
     ].map((file) => path.join(dir, file)),
@@ -387,6 +390,8 @@ async function main() {
   write(path.join(dir, 'transcript.json'), job.transcript || { segments: [] });
   write(path.join(dir, 'media_probe.json'), assets);
   write(path.join(dir, 'editorial_quality.json'), qualityReview(job));
+  fs.writeFileSync(path.join(dir, 'captions.srt'), exportSrt(job), 'utf8');
+  fs.writeFileSync(path.join(dir, 'captions.vtt'), exportSrt(job, 'vtt'), 'utf8');
   if (command === 'final') props.debugSafeAreas = false;
   const { bundle } = await import('@remotion/bundler');
   const { selectComposition, renderMedia } = await import('@remotion/renderer');

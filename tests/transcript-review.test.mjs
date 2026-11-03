@@ -36,3 +36,27 @@ test('review page escapes transcript markup in HTML and script data', () => {
   assert.ok(page.includes('\\u003c/script>'));
   assert.ok(page.includes('job-corrigido.json'));
 });
+test('caption edits flag affected anchors and preserve old visual times only on explicit choice', () => {
+  const anchored = structuredClone(job);
+  anchored.motions = [
+    {
+      kind: 'title',
+      text: 'Palavra',
+      start: 0.2,
+      end: 0.8,
+      anchor: { phrase: 'palavra' },
+      resolvedSpeechAnchor: { start: { source: 'fixture', sourceStart: 0.5, sourceEnd: 1 } },
+    },
+  ];
+  const pending = reviseTranscript(anchored, { 0: 'Uma mensagem.' });
+  assert.equal(pending.motions[0].anchorReview.status, 'needs-realignment');
+  assert.ok(pending.motions[0].anchor);
+  const kept = reviseTranscript(anchored, { 0: 'Uma mensagem.' }, { anchorTiming: 'keep-preview' });
+  assert.equal(kept.motions[0].anchor, undefined);
+  assert.equal(kept.motions[0].start, 0.2);
+  assert.equal(kept.motions[0].end, 0.8);
+  assert.equal(kept.motions[0].anchorReview.status, 'manual-preview-timing');
+  assert.equal(kept.approval, undefined);
+  assert.equal(kept.motions[0].paceFlexible, false);
+  assert.ok(anchored.motions[0].anchor);
+});

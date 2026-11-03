@@ -1,21 +1,11 @@
 import { captionPages } from './captions.mjs';
 import { timeline, captionsForTimeline } from './editorial.mjs';
+import { captionAppearance } from './accessibility.mjs';
+import { analyzeVisualPace } from './pace.mjs';
+export { contrastRatio } from './accessibility.mjs';
 export const intersects = (a, b) =>
   a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y;
 const overlaps = (a, b) => a.start < b.end && a.end > b.start;
-export function contrastRatio(foreground, background) {
-  const luminance = (hex) => {
-    const h = hex.replace('#', '');
-    if (!/^[a-f0-9]{6}$/i.test(h)) throw new Error('Cor hexadecimal RGB necessária');
-    const a = [0, 2, 4]
-      .map((i) => parseInt(h.slice(i, i + 2), 16) / 255)
-      .map((x) => (x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4));
-    return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2];
-  };
-  const a = luminance(foreground),
-    b = luminance(background);
-  return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
-}
 export function qualityReview(job) {
   const fps = job.fps || 30,
     cuts = timeline(job.clips, fps),
@@ -30,6 +20,8 @@ export function qualityReview(job) {
         page: i,
         words: wordCount,
         seconds: duration,
+        start: page.from / fps,
+        end: page.to / fps,
         reason: 'Velocidade de leitura alta; revisar paginação e a gravação, sem inventar tempos.',
       });
   }
@@ -51,7 +43,11 @@ export function qualityReview(job) {
     protectedAreaConflicts: conflicts,
     cutLengths,
     tooShortCuts: cutLengths.filter((c) => c.seconds < (job.quality?.minCutSeconds ?? 0.25)),
-    contrastForBoxedWhiteText: contrastRatio('#ffffff', '#000000'),
+    captionContrast:
+      job.captionStyle?.enabled === false
+        ? { enabled: false, minimumContrast: null }
+        : captionAppearance(job.captionStyle),
+    visualPace: analyzeVisualPace(job),
     scope:
       'Heurísticas de leitura/posição, sem certificação de acessibilidade ou fidelidade bíblica. Avaliação visual e editorial permanece necessária.',
   };

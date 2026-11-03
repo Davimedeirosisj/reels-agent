@@ -2,7 +2,7 @@
 
 Objetivo completo: implementar os prompts e referências do repositório, com edição contextual fiel à pregação e evidência real de render. **Objetivo ativo e incompleto.**
 
-A rodada atual acrescenta âncoras por frase, proteção das saídas e localização facial. Os MP4 curtos, galeria e nova prévia completa de 4321 frames passaram nos testes. A âncora reproduziu o tempo visual anterior e o MP4 completo permaneceu idêntico por hash; os recibos foram atualizados para o código e job atuais. A aprovação humana permanece aberta.
+A rodada atual acrescenta contraste configurável das legendas, SRT/WebVTT, ritmo visual opcional e reconciliação de âncoras após corrigir texto. Os MP4 curtos passaram; a prévia completa com a nova variante está em validação. A rodada anterior validou âncoras e 4321 frames completos, com MP4 idêntico por hash ao tempo visual explícito anterior. A aprovação humana permanece aberta. Veja [Legendas e ritmo](ETAPA-LEGENDAS-E-RITMO.md).
 
 ## Correção da auditoria anterior
 
@@ -26,7 +26,7 @@ O antigo `segments` só acionava legendas; não cortava a mídia. A demonstraç�
 
 ## Evidência e limite dos testes
 
-- 65 testes JavaScript e 24 testes Python passaram. As integrações verificam também cor, duas linhas no MP4, cenas 3D repetíveis, editor no navegador e exportação final de fixture técnico. Tamanho fracionário de legenda e argumentos válidos de geometrias 3D receberam correções e testes.
+- 71 testes JavaScript e 24 testes Python passaram. As integrações verificam também contraste sobre vídeo claro/escuro, SRT/WebVTT, espaçamento de decorações, cor, duas linhas no MP4, cenas 3D repetíveis, editor no navegador e exportação final de fixture técnico. Tamanho fracionário de legenda e argumentos válidos de geometrias 3D receberam correções e testes.
 - Âncoras por frase/ocorrência foram medidas em MP4; ausências, ambiguidades, palavras cortadas e alinhamento insuficiente são rejeitados. A exportação preserva entradas mesmo sob aliases físicos e verifica estabilidade do código/bytes. Veja [Âncoras e revisão espacial](ETAPA-ANCORAS-E-EXPORTACAO.md).
 - Localização facial aplicada ao vídeo preparado completo: 541 amostragens, 512 com detecção. Não há reconhecimento de identidade nem garantia entre amostras. A094 permanece parcial; a revisão atual compara caixas estimadas com retângulos declarados dos gráficos.
 - Correção de transcrição por tempo/ocorrência, com rejeição de ambiguidades e substrings. Trocas de frase removem alinhamento desatualizado; originais são preservados. O CLI corrigiu o erro conhecido do TTS/Whisper e rejeitou quatro tentativas de sobrescrever entradas/relatório.
@@ -47,7 +47,7 @@ O antigo `segments` só acionava legendas; não cortava a mídia. A demonstraç�
 
 Casos de borda e sequência concreta: [Próximas implementações](PROXIMAS-IMPLEMENTACOES.md).
 
-1. Completar as receitas parciais de acessibilidade, revisão espacial e controle de ritmo. Cor, duas linhas, editor e cenas 3D receberam implementação e regressões próprias nesta etapa.
+1. Completar as receitas parciais de acessibilidade e revisão espacial. A096 já revisa e opcionalmente espaça decorações; equivalência editorial de cada aplicação continua aberta. A050 mede contraste e exporta legendas, mas identificação de falantes/sons significativos e revisão integral ainda faltam.
 2. Ampliar validação de legibilidade e fidelidade das receitas e a escolha contextual de motions; parâmetros e testes sintéticos não provam acabamento premium em cada referência.
 3. Conferir integralmente bordas e movimento, sobretudo vidro, dedos, cabelo e objetos finos. O comando processou os 4321 frames e foi usado na prévia completa; dez quadros inspecionados não certificam todo o recorte. Modelos GLB e geometrias próprias já são renderizados em Three.js; decodificadores comprimidos e pós-processamento das referências ainda faltam.
 4. Comparar cada referência externa com sua direção visual e MP4 específico. A meta numérica de fontes foi atingida; hashes e técnicas genéricas não comprovam reprodução de 100 exemplos. Os 64 Revid continuam como referências audiovisuais.

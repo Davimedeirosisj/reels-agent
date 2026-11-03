@@ -56,7 +56,7 @@ Legendas: `captionStyle.mode` aceita `word`, `karaoke`, `block`, `semantic`, `ma
 
 Abra `output/meu-reel/review.html`, compare a prévia com o original e salve `review.json` após conferir os quatro pontos. Em seguida:
 
-A página permite ouvir e corrigir os segmentos em “Conferir e corrigir as legendas”. Baixe `job-corrigido.json` e gere uma nova prévia após editar. O texto corrigido usa o intervalo original da frase, com alinhamento por palavra removido nesse segmento. A página bloqueia aprovação enquanto há edições pendentes.
+A página permite ouvir e corrigir os segmentos em “Conferir e corrigir as legendas”. Baixe `job-corrigido.json` e gere uma nova prévia após editar. O texto corrigido usa o intervalo original da frase, com alinhamento por palavra removido nesse segmento. A página bloqueia aprovação enquanto há edições pendentes. Âncoras afetadas exigem realinhamento; a opção explícita de manter os tempos conserva o intervalo visual da prévia, registra a origem e exige nova conferência. Veja [Legendas e ritmo](ETAPA-LEGENDAS-E-RITMO.md) para configurações de contraste e espaçamento opcional de decorações.
 
 ```powershell
 node tools/engine.mjs approve output/proposta.json "CAMINHO/review.json"
@@ -67,4 +67,4 @@ A aprovação fica vinculada à EDL, aos bytes das mídias e à composição. Al
 
 A composição também inclui o lockfile e o código do motor/revisão na assinatura. Fins de linha de Windows e Unix são normalizados. Consulte [Cor, 3D e revisão](ETAPA-COR-3D-E-REVISAO.md) para `color-plan`, matrizes por tomada, `maxLines`, modelos GLB e configuração das cenas Three.js.
 
-Saídas: `transcript.json`, `edit_decisions.json`, `preview.mp4`, `review.html`, `quality_report.md`, JSON de validação e `final.mp4` após aprovação. O fallback FFmpeg anterior continua em `tools/reels_pipeline.py`; a linha do tempo atual e a revisão estão em `tools/engine.mjs`.
+Saídas: `transcript.json`, `edit_decisions.json`, `preview.mp4`, `captions.srt`, `captions.vtt`, `review.html`, `quality_report.md`, JSON de validação e `final.mp4` após aprovação. SRT/WebVTT são gerados mesmo com a legenda gravada desativada; a faixa do player da revisão pode ser ativada pelo controle de legendas. O fallback FFmpeg anterior continua em `tools/reels_pipeline.py`; a linha do tempo atual e a revisão estão em `tools/engine.mjs`.

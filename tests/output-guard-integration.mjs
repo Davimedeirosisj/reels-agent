@@ -11,7 +11,13 @@ const dir = fs.mkdtempSync(path.join(base, 'cli-')),
   jobFile = path.join(dir, 'job.json');
 let checked = 0;
 for (const command of ['preview', 'final'])
-  for (const name of [`${command}.mp4`, `${command}.raw.mp4`, 'transcript.json']) {
+  for (const name of [
+    `${command}.mp4`,
+    `${command}.raw.mp4`,
+    'transcript.json',
+    'captions.srt',
+    'captions.vtt',
+  ]) {
     const source = path.join(dir, name);
     fs.writeFileSync(source, 'protected original bytes');
     const before = fileDigest(source);

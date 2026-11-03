@@ -2,6 +2,7 @@ import React from 'react';
 import { useCurrentFrame, useVideoConfig } from 'remotion';
 import { captionPages } from './captions.mjs';
 import { layoutCaptionTokens, browserTextMeasurer } from './caption-layout.mjs';
+import { captionAppearance } from './accessibility.mjs';
 export function Captions({ segments, style = {}, accent }) {
   const { width: videoWidth } = useVideoConfig();
   const f = useCurrentFrame(),
@@ -15,10 +16,13 @@ export function Captions({ segments, style = {}, accent }) {
     maxWords,
     semanticWords = [],
     icon,
-    maxLines,
+    maxLines = mode === 'accessible' ? 2 : undefined,
     minFontSize = 38,
+    boxColor,
+    boxOpacity,
     ...custom
   } = style;
+  const appearance = captionAppearance(style);
   const base = {
     position: 'absolute',
     bottom: 270,
@@ -68,8 +72,8 @@ export function Captions({ segments, style = {}, accent }) {
         <span
           key={i}
           style={{
-            color: highlight ? accent : '#fff',
-            background: box || mode === 'accessible' ? 'rgba(0,0,0,.86)' : undefined,
+            color: highlight ? accent : appearance.color,
+            background: appearance.background,
             padding: '4px 3px',
             textShadow: mode === 'accessible' ? 'none' : '0 2px 8px #000',
           }}

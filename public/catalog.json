@@ -568,9 +568,11 @@
       "defaults": {
         "mode": "accessible",
         "box": true,
-        "fontSize": 64
+        "fontSize": 64,
+        "maxLines": 2,
+        "minFontSize": 48
       },
-      "behavior": "partial-accessibility",
+      "behavior": "partial-accessibility-with-contrast-and-sidecars",
       "status": "partial",
       "title": "legenda acessível",
       "origin": "project-authored",
@@ -1076,8 +1078,8 @@
       "id": "A096",
       "kind": "post",
       "defaults": {},
-      "behavior": "partial-pace",
-      "status": "partial",
+      "behavior": "visual-pace-review-and-opt-in-decoration-spacing",
+      "status": "implemented-unverified",
       "title": "controle de ritmo",
       "origin": "project-authored",
       "source": "prompts/100-motion-graphics.md",

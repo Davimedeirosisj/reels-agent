@@ -6,6 +6,7 @@ import { spawnSync } from 'node:child_process';
 import { root, read, write, fileDigest } from '../tools/engine.mjs';
 import { applyOperations } from '../src/operations.mjs';
 import { rendererFingerprint } from '../tools/fingerprint.mjs';
+import { reviseTranscript } from '../tools/review_page.mjs';
 const run = (command, args, binary = false) => {
   const r = spawnSync(command, args, {
     encoding: binary ? null : 'utf8',
@@ -113,6 +114,38 @@ run('python', [
 ]);
 const audio = read(path.join(dir, 'audio-fidelity.json'));
 assert.equal(audio.passed, true);
+const edited = read(path.join(dir, 'edit_decisions.json'));
+const segmentIndex = edited.transcript.segments.findIndex(
+  (s) =>
+    s.start <= event.resolvedSpeechAnchor.start.sourceStart &&
+    s.end >= event.resolvedSpeechAnchor.start.sourceEnd,
+);
+assert.ok(segmentIndex >= 0);
+const previousText = edited.transcript.segments[segmentIndex].text;
+const corrected = reviseTranscript(
+  edited,
+  { [segmentIndex]: previousText.replace(/original/i, 'ORIGINAL') },
+  { anchorTiming: 'keep-preview' },
+);
+corrected.captionStyle = {
+  enabled: true,
+  mode: 'accessible',
+  fontSize: 64,
+  maxLines: 2,
+  minFontSize: 48,
+};
+assert.equal(corrected.motions[0].anchor, undefined);
+assert.equal(corrected.motions[0].start, event.start);
+assert.equal(corrected.motions[0].end, event.end);
+write(path.join(dir, 'corrected-job.json'), corrected);
+run(process.execPath, [
+  path.join(root, 'tools/engine.mjs'),
+  'preview',
+  path.join(dir, 'corrected-job.json'),
+  path.join(dir, 'corrected'),
+]);
+const correctedReport = read(path.join(dir, 'corrected/preview-validation.json'));
+assert.equal(correctedReport.status, 'passed');
 const result = {
   passed: true,
   synthetic: true,
@@ -126,6 +159,13 @@ const result = {
   editedEventEnd: event.end,
   samples,
   outputHash: fileDigest(path.join(dir, 'preview.mp4')),
+  correctedCaptionRoundtrip: {
+    passed: true,
+    outputHash: correctedReport.sha256,
+    explicitPriorVisualTimesPreserved: true,
+    editedSegmentWordAlignmentRemoved: true,
+    approvalStillRequired: true,
+  },
   audioComparison: {
     passed: audio.passed,
     minimumCorrelation: audio.minimumCorrelation,

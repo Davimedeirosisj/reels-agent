@@ -1,6 +1,7 @@
 import { recipeById, recipeEvent } from './recipes.mjs';
 import { mapSourceBeats, snapVisualEvents, beatCutCandidates, beatsToSources } from './rhythm.mjs';
 import { resolveSpeechAnchors } from './speech-anchors.mjs';
+import { applyVisualPace } from './pace.mjs';
 export function applyOperations(input) {
   const job = structuredClone(input),
     fps = job.fps || 30;
@@ -34,8 +35,10 @@ export function applyOperations(input) {
       else if (n === 95) {
         job.quality = { ...job.quality, ...op.quality };
         job.review = { ...job.review, transcriptEditor: true };
-      } else if (n === 96) job.quality = { ...job.quality, ...op.quality };
-      else if (n === 97) {
+      } else if (n === 96) {
+        job.quality = { ...job.quality, ...op.quality };
+        job.pace = { mode: 'review', ...job.pace, ...op.pace };
+      } else if (n === 97) {
         if (op.match) job.colorMatch = { ...job.colorMatch, ...op.match };
         if (op.color) {
           const targets = op.clip === undefined ? job.clips : [job.clips[op.clip]];
@@ -85,5 +88,5 @@ export function applyOperations(input) {
       );
     }
   }
-  return job;
+  return applyVisualPace(job);
 }

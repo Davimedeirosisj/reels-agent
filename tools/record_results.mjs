@@ -81,6 +81,7 @@ for (const [name, folder] of [
   ['captionLayout', 'caption-layout-regression'],
   ['three', 'scene3d-regression'],
   ['speechAnchor', 'speech-anchor-regression'],
+  ['accessibilityPace', 'accessibility-pace-regression'],
 ]) {
   const place = path.join('output', folder),
     assertions = read(path.join(root, place, 'assertions.json'));
@@ -92,6 +93,20 @@ for (const [name, folder] of [
     throw new Error('Additional render evidence mismatched: ' + name);
   additional[name] = assertions;
 }
+const correctedAnchor = additional.speechAnchor.correctedCaptionRoundtrip;
+const correctedFolder = 'output/speech-anchor-regression/corrected';
+if (
+  !correctedAnchor?.passed ||
+  currentBinding(correctedFolder).rendererHash !== currentFingerprint ||
+  fileDigest(path.join(root, correctedFolder, 'preview.mp4')) !== correctedAnchor.outputHash
+)
+  throw new Error('Corrected-caption/anchor render evidence is stale');
+for (const [file, expected] of [
+  ['captions.srt', additional.accessibilityPace.srtSha256],
+  ['captions.vtt', additional.accessibilityPace.vttSha256],
+])
+  if (fileDigest(path.join(root, 'output/accessibility-pace-regression', file)) !== expected)
+    throw new Error('Subtitle sidecar changed after native playback test: ' + file);
 const review = read(path.join(root, 'output/review-regression/assertions.json'));
 if (!review.passed || review.sourceFingerprint !== currentFingerprint)
   throw new Error('Review browser test is stale');

@@ -4,6 +4,7 @@ import { validateEducation } from './education.mjs';
 import { validateColor } from './color.mjs';
 import { validateScene3d } from './scene3d.mjs';
 import { foregroundMatches } from './foreground.mjs';
+import { validateCaptionAccessibility } from './accessibility.mjs';
 export const frames = (seconds, fps) => Math.round(seconds * fps);
 const finite = (n) => typeof n === 'number' && Number.isFinite(n);
 // One source of truth for video, audio, captions and the review.
@@ -68,12 +69,13 @@ export function validateJob(job) {
     );
   const last = new Map();
   const style = job.captionStyle || {};
+  errors.push(...validateCaptionAccessibility(style));
   if (
     style.maxLines !== undefined &&
     (!Number.isInteger(style.maxLines) || style.maxLines < 1 || style.maxLines > 4)
   )
     errors.push('captionStyle.maxLines deve ser inteiro entre 1 e 4');
-  if (style.maxLines !== undefined) {
+  if (style.maxLines !== undefined || style.mode === 'accessible') {
     const max = style.fontSize ?? (style.mode === 'accessible' ? 64 : 56),
       min = style.minFontSize ?? 38;
     if (!finite(max) || !finite(min) || min < 16 || max < min)
