@@ -1,0 +1,87 @@
+{
+  "title": "Prompt Motion — catálogo de prompts originais verificados",
+  "retrieved_on": "2026-11-02",
+  "source": "https://prompt-motion.com",
+  "rights_note": "Metadados e paráfrases, não cópia integral de textos de terceiros. Abra source_url para ler o prompt original.",
+  "verified_entries": 5,
+  "distinct_prompt_families": 3,
+  "entries": [
+    {
+      "id": "PM-001",
+      "author": "Stephan Livera",
+      "title": "Claude motion designer showreel",
+      "source_url": "https://prompt-motion.com/stephanlivera-df17a2",
+      "categories": [
+        "Kinetic type",
+        "Shapes",
+        "Music"
+      ],
+      "prompt_summary_pt": "Solicita showreel dinâmico de motion graphics de 15 segundos, com liberdade criativa máxima.",
+      "family": "showreel-base",
+      "original_prompt_available_at_source": true,
+      "full_prompt_stored": false,
+      "application_to_pastoral_reels": "Inspiração opcional; adaptar à fala, às referências visuais e à fidelidade bíblica; não aplicar preset."
+    },
+    {
+      "id": "PM-002",
+      "author": "Alex Prompter",
+      "title": "Animated business explainer",
+      "source_url": "https://prompt-motion.com/alex-prompter-1ea044",
+      "categories": [
+        "Diagrams"
+      ],
+      "prompt_summary_pt": "Solicita explainer animado de 30 segundos em HTML, cinco cenas (problema, solução, três passos, prova, assinatura), textos fortes e transições suaves.",
+      "family": "explainer-5-cenas",
+      "original_prompt_available_at_source": true,
+      "full_prompt_stored": false,
+      "application_to_pastoral_reels": "Inspiração opcional; adaptar à fala, às referências visuais e à fidelidade bíblica; não aplicar preset."
+    },
+    {
+      "id": "PM-003",
+      "author": "Ajith",
+      "title": "Abstract motion design reel",
+      "source_url": "https://prompt-motion.com/ajith-io-b5626e",
+      "categories": [
+        "Kinetic type",
+        "Shapes",
+        "Music"
+      ],
+      "prompt_summary_pt": "Repete o mesmo pedido-base de showreel dinâmico de 15 segundos de PM-001.",
+      "family": "showreel-base",
+      "original_prompt_available_at_source": true,
+      "full_prompt_stored": false,
+      "application_to_pastoral_reels": "Inspiração opcional; adaptar à fala, às referências visuais e à fidelidade bíblica; não aplicar preset."
+    },
+    {
+      "id": "PM-004",
+      "author": "Himanshu",
+      "title": "Motion designer showreel",
+      "source_url": "https://prompt-motion.com/himanshutwtxs-5f4b43",
+      "categories": [
+        "Diagrams",
+        "Kinetic type",
+        "Particles"
+      ],
+      "prompt_summary_pt": "Repete praticamente o mesmo pedido-base de showreel de 15 segundos de PM-001.",
+      "family": "showreel-base",
+      "original_prompt_available_at_source": true,
+      "full_prompt_stored": false,
+      "application_to_pastoral_reels": "Inspiração opcional; adaptar à fala, às referências visuais e à fidelidade bíblica; não aplicar preset."
+    },
+    {
+      "id": "PM-005",
+      "author": "Steven Tey",
+      "title": "Dub promo video",
+      "source_url": "https://prompt-motion.com/steventey-0d20e4",
+      "categories": [
+        "Product UI",
+        "Charts"
+      ],
+      "prompt_summary_pt": "Adapta o showreel de 15 segundos para um vídeo de lançamento de SaaS da Dub.",
+      "family": "showreel-saas",
+      "original_prompt_available_at_source": true,
+      "full_prompt_stored": false,
+      "application_to_pastoral_reels": "Inspiração opcional; adaptar à fala, às referências visuais e à fidelidade bíblica; não aplicar preset."
+    }
+  ]
+}
