@@ -20,6 +20,7 @@ export function rendererFingerprint(root) {
     'tools/review_page.mjs',
     'tools/fingerprint.mjs',
     'tools/media_cache.mjs',
+    'tools/output_guard.mjs',
   ].sort();
   const digest = crypto.createHash('sha256').update(FINGERPRINT_SCHEME + '\0');
   for (const file of files) {
@@ -27,4 +28,8 @@ export function rendererFingerprint(root) {
     digest.update(file + '\0' + Buffer.byteLength(content) + '\0').update(content);
   }
   return digest.digest('hex');
+}
+export function assertRendererUnchanged(root, fingerprint) {
+  if (rendererFingerprint(root) !== fingerprint)
+    throw new Error('O código mudou durante o render; gere uma nova prévia com a versão estável');
 }

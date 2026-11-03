@@ -55,6 +55,9 @@ const report = {
   segmentationModelAvailable: fs.existsSync(
     path.join(root, 'cache/models/selfie_segmenter.tflite'),
   ),
+  faceDetectorModelAvailable: fs.existsSync(
+    path.join(root, 'cache/models/blaze_face_short_range.tflite'),
+  ),
   note: 'Installed versions and local files only. See render results for runtime proof. A missing browser environment variable does not mean Remotion cannot manage its own browser.',
 };
 if (process.argv[2]) write(path.resolve(process.argv[2]), report);

@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { rendererFingerprint, FINGERPRINT_SCHEME } from './fingerprint.mjs';
-import { root, read, write, fileDigest } from './engine.mjs';
+import { root, read, write, fileDigest, hash } from './engine.mjs';
 import { captionsForTimeline } from '../src/editorial.mjs';
 import { captionPages } from '../src/captions.mjs';
 import { foregroundActive } from '../src/foreground.mjs';
@@ -44,6 +44,7 @@ const captionText = pages
   .map((w) => w.word || w.text)
   .join(' ');
 let foreground = null;
+let spatialReview = null;
 if (job.foregroundPreparation) {
   const preparation = job.foregroundPreparation;
   const layer = path.resolve(job.foregroundSrc);
@@ -96,6 +97,28 @@ if (job.foregroundPreparation) {
           .map((s) => s.opaqueCoreMeanRgbError),
       ),
       scope: 'Selected frames only; no claim of full edge approval',
+    };
+  }
+  const faceFile = path.join(path.dirname(layer), 'face-audit.json');
+  if (fs.existsSync(faceFile)) {
+    const audit = read(faceFile);
+    if (
+      audit.sourceFingerprint !== sourceFingerprint ||
+      audit.jobHash !== hash(job) ||
+      audit.decodedFrames !== Number(report.video.nb_frames)
+    )
+      throw new Error('Spatial audit is stale for this render');
+    spatialReview = {
+      sampledFrames: audit.sampledFrames,
+      samplesWithFaces: audit.samplesWithFaces,
+      samplesTouchingFrameEdge: audit.samplesTouchingFrameEdge,
+      missingDetectionIntervalCount: audit.missingDetectionIntervalCount,
+      uniqueEventsWithPotentialConflicts: audit.uniqueEventsWithPotentialConflicts,
+      faceModelSha256: audit.faceModelSha256,
+      continuousFaceCoverageProven: false,
+      manualReviewRequired: true,
+      scope: audit.scope,
+      unassessed: audit.unassessed,
     };
   }
 }
@@ -166,6 +189,7 @@ const result = {
     scope: fidelity.scope,
   },
   foreground,
+  spatialReview,
   editorialApproval: false,
   limitations: [
     'Human listening and full transcript review remain required; ASR is a draft.',

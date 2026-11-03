@@ -10,7 +10,12 @@ import { qualityReview } from '../src/quality.mjs';
 import { mediaReferences, mapMedia } from '../src/media-layout.mjs';
 import { SCENE3D_KINDS, inspectGlb } from '../src/scene3d.mjs';
 import { makeReviewPage } from './review_page.mjs';
-import { rendererFingerprint, FINGERPRINT_SCHEME } from './fingerprint.mjs';
+import {
+  rendererFingerprint,
+  FINGERPRINT_SCHEME,
+  assertRendererUnchanged,
+} from './fingerprint.mjs';
+import { assertOutputsDistinct } from './output_guard.mjs';
 import { sourceOnlyJob } from '../src/foreground.mjs';
 import { fileDigest, cacheMedia, stageCachedMedia } from './media_cache.mjs';
 export { fileDigest } from './media_cache.mjs';
@@ -155,13 +160,15 @@ export function validateMedia(file, job, { videoOnly = false } = {}) {
 }
 export async function renderSourceVideo(input, file) {
   const job = sourceOnlyJob(applyOperations(input)),
-    check = validateJob(job);
+    check = validateJob(job),
+    renderFingerprint = rendererHash();
   if (check.errors.length) throw new Error(check.errors.join('\n'));
   inspectAssets(job);
   const output = path.resolve(file),
     key = (p) => (process.platform === 'win32' ? path.resolve(p).toLowerCase() : path.resolve(p));
   if (job.clips.some((c) => key(localFile(c.source)) === key(output)))
     throw new Error('A preparação não pode sobrescrever a gravação de origem');
+  assertOutputsDistinct([output], mediaReferences(job).map(localFile));
   fs.mkdirSync(path.dirname(output), { recursive: true });
   const staged = stage(job, hash(job));
   const { bundle } = await import('@remotion/bundler'),
@@ -199,7 +206,9 @@ export async function renderSourceVideo(input, file) {
     },
   });
   verifyStage(job, staged);
+  assertRendererUnchanged(root, renderFingerprint);
   const report = validateMedia(output, job, { videoOnly: true });
+  assertRendererUnchanged(root, renderFingerprint);
   if (report.errors.length) throw new Error(report.errors.join('\n'));
   return report;
 }
@@ -242,11 +251,11 @@ function normalize(input, output, options = {}) {
   ]);
   return { measured, processing: second.stderr };
 }
-function reviewPage(dir, job, check, id) {
+function reviewPage(dir, job, check, id, renderFingerprint, assetFingerprint) {
   const binding = {
     jobHash: id,
-    assetHash: assetHash(job),
-    rendererHash: rendererHash(),
+    assetHash: assetFingerprint,
+    rendererHash: renderFingerprint,
     fingerprintScheme: FINGERPRINT_SCHEME,
   };
   fs.writeFileSync(path.join(dir, 'review.html'), makeReviewPage(job, binding, check));
@@ -268,6 +277,7 @@ async function main() {
   if (check.errors.length) throw new Error(check.errors.join('\n'));
   if (command === 'color-plan') {
     const output = path.resolve(args[0] || jobPath.replace(/\.json$/, '.color-proposed.json'));
+    assertOutputsDistinct([output], [jobPath, ...mediaReferences(job).map(localFile)]);
     const measured = run(
       'python',
       [
@@ -295,7 +305,12 @@ async function main() {
       job.motions = suggestMotions(job, { verifiedReferences });
     }
     delete job.approval;
-    write(args[0] || jobPath.replace(/\.json$/, '.proposed.json'), job);
+    const output = args[0] || jobPath.replace(/\.json$/, '.proposed.json');
+    assertOutputsDistinct([output], [jobPath, ...mediaReferences(job).map(localFile)]);
+    const planned = applyOperations(job),
+      validation = validateJob(planned);
+    if (validation.errors.length) throw new Error(validation.errors.join('\n'));
+    write(output, planned);
     return;
   }
   if (command === 'validate') {
@@ -330,6 +345,24 @@ async function main() {
     return;
   }
   if (!['preview', 'final'].includes(command)) throw new Error(`Comando desconhecido: ${command}`);
+  const id = hash(job),
+    dir = path.resolve(args[0] || path.join(root, 'output', id.slice(0, 12)));
+  assertOutputsDistinct(
+    [
+      `${command}.mp4`,
+      `${command}.raw.mp4`,
+      `${command}-audio.json`,
+      `${command}-validation.json`,
+      'edit_decisions.json',
+      'transcript.json',
+      'media_probe.json',
+      'editorial_quality.json',
+      'quality_report.md',
+      ...(command === 'preview' ? ['review.html'] : []),
+    ].map((file) => path.join(dir, file)),
+    [jobPath, ...mediaReferences(job).map(localFile)],
+  );
+  const renderFingerprint = rendererHash();
   if (
     command === 'final' &&
     (job.approval?.jobHash !== hash(job) ||
@@ -340,10 +373,15 @@ async function main() {
       'Aprovação editorial vinculada à EDL, mídia e composição é obrigatória para final',
     );
   const assets = inspectAssets(job),
-    id = hash(job),
     staged = stage(job, id),
-    props = staged.props,
-    dir = path.resolve(args[0] || path.join(root, 'output', id.slice(0, 12)));
+    props = staged.props;
+  if (
+    command === 'final' &&
+    (job.approval?.assetHash !== staged.snapshotHash ||
+      job.approval?.rendererHash !== renderFingerprint ||
+      job.approval?.jobHash !== id)
+  )
+    throw new Error('As entradas mudaram após a aprovação; revise uma nova prévia');
   fs.mkdirSync(dir, { recursive: true });
   write(path.join(dir, 'edit_decisions.json'), job);
   write(path.join(dir, 'transcript.json'), job.transcript || { segments: [] });
@@ -395,16 +433,21 @@ async function main() {
     },
   });
   verifyStage(job, staged);
+  assertRendererUnchanged(root, renderFingerprint);
   if (job.audio?.normalize === false) fs.copyFileSync(raw, file);
   else write(path.join(dir, `${command}-audio.json`), normalize(raw, file, job.audio));
   const report = validateMedia(file, job);
+  verifyStage(job, staged);
+  assertRendererUnchanged(root, renderFingerprint);
+  report.rendererFingerprint = renderFingerprint;
   write(path.join(dir, `${command}-validation.json`), report);
   fs.writeFileSync(
     path.join(dir, 'quality_report.md'),
     `# Verificação técnica\n\nEstado: ${report.status}\n\nArquivo: ${path.basename(file)}\nSHA-256: ${report.sha256}\nDuração esperada: ${report.expectedDuration}s; obtida: ${report.actualDuration}s\nPico: ${report.peakDb} dBFS; média: ${report.meanDb} dBFS\n\n${check.warnings.join('\n')}\n\nRevisão editorial: ${command === 'final' ? 'aprovação vinculada à EDL' : 'pendente; abrir review.html'}. Testes de mídia não comprovam fidelidade teológica.\n`,
   );
-  if (command === 'preview') reviewPage(dir, job, check, id);
   if (report.errors.length) throw new Error(report.errors.join('\n'));
+  if (command === 'preview')
+    reviewPage(dir, job, check, id, renderFingerprint, staged.snapshotHash);
   console.log(file);
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url))

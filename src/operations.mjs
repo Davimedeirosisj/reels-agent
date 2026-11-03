@@ -1,5 +1,6 @@
 import { recipeById, recipeEvent } from './recipes.mjs';
 import { mapSourceBeats, snapVisualEvents, beatCutCandidates, beatsToSources } from './rhythm.mjs';
+import { resolveSpeechAnchors } from './speech-anchors.mjs';
 export function applyOperations(input) {
   const job = structuredClone(input),
     fps = job.fps || 30;
@@ -55,7 +56,12 @@ export function applyOperations(input) {
       ...job.operations.map((op) => op.recipeId),
     ];
   delete job.operations;
+  job.motions = resolveSpeechAnchors(job).motions;
   if (job.rhythm) {
+    if (job.rhythm.alignVisuals && job.motions.some((m) => m.anchor && m.syncToBeat))
+      throw new Error(
+        'Âncora de fala e syncToBeat no mesmo evento são ambíguos; use offset explícito',
+      );
     const beats =
       job.rhythm.beats || mapSourceBeats(job.rhythm.sourceAnalysis || {}, job.clips, fps);
     job.rhythm.beats = beats;

@@ -8,6 +8,8 @@ import { rendererFingerprint } from './fingerprint.mjs';
 import { applyOperations } from '../src/operations.mjs';
 import { foregroundGeometry } from '../src/foreground.mjs';
 import { validateJob, timeline } from '../src/editorial.mjs';
+import { assertOutputsDistinct } from './output_guard.mjs';
+import { mediaReferences } from '../src/media-layout.mjs';
 const local = (source) =>
   path.isAbsolute(source) ? source : path.resolve(root, 'public', source.replace(/^\//, ''));
 const key = (file) =>
@@ -89,6 +91,12 @@ export async function prepareForeground(input, outputDirectory) {
     sourceManifestFile,
     sourceValidationFile,
   ];
+  assertOutputsDistinct(protectedFiles, [
+    model,
+    ...mediaReferences(job)
+      .filter((source) => source !== job.foregroundSrc)
+      .map(local),
+  ]);
   if (protectedFiles.some((file) => job.clips.some((c) => key(file) === key(local(c.source)))))
     throw new Error('A preparação não pode sobrescrever a gravação de origem');
   fs.mkdirSync(dir, { recursive: true });

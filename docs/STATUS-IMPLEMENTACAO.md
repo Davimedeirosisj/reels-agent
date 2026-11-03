@@ -2,7 +2,7 @@
 
 Objetivo completo: implementar os prompts e referências do repositório, com edição contextual fiel à pregação e evidência real de render. **Objetivo ativo e incompleto.**
 
-A nova camada de recorte passou nas amostras técnicas de quatro e seis segundos e na preparação da pregação completa. A prévia de 4321 frames foi renderizada e validada com o fingerprint atual; a aprovação humana permanece aberta.
+A prévia completa da etapa de recorte foi validada e permanece disponível. A rodada atual acrescenta âncoras por frase, proteção das saídas e localização facial; seus MP4 curtos e galeria passaram nos testes, e uma nova prévia completa está em processamento. Cada relatório registra seu próprio fingerprint. A aprovação humana permanece aberta.
 
 ## Correção da auditoria anterior
 
@@ -26,7 +26,9 @@ O antigo `segments` só acionava legendas; não cortava a mídia. A demonstraç�
 
 ## Evidência e limite dos testes
 
-- 57 testes JavaScript e 21 testes Python passaram. As integrações verificam também cor, duas linhas no MP4, cenas 3D repetíveis, editor no navegador e exportação final de fixture técnico. Tamanho fracionário de legenda e argumentos válidos de geometrias 3D receberam correções e testes.
+- 65 testes JavaScript e 24 testes Python passaram. As integrações verificam também cor, duas linhas no MP4, cenas 3D repetíveis, editor no navegador e exportação final de fixture técnico. Tamanho fracionário de legenda e argumentos válidos de geometrias 3D receberam correções e testes.
+- Âncoras por frase/ocorrência foram medidas em MP4; ausências, ambiguidades, palavras cortadas e alinhamento insuficiente são rejeitados. A exportação preserva entradas mesmo sob aliases físicos e verifica estabilidade do código/bytes. Veja [Âncoras e revisão espacial](ETAPA-ANCORAS-E-EXPORTACAO.md).
+- Localização facial aplicada ao vídeo preparado completo: 541 amostragens, 512 com detecção. Não há reconhecimento de identidade nem garantia entre amostras. A094 permanece parcial; a revisão atual compara caixas estimadas com retângulos declarados dos gráficos.
 - Correção de transcrição por tempo/ocorrência, com rejeição de ambiguidades e substrings. Trocas de frase removem alinhamento desatualizado; originais são preservados. O CLI corrigiu o erro conhecido do TTS/Whisper e rejeitou quatro tentativas de sobrescrever entradas/relatório.
 - Regressão de render: vermelho/440 Hz → azul/~878,33 Hz; intervalo verde/660 Hz removido. Resultado em `docs/validation/render-results.json`.
 - Prévia atual validada: 9,685s, H.264/AAC, 1080×1920, pico -2,2 dBFS, média -18,5 dBFS.

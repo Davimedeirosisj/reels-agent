@@ -22,6 +22,19 @@ if (currentFingerprint !== renderFingerprint)
 if (showcase.sourceFingerprint !== currentFingerprint)
   throw new Error('Gallery source fingerprint is missing or stale');
 const additional = {};
+const outputProtection = read(path.join(root, 'output/output-guard-regression/assertions.json'));
+if (!outputProtection.passed || outputProtection.sourceFingerprint !== currentFingerprint)
+  throw new Error('Output protection evidence is stale');
+additional.outputProtection = outputProtection;
+const faceLocation = read(path.join(root, 'output/face-regression/assertions.json'));
+if (
+  !faceLocation.passed ||
+  faceLocation.sourceFingerprint !== currentFingerprint ||
+  faceLocation.trackerToolSha256 !== fileDigest(path.join(root, 'tools/track_faces.py')) ||
+  faceLocation.auditToolSha256 !== fileDigest(path.join(root, 'tools/spatial_audit.mjs'))
+)
+  throw new Error('Face localization evidence is stale');
+additional.faceLocation = faceLocation;
 const correction = read(path.join(root, 'output/transcript-correction-regression/assertions.json'));
 if (
   !correction.passed ||
@@ -67,6 +80,7 @@ for (const [name, folder] of [
   ['color', 'color-regression'],
   ['captionLayout', 'caption-layout-regression'],
   ['three', 'scene3d-regression'],
+  ['speechAnchor', 'speech-anchor-regression'],
 ]) {
   const place = path.join('output', folder),
     assertions = read(path.join(root, place, 'assertions.json'));

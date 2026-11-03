@@ -1,7 +1,7 @@
 {
-  "rendererFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
+  "rendererFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
   "fingerprintScheme": "normalized-source-and-lock-v2",
-  "checkedAtUtc": "2026-11-03T10:03:50.363Z",
+  "checkedAtUtc": "2026-11-03T11:04:33.062Z",
   "platform": "win32",
   "node": "v26.13.0",
   "ffmpeg": {
@@ -38,5 +38,6 @@
   },
   "configuredBrowserExists": true,
   "segmentationModelAvailable": true,
+  "faceDetectorModelAvailable": true,
   "note": "Installed versions and local files only. See render results for runtime proof. A missing browser environment variable does not mean Remotion cannot manage its own browser."
 }

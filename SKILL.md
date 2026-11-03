@@ -36,6 +36,8 @@ Motor executável em desenvolvimento. A entrada atual usa `clips`, `transcript`,
 
 Para gráficos atrás da pessoa, use `foreground` antes de `preview`; o comando prepara câmera/cortes/cor, calcula alpha e recusa uma camada desatualizada. Veja `docs/ETAPA-RECORTE-AUTOMATICO.md`. Use o efeito somente quando fizer sentido para a mensagem e confira bordas e legibilidade.
 
+Para sincronizar gráficos com a fala, use `anchor` por frase/ocorrência nos eventos. A revisão facial por amostragem é uma ajuda para conferir posições, não aprovação de enquadramento. Veja `docs/ETAPA-ANCORAS-E-EXPORTACAO.md` para os limites e as evidências.
+
 Curadoria: `prompts/external-verified.json` registra 124 publicações Prompt Motion com autoria e links, correspondendo a 111 textos normalizados distintos. `prompts/motif-attribution.json` verifica 45 páginas individuais Motif. Consulte os originais antes de criar a direção visual. Os fingerprints comprovam disponibilidade dos textos, não execução nem licença para republicá-los.
 
 ## REGRA FUNDAMENTAL: NÃO ENGESSAR A EDIÇÃO

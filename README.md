@@ -26,6 +26,8 @@ Novos comandos, provas de render e limites: [Cor, 3D e revisão](docs/ETAPA-COR-
 
 [Recorte automático](docs/ETAPA-RECORTE-AUTOMATICO.md): preparo alinhado a cortes/câmera/cor, transparência e textos atrás da pessoa. A pregação completa foi processada e renderizada; vidro, mãos e cabelo continuam exigindo revisão. Correções de legendas podem ser delimitadas por tempo/ocorrência, sem substituir trechos ambíguos.
 
+[Âncoras e revisão espacial](docs/ETAPA-ANCORAS-E-EXPORTACAO.md): gráficos ligados às frases da transcrição, proteção de arquivos durante exportação e localização facial para conferir possíveis sobreposições. Intervalos sem detecção continuam exigindo revisão.
+
 ## Próximos passos
 1. Seguir [Execução](docs/EXECUCAO.md) para transcrever, preparar EDL e renderizar prévia.
 2. Revisar contexto, legendas, enquadramento e áudio em `review.html`.
