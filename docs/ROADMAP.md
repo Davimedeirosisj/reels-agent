@@ -17,7 +17,7 @@ Não guardar tokens de API no repositório. Verificar licenças e scripts antes 
 
 - [ ] Completar todas as receitas parciais/pendentes de `COBERTURA.md`
 - [ ] Verificar autoria/URL individual dos originais externos
-- [ ] Validar as últimas correções PNG/BT.709 e legendas no render
+- [x] Validar PNG/BT.709, legendas, relógios de B-roll e ducking no render
 - [ ] Integrar segmentação, rastreamento e modelos/assets 3D próprios
 - [ ] Validar uma pregação real e registrar revisão de fidelidade
 

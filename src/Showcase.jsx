@@ -20,7 +20,20 @@ function Example({ kind }) {
     text: ['counter', 'kpi', 'chart'].includes(kind)
       ? 'Dados de demonstração'
       : 'A MENSAGEM\nORIENTA O VISUAL',
-    items: ['Contexto', 'Princípio', 'Aplicação'],
+    items: ['image-sequence', 'topic-montage'].includes(kind)
+      ? [
+          { asset: 'demo-art.svg', duration: 0.9, label: 'Primeiro tópico' },
+          { asset: 'demo-foreground.svg', duration: 0.9, label: 'Segundo tópico' },
+        ]
+      : ['Contexto', 'Princípio', 'Aplicação'],
+    panels: [
+      { asset: 'demo-art.svg', label: 'Contexto' },
+      { asset: 'demo-foreground.svg', label: 'Aplicação' },
+    ],
+    layers: [
+      { asset: 'demo-art.svg', depth: 0 },
+      { asset: 'demo-foreground.svg', depth: 160, transparent: true },
+    ],
     values: [12, 24, 18],
     labels: ['A', 'B', 'C'],
     value: 24,

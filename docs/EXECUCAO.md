@@ -16,6 +16,8 @@ npm run render:demo
 ffmpeg -y -f lavfi -i "sine=frequency=220:duration=2" public/showcase-tone.wav
 node tools/showcase.mjs
 node tests/render-integration.mjs
+node tests/composition-integration.mjs
+python -X utf8 -m unittest discover -s tests -p "test_*.py"
 ```
 
 O primeiro comando usa a voz TTS instalada no Windows e transcreve o áudio de verdade com Whisper tiny em inglês. É um teste técnico identificado; não simula uma pregação real. Em outros sistemas, forneça `public/demo-input.mp4` e `public/demo-transcript.json` autorizados e execute `node tools/demo_jobs.mjs`. Os MP4 e WAV são ignorados pelo Git.
@@ -33,7 +35,7 @@ node tools/engine.mjs preview output/proposta.json output/meu-reel
 
 Crie `meu-job.json` a partir de `public/demo-props.json`. Use um caminho absoluto em `clips[].source`, ou um caminho relativo a `public/`. Copie o conteúdo de `transcript.json` para `transcript`. Os intervalos de `clips` são segundos na mídia original. Os intervalos de `motions` são segundos na edição resultante. Os keyframes de `clips[].camera` são relativos a cada corte.
 
-As sugestões de `plan` agrupam unidades contínuas da transcrição. Não detectam com certeza erros de fala ou importância teológica. Para sugestões visuais, defina `brief.suggestMotions: true`, `brief.references: ["V08"]`, por exemplo. `brief.motion: "none"` ou `brief.style: "contemplative"` permitem nenhuma animação. A EDL permanece editável antes do render.
+As sugestões de `plan` agrupam unidades contínuas da transcrição. Não detectam com certeza erros de fala ou importância teológica. Para sugestões visuais, defina `brief.suggestMotions: true`, `brief.references: ["V08"]`, por exemplo. `brief.motion: "none"` ou `brief.style: "contemplative"` permitem nenhuma animação. A EDL permanece editável antes do render. As novas operações por receita, análise de batidas, B-roll e recorte de pessoas estão em [Composição e áudio](ETAPA-COMPOSICAO-E-AUDIO.md).
 
 Um evento pode conter `recipeId: "A008"`, `start`, `end` e `text`; o motor resolve a receita de tracking. Os IDs de câmera, legendas, tema e pós-produção pertencem às respectivas configurações, não são overlays. Consulte `src/recipes.mjs` e `docs/COBERTURA.md` para condições e pendências. Cada receita parcial preserva esse estado no catálogo.
 

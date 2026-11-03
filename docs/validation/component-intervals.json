@@ -223,6 +223,72 @@
       "startFrame": 1944,
       "endFrame": 1997,
       "inspectionFrame": 1986
+    },
+    {
+      "kind": "match-shape",
+      "startFrame": 1998,
+      "endFrame": 2051,
+      "inspectionFrame": 2040
+    },
+    {
+      "kind": "object-wipe",
+      "startFrame": 2052,
+      "endFrame": 2105,
+      "inspectionFrame": 2094
+    },
+    {
+      "kind": "layer-slide",
+      "startFrame": 2106,
+      "endFrame": 2159,
+      "inspectionFrame": 2148
+    },
+    {
+      "kind": "type-wipe",
+      "startFrame": 2160,
+      "endFrame": 2213,
+      "inspectionFrame": 2202
+    },
+    {
+      "kind": "zoom-transition",
+      "startFrame": 2214,
+      "endFrame": 2267,
+      "inspectionFrame": 2256
+    },
+    {
+      "kind": "split-screen",
+      "startFrame": 2268,
+      "endFrame": 2321,
+      "inspectionFrame": 2310
+    },
+    {
+      "kind": "editorial-layout",
+      "startFrame": 2322,
+      "endFrame": 2375,
+      "inspectionFrame": 2364
+    },
+    {
+      "kind": "image-sequence",
+      "startFrame": 2376,
+      "endFrame": 2429,
+      "inspectionFrame": 2418
+    },
+    {
+      "kind": "topic-montage",
+      "startFrame": 2430,
+      "endFrame": 2483,
+      "inspectionFrame": 2472
+    },
+    {
+      "kind": "depth-scene",
+      "startFrame": 2484,
+      "endFrame": 2537,
+      "inspectionFrame": 2526
+    },
+    {
+      "kind": "isometric",
+      "startFrame": 2538,
+      "endFrame": 2591,
+      "inspectionFrame": 2580
     }
   ],
   "note": "Esses renders comprovam os componentes com dados sintéticos; não comprovam cada receita ou equivalência às referências."

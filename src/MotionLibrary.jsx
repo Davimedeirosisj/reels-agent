@@ -10,7 +10,9 @@ const textStyle = {
   overflowWrap: 'break-word',
   whiteSpace: 'pre-wrap',
 };
-import { MOTION_VARIANTS } from './motion-kinds.mjs';
+import { MOTION_VARIANTS, MEDIA_KINDS } from './motion-kinds.mjs';
+import { MediaPanels } from './MediaPanels';
+import { Transition, TRANSITION_KINDS } from './Transitions';
 export { MOTION_VARIANTS } from './motion-kinds.mjs';
 export function MotionLibrary({
   variant = 'kinetic',
@@ -34,6 +36,7 @@ export function MotionLibrary({
   suffix = '',
   count = 24,
   seed = 7,
+  ...options
 }) {
   if (!MOTION_VARIANTS.includes(variant)) throw new Error(`Motion inconnu: ${variant}`);
   const p = ease(f, 0, 25),
@@ -46,6 +49,46 @@ export function MotionLibrary({
       color: '#fff',
     };
   const words = text.split(/\s+/).filter(Boolean);
+  if (MEDIA_KINDS.includes(variant))
+    return (
+      <MediaPanels
+        {...options}
+        variant={variant}
+        frame={f}
+        fps={fps}
+        durationInFrames={durationInFrames}
+        position={position}
+        items={items}
+        asset={asset}
+        assetType={assetType}
+      />
+    );
+  if (TRANSITION_KINDS.includes(variant))
+    return (
+      <Transition
+        {...options}
+        variant={variant}
+        frame={f}
+        durationInFrames={durationInFrames}
+        accent={accent}
+        text={text}
+        asset={asset}
+      />
+    );
+  if (variant === 'zoom-transition')
+    return (
+      <div
+        style={{
+          ...box,
+          transform: `scale(${1 + Math.sin((Math.PI * f) / durationInFrames) * 0.2})`,
+          border: `2px solid ${accent}`,
+          padding: 40,
+          fontSize: 60,
+        }}
+      >
+        {text}
+      </div>
+    );
   if (variant === 'pause') return null;
   if (
     [
@@ -407,7 +450,7 @@ export function MotionLibrary({
       </div>
     );
   }
-  if (['cards3d', 'cube3d'].includes(variant))
+  if (['cards3d', 'cube3d', 'isometric'].includes(variant))
     return (
       <div style={{ ...box, height: 500, perspective: 1100 }}>
         <div
@@ -418,7 +461,10 @@ export function MotionLibrary({
             width: 330,
             height: 330,
             transformStyle: 'preserve-3d',
-            transform: `rotateX(${-12 + Math.sin(f / 45) * 8}deg) rotateY(${variant === 'cube3d' ? f * 0.8 : ease(f, 0, 60, -28, 18)}deg)`,
+            transform:
+              variant === 'isometric'
+                ? `rotateX(55deg) rotateZ(-45deg) translateZ(${Math.sin(f / 40) * 15}px)`
+                : `rotateX(${-12 + Math.sin(f / 45) * 8}deg) rotateY(${variant === 'cube3d' ? f * 0.8 : ease(f, 0, 60, -28, 18)}deg)`,
           }}
         >
           {(variant === 'cube3d' ? Array.from({ length: 6 }) : Array.from({ length: 3 })).map(
@@ -437,7 +483,7 @@ export function MotionLibrary({
                   border: `1px solid ${accent}88`,
                   borderRadius: variant === 'cards3d' ? 24 : 0,
                   transform:
-                    variant === 'cards3d'
+                    variant !== 'cube3d'
                       ? `translateZ(${i * 65}px) translateX(${i * 18}px)`
                       : [
                           `translateZ(165px)`,

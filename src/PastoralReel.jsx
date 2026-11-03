@@ -13,6 +13,7 @@ import { timeline, captionsForTimeline } from './editorial.mjs';
 import { MotionLibrary } from './MotionLibrary';
 import { Captions } from './Captions';
 import { musicGain } from './captions.mjs';
+import { cameraAt, transitionAt } from './camera.mjs';
 export const media = (src) =>
   /^(https?:|data:|blob:)/.test(src) ? src : staticFile(src.replace(/^\//, ''));
 const lerp = (f, a, b, x, y) =>
@@ -21,19 +22,12 @@ function Shot({ clip, fit }) {
   const f = useCurrentFrame(),
     { fps } = useVideoConfig(),
     keys = clip.camera || [{ time: 0, scale: 1, x: 50, y: 50 }];
-  const i = Math.max(
-      0,
-      keys.findLastIndex((k) => k.time * fps <= f),
-    ),
-    a = keys[i],
-    b = keys[i + 1] || a;
-  const t = b === a ? 0 : Math.min(1, Math.max(0, (f - a.time * fps) / ((b.time - a.time) * fps))),
-    smooth = t * t * (3 - 2 * t);
-  const v = (k, d) => (a[k] ?? d) + ((b[k] ?? d) - (a[k] ?? d)) * smooth;
+  const state = cameraAt(keys, f / fps),
+    v = (k) => state[k];
   return (
     <AbsoluteFill
       style={{
-        transform: `scale(${v('scale', 1)})`,
+        transform: `scale(${v('scale')}) rotate(${state.rotate}deg)`,
         transformOrigin: `${v('x', 50)}% ${v('y', 50)}%`,
       }}
     >
@@ -85,10 +79,12 @@ export const PastoralReel = ({
   sfx = [],
   debugSafeAreas = false,
 }) => {
-  const { fps } = useVideoConfig(),
+  const { fps, width } = useVideoConfig(),
     accent = theme.accent || '#e7bd78',
     cuts = timeline(clips, fps),
     captions = captionsForTimeline(transcript.segments, clips, fps);
+  const frame = useCurrentFrame(),
+    transition = transitionAt(frame, motions, fps, width);
   const layers = (layer) =>
     motions
       .filter((m) => (m.layer || 'front') === layer)
@@ -110,11 +106,18 @@ export const PastoralReel = ({
         fontFamily: theme.fontFamily || 'Arial, sans-serif',
       }}
     >
-      {cuts.map((c, i) => (
-        <Sequence key={i} from={c.from} durationInFrames={c.durationInFrames}>
-          <Shot clip={c} fit={theme.fit || 'contain'} />
-        </Sequence>
-      ))}
+      <AbsoluteFill
+        style={{
+          transform: `translateX(${transition.x}px) scale(${transition.scale})`,
+          filter: transition.blur ? `blur(${transition.blur}px)` : undefined,
+        }}
+      >
+        {cuts.map((c, i) => (
+          <Sequence key={i} from={c.from} durationInFrames={c.durationInFrames}>
+            <Shot clip={c} fit={theme.fit || 'contain'} />
+          </Sequence>
+        ))}
+      </AbsoluteFill>
       {layers('behind')}
       {foregroundSrc && (
         <OffthreadVideo

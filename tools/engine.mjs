@@ -5,7 +5,9 @@ import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { validateJob, proposeCuts } from '../src/editorial.mjs';
 import { suggestMotions } from '../src/planner.mjs';
-import { recipeEvent } from '../src/recipes.mjs';
+import { applyOperations } from '../src/operations.mjs';
+import { qualityReview } from '../src/quality.mjs';
+import { mediaReferences, mapMedia } from '../src/media-layout.mjs';
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const read = (p) => JSON.parse(fs.readFileSync(p, 'utf8').replace(/^\uFEFF/, ''));
 export const write = (p, data) => {
@@ -38,21 +40,23 @@ function localFile(source) {
   if (!fs.statSync(p).isFile()) throw new Error(`Mídia ausente: ${p}`);
   return p;
 }
+export function fileDigest(file) {
+  const digest = crypto.createHash('sha256'),
+    buffer = Buffer.alloc(1024 * 1024),
+    fd = fs.openSync(file, 'r');
+  try {
+    let count;
+    while ((count = fs.readSync(fd, buffer, 0, buffer.length, null)) > 0)
+      digest.update(buffer.subarray(0, count));
+  } finally {
+    fs.closeSync(fd);
+  }
+  return digest.digest('hex');
+}
 function assetHash(job) {
-  const refs = [
-    ...job.clips.map((c) => c.source),
-    ...(job.motions || []).flatMap((m) => (m.asset ? [m.asset] : [])),
-    ...(job.sfx || []).map((s) => s.source),
-    ...(job.foregroundSrc ? [job.foregroundSrc] : []),
-    ...(job.music ? [job.music.source] : []),
-  ];
-  const entries = [...new Set(refs)].sort().map((s) => [
-    s,
-    crypto
-      .createHash('sha256')
-      .update(fs.readFileSync(localFile(s)))
-      .digest('hex'),
-  ]);
+  const entries = mediaReferences(job)
+    .sort()
+    .map((s) => [s, fileDigest(localFile(s))]);
   return crypto.createHash('sha256').update(JSON.stringify(entries)).digest('hex');
 }
 function rendererHash() {
@@ -82,18 +86,11 @@ function stage(job, id) {
       const p = localFile(source),
         name = crypto.createHash('sha1').update(p).digest('hex').slice(0, 12) + path.extname(p);
       fs.copyFileSync(p, path.join(assets, name));
-      mapping.set(source, `.jobs/${id}/${name}`);
+      mapping.set(source, name);
     }
     return mapping.get(source);
   };
-  const props = structuredClone(job);
-  for (const c of props.clips) c.source = copy(c.source);
-  for (const s of props.transcript?.segments || []) if (s.source) s.source = copy(s.source);
-  for (const m of props.motions || []) if (m.asset) m.asset = copy(m.asset);
-  if (props.foregroundSrc) props.foregroundSrc = copy(props.foregroundSrc);
-  if (props.music) props.music.source = copy(props.music.source);
-  for (const s of props.sfx || []) s.source = copy(s.source);
-  return props;
+  return { props: mapMedia(job, copy), publicDir: assets };
 }
 export function validateMedia(file, job) {
   const meta = probe(file),
@@ -137,7 +134,7 @@ export function validateMedia(file, job) {
     audio: a,
     peakDb: peak,
     meanDb: mean,
-    sha256: crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'),
+    sha256: fileDigest(file),
     editorialReview: 'required',
   };
 }
@@ -206,10 +203,7 @@ async function main() {
     throw new Error(
       'Uso: node tools/engine.mjs validate|plan|preview|approve|final job.json [diretório ou review.json]',
     );
-  const job = read(jobPath);
-  job.motions = (job.motions || []).map((m) =>
-    m.recipeId && !m.kind ? recipeEvent(m.recipeId, m) : m,
-  );
+  const job = applyOperations(read(jobPath));
   const check = validateJob(job);
   if (check.errors.length) throw new Error(check.errors.join('\n'));
   if (command === 'plan') {
@@ -224,7 +218,13 @@ async function main() {
   }
   if (command === 'validate') {
     const assets = inspectAssets(job);
-    console.log(JSON.stringify({ ...check, assets: Object.keys(assets) }, null, 2));
+    console.log(
+      JSON.stringify(
+        { ...check, review: qualityReview(job), assets: Object.keys(assets) },
+        null,
+        2,
+      ),
+    );
     return;
   }
   if (command === 'approve') {
@@ -259,17 +259,20 @@ async function main() {
     );
   const assets = inspectAssets(job),
     id = hash(job),
-    props = stage(job, id),
+    staged = stage(job, id),
+    props = staged.props,
     dir = path.resolve(args[0] || path.join(root, 'output', id.slice(0, 12)));
   fs.mkdirSync(dir, { recursive: true });
   write(path.join(dir, 'edit_decisions.json'), job);
   write(path.join(dir, 'transcript.json'), job.transcript || { segments: [] });
   write(path.join(dir, 'media_probe.json'), assets);
+  write(path.join(dir, 'editorial_quality.json'), qualityReview(job));
+  if (command === 'final') props.debugSafeAreas = false;
   const { bundle } = await import('@remotion/bundler');
   const { selectComposition, renderMedia } = await import('@remotion/renderer');
   const serveUrl = await bundle({
     entryPoint: path.join(root, 'src', 'index.jsx'),
-    publicDir: path.join(root, 'public'),
+    publicDir: staged.publicDir,
     onProgress: () => {},
   });
   const browserExecutable = process.env.REELS_BROWSER;

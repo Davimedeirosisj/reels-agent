@@ -1,0 +1,49 @@
+{
+  "duration": 15.75,
+  "silences": [
+    {
+      "start": 3.06,
+      "end": 6.15
+    },
+    {
+      "start": 8.65,
+      "end": 11.74
+    },
+    {
+      "start": 15.0,
+      "end": 15.75
+    }
+  ],
+  "onsetCandidates": [
+    0.13,
+    0.31,
+    0.53,
+    0.9,
+    1.42,
+    1.85,
+    2.25,
+    2.46,
+    2.66,
+    6.15,
+    7.09,
+    7.41,
+    7.97,
+    8.16,
+    8.62,
+    11.79,
+    12.3,
+    12.58,
+    13.09,
+    13.41,
+    13.61,
+    13.83,
+    14.05,
+    14.27,
+    14.45,
+    14.74
+  ],
+  "tempoBpmCandidate": null,
+  "tempoConfidence": 0.243,
+  "method": "RMS energy rises, 10ms hops; no speech deletion or musical meter inference",
+  "editorialReviewRequired": true
+}

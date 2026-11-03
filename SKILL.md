@@ -32,7 +32,7 @@ Vertical 1080×1920; títulos em maiúsculas, fonte GoBold Bold quando licenciad
 Conferir cortes, sincronia, safe areas, legibilidade, picos de áudio, erros de renderização e fidelidade à mensagem.
 
 ## Status
-Motor executável em desenvolvimento. A entrada atual usa `clips`, `transcript`, `motions`, câmera, tema e áudio em JSON. Consulte `docs/EXECUCAO.md` para comandos; `docs/COBERTURA.md` para cobertura individual e `docs/STATUS-IMPLEMENTACAO.md` para testes/pendências. Componentes renderizados com mídia sintética não comprovam todos os prompts nem fidelidade de uma pregação real. A revisão atual de PNG/BT.709 e legendas ainda requer render.
+Motor executável em desenvolvimento. A entrada atual usa `clips`, `transcript`, `motions`, `operations`, câmera, tema e áudio em JSON. Consulte `docs/EXECUCAO.md` para comandos; `docs/COBERTURA.md` para cobertura individual e `docs/STATUS-IMPLEMENTACAO.md` para testes/pendências. Foram renderizados 48 componentes, com PNG/BT.709, além de testes de cortes, B-roll e ducking. A mídia sintética não comprova todos os prompts nem fidelidade de uma pregação real.
 
 ## REGRA FUNDAMENTAL: NÃO ENGESSAR A EDIÇÃO
 

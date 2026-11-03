@@ -16,26 +16,26 @@ Os 100 autorais têm uma entrada individual. Mapeamento é uma especificação e
 | A008 | texto com tracking animado | tracking: tracking | implemented-unverified |
 | A009 | entrada por linhas | lines: lines | implemented-unverified |
 | A010 | título com parallax | parallax: parallax | implemented-unverified |
-| A011 | match cut por forma | wipe: partial-match-cut | partial |
+| A011 | match cut por forma | match-shape: matched-geometric-bridge | implemented-unverified |
 | A012 | whip pan suave | whip: whip | implemented-unverified |
-| A013 | passagem por objeto | wipe: partial-object-mask | partial |
-| A014 | corte no beat | pause: pending-beat | pending |
-| A015 | zoom com continuidade | parallax: partial-continuity | partial |
+| A013 | passagem por objeto | object-wipe: requires-object-asset | requires-asset |
+| A014 | corte no beat | post: beat-cut-candidates | implemented-unverified |
+| A015 | zoom com continuidade | zoom-transition: continuous-zoom-across-cut | implemented-unverified |
 | A016 | máscara radial | radial: radial | implemented-unverified |
-| A017 | deslizamento em camadas | wipe: partial-layers | partial |
-| A018 | transição por tipografia | kinetic: partial-type-transition | partial |
+| A017 | deslizamento em camadas | layer-slide: staggered-layer-transition | implemented-unverified |
+| A018 | transição por tipografia | type-wipe: typographic-transition | implemented-unverified |
 | A019 | flash discreto | flash: flash | implemented-unverified |
 | A020 | morph entre cards | morph: morph | implemented-unverified |
 | A021 | câmera orbital | cube3d: css3d-orbit | implemented-unverified |
 | A022 | profundidade em camadas | cards3d: css3d-depth | implemented-unverified |
 | A023 | painéis flutuantes | cards3d: floating-panels | implemented-unverified |
 | A024 | produto giratório | cube3d: partial-product-model | partial |
-| A025 | dolly in virtual | parallax: partial-dolly | partial |
-| A026 | perspectiva isométrica | cards3d: partial-isometric | partial |
+| A025 | dolly in virtual | camera: dolly-keyframes | implemented-unverified |
+| A026 | perspectiva isométrica | isometric: isometric-panels | implemented-unverified |
 | A027 | câmera atravessando UI | cards3d: partial-ui-camera | partial |
 | A028 | luz volumétrica | light: approximate-light | partial |
-| A029 | parallax 2.5D | parallax: partial-25d | partial |
-| A030 | câmera em trilha | parallax: partial-camera-path | partial |
+| A029 | parallax 2.5D | depth-scene: requires-layer-assets | requires-asset |
+| A030 | câmera em trilha | camera: camera-keyframe-path | implemented-unverified |
 | A031 | contador numérico | counter: counter | implemented-unverified |
 | A032 | gráfico de barras | chart: chart | implemented-unverified |
 | A033 | linha temporal | timeline: timeline | implemented-unverified |
@@ -57,15 +57,15 @@ Os 100 autorais têm uma entrada individual. Mapeamento é uma especificação e
 | A049 | legenda com cor pontual | captions: active-color | implemented-unverified |
 | A050 | legenda acessível | captions: partial-accessibility | partial |
 | A051 | ilustração de conceito | broll: requires-asset | requires-asset |
-| A052 | composição split screen | broll: partial-split-screen | partial |
+| A052 | composição split screen | split-screen: requires-panel-assets | requires-asset |
 | A053 | sobreposição de captura | broll: requires-asset | requires-asset |
-| A054 | sequência de imagens | broll: partial-image-sequence | partial |
+| A054 | sequência de imagens | image-sequence: requires-image-assets | requires-asset |
 | A055 | recorte de sujeito | subject: requires-alpha | requires-asset |
 | A056 | transição fala para B-roll | broll: requires-asset | requires-asset |
-| A057 | fundo com profundidade | cards3d: partial-depth-background | partial |
+| A057 | fundo com profundidade | depth-scene: requires-layer-assets | requires-asset |
 | A058 | imagem com movimento de câmera | broll: ken-burns | implemented-unverified |
-| A059 | composição editorial | broll: partial-editorial-layout | partial |
-| A060 | montagem por tópicos | broll: partial-topic-montage | partial |
+| A059 | composição editorial | editorial-layout: requires-panel-assets | requires-asset |
+| A060 | montagem por tópicos | topic-montage: requires-topic-assets | requires-asset |
 | A061 | logo reveal | brand: requires-logo | requires-asset |
 | A062 | paleta consistente | theme: theme | implemented-unverified |
 | A063 | vinheta curta | brand: bumper | implemented-unverified |
@@ -96,7 +96,7 @@ Os 100 autorais têm uma entrada individual. Mapeamento é uma especificação e
 | A088 | contraste problema e princípio | compare: compare | implemented-unverified |
 | A089 | aplicação prática | steps: application | implemented-unverified |
 | A090 | encerramento reflexivo | quote: reflection | implemented-unverified |
-| A091 | sincronização por beat | post: pending-beat | pending |
+| A091 | sincronização por beat | post: measured-onset-alignment | implemented-unverified |
 | A092 | normalização de voz | post: loudnorm | implemented-unverified |
 | A093 | efeitos sonoros sutis | post: sfx | implemented-unverified |
 | A094 | revisão de safe areas | post: partial-safe-areas | partial |

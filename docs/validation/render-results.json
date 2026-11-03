@@ -3,13 +3,13 @@
   "scope": "Synthetic fixtures only",
   "demo": {
     "statusAtTimeOfRender": "passed",
-    "sha256": "512e3fcaf8b76dcf0d5830c01cf71a0626cef113261fdc85943598b4e0a96f00",
+    "sha256": "b78477125846d235354a6fbcc1deea5a144c04083e0e1d1f9c7a7790a6c209ff",
     "duration": 9.685,
     "video": {
       "codec": "h264",
       "width": 1080,
       "height": 1920,
-      "pixelFormat": "yuvj420p",
+      "pixelFormat": "yuv420p",
       "frames": "290"
     },
     "audio": {
@@ -22,14 +22,14 @@
   },
   "showcase": {
     "statusAtTimeOfRender": "passed",
-    "sha256": "614caf51ffdb84c968aeffcaea0ca7813f4aa8a1b1696646fd5afd0c2901c3c7",
-    "duration": 66.603,
+    "sha256": "43bb97b7be2da02cd8373f2c05032e19520d97799e73c1f53c61ac2f82e0fa90",
+    "duration": 86.4,
     "video": {
       "codec": "h264",
       "width": 1080,
       "height": 1920,
-      "pixelFormat": "yuvj420p",
-      "frames": "1998"
+      "pixelFormat": "yuv420p",
+      "frames": "2592"
     },
     "audio": {
       "codec": "aac",
@@ -43,14 +43,14 @@
     "passed": true,
     "colors": [
       [
-        255,
+        253,
         0,
         0
       ],
       [
-        2,
         0,
-        255
+        0,
+        253
       ]
     ],
     "frequencies": [
@@ -68,8 +68,35 @@
     ],
     "synthetic": true
   },
-  "latestSourceValidatedByRender": false,
-  "pending": "Renderer was changed after these renders: caption pagination/ducking, layout fixes, explicit BT.709 + PNG and stricter pixel checks. Rerender required. Escalation approval review failed due to account usage limit.",
+  "composition": {
+    "passed": true,
+    "colors": [
+      [
+        253,
+        0,
+        0
+      ],
+      [
+        0,
+        127,
+        0
+      ]
+    ],
+    "music220HzAmplitude": [
+      0.00647910849710184,
+      0.03737094327114059
+    ],
+    "recoveryRatio": 5.767914411042343,
+    "checks": [
+      "Nested video panels play with event-local clock",
+      "B-roll audio is muted; speaker track remains",
+      "Music volume recovers after the speech range"
+    ],
+    "synthetic": true
+  },
+  "sourceFingerprint": "bb462cddacd4d20311ad3eadd9d5f5501e476511ecb32c0ca06aea7b40bbd758",
+  "latestSourceValidatedByRender": true,
+  "pending": "Full individual recipe/reference coverage and real sermon validation remain incomplete. Segmentation has only technical fixtures; no preacher cutout has been approved.",
   "asr": {
     "backend": "whisper",
     "model": "tiny",

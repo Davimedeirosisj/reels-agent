@@ -7,9 +7,13 @@ import { MOTION_VARIANTS } from '../src/motion-kinds.mjs';
 const kinds = MOTION_VARIANTS.filter((k) => k !== 'pause'),
   dir = path.join(root, 'output', 'showcase');
 fs.mkdirSync(dir, { recursive: true });
+const showcaseAssets = path.join(dir, 'assets');
+fs.mkdirSync(showcaseAssets, { recursive: true });
+for (const file of ['demo-art.svg', 'demo-foreground.svg', 'showcase-tone.wav'])
+  fs.copyFileSync(path.join(root, 'public', file), path.join(showcaseAssets, file));
 const serveUrl = await bundle({
   entryPoint: path.join(root, 'src/index.jsx'),
-  publicDir: path.join(root, 'public'),
+  publicDir: showcaseAssets,
 });
 const browserExecutable = process.env.REELS_BROWSER,
   composition = await selectComposition({ serveUrl, id: 'MotionShowcase', browserExecutable });

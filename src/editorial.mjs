@@ -69,10 +69,23 @@ export function validateJob(job) {
     if (last.has(c.source) && c.start < last.get(c.source))
       errors.push(`clip ${i}: reordenação ou sobreposição da fala`);
     last.set(c.source, c.end);
-    if (c.camera)
-      for (const k of c.camera)
-        if (!finite(k.time) || !finite(k.scale) || k.scale < 1 || k.scale > 3)
-          errors.push(`clip ${i}: câmera inválida`);
+    if (c.camera) {
+      let previousTime = -1;
+      if (!Array.isArray(c.camera) || !c.camera.length) errors.push(`clip ${i}: câmera vazia`);
+      else
+        for (const k of c.camera) {
+          if (
+            !finite(k.time) ||
+            k.time < 0 ||
+            k.time <= previousTime ||
+            !finite(k.scale) ||
+            k.scale < 1 ||
+            k.scale > 3
+          )
+            errors.push(`clip ${i}: câmera inválida`);
+          previousTime = k.time;
+        }
+    }
   }
   let prev = -1;
   for (const [i, s] of (job.transcript?.segments || []).entries()) {
@@ -132,8 +145,20 @@ export function validateJob(job) {
       )
         warnings.push(`motion ${i}: verificar safe areas na prévia`);
     }
-    if (['broll', 'subject'].includes(m.kind) && !m.asset)
+    if (['broll', 'subject', 'object-wipe'].includes(m.kind) && !m.asset)
       errors.push(`motion ${i}: mídia autorizada obrigatória`);
+    if (
+      ['split-screen', 'editorial-layout'].includes(m.kind) &&
+      (!m.panels?.length || m.panels.length > 6 || m.panels.some((p) => !p.asset))
+    )
+      errors.push(`motion ${i}: 1 a 6 painéis com mídia são necessários`);
+    if (
+      ['image-sequence', 'topic-montage'].includes(m.kind) &&
+      (!m.items?.length || m.items.some((p) => !p.asset))
+    )
+      errors.push(`motion ${i}: sequência exige mídia em cada item`);
+    if (m.kind === 'depth-scene' && (!m.layers?.length || m.layers.some((p) => !p.asset)))
+      errors.push(`motion ${i}: camadas com mídia são necessárias`);
     if (m.layer === 'behind' && !job.foregroundSrc)
       errors.push(`motion ${i}: foreground com alpha necessário para texto atrás do pregador`);
   }
