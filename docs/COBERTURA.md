@@ -124,7 +124,7 @@ Os 100 autorais têm uma entrada individual. Mapeamento não é evidência de co
 - M013: Produto cosmético 3D — https://createmotion.io/motions/reddit-1vj7s89/; reprodução não executada.
 - M014: Reel AI In Public — https://createmotion.io/motions/x-2106640261623537875/; reprodução não executada.
 - M015: Videoclipe Three.js — https://createmotion.io/motions/x-2107102281640653237/; reprodução não executada.
-- M016: Painéis de aplicativo em 3D — https://createmotion.io/motions/x-2113574013523898660/; reprodução não executada.
+- M016: Painéis de aplicativo em 3D — https://createmotion.io/motions/x-2113574013523898660/; reprodução não executada. Implementação própria de técnicas: current-render-tested-techniques; ver docs/ETAPA-M016-E-ACABAMENTO-3D.md.
 - M017: 35 estilos com huashu-art-motion — https://createmotion.io/motions/x-2109690569563746755/; reprodução não executada.
 - M018: Sprites de cavaleiros — https://createmotion.io/motions/reddit-1vls7dp/; reprodução não executada.
 - M019: Risografia animada — https://createmotion.io/motions/reddit-1wi0rhx/; reprodução não executada.

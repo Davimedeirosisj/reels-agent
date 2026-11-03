@@ -15,6 +15,8 @@ const packages = Object.fromEntries(
     '@remotion/bundler',
     '@remotion/three',
     '@react-three/fiber',
+    '@react-three/postprocessing',
+    'postprocessing',
     'three',
     'react',
   ].map((name) => {

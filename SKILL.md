@@ -40,6 +40,8 @@ Para sincronizar gráficos com a fala, use `anchor` por frase/ocorrência nos ev
 
 Para legendas de maior legibilidade, arquivos SRT/WebVTT e controle opcional do espaçamento de decorações, consulte `docs/ETAPA-LEGENDAS-E-RITMO.md`. A050 não certifica acessibilidade integral; A096 não retima fala, cortes ou legendas. Ao corrigir texto com âncoras, realinhe a fala ou escolha explicitamente conservar os tempos visuais da prévia para nova revisão; não estime tempos por palavra. Esses recursos continuam sendo escolhas contextuais.
 
+Quando a referência e o conteúdo pedirem uma cena 3D, consulte `docs/ETAPA-M016-E-ACABAMENTO-3D.md` para telefone/tela, painéis, órbita e acabamento opcional. Use assets e conceitos com origem explícita; o teste de técnicas próprias não certifica a reprodução integral de M016.
+
 Curadoria: `prompts/external-verified.json` registra 124 publicações Prompt Motion com autoria e links, correspondendo a 111 textos normalizados distintos. `prompts/motif-attribution.json` verifica 45 páginas individuais Motif. Consulte os originais antes de criar a direção visual. Os fingerprints comprovam disponibilidade dos textos, não execução nem licença para republicá-los.
 
 ## REGRA FUNDAMENTAL: NÃO ENGESSAR A EDIÇÃO

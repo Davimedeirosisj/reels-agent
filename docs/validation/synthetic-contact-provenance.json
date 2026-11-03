@@ -1,6 +1,6 @@
 {
   "scope": "Synthetic FFmpeg test bars/TTS and procedural motion fixtures only",
-  "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+  "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
   "factory": "tools/create_demo.ps1",
   "factorySha256": "26a3fbf0b9ae41208c4231d0f5c172c08aa42b30d4ad6cab67440f2aa4b50771",
   "fixtureIsSermon": false,
@@ -8,8 +8,8 @@
   "contacts": {
     "demo": {
       "file": "edit-contact-sheet.jpg",
-      "sha256": "b35ddd30493a884ee064490686bdd82fb81a3d38d618917dec5852a935ed09e0",
-      "sourceMp4Sha256": "319e5588ddfde401db79384236ea1c3cdfeccf526820dfdc0b99a7cee605bb53",
+      "sha256": "0558718b4ef28a23c9d89ef46e800f1bcfc11dfd989eaefcef17ea78ce3c3ffe",
+      "sourceMp4Sha256": "b78477125846d235354a6fbcc1deea5a144c04083e0e1d1f9c7a7790a6c209ff",
       "sourceFrames": [
         41,
         82,
@@ -22,8 +22,8 @@
     },
     "showcase": {
       "file": "motion-contact-sheet.jpg",
-      "sha256": "17ee2cc4badfea9db1b27f02b0d4afe29deca02c4e360730a94ba2f64eb8c1eb",
-      "sourceMp4Sha256": "6c8da10763f903d00a5cffeffbc476fd827f00cb64b7ccb0972f1bb27db4ce53",
+      "sha256": "af5c12bb2e13342cdbbf22f6ce7a9db9df6d7352e0c8b4d6ffd62c016a24ef45",
+      "sourceMp4Sha256": "e0bc474a2d97415d00ae2bc348dca99e9954e5ce4dcd5266d39e673e843e4346",
       "sourceFrames": [
         42,
         96,
@@ -83,7 +83,17 @@
         3012
       ],
       "syntheticOnly": true
+    },
+    "postprocessingHero": {
+      "file": "postprocessing-hero.png",
+      "sha256": "9d6c543a35319ab6d7e2e4874f3e5d0a3a5929e362cf2dcbc453834936d2c447",
+      "sourceMp4Sha256": "6914eff6a2b080224dc78ef3a7af49a9a05191415a4dc01907d955647e117305",
+      "sourceFrames": [
+        60
+      ],
+      "syntheticOnly": true,
+      "source": "Same composition/job, independent PNG render at frame 60"
     }
   },
-  "visualObservation": "Current decoded FFmpeg color bars/TTS and procedural motion gallery; no photographed people, sermon stills or private media"
+  "visualObservation": "Current synthetic color bars/TTS, procedural 56-component gallery and authored phone/SVG hero; no photographed people or sermon stills"
 }

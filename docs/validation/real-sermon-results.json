@@ -3,7 +3,7 @@
   "scope": "User-authorized real sermon preview; technical metadata only",
   "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
   "fingerprintScheme": "normalized-source-and-lock-v2",
-  "latestSourceValidatedByRender": true,
+  "latestSourceValidatedByRender": false,
   "mp4": {
     "status": "passed",
     "sha256": "369bf119fe65767b77cb2e520074330ae85799a53b514b16175d6131d38d904d",
@@ -155,5 +155,8 @@
     "Full-timeline foreground inferred and decoded; composited only during behind events. Lectern/glass/finger edges still require full human review.",
     "No premium equivalence claim for all external references; their assets and exact timing remain separately unverified.",
     "GoBold was unavailable; installed Arial was used. Source media, transcript and stills remain local."
-  ]
+  ],
+  "historicalEvidence": true,
+  "historicalRendererValidatedAtCommit": "57b16d5ac417c69ed936d359bd8f7a22551b4292",
+  "currentPhaseNote": "The new optional 3D finish is validated separately in postprocessing-results.json. This full preview has not been re-rendered with the new renderer fingerprint."
 }

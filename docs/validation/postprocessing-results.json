@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "syntheticOnly": true,
+  "referenceId": "M016",
+  "exactReferenceReproduction": false,
+  "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
+  "outputHash": "6914eff6a2b080224dc78ef3a7af49a9a05191415a4dc01907d955647e117305",
+  "frames": 180,
+  "disabledIdentical": true,
+  "additionalHaloPixels": 20415,
+  "emptyCornerMeanRgbDifference": 0,
+  "chromaticRedBlueSeparationPixels": -8.792047586311014,
+  "grainMaterialMeanRgbDifference": 7.315416666666667,
+  "grainBackgroundMeanRgbDifference": 0,
+  "repeatedFrameSha256": "b48e6d9ab8b17cda724c67e49e33dbda49ffd98767fa6c83370cedb10e63f299",
+  "sameFrameRepeatIdentical": true,
+  "frameVariationObserved": true,
+  "seedVariationObserved": true,
+  "phoneAssetStaged": true,
+  "phoneAssetChangeInvalidatedReview": true,
+  "orbitalCameraFromFrame": true,
+  "orbitalMotionMeanRgbDifference": 10.062715617715618,
+  "heroStillSha256": "9d6c543a35319ab6d7e2e4874f3e5d0a3a5929e362cf2dcbc453834936d2c447",
+  "audioComparison": {
+    "passed": true,
+    "minimumCorrelation": 0.9999658560014,
+    "maximumAbsoluteLagMs": 0
+  },
+  "scope": "Authored phone/panels/orbit and isolated bloom/chromatic/grain tests, not the original creator assets or a premium-equivalence approval",
+  "recordedAtUtc": "2026-11-03T15:19:12.081Z",
+  "mp4": {
+    "statusAtTimeOfRender": "passed",
+    "sha256": "6914eff6a2b080224dc78ef3a7af49a9a05191415a4dc01907d955647e117305",
+    "duration": 6.016,
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "pixelFormat": "yuv420p",
+      "frames": "180"
+    },
+    "audio": {
+      "codec": "aac",
+      "sampleRate": "48000",
+      "channels": 2,
+      "peakDb": -6.4,
+      "meanDb": -25.1
+    }
+  },
+  "libraries": {
+    "@react-three/postprocessing": "2.19.1",
+    "postprocessing": "6.39.6"
+  }
+}

@@ -32,6 +32,7 @@ export function mediaReferences(job) {
   ];
   for (const m of job.motions || []) {
     if (m.asset) refs.push(m.asset);
+    if (m.scene?.phone?.asset) refs.push(m.scene.phone.asset);
     for (const key of ['items', 'panels', 'layers'])
       for (const item of m[key] || [])
         if (item && typeof item === 'object' && item.asset) refs.push(item.asset);
@@ -53,6 +54,7 @@ export function mapMedia(job, mapper) {
   for (const s of props.sfx || []) s.source = mapping.get(s.source);
   for (const m of props.motions || []) {
     if (m.asset) m.asset = mapping.get(m.asset);
+    if (m.scene?.phone?.asset) m.scene.phone.asset = mapping.get(m.scene.phone.asset);
     for (const key of ['items', 'panels', 'layers'])
       for (const item of m[key] || [])
         if (item && typeof item === 'object' && item.asset) item.asset = mapping.get(item.asset);

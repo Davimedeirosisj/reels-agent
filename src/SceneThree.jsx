@@ -4,7 +4,9 @@ import { useLoader, useThree } from '@react-three/fiber';
 import { staticFile } from 'remotion';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { camera3dAt } from './scene3d.mjs';
+import { sceneCameraAt } from './scene3d.mjs';
+import { SceneFinish } from './SceneFinish';
+import { PhoneThree } from './PhoneThree';
 const source = (asset) =>
   /^(data:|https?:)/.test(asset) ? asset : staticFile(asset.replace(/^\//, ''));
 function CameraRig({ state }) {
@@ -166,6 +168,9 @@ function Primitive({ node }) {
         color={node.color || '#d4b376'}
         metalness={node.metalness ?? 0.15}
         roughness={node.roughness ?? 0.4}
+        emissive={node.emissive || '#000000'}
+        emissiveIntensity={node.emissiveIntensity ?? 0}
+        toneMapped={node.toneMapped ?? true}
       />
     </mesh>
   );
@@ -184,7 +189,7 @@ export function SceneThree({
   const width = Math.round(position?.width || 880),
     height = Math.round(position?.height || 760),
     time = frame / fps,
-    camera = camera3dAt(scene.camera, time),
+    camera = sceneCameraAt(scene, time),
     rotation = scene.rotation || [0.08, -0.25, 0],
     spin = scene.spin ?? 0.12;
   const lights = scene.lights || [
@@ -223,6 +228,7 @@ export function SceneThree({
           }),
         )}
         <group rotation={[rotation[0], rotation[1] + time * spin, rotation[2]]}>
+          {scene.phone && <PhoneThree phone={scene.phone} accent={accent} />}
           {variant === 'product3d' &&
             (asset ? (
               <ImportedModel asset={asset} />
@@ -243,6 +249,7 @@ export function SceneThree({
             <shadowMaterial opacity={0.28} />
           </mesh>
         )}
+        <SceneFinish config={scene.postprocessing} frame={frame} width={width} height={height} />
       </ThreeCanvas>
     </div>
   );

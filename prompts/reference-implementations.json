@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "note": "Implementações próprias de técnicas; não são reprodução dos assets, código ou direção visual integral do criador.",
+  "entries": [
+    {
+      "id": "M016",
+      "sourceUrl": "https://createmotion.io/motions/x-2113574013523898660/",
+      "status": "techniques-implemented",
+      "originalReproduced": false,
+      "components": ["ui3d", "light3d", "product3d"],
+      "techniques": [
+        "real-3d-phone-and-provided-screen",
+        "positionable-panels",
+        "frame-derived-orbit",
+        "key-and-rim-lights",
+        "transparent-bloom",
+        "chromatic-aberration",
+        "seeded-perceptual-grain"
+      ],
+      "code": [
+        "src/PhoneThree.jsx",
+        "src/SceneThree.jsx",
+        "src/SceneFinish.jsx",
+        "src/scene3d.mjs",
+        "src/postprocessing.mjs"
+      ],
+      "test": "tests/postprocessing-integration.mjs",
+      "evidence": "docs/validation/postprocessing-results.json",
+      "guide": "docs/ETAPA-M016-E-ACABAMENTO-3D.md",
+      "limitations": [
+        "Original creator screens and assets are not included",
+        "Premium visual equivalence requires direct reference comparison",
+        "Repeatability measured on the configured Windows/Chrome/ANGLE environment"
+      ]
+    }
+  ]
+}

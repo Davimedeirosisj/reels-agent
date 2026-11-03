@@ -67,4 +67,6 @@ A aprovação fica vinculada à EDL, aos bytes das mídias e à composição. Al
 
 A composição também inclui o lockfile e o código do motor/revisão na assinatura. Fins de linha de Windows e Unix são normalizados. Consulte [Cor, 3D e revisão](ETAPA-COR-3D-E-REVISAO.md) para `color-plan`, matrizes por tomada, `maxLines`, modelos GLB e configuração das cenas Three.js.
 
+Para telefone/tela fornecida, câmera orbital e acabamento opcional de cenas 3D, veja [M016 e acabamento](ETAPA-M016-E-ACABAMENTO-3D.md). `node tests/postprocessing-integration.mjs` renderiza um MP4 e mede individualmente brilho, transparência, separação de cor, grão e repetibilidade. Os efeitos são por cena; a seleção depende do conteúdo e das referências.
+
 Saídas: `transcript.json`, `edit_decisions.json`, `preview.mp4`, `captions.srt`, `captions.vtt`, `review.html`, `quality_report.md`, JSON de validação e `final.mp4` após aprovação. SRT/WebVTT são gerados mesmo com a legenda gravada desativada; a faixa do player da revisão pode ser ativada pelo controle de legendas. O fallback FFmpeg anterior continua em `tools/reels_pipeline.py`; a linha do tempo atual e a revisão estão em `tools/engine.mjs`.

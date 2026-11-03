@@ -1,3 +1,4 @@
+import { resolvePostprocessing } from './postprocessing.mjs';
 export const SCENE3D_KINDS = ['product3d', 'ui3d', 'light3d'];
 const finite = (x) => typeof x === 'number' && Number.isFinite(x);
 const vector = (v) => Array.isArray(v) && v.length === 3 && v.every(finite);
@@ -40,10 +41,51 @@ export function validateScene3d(event) {
   if (!SCENE3D_KINDS.includes(event.kind)) return [];
   const scene = event.scene || {},
     errors = [];
+  try {
+    resolvePostprocessing(scene.postprocessing);
+  } catch (error) {
+    errors.push(error.message);
+  }
   if (scene.rotation !== undefined && !vector(scene.rotation))
     errors.push('Rotação da cena 3D inválida');
   if (scene.spin !== undefined && !finite(scene.spin))
     errors.push('Velocidade angular 3D inválida');
+  if (scene.phone !== undefined) {
+    const phone = scene.phone;
+    if (
+      event.kind !== 'ui3d' ||
+      !phone ||
+      typeof phone !== 'object' ||
+      Array.isArray(phone) ||
+      (!phone.asset && !phone.label)
+    )
+      errors.push('Telefone 3D requer cena ui3d e asset ou label explícito');
+    for (const key of ['asset', 'label'])
+      if (phone?.[key] !== undefined && (typeof phone[key] !== 'string' || !phone[key].trim()))
+        errors.push(`Telefone 3D: ${key} precisa de texto não vazio`);
+    for (const key of ['position', 'rotation', 'scale'])
+      if (phone?.[key] !== undefined && !vector(phone[key]))
+        errors.push(`Telefone 3D: ${key} inválido`);
+  }
+  if (scene.orbit !== undefined) {
+    const orbit = scene.orbit;
+    if (!orbit || typeof orbit !== 'object' || Array.isArray(orbit))
+      errors.push('Órbita 3D inválida');
+    else {
+      if (scene.camera?.length)
+        errors.push('Escolha câmera por keyframes ou órbita, sem sobreposição');
+      if (
+        orbit.radius !== undefined &&
+        (!finite(orbit.radius) || orbit.radius < 0.5 || orbit.radius > 100)
+      )
+        errors.push('Raio orbital inválido');
+      for (const key of ['elevation', 'angle', 'speed'])
+        if (orbit[key] !== undefined && !finite(orbit[key])) errors.push(`Órbita: ${key} inválido`);
+      if (orbit.target !== undefined && !vector(orbit.target)) errors.push('Alvo orbital inválido');
+      if (orbit.fov !== undefined && (!finite(orbit.fov) || orbit.fov < 10 || orbit.fov > 120))
+        errors.push('FOV orbital inválido');
+    }
+  }
   if (!event.evidence) errors.push('Cena 3D requer evidence sobre o conceito/asset ilustrado');
   if (event.asset && !/\.glb$/i.test(event.asset))
     errors.push('Modelo 3D deve ser GLB autocontido');
@@ -69,6 +111,18 @@ export function validateScene3d(event) {
     for (const key of ['position', 'rotation', 'scale'])
       if (node[key] !== undefined && !vector(node[key])) errors.push(`Node 3D: ${key} inválido`);
     if (!validGeometryArguments(node)) errors.push('Argumentos de geometria inválidos');
+    for (const key of ['metalness', 'roughness'])
+      if (node[key] !== undefined && (!finite(node[key]) || node[key] < 0 || node[key] > 1))
+        errors.push(`Material 3D: ${key} precisa ficar entre 0 e 1`);
+    if (
+      node.emissiveIntensity !== undefined &&
+      (!finite(node.emissiveIntensity) ||
+        node.emissiveIntensity < 0 ||
+        node.emissiveIntensity > 100)
+    )
+      errors.push('Emissão de luz 3D inválida');
+    if (node.toneMapped !== undefined && typeof node.toneMapped !== 'boolean')
+      errors.push('toneMapped deve ser booleano');
   }
   let previous = -1;
   for (const key of scene.camera || []) {
@@ -119,6 +173,22 @@ export function camera3dAt(keys, time) {
     position: a.position.map((v, i) => blend(v, b.position[i])),
     target: (a.target || [0, 0, 0]).map((v, i) => blend(v, (b.target || [0, 0, 0])[i])),
     fov: blend(a.fov || 42, b.fov || 42),
+  };
+}
+export function sceneCameraAt(scene, time) {
+  if (!scene.orbit) return camera3dAt(scene.camera, time);
+  const orbit = scene.orbit,
+    target = orbit.target || [0, 0, 0];
+  const angle = (orbit.angle ?? 0.25) + time * (orbit.speed ?? 0.12);
+  const radius = orbit.radius ?? 6;
+  return {
+    position: [
+      target[0] + Math.sin(angle) * radius,
+      target[1] + (orbit.elevation ?? 0.8),
+      target[2] + Math.cos(angle) * radius,
+    ],
+    target,
+    fov: orbit.fov ?? 42,
   };
 }
 export function inspectGlb(buffer) {

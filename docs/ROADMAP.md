@@ -20,6 +20,7 @@ Não guardar tokens de API no repositório. Verificar licenças e scripts antes 
 - [x] Validar PNG/BT.709, legendas, relógios de B-roll e ducking no render
 - [x] Integrar preparo automático, segmentação e suavização com fluxo óptico; pregação de 4321 frames processada, com revisão de bordas ainda aberta
 - [x] Renderizar modelos GLB e geometria própria com luzes/câmera Three.js
+- [x] Renderizar telefone/tela e painéis, órbita e acabamento 3D opcional com bloom, aberração e grão repetível por frame
 - [x] Implementar e testar cor por tomada, duas linhas medidas e revisão editável de transcrição
 - [x] Corrigir transcrição por tempo/ocorrência, rejeitar ambiguidades e proteger os arquivos de entrada na criação do job
 - [x] Sincronizar motions por frase/ocorrência e preservar entradas na exportação; testar intervalos no MP4

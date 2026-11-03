@@ -1,10 +1,10 @@
 {
   "clientDate": "2026-11-03",
-  "recordedAtUtc": "2026-11-03T12:16:58.165Z",
+  "recordedAtUtc": "2026-11-03T15:19:12.094Z",
   "scope": "Synthetic editing fixtures plus authorized real-video technical foreground samples; aggregates only",
   "demo": {
     "statusAtTimeOfRender": "passed",
-    "sha256": "319e5588ddfde401db79384236ea1c3cdfeccf526820dfdc0b99a7cee605bb53",
+    "sha256": "b78477125846d235354a6fbcc1deea5a144c04083e0e1d1f9c7a7790a6c209ff",
     "duration": 9.685,
     "video": {
       "codec": "h264",
@@ -23,7 +23,7 @@
   },
   "showcase": {
     "statusAtTimeOfRender": "passed",
-    "sha256": "6c8da10763f903d00a5cffeffbc476fd827f00cb64b7ccb0972f1bb27db4ce53",
+    "sha256": "e0bc474a2d97415d00ae2bc348dca99e9954e5ce4dcd5266d39e673e843e4346",
     "duration": 100.8,
     "video": {
       "codec": "h264",
@@ -43,8 +43,8 @@
   "contactSheets": {
     "demo": {
       "file": "edit-contact-sheet.jpg",
-      "sha256": "b35ddd30493a884ee064490686bdd82fb81a3d38d618917dec5852a935ed09e0",
-      "sourceMp4Sha256": "319e5588ddfde401db79384236ea1c3cdfeccf526820dfdc0b99a7cee605bb53",
+      "sha256": "0558718b4ef28a23c9d89ef46e800f1bcfc11dfd989eaefcef17ea78ce3c3ffe",
+      "sourceMp4Sha256": "b78477125846d235354a6fbcc1deea5a144c04083e0e1d1f9c7a7790a6c209ff",
       "sourceFrames": [
         41,
         82,
@@ -57,8 +57,8 @@
     },
     "showcase": {
       "file": "motion-contact-sheet.jpg",
-      "sha256": "17ee2cc4badfea9db1b27f02b0d4afe29deca02c4e360730a94ba2f64eb8c1eb",
-      "sourceMp4Sha256": "6c8da10763f903d00a5cffeffbc476fd827f00cb64b7ccb0972f1bb27db4ce53",
+      "sha256": "af5c12bb2e13342cdbbf22f6ce7a9db9df6d7352e0c8b4d6ffd62c016a24ef45",
+      "sourceMp4Sha256": "e0bc474a2d97415d00ae2bc348dca99e9954e5ce4dcd5266d39e673e843e4346",
       "sourceFrames": [
         42,
         96,
@@ -118,11 +118,21 @@
         3012
       ],
       "syntheticOnly": true
+    },
+    "postprocessingHero": {
+      "file": "postprocessing-hero.png",
+      "sha256": "9d6c543a35319ab6d7e2e4874f3e5d0a3a5929e362cf2dcbc453834936d2c447",
+      "sourceMp4Sha256": "6914eff6a2b080224dc78ef3a7af49a9a05191415a4dc01907d955647e117305",
+      "sourceFrames": [
+        60
+      ],
+      "syntheticOnly": true,
+      "source": "Same composition/job, independent PNG render at frame 60"
     }
   },
   "regression": {
     "passed": true,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
     "outputHash": "bc6704b3bd0f9d04b355a287c8dad1d0dd33fc8e09ee67c5fada90112a5f9f93",
     "colors": [
       [
@@ -153,7 +163,7 @@
   },
   "composition": {
     "passed": true,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
     "outputHash": "31eae2b0e49dc9b187938aad41c3ea9db6dd18dd27a5496d7bcf897f5b33f6c1",
     "colors": [
       [
@@ -184,11 +194,11 @@
     "scope": "Actual engine CLI rejects source/job collisions before media probing or writes",
     "collisionsRejected": 11,
     "allOriginalBytesPreserved": true,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472"
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6"
   },
   "faceLocation": {
     "passed": true,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
     "scope": "Authorized short real sample; model inference and rectangle collision detection only, not continuous face or raster approval",
     "decodedFrames": 120,
     "sampledFrames": 16,
@@ -217,7 +227,7 @@
     "scope": "Authorized real-video technical sample only; not editorial approval or proof of all mask edges",
     "seconds": 4,
     "frames": 120,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
     "width": 1080,
     "height": 1920,
     "alphaSample": {
@@ -232,7 +242,7 @@
     "meanRgbErrorInOpaqueCore": 6.030922763370581,
     "meanRgbErrorInTransparentBackground": 0.45825115055884286,
     "editedSourceSha256": "7c7abdf6b8758202306d5de05cce2313eaba4e8a1b1fc70d3ec4b28cdfaac951",
-    "foregroundSha256": "2014a21a8aa4c8307ab1d95cd3393f972dd7ebcb78bf3617a0f5eb4f8d50681e",
+    "foregroundSha256": "c98b53bfc1e5b86a2846f4377c80a7a23f1976b30992be6c1a5a96003f27c289",
     "previewSha256": "21b5665d180274669fa3f1609fe026999bf7bcd08a8e2727f86aaf13bed80398",
     "staleGeometryRejected": true,
     "manualEdgeReviewRequired": true,
@@ -247,20 +257,20 @@
   "foregroundCache": {
     "passed": true,
     "scope": "Authorized short sample; reuses validated edited-source after a missing mask manifest and changed encoder quality",
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
     "frames": 120,
     "editedSourceReused": true,
     "editedSourceSha256": "7c7abdf6b8758202306d5de05cce2313eaba4e8a1b1fc70d3ec4b28cdfaac951",
     "editedSourceModificationTimeUnchanged": true,
     "regeneratedMaskQualityCrf": 18,
-    "regeneratedMaskSha256": "6994fc27d52b38a5f7b1a069d8a4b7fcb9c5d84549428665c4dcb4439f186de7",
+    "regeneratedMaskSha256": "06c31e32fb59bf46657d2910f16e3746c9e071138ac42e70b4db06172885ba6f",
     "fullAlphaDecodePassed": true,
     "secondPreparationFullyReused": true
   },
   "foregroundTimeline": {
     "passed": true,
     "scope": "Authorized technical six-second cut/zoom/alpha sample; not an editorial proposal or approval",
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
     "clips": 2,
     "frames": 180,
     "cutFrame": 90,
@@ -471,7 +481,7 @@
   "speechAnchor": {
     "passed": true,
     "synthetic": true,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
     "scope": "Synthetic TTS/ASR phrase anchor tested in encoded MP4; not proof of semantic accuracy of a real sermon transcript",
     "frames": "150",
     "sourceTrimSeconds": 5.5,
@@ -509,7 +519,7 @@
   "accessibilityPace": {
     "passed": true,
     "synthetic": true,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
     "outputHash": "d45d49c71f29ee7cdd885589c4360d5e63dd8d8fc117430ec7523398d9b70bac",
     "frames": 150,
     "nominalWorstCaseContrast": 21,
@@ -542,10 +552,40 @@
     },
     "scope": "Caption legibility/sidecar/visual pace fixture; not complete accessibility certification, sound description or editorial approval"
   },
+  "postprocessing": {
+    "passed": true,
+    "syntheticOnly": true,
+    "referenceId": "M016",
+    "exactReferenceReproduction": false,
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
+    "outputHash": "6914eff6a2b080224dc78ef3a7af49a9a05191415a4dc01907d955647e117305",
+    "frames": 180,
+    "disabledIdentical": true,
+    "additionalHaloPixels": 20415,
+    "emptyCornerMeanRgbDifference": 0,
+    "chromaticRedBlueSeparationPixels": -8.792047586311014,
+    "grainMaterialMeanRgbDifference": 7.315416666666667,
+    "grainBackgroundMeanRgbDifference": 0,
+    "repeatedFrameSha256": "b48e6d9ab8b17cda724c67e49e33dbda49ffd98767fa6c83370cedb10e63f299",
+    "sameFrameRepeatIdentical": true,
+    "frameVariationObserved": true,
+    "seedVariationObserved": true,
+    "phoneAssetStaged": true,
+    "phoneAssetChangeInvalidatedReview": true,
+    "orbitalCameraFromFrame": true,
+    "orbitalMotionMeanRgbDifference": 10.062715617715618,
+    "heroStillSha256": "9d6c543a35319ab6d7e2e4874f3e5d0a3a5929e362cf2dcbc453834936d2c447",
+    "audioComparison": {
+      "passed": true,
+      "minimumCorrelation": 0.9999658560014,
+      "maximumAbsoluteLagMs": 0
+    },
+    "scope": "Authored phone/panels/orbit and isolated bloom/chromatic/grain tests, not the original creator assets or a premium-equivalence approval"
+  },
   "review": {
     "passed": true,
     "syntheticBindingOnly": true,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
     "checks": [
       "HTML correction controls ran in Chrome",
       "Approval blocked while transcript edits are pending",
@@ -561,7 +601,7 @@
     "passed": true,
     "syntheticFixtureOnly": true,
     "realSermonApproved": false,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
     "finalSha256": "bc6704b3bd0f9d04b355a287c8dad1d0dd33fc8e09ee67c5fada90112a5f9f93",
     "frames": "60",
     "checks": [
@@ -571,7 +611,7 @@
       "Changed editorial job rejected after approval"
     ]
   },
-  "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+  "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
   "fingerprintScheme": "normalized-source-and-lock-v2",
   "latestSourceValidatedByRender": true,
   "pending": "Full individual recipe/reference coverage and human editorial approval remain incomplete. This file records synthetic fixtures and technical foreground samples; real-sermon-results.json records the full real preview separately.",

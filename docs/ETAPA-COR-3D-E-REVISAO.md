@@ -51,7 +51,7 @@ Os eventos `product3d`, `ui3d` e `light3d` compartilham um motor configurável. 
 
 O render usa ANGLE quando há cenas 3D; `REELS_GL` pode selecionar outro backend compatível. A configuração comprovada é Windows/Chrome Headless Shell, Three.js 0.187.0, Fiber 8.18.0 e Remotion/three 4.0.540 com React 18.3.1. Há aviso de descontinuação de `THREE.Clock` vindo do Fiber; os testes de render e repetibilidade passaram.
 
-As páginas [M013, Beginning-Willow-801](https://createmotion.io/motions/reddit-1vj7s89/) e [M016, Yaori](https://createmotion.io/motions/x-2113574013523898660/) foram consultadas como referências de modelagem, iluminação e profundidade. Os componentes e assets de teste são próprios. O produto cosmético e as telas específicas dos autores não foram reproduzidos; bloom, aberração cromática e grão citados em M016 ainda não estão integrados.
+As páginas [M013, Beginning-Willow-801](https://createmotion.io/motions/reddit-1vj7s89/) e [M016, Yaori](https://createmotion.io/motions/x-2113574013523898660/) foram consultadas como referências de modelagem, iluminação e profundidade. Os componentes e assets de teste são próprios. O produto cosmético e as telas específicas dos autores não foram reproduzidos. A integração posterior de telefone/painéis, órbita, bloom, aberração e grão está documentada em [M016 e acabamento](ETAPA-M016-E-ACABAMENTO-3D.md).
 
 ## Revisão e evidências
 

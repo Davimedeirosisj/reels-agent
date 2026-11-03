@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { recipes } from '../src/recipes.mjs';
 import { root, read, write } from './engine.mjs';
+import { rendererFingerprint } from './fingerprint.mjs';
 const text = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const own = [...text('prompts/100-motion-graphics.md').matchAll(/^### (\d{3}) — (.+)$/gm)].map(
   (m) => ({
@@ -14,6 +15,21 @@ const own = [...text('prompts/100-motion-graphics.md').matchAll(/^### (\d{3}) �
 );
 const motifAttributionPath = path.join(root, 'prompts/motif-attribution.json');
 const motifAttribution = fs.existsSync(motifAttributionPath) ? read(motifAttributionPath) : null;
+const implementations = read(path.join(root, 'prompts/reference-implementations.json'));
+const currentFingerprint = rendererFingerprint(root);
+const implementationFor = (id) => {
+  const entry = implementations.entries.find((item) => item.id === id);
+  if (!entry) return undefined;
+  const file = path.join(root, entry.evidence);
+  const evidence = fs.existsSync(file) ? read(file) : null;
+  return {
+    ...entry,
+    verification:
+      evidence?.passed && evidence.sourceFingerprint === currentFingerprint
+        ? 'current-render-tested-techniques'
+        : 'render-evidence-missing-or-historical',
+  };
+};
 const motif = [
   ...text('prompts/motif-45-referencias.md').matchAll(
     /^(\d+)\. \*\*(.+?)\*\*.*?categoria \*\*(.+?)\*\*/gm,
@@ -25,6 +41,7 @@ const motif = [
   sourceUrl: 'https://createmotion.io/prompts/',
   status: 'reference-indexed',
   originalReproduced: false,
+  implementation: implementationFor(`M${m[1].padStart(3, '0')}`),
   ...(motifAttribution?.entries.find((r) => r.id === `M${m[1].padStart(3, '0')}`) || {}),
   individualAttribution: motifAttribution?.entries.find((r) => r.id === `M${m[1].padStart(3, '0')}`)
     ?.individualPromptAvailable
@@ -119,7 +136,8 @@ fs.writeFileSync(
     '## Fontes externas e visuais',
     result.external
       .map(
-        (x) => `- ${x.id}: ${x.title} — ${x.sourceUrl || x.source_url}; reprodução não executada.`,
+        (x) =>
+          `- ${x.id}: ${x.title} — ${x.sourceUrl || x.source_url}; reprodução não executada.${x.implementation ? ` Implementação própria de técnicas: ${x.implementation.verification}; ver ${x.implementation.guide}.` : ''}`,
       )
       .join('\n'),
     visual

@@ -83,6 +83,7 @@ for (const [name, folder] of [
   ['three', 'scene3d-regression'],
   ['speechAnchor', 'speech-anchor-regression'],
   ['accessibilityPace', 'accessibility-pace-regression'],
+  ['postprocessing', 'postprocessing-regression'],
 ]) {
   const place = path.join('output', folder),
     assertions = read(path.join(root, place, 'assertions.json'));
@@ -95,6 +96,16 @@ for (const [name, folder] of [
   additional[name] = assertions;
 }
 const correctedAnchor = additional.speechAnchor.correctedCaptionRoundtrip;
+if (
+  additional.postprocessing.sourceFingerprint !== currentFingerprint ||
+  fileDigest(path.join(root, 'output/postprocessing-regression/hero.png')) !==
+    additional.postprocessing.heroStillSha256 ||
+  fileDigest(path.join(root, 'output/postprocessing-regression/grain-a.png')) !==
+    additional.postprocessing.repeatedFrameSha256 ||
+  fileDigest(path.join(root, 'output/postprocessing-regression/grain-repeat.png')) !==
+    additional.postprocessing.repeatedFrameSha256
+)
+  throw new Error('Postprocessing frame evidence is stale');
 const correctedFolder = 'output/speech-anchor-regression/corrected';
 if (
   !correctedAnchor?.passed ||
@@ -205,6 +216,39 @@ write(path.join(dir, 'synthetic-contact-provenance.json'), {
   fixtureIsSermon: false,
   visuallyInspected: false,
   contacts,
+});
+const postprocessingJob = read(
+  path.join(root, 'output/postprocessing-regression/edit_decisions.json'),
+);
+if (postprocessingJob.fixture?.isSermon !== false)
+  throw new Error('Postprocessing hero must be the authored synthetic fixture');
+fs.copyFileSync(
+  path.join(root, 'output/postprocessing-regression/hero.png'),
+  path.join(dir, 'postprocessing-hero.png'),
+);
+contacts.postprocessingHero = {
+  file: 'postprocessing-hero.png',
+  sha256: additional.postprocessing.heroStillSha256,
+  sourceMp4Sha256: additional.postprocessing.outputHash,
+  sourceFrames: [60],
+  syntheticOnly: true,
+};
+// The hero above is a separate still render of frame 60, not a decoded MP4
+// contact. State that distinction in the provenance instead of implying it.
+contacts.postprocessingHero.source = 'Same composition/job, independent PNG render at frame 60';
+const provenance = read(path.join(dir, 'synthetic-contact-provenance.json'));
+provenance.contacts = contacts;
+write(path.join(dir, 'synthetic-contact-provenance.json'), provenance);
+write(path.join(dir, 'postprocessing-results.json'), {
+  ...additional.postprocessing,
+  recordedAtUtc: new Date().toISOString(),
+  mp4: brief(read(path.join(root, 'output/postprocessing-regression/preview-validation.json'))),
+  libraries: Object.fromEntries(
+    ['@react-three/postprocessing', 'postprocessing'].map((name) => [
+      name,
+      read(path.join(root, 'node_modules', name, 'package.json')).version,
+    ]),
+  ),
 });
 write(path.join(dir, 'render-results.json'), {
   clientDate: new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo' }).format(
