@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { rendererFingerprint, FINGERPRINT_SCHEME } from './fingerprint.mjs';
 import { root, read, write, fileDigest } from './engine.mjs';
 const dir = path.join(root, 'docs', 'validation');
@@ -145,6 +146,66 @@ for (const [name, file] of Object.entries(files)) {
   const actual = fileDigest(path.join(root, file));
   if (actual !== expected.sha256) throw new Error(`Hash divergiu: ${name}`);
 }
+// Recreate contacts from these exact validated MP4s. Older contacts must never
+// be silently reused after a new render, even if the fixture has the same name.
+const demoJob = read(path.join(root, demoFolder, 'edit_decisions.json'));
+if (demoJob.fixture?.isSermon !== false)
+  throw new Error('Public contact sheets require the explicitly synthetic demo fixture');
+const components = read(path.join(root, 'output/showcase/components.json'));
+const contacts = {};
+for (const [name, frames, columns, tileWidth, target] of [
+  [
+    'demo',
+    Array.from({ length: 6 }, (_, i) => Math.floor(((i + 1) * Number(demo.video.nb_frames)) / 7)),
+    3,
+    270,
+    'edit-contact-sheet.jpg',
+  ],
+  [
+    'showcase',
+    components.items.map((item) => item.inspectionFrame),
+    8,
+    180,
+    'motion-contact-sheet.jpg',
+  ],
+]) {
+  const select = frames.map((frame) => `eq(n,${frame})`).join('+');
+  const result = spawnSync(
+    'ffmpeg',
+    [
+      '-y',
+      '-v',
+      'error',
+      '-i',
+      path.join(root, files[name]),
+      '-vf',
+      `select='${select}',scale=${tileWidth}:-1,tile=${columns}x${Math.ceil(frames.length / columns)}`,
+      '-frames:v',
+      '1',
+      '-q:v',
+      '2',
+      path.join(dir, target),
+    ],
+    { encoding: 'utf8', windowsHide: true },
+  );
+  if (result.status !== 0) throw new Error('Contact extraction failed: ' + result.stderr);
+  contacts[name] = {
+    file: target,
+    sha256: fileDigest(path.join(dir, target)),
+    sourceMp4Sha256: name === 'demo' ? demo.sha256 : showcase.sha256,
+    sourceFrames: frames,
+    syntheticOnly: true,
+  };
+}
+write(path.join(dir, 'synthetic-contact-provenance.json'), {
+  scope: 'Synthetic FFmpeg test bars/TTS and procedural motion fixtures only',
+  sourceFingerprint: currentFingerprint,
+  factory: 'tools/create_demo.ps1',
+  factorySha256: fileDigest(path.join(root, 'tools/create_demo.ps1')),
+  fixtureIsSermon: false,
+  visuallyInspected: false,
+  contacts,
+});
 write(path.join(dir, 'render-results.json'), {
   clientDate: new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo' }).format(
     new Date(),
@@ -154,6 +215,7 @@ write(path.join(dir, 'render-results.json'), {
     'Synthetic editing fixtures plus authorized real-video technical foreground samples; aggregates only',
   demo: brief(demo),
   showcase: brief(showcase),
+  contactSheets: contacts,
   regression,
   composition,
   ...additional,
@@ -178,11 +240,6 @@ fs.copyFileSync(
   path.join(root, 'output/showcase/components.json'),
   path.join(dir, 'component-intervals.json'),
 );
-for (const [folder, target] of [
-  ['showcase', 'motion-contact-sheet.jpg'],
-  [path.relative(path.join(root, 'output'), path.join(root, demoFolder)), 'edit-contact-sheet.jpg'],
-])
-  fs.copyFileSync(path.join(root, 'output', folder, 'contact-sheet.jpg'), path.join(dir, target));
 console.log(
   'Evidence archived with matching preview source fingerprint and MP4 hashes. Full editorial coverage remains open.',
 );

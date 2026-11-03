@@ -1,10 +1,10 @@
 {
   "clientDate": "2026-11-03",
-  "recordedAtUtc": "2026-11-03T11:08:27.353Z",
+  "recordedAtUtc": "2026-11-03T12:16:58.165Z",
   "scope": "Synthetic editing fixtures plus authorized real-video technical foreground samples; aggregates only",
   "demo": {
     "statusAtTimeOfRender": "passed",
-    "sha256": "b78477125846d235354a6fbcc1deea5a144c04083e0e1d1f9c7a7790a6c209ff",
+    "sha256": "319e5588ddfde401db79384236ea1c3cdfeccf526820dfdc0b99a7cee605bb53",
     "duration": 9.685,
     "video": {
       "codec": "h264",
@@ -23,7 +23,7 @@
   },
   "showcase": {
     "statusAtTimeOfRender": "passed",
-    "sha256": "682570bd99579283ee1be23a9ae135970e78f2920a9ac2558ddef002d4da6eb2",
+    "sha256": "6c8da10763f903d00a5cffeffbc476fd827f00cb64b7ccb0972f1bb27db4ce53",
     "duration": 100.8,
     "video": {
       "codec": "h264",
@@ -40,9 +40,89 @@
       "meanDb": -40.6
     }
   },
+  "contactSheets": {
+    "demo": {
+      "file": "edit-contact-sheet.jpg",
+      "sha256": "b35ddd30493a884ee064490686bdd82fb81a3d38d618917dec5852a935ed09e0",
+      "sourceMp4Sha256": "319e5588ddfde401db79384236ea1c3cdfeccf526820dfdc0b99a7cee605bb53",
+      "sourceFrames": [
+        41,
+        82,
+        124,
+        165,
+        207,
+        248
+      ],
+      "syntheticOnly": true
+    },
+    "showcase": {
+      "file": "motion-contact-sheet.jpg",
+      "sha256": "17ee2cc4badfea9db1b27f02b0d4afe29deca02c4e360730a94ba2f64eb8c1eb",
+      "sourceMp4Sha256": "6c8da10763f903d00a5cffeffbc476fd827f00cb64b7ccb0972f1bb27db4ce53",
+      "sourceFrames": [
+        42,
+        96,
+        150,
+        204,
+        258,
+        312,
+        366,
+        420,
+        474,
+        528,
+        582,
+        636,
+        690,
+        744,
+        798,
+        852,
+        906,
+        960,
+        1014,
+        1068,
+        1122,
+        1176,
+        1230,
+        1284,
+        1338,
+        1392,
+        1446,
+        1500,
+        1554,
+        1608,
+        1662,
+        1716,
+        1770,
+        1824,
+        1878,
+        1932,
+        1986,
+        2040,
+        2094,
+        2148,
+        2202,
+        2256,
+        2310,
+        2364,
+        2418,
+        2472,
+        2526,
+        2580,
+        2634,
+        2688,
+        2742,
+        2796,
+        2850,
+        2904,
+        2958,
+        3012
+      ],
+      "syntheticOnly": true
+    }
+  },
   "regression": {
     "passed": true,
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
     "outputHash": "bc6704b3bd0f9d04b355a287c8dad1d0dd33fc8e09ee67c5fada90112a5f9f93",
     "colors": [
       [
@@ -73,7 +153,7 @@
   },
   "composition": {
     "passed": true,
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
     "outputHash": "31eae2b0e49dc9b187938aad41c3ea9db6dd18dd27a5496d7bcf897f5b33f6c1",
     "colors": [
       [
@@ -102,13 +182,13 @@
   "outputProtection": {
     "passed": true,
     "scope": "Actual engine CLI rejects source/job collisions before media probing or writes",
-    "collisionsRejected": 7,
+    "collisionsRejected": 11,
     "allOriginalBytesPreserved": true,
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1"
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472"
   },
   "faceLocation": {
     "passed": true,
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
     "scope": "Authorized short real sample; model inference and rectangle collision detection only, not continuous face or raster approval",
     "decodedFrames": 120,
     "sampledFrames": 16,
@@ -137,7 +217,7 @@
     "scope": "Authorized real-video technical sample only; not editorial approval or proof of all mask edges",
     "seconds": 4,
     "frames": 120,
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
     "width": 1080,
     "height": 1920,
     "alphaSample": {
@@ -152,7 +232,7 @@
     "meanRgbErrorInOpaqueCore": 6.030922763370581,
     "meanRgbErrorInTransparentBackground": 0.45825115055884286,
     "editedSourceSha256": "7c7abdf6b8758202306d5de05cce2313eaba4e8a1b1fc70d3ec4b28cdfaac951",
-    "foregroundSha256": "0ae1f161bfca7ea60e58e35cf01e864d070f3a6d70d942b587446a3a9648660f",
+    "foregroundSha256": "2014a21a8aa4c8307ab1d95cd3393f972dd7ebcb78bf3617a0f5eb4f8d50681e",
     "previewSha256": "21b5665d180274669fa3f1609fe026999bf7bcd08a8e2727f86aaf13bed80398",
     "staleGeometryRejected": true,
     "manualEdgeReviewRequired": true,
@@ -167,20 +247,20 @@
   "foregroundCache": {
     "passed": true,
     "scope": "Authorized short sample; reuses validated edited-source after a missing mask manifest and changed encoder quality",
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
     "frames": 120,
     "editedSourceReused": true,
     "editedSourceSha256": "7c7abdf6b8758202306d5de05cce2313eaba4e8a1b1fc70d3ec4b28cdfaac951",
     "editedSourceModificationTimeUnchanged": true,
     "regeneratedMaskQualityCrf": 18,
-    "regeneratedMaskSha256": "f081045d8221991db78d8170d4adccfa8dcb2d94df7c5dddd8f0582e8c9342c3",
+    "regeneratedMaskSha256": "6994fc27d52b38a5f7b1a069d8a4b7fcb9c5d84549428665c4dcb4439f186de7",
     "fullAlphaDecodePassed": true,
     "secondPreparationFullyReused": true
   },
   "foregroundTimeline": {
     "passed": true,
     "scope": "Authorized technical six-second cut/zoom/alpha sample; not an editorial proposal or approval",
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
     "clips": 2,
     "frames": 180,
     "cutFrame": 90,
@@ -391,7 +471,7 @@
   "speechAnchor": {
     "passed": true,
     "synthetic": true,
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
     "scope": "Synthetic TTS/ASR phrase anchor tested in encoded MP4; not proof of semantic accuracy of a real sermon transcript",
     "frames": "150",
     "sourceTrimSeconds": 5.5,
@@ -413,30 +493,75 @@
       }
     ],
     "outputHash": "24b11de498d4d3c6d93ee6dbfa281b0aadea74bd64a5bcabf321c05a018780f0",
+    "correctedCaptionRoundtrip": {
+      "passed": true,
+      "outputHash": "f8415148f2e87ed804d070d5024509db5615da3b40a3aef383ab7381c38d24fd",
+      "explicitPriorVisualTimesPreserved": true,
+      "editedSegmentWordAlignmentRemoved": true,
+      "approvalStillRequired": true
+    },
     "audioComparison": {
       "passed": true,
       "minimumCorrelation": 0.9999715306353901,
       "maximumAbsoluteLagMs": 0
     }
   },
+  "accessibilityPace": {
+    "passed": true,
+    "synthetic": true,
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "outputHash": "d45d49c71f29ee7cdd885589c4360d5e63dd8d8fc117430ec7523398d9b70bac",
+    "frames": 150,
+    "nominalWorstCaseContrast": 21,
+    "whiteBackground": {
+      "black": 66465,
+      "magenta": 0
+    },
+    "darkBackground": {
+      "black": 55082,
+      "magenta": 0
+    },
+    "adjustedDecorationStart": 4.2,
+    "flashLumaSamples": {
+      "during": 55,
+      "after": 17.333333333333332
+    },
+    "nativeSrtDecodePassed": true,
+    "nativeBrowserTrack": {
+      "loaded": true,
+      "cues": 2,
+      "firstStart": 0,
+      "inlineBlob": true
+    },
+    "srtSha256": "49857024149484adede25a49a12094c0c8143bb50648c52403054b41ac9bc414",
+    "vttSha256": "789ef049e3da8a33861eecf115d34203c440b354edaa5c5f88b90ca2acce7a43",
+    "audioComparison": {
+      "passed": true,
+      "minimumCorrelation": 0.9999631450730527,
+      "maximumAbsoluteLagMs": 0
+    },
+    "scope": "Caption legibility/sidecar/visual pace fixture; not complete accessibility certification, sound description or editorial approval"
+  },
   "review": {
     "passed": true,
     "syntheticBindingOnly": true,
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
     "checks": [
       "HTML correction controls ran in Chrome",
       "Approval blocked while transcript edits are pending",
       "Corrected job clears old approval and word alignment",
       "Real phrase timestamp retained",
       "Review binds only the unchanged preview",
-      "Seek time remapped from the source EDL"
+      "Seek time remapped from the source EDL",
+      "Edited speech anchors require realignment by default",
+      "Explicit checkbox keeps prior visual times without word timing invention"
     ]
   },
   "approval": {
     "passed": true,
     "syntheticFixtureOnly": true,
     "realSermonApproved": false,
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
     "finalSha256": "bc6704b3bd0f9d04b355a287c8dad1d0dd33fc8e09ee67c5fada90112a5f9f93",
     "frames": "60",
     "checks": [
@@ -446,7 +571,7 @@
       "Changed editorial job rejected after approval"
     ]
   },
-  "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+  "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
   "fingerprintScheme": "normalized-source-and-lock-v2",
   "latestSourceValidatedByRender": true,
   "pending": "Full individual recipe/reference coverage and human editorial approval remain incomplete. This file records synthetic fixtures and technical foreground samples; real-sermon-results.json records the full real preview separately.",

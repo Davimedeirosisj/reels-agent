@@ -1,48 +1,107 @@
 {
-  "recordedAtUtc": "2026-11-03T11:22:28.496Z",
-  "scope": "Original checkout runtime verification; technical aggregates only",
-  "testedCodeCommit": "e9b72c6a9e8cfae6f1ba25dd88f7aa40b74531fc",
-  "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
-  "javascriptTestsPassed": 65,
+  "recordedAtUtc": "2026-11-03T12:12:01.649Z",
+  "scope": "Original checkout runtime verification; synthetic test results only",
+  "testedCodeCommit": "40c326d",
+  "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+  "javascriptTestsPassed": 71,
   "pythonTestsPassed": 24,
-  "speechAnchorPreview": {
+  "review": {
     "passed": true,
-    "frames": 150,
-    "sha256": "24b11de498d4d3c6d93ee6dbfa281b0aadea74bd64a5bcabf321c05a018780f0",
-    "identicalToDevelopmentCheckout": true,
+    "syntheticBindingOnly": true,
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "checks": [
+      "HTML correction controls ran in Chrome",
+      "Approval blocked while transcript edits are pending",
+      "Corrected job clears old approval and word alignment",
+      "Real phrase timestamp retained",
+      "Review binds only the unchanged preview",
+      "Seek time remapped from the source EDL",
+      "Edited speech anchors require realignment by default",
+      "Explicit checkbox keeps prior visual times without word timing invention"
+    ]
+  },
+  "speechAnchor": {
+    "passed": true,
+    "synthetic": true,
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "scope": "Synthetic TTS/ASR phrase anchor tested in encoded MP4; not proof of semantic accuracy of a real sermon transcript",
+    "frames": "150",
+    "sourceTrimSeconds": 5.5,
+    "originalAnchorStart": 6.32,
+    "editedAnchorStart": 0.8333333333333334,
+    "editedEventEnd": 2.3333333333333335,
+    "samples": [
+      {
+        "time": 0.7333333333333334,
+        "whitePixels": 0
+      },
+      {
+        "time": 1.3333333333333335,
+        "whitePixels": 3064
+      },
+      {
+        "time": 2.4333333333333336,
+        "whitePixels": 0
+      }
+    ],
+    "outputHash": "24b11de498d4d3c6d93ee6dbfa281b0aadea74bd64a5bcabf321c05a018780f0",
+    "correctedCaptionRoundtrip": {
+      "passed": true,
+      "outputHash": "f8415148f2e87ed804d070d5024509db5615da3b40a3aef383ab7381c38d24fd",
+      "explicitPriorVisualTimesPreserved": true,
+      "editedSegmentWordAlignmentRemoved": true,
+      "approvalStillRequired": true
+    },
     "audioComparison": {
       "passed": true,
       "minimumCorrelation": 0.9999715306353901,
       "maximumAbsoluteLagMs": 0
-    }
+    },
+    "identicalToDevelopmentCheckout": true
+  },
+  "captionLegibilityAndPace": {
+    "passed": true,
+    "synthetic": true,
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+    "outputHash": "d45d49c71f29ee7cdd885589c4360d5e63dd8d8fc117430ec7523398d9b70bac",
+    "frames": 150,
+    "nominalWorstCaseContrast": 21,
+    "whiteBackground": {
+      "black": 66465,
+      "magenta": 0
+    },
+    "darkBackground": {
+      "black": 55082,
+      "magenta": 0
+    },
+    "adjustedDecorationStart": 4.2,
+    "flashLumaSamples": {
+      "during": 55,
+      "after": 17.333333333333332
+    },
+    "nativeSrtDecodePassed": true,
+    "nativeBrowserTrack": {
+      "loaded": true,
+      "cues": 2,
+      "firstStart": 0,
+      "inlineBlob": true
+    },
+    "srtSha256": "49857024149484adede25a49a12094c0c8143bb50648c52403054b41ac9bc414",
+    "vttSha256": "789ef049e3da8a33861eecf115d34203c440b354edaa5c5f88b90ca2acce7a43",
+    "audioComparison": {
+      "passed": true,
+      "minimumCorrelation": 0.9999631450730527,
+      "maximumAbsoluteLagMs": 0
+    },
+    "scope": "Caption legibility/sidecar/visual pace fixture; not complete accessibility certification, sound description or editorial approval",
+    "identicalToDevelopmentCheckout": true
   },
   "outputProtection": {
     "passed": true,
     "scope": "Actual engine CLI rejects source/job collisions before media probing or writes",
-    "collisionsRejected": 7,
+    "collisionsRejected": 11,
     "allOriginalBytesPreserved": true,
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1"
-  },
-  "faceLocalization": {
-    "passed": true,
-    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
-    "scope": "Authorized short real sample; model inference and rectangle collision detection only, not continuous face or raster approval",
-    "decodedFrames": 120,
-    "sampledFrames": 16,
-    "samplesWithFaces": 16,
-    "modelSha256": "b4578f35940bf5a1a655214a1cce5cab13eba73c1297cd78e1a04c2380b0152f",
-    "sourceVideoSha256": "7c7abdf6b8758202306d5de05cce2313eaba4e8a1b1fc70d3ec4b28cdfaac951",
-    "actualFaceOverlapFlagged": true,
-    "separateRectangleNotFlagged": true,
-    "mismatchedVideoRejected": true,
-    "continuousFaceCoverageProven": false,
-    "trackerToolSha256": "ea6413049588fe95d7192e852c15aa67c5ed366afe4c3fe020df9666d8d56194",
-    "auditToolSha256": "46789c8bd72d8504d73c3383eb09c385a63ff70ccb7b1218cf4c4ebef1d9c253"
-  },
-  "fullPreviewArchive": {
-    "sha256": "941d04c1e8f50ae5e9ddd95adb9b3428aaf9a394142e7047f40755624f5b985f",
-    "identicalToDevelopmentRender": true,
-    "copiedArchiveOnly": true
+    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472"
   },
   "editorialApproval": false
 }
