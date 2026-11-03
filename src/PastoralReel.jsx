@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Audio, OffthreadVideo, Sequence, staticFile, useCurrentFrame, useVideoConfig, interpolate, spring} from 'remotion';
+import {MotionLibrary} from './MotionLibrary';
 
 const caption = {position:'absolute', bottom:250, left:70, right:70, textAlign:'center', color:'white', fontFamily:'Arial, sans-serif', fontWeight:800, fontSize:54, lineHeight:1.08, textShadow:'0 4px 14px #000', textTransform:'uppercase'};
 
@@ -26,7 +27,7 @@ export const PastoralReel = ({videoSrc, title, segments, zooms = [], accent = '#
     {showGrid && <AbsoluteFill style={{opacity:.12, backgroundImage:`linear-gradient(${accent} 1px,transparent 1px),linear-gradient(90deg,${accent} 1px,transparent 1px)`,backgroundSize:'80px 80px'}} />}
     <div style={{position:'absolute',top:135,left:70,right:70,color:accent,fontFamily:'Arial',fontSize:24,fontWeight:700,letterSpacing:5}}>REELS AGENT / PREGAÇÃO</div>
     <div style={{...caption, top:230, bottom:'auto', opacity:titleOpacity, transform:`translateY(${titleY}px)`, fontSize:68, color:'white'}}>{title}</div>
-    <MotionGraphics type={motion} accent={accent} frame={frame} fps={fps} text={active?.text || title} />
+    <MotionLibrary variant={motion} accent={accent} frame={frame} fps={fps} text={active?.text || title} />
     {active && <Sequence from={Math.round(active.start*fps)} durationInFrames={Math.max(1,Math.round((active.end-active.start)*fps))}><div style={caption}>{active.text}</div></Sequence>}
     <div style={{position:'absolute',bottom:100,left:70,width:180,height:6,background:accent,transformOrigin:'left',transform:`scaleX(${Math.min(1,frame/durationInFrames)})`}} />
     <Audio src={src} volume={0.9} />
