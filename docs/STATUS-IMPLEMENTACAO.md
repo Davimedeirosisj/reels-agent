@@ -2,7 +2,7 @@
 
 Objetivo completo: implementar os prompts e referências do repositório, com edição contextual fiel à pregação e evidência real de render. **Objetivo ativo e incompleto.**
 
-A nova camada de recorte passou nas amostras técnicas de quatro e seis segundos. A prévia completa com essa camada está em processamento; o registro de pregação completa abaixo descreve a rodada anterior, identificada por seu próprio fingerprint. A aprovação humana permanece aberta nas duas versões.
+A nova camada de recorte passou nas amostras técnicas de quatro e seis segundos e na preparação da pregação completa. A prévia de 4321 frames foi renderizada e validada com o fingerprint atual; a aprovação humana permanece aberta.
 
 ## Correção da auditoria anterior
 
@@ -26,7 +26,8 @@ O antigo `segments` só acionava legendas; não cortava a mídia. A demonstraç�
 
 ## Evidência e limite dos testes
 
-- 52 testes JavaScript e 21 testes Python passaram. As integrações verificam também cor, duas linhas no MP4, cenas 3D repetíveis, editor no navegador e exportação final de fixture técnico. Tamanho fracionário de legenda e argumentos válidos de geometrias 3D receberam correções e testes.
+- 57 testes JavaScript e 21 testes Python passaram. As integrações verificam também cor, duas linhas no MP4, cenas 3D repetíveis, editor no navegador e exportação final de fixture técnico. Tamanho fracionário de legenda e argumentos válidos de geometrias 3D receberam correções e testes.
+- Correção de transcrição por tempo/ocorrência, com rejeição de ambiguidades e substrings. Trocas de frase removem alinhamento desatualizado; originais são preservados. O CLI corrigiu o erro conhecido do TTS/Whisper e rejeitou quatro tentativas de sobrescrever entradas/relatório.
 - Regressão de render: vermelho/440 Hz → azul/~878,33 Hz; intervalo verde/660 Hz removido. Resultado em `docs/validation/render-results.json`.
 - Prévia atual validada: 9,685s, H.264/AAC, 1080×1920, pico -2,2 dBFS, média -18,5 dBFS.
 - Galeria atual: 56 componentes, 100,8s de vídeo, 3024 frames, H.264/AAC, 1080×1920.
@@ -36,6 +37,7 @@ O antigo `segments` só acionava legendas; não cortava a mídia. A demonstraç�
 - Pregação real completa renderizada: aproximadamente 2min24s, 4321 frames, 1080×1920/30 fps, título e quatro ênfases textuais, sem retirar ou reordenar trechos. MP4 e voz comparada ao original; hashes/medidas em `docs/validation/real-sermon-results.json`. Mídia, transcrição e quadros permanecem locais.
 - A comparação de voz usa nove janelas de quatro segundos e mede correlação/atraso. Não comprova fidelidade semântica nem substitui escuta integral.
 - Uma amostra real de quatro segundos passou pelo preparo automático, com zoom/cor, 120 máscaras e MP4 com texto atrás da pessoa. Comparação no quadro medido: 4743 pixels de letras ocluídos, 507 visíveis no fundo; erro RGB médio 6,03 no núcleo opaco e 0,46 no fundo transparente. O teste cobre a ordem das camadas e não todas as bordas. A troca de CRF reutilizou o vídeo base sem alterar seus bytes ou data de modificação. Veja [Recorte automático](ETAPA-RECORTE-AUTOMATICO.md).
+- Preparação integral: 4321 máscaras, sem detecções vazias; VP9 com alpha de 137721843 bytes, 487,875s de processamento. Dez quadros do alpha codificado foram inspecionados; maior erro RGB médio no núcleo opaco: 1,9914. A camada é aplicada durante os 72 frames do destaque atrás da pessoa, não obrigatoriamente no vídeo inteiro. O MP4 completo passou na decodificação e na comparação de nove janelas de voz (correlação mínima 0,985742; atraso 0 ms). Bordas de vidro/dedos/cabelo ainda não têm aprovação integral.
 - GoBold não está disponível; Arial instalada foi usada. O enquadramento original foi preservado; o sujeito já sai parcialmente do quadro em alguns momentos da gravação original.
 - O ASR da pregação contém trechos duvidosos, duas correções ortográficas propostas e alertas de velocidade de leitura. **Não há aprovação editorial humana nem `final.mp4` aprovado.** O ASR sintético também errou “Reels” como “reals”.
 
@@ -45,7 +47,7 @@ Casos de borda e sequência concreta: [Próximas implementações](PROXIMAS-IMPL
 
 1. Completar as receitas parciais de acessibilidade, revisão espacial e controle de ritmo. Cor, duas linhas, editor e cenas 3D receberam implementação e regressões próprias nesta etapa.
 2. Ampliar validação de legibilidade e fidelidade das receitas e a escolha contextual de motions; parâmetros e testes sintéticos não provam acabamento premium em cada referência.
-3. Ampliar a prova do preparo/segmentação/rastreamento para o vídeo completo e conferir bordas/movimento. O comando automático foi implementado e validado na amostra de 120 frames. Modelos GLB e geometrias próprias já são renderizados em Three.js; decodificadores comprimidos e pós-processamento das referências ainda faltam.
+3. Conferir integralmente bordas e movimento, sobretudo vidro, dedos, cabelo e objetos finos. O comando processou os 4321 frames e foi usado na prévia completa; dez quadros inspecionados não certificam todo o recorte. Modelos GLB e geometrias próprias já são renderizados em Three.js; decodificadores comprimidos e pós-processamento das referências ainda faltam.
 4. Comparar cada referência externa com sua direção visual e MP4 específico. A meta numérica de fontes foi atingida; hashes e técnicas genéricas não comprovam reprodução de 100 exemplos. Os 64 Revid continuam como referências audiovisuais.
 5. Conferir imagens originais V01–V10, que não estão no repositório. O timing desses screenshots nunca foi verificado.
 6. Concluir revisão humana da pregação autorizada: fidelidade bíblica, qualificações da fala, grafia, voz, enquadramento, sincronia e escolha visual contextual. Ver [Pregação real](ETAPA-PREGACAO-REAL.md).

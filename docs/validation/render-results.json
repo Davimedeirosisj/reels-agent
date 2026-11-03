@@ -1,6 +1,6 @@
 {
   "clientDate": "2026-11-03",
-  "recordedAtUtc": "2026-11-03T10:10:22.890Z",
+  "recordedAtUtc": "2026-11-03T10:31:30.310Z",
   "scope": "Synthetic editing fixtures plus authorized real-video technical foreground samples; aggregates only",
   "demo": {
     "statusAtTimeOfRender": "passed",
@@ -98,6 +98,16 @@
       "Music volume recovers after the speech range"
     ],
     "synthetic": true
+  },
+  "transcriptCorrection": {
+    "passed": true,
+    "scope": "Synthetic TTS/Whisper CLI correction and input preservation; no editorial approval",
+    "knownAsrSpellingCorrected": true,
+    "realWordTimesRetained": true,
+    "originalTranscriptUnchanged": true,
+    "inputOverwriteAttemptsRejected": 4,
+    "correctionToolSha256": "3d404c95fee3fcd6e46a6c370f9c5b71e41c8161bbbca1b59d9e31e46f05f4b7",
+    "createJobToolSha256": "38466958769fb30e10744cef2e3ff87c57ef221f46f5ad7a405b2cac19832e26"
   },
   "foreground": {
     "passed": true,

@@ -79,6 +79,25 @@ if (job.foregroundPreparation) {
     fullAlphaDecodePassed: true,
     manualEdgeReviewRequired: true,
   };
+  const inspectionFile = path.join(path.dirname(layer), 'inspection/inspection.json');
+  if (fs.existsSync(inspectionFile)) {
+    const inspection = read(inspectionFile);
+    if (
+      !inspection.encodedAlphaDecoded ||
+      inspection.foregroundSha256 !== preparation.foregroundSha256
+    )
+      throw new Error('Encoded-mask inspection is stale');
+    foreground.encodedMaskInspection = {
+      sampledFrames: inspection.sampleCount,
+      actualEncodedAlphaDecoded: true,
+      maximumOpaqueCoreMeanRgbError: Math.max(
+        ...inspection.samples
+          .filter((s) => s.opaqueCoreMeanRgbError !== null)
+          .map((s) => s.opaqueCoreMeanRgbError),
+      ),
+      scope: 'Selected frames only; no claim of full edge approval',
+    };
+  }
 }
 const result = {
   recordedAtUtc: new Date().toISOString(),

@@ -22,6 +22,15 @@ if (currentFingerprint !== renderFingerprint)
 if (showcase.sourceFingerprint !== currentFingerprint)
   throw new Error('Gallery source fingerprint is missing or stale');
 const additional = {};
+const correction = read(path.join(root, 'output/transcript-correction-regression/assertions.json'));
+if (
+  !correction.passed ||
+  correction.correctionToolSha256 !==
+    fileDigest(path.join(root, 'tools/transcript_corrections.mjs')) ||
+  correction.createJobToolSha256 !== fileDigest(path.join(root, 'tools/create_job.mjs'))
+)
+  throw new Error('Transcript correction evidence is stale');
+additional.transcriptCorrection = correction;
 for (const [assertions, folder] of [
   [regression, 'regression'],
   [composition, 'composition-regression'],

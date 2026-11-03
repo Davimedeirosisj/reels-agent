@@ -1,12 +1,12 @@
 {
-  "recordedAtUtc": "2026-11-03T03:56:01.585Z",
+  "recordedAtUtc": "2026-11-03T10:31:30.210Z",
   "scope": "User-authorized real sermon preview; technical metadata only",
-  "sourceFingerprint": "d47fade9ba3675235b6251fa8e5762ef9f1dfb876d8840d1fd09773dbc9f4b3f",
+  "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
   "fingerprintScheme": "normalized-source-and-lock-v2",
   "latestSourceValidatedByRender": true,
   "mp4": {
     "status": "passed",
-    "sha256": "986558a0e858e566121fefc7e4eb71801ac7683aa5991e0766d624214b23bdd9",
+    "sha256": "941d04c1e8f50ae5e9ddd95adb9b3428aaf9a394142e7047f40755624f5b985f",
     "duration": 144.1,
     "expectedVideoDuration": 144.03333333333333,
     "video": {
@@ -36,7 +36,7 @@
     "sfxCount": 0,
     "motionCount": 4,
     "fit": "contain",
-    "protectedAreaConflictCount": 0,
+    "protectedAreaConflictCount": 1,
     "captionReadingWarningCount": 10
   },
   "transcription": {
@@ -58,11 +58,46 @@
     "maximumAbsoluteLagMs": 0,
     "scope": "Sampled waveform agreement against the EDL; not proof of complete speech or editorial fidelity."
   },
+  "foreground": {
+    "frames": 4321,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "fullTimelineProcessed": true,
+    "appliedOnlyDuringBehindEvents": true,
+    "expectedActiveForegroundFrames": 72,
+    "behindEventCount": 1,
+    "emptyFrames": 0,
+    "missingRangeCount": 0,
+    "meanForegroundFraction": 0.5565498868663947,
+    "modelSha256": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
+    "layerSha256": "d07f059d55a19e5d0a95d9a057cb9392bea199effb5c84b5d196e32cc4bb3d54",
+    "motionCompensated": true,
+    "smoothing": 0.15,
+    "encoding": {
+      "codec": "vp9",
+      "alpha": true,
+      "crf": 16,
+      "lossless": false,
+      "threads": 8,
+      "transparentRgbZeroed": true
+    },
+    "elapsedSeconds": 487.875,
+    "outputBytes": 137721843,
+    "fullAlphaDecodePassed": true,
+    "manualEdgeReviewRequired": true,
+    "encodedMaskInspection": {
+      "sampledFrames": 10,
+      "actualEncodedAlphaDecoded": true,
+      "maximumOpaqueCoreMeanRgbError": 1.9914439916610718,
+      "scope": "Selected frames only; no claim of full edge approval"
+    }
+  },
   "editorialApproval": false,
   "limitations": [
     "Human listening and full transcript review remain required; ASR is a draft.",
     "Sampled waveform agreement does not certify full semantic/theological fidelity.",
-    "Four source-frame person masks were inspected privately; lectern/glass/finger edges still require review. No full-video alpha applied.",
+    "Full-timeline foreground inferred and decoded; composited only during behind events. Lectern/glass/finger edges still require full human review.",
     "No premium equivalence claim for all external references; their assets and exact timing remain separately unverified.",
     "GoBold was unavailable; installed Arial was used. Source media, transcript and stills remain local."
   ]

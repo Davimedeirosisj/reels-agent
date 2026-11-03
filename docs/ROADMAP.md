@@ -18,9 +18,10 @@ Não guardar tokens de API no repositório. Verificar licenças e scripts antes 
 - [ ] Completar todas as receitas parciais/pendentes de `COBERTURA.md`
 - [x] Verificar ao menos 100 textos originais externos com autoria/URL individual (111 hashes distintos Prompt Motion; mais 45 páginas Motif)
 - [x] Validar PNG/BT.709, legendas, relógios de B-roll e ducking no render
-- [ ] Integrar segmentação, rastreamento e modelos/assets 3D próprios
+- [x] Integrar preparo automático, segmentação e suavização com fluxo óptico; pregação de 4321 frames processada, com revisão de bordas ainda aberta
 - [x] Renderizar modelos GLB e geometria própria com luzes/câmera Three.js
 - [x] Implementar e testar cor por tomada, duas linhas medidas e revisão editável de transcrição
+- [x] Corrigir transcrição por tempo/ocorrência, rejeitar ambiguidades e proteger os arquivos de entrada na criação do job
 - [ ] Validar uma pregação real e registrar revisão de fidelidade
 - [x] Renderizar uma pregação real completa e validar MP4, áudio e amostras visuais; revisão editorial humana continua aberta
 

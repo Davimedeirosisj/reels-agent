@@ -1,0 +1,17 @@
+{
+  "recordedAtUtc": "2026-11-03T10:18:26.510Z",
+  "scope": "Runtime verification from the original user checkout; technical aggregates only",
+  "testedCodeCommit": "8273eb0e9a647e187c0e30f30dfb0a01cac487fa",
+  "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
+  "javascriptTestsPassed": 52,
+  "pythonTestsPassed": 21,
+  "foregroundPreview": {
+    "status": "passed",
+    "frames": 120,
+    "width": 1080,
+    "height": 1920,
+    "sha256": "21b5665d180274669fa3f1609fe026999bf7bcd08a8e2727f86aaf13bed80398",
+    "identicalToDevelopmentCheckout": true
+  },
+  "scopeLimitation": "Four-second technical occlusion sample; no human editorial or full edge approval"
+}

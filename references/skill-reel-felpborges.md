@@ -26,3 +26,11 @@ O projeto declara um fluxo próximo do objetivo do Reels Agent: receber uma grav
 ## Licenciamento
 
 Não foi encontrado arquivo `LICENSE` na raiz do repositório durante a consulta. **Não copiar ou redistribuir o código do projeto sem verificar permissão/licença com o autor.** Este documento é somente um índice de referência com link e descrição.
+
+## Comparação de integração — 03/11/2026
+
+Consultados novamente o [README](https://github.com/Felpborges/skill-reel), as [regras editoriais](https://github.com/Felpborges/skill-reel/blob/main/regras-da-casa.md) e a abertura da [especificação visual](https://github.com/Felpborges/skill-reel/blob/main/ESTILO.md). Não foram executados seus scripts nem copiado seu motor. As técnicas abaixo precisam de implementação própria e teste no Reels Agent:
+
+- Já disponíveis: EDL, palavra com timestamp, loudness configurável, alpha atrás da pessoa e correção de texto por tempo.
+- Pendentes: âncoras visuais por frase/ocorrência; rastreamento facial para revisão espacial e legenda móvel opcional; alternância animada da câmera entre tela inteira e card; J/L e conferência individual de emendas por fala.
+- A galeria e os testes atuais não comprovam equivalência com o VSL externo. Cadência, layout e quantidade de efeitos permanecem escolhas contextuais.

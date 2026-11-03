@@ -24,6 +24,8 @@ A curadoria verificou 124 publicações Prompt Motion / 111 textos normalizados 
 
 Novos comandos, provas de render e limites: [Cor, 3D e revisão](docs/ETAPA-COR-3D-E-REVISAO.md).
 
+[Recorte automático](docs/ETAPA-RECORTE-AUTOMATICO.md): preparo alinhado a cortes/câmera/cor, transparência e textos atrás da pessoa. A pregação completa foi processada e renderizada; vidro, mãos e cabelo continuam exigindo revisão. Correções de legendas podem ser delimitadas por tempo/ocorrência, sem substituir trechos ambíguos.
+
 ## Próximos passos
 1. Seguir [Execução](docs/EXECUCAO.md) para transcrever, preparar EDL e renderizar prévia.
 2. Revisar contexto, legendas, enquadramento e áudio em `review.html`.

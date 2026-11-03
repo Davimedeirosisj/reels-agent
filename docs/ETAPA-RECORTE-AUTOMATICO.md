@@ -29,10 +29,18 @@ O modelo privilegia pessoas próximas da câmera. Não separa automaticamente um
 
 ## Testes desta etapa
 
-Além de 52 testes JavaScript e 21 Python, foram executados testes de MP4 para cortes, mixagem, cor, duas linhas, 3D, revisão, aprovação sintética, oclusão real, cache e timeline com alpha. A galeria dos 56 componentes foi renderizada com 3024 frames e o mesmo fingerprint do motor.
+Além de 57 testes JavaScript e 21 Python, foram executados testes de MP4 para cortes, mixagem, cor, duas linhas, 3D, revisão, aprovação sintética, oclusão real, cache e timeline com alpha. A galeria dos 56 componentes foi renderizada com 3024 frames e o mesmo fingerprint do motor. Um teste próprio do CLI verificou correção de ASR por tempo sem mudar os timestamps medidos nem o arquivo original.
 
 Na amostra de quatro segundos, a comparação mediu 4743 pixels de letras encobertos pelo núcleo opaco e 507 visíveis no fundo; erro RGB médio 6,03 e 0,46, respectivamente. São regiões de um quadro selecionado, não certificação de todas as bordas. No teste de seis segundos com dois cortes, zoom e transição, a suavização reiniciou no frame 90; a janela de voz de quatro segundos que atravessa a junção teve correlação 0,999926 e atraso medido de 0 ms.
 
 O primeiro teste 3D desta rodada excedeu o tempo de espera do R3F durante execuções simultâneas. Após o encerramento confirmado, a nova execução com menos tarefas passou, incluindo PNGs repetidos idênticos. Isso é uma limitação observada sob carga, não prova de causa única; não foi aumentado o tempo de espera para ocultar a falha. Consulte a orientação de [timeouts do Remotion](https://www.remotion.dev/docs/timeout).
+
+## Pregação completa renderizada
+
+O fluxo processou os 4321 frames (1080×1920/30 fps), sem ausência de detecção, e gerou uma camada VP9 com alpha de 137721843 bytes em 487,875s. Dez quadros do arquivo codificado foram extraídos e inspecionados, com erro RGB médio no núcleo opaco de até 1,9914. Vidro, cabelo, mãos e objetos continuam sujeitos a revisão integral.
+
+A nova prévia tem aproximadamente 2min24s, H.264/AAC, BT.709, 48 kHz estéreo, −16,05 LUFS e true peak −1,27 dBTP. A fala inteira e sua ordem foram mantidas. A comparação de nove janelas de quatro segundos teve correlação mínima 0,985742 e atraso medido de 0 ms. A camada entra somente nos 72 frames (2,4s) do destaque literal no fundo; não impõe efeitos ao restante da gravação.
+
+SHA-256 do MP4: `941d04c1e8f50ae5e9ddd95adb9b3428aaf9a394142e7047f40755624f5b985f`. O relatório registra dez alertas de leitura e um alerta espacial pela posição do gráfico atrás da pessoa. O quadro correspondente foi inspecionado; isso não elimina a revisão de toda a animação nem constitui aprovação humana. Código e agregados ficam no GitHub; vídeo, transcrição, alpha e contatos reais ficam locais.
 
 As amostras técnicas com a palavra `TESTE` verificam a ordem das camadas e não representam a direção visual final de uma pregação. A revisão editorial, o áudio integral e a comparação com referências permanecem requisitos separados. Evidências atuais ficam em `docs/validation/`; não declarar aprovação humana por causa de testes automáticos.
