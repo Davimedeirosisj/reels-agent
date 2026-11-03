@@ -40,7 +40,9 @@ Essas proteções não substituem a revisão de sentido, cortes ou legendas. Um 
 
 65 testes JavaScript e 24 Python passaram. O teste de colisões executou o CLI em sete situações e preservou todos os bytes originais. O teste de âncora renderizou 150 frames de uma fixture TTS/Whisper: o gráfico apareceu somente no intervalo derivado da frase, com 3064 pixels de texto branco na amostra ativa e zero nas amostras anterior/posterior. A comparação da voz teve correlação 0,999972 e atraso de 0 ms na janela medida. São testes técnicos; não aprovação editorial de uma pregação.
 
-Resultados desta etapa são registrados com fingerprint e hashes em `docs/validation/`. A atualização da pregação completa e das demais regressões permanece separada dessas amostras. A cobertura integral de todas as referências ainda está aberta.
+Resultados desta etapa são registrados com fingerprint e hashes em `docs/validation/`. A pregação completa foi renderizada novamente: 4321 frames, 1080×1920/30 fps, H.264/AAC. A âncora forneceu o mesmo intervalo da edição anterior; o MP4 inteiro permaneceu idêntico por SHA-256 (`941d04c1e8f50ae5e9ddd95adb9b3428aaf9a394142e7047f40755624f5b985f`). A comparação de nove janelas de voz teve correlação mínima 0,985742 e atraso 0 ms. Isso comprova preservação desse resultado, não equivalência premium com todas as referências.
+
+Corrigir um segmento no editor remove seu alinhamento por palavra. Se ele contém uma âncora, será necessário realinhar a fala ou definir deliberadamente tempos visuais antes da nova prévia. O motor não reutiliza automaticamente um onset que deixou de ter alinhamento confiável.
 
 ## Localização facial para revisão espacial
 

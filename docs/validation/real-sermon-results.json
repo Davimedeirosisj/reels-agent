@@ -1,7 +1,7 @@
 {
-  "recordedAtUtc": "2026-11-03T10:31:30.210Z",
+  "recordedAtUtc": "2026-11-03T11:15:44.426Z",
   "scope": "User-authorized real sermon preview; technical metadata only",
-  "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
+  "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
   "fingerprintScheme": "normalized-source-and-lock-v2",
   "latestSourceValidatedByRender": true,
   "mp4": {
@@ -71,7 +71,7 @@
     "missingRangeCount": 0,
     "meanForegroundFraction": 0.5565498868663947,
     "modelSha256": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
-    "layerSha256": "d07f059d55a19e5d0a95d9a057cb9392bea199effb5c84b5d196e32cc4bb3d54",
+    "layerSha256": "fda50114c99c6b9cdbe41634910d8b7b2ba66aeb2edd7e47bb3c36eac9ed089b",
     "motionCompensated": true,
     "smoothing": 0.15,
     "encoding": {
@@ -82,7 +82,7 @@
       "threads": 8,
       "transparentRgbZeroed": true
     },
-    "elapsedSeconds": 487.875,
+    "elapsedSeconds": 523.0469999999987,
     "outputBytes": 137721843,
     "fullAlphaDecodePassed": true,
     "manualEdgeReviewRequired": true,
@@ -92,6 +92,23 @@
       "maximumOpaqueCoreMeanRgbError": 1.9914439916610718,
       "scope": "Selected frames only; no claim of full edge approval"
     }
+  },
+  "spatialReview": {
+    "sampledFrames": 541,
+    "samplesWithFaces": 512,
+    "samplesTouchingFrameEdge": 100,
+    "missingDetectionIntervalCount": 37,
+    "uniqueEventsWithPotentialConflicts": 1,
+    "faceModelSha256": "b4578f35940bf5a1a655214a1cce5cab13eba73c1297cd78e1a04c2380b0152f",
+    "continuousFaceCoverageProven": false,
+    "manualReviewRequired": true,
+    "scope": "Measured sampled face regions versus declared event rectangles; no identity recognition or automatic framing approval",
+    "unassessed": [
+      "Actual animated glyph/3D bounds",
+      "Caption raster bounds",
+      "Decorative light/particle layers",
+      "Hands, microphone and Bible"
+    ]
   },
   "editorialApproval": false,
   "limitations": [

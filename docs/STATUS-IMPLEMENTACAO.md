@@ -2,7 +2,7 @@
 
 Objetivo completo: implementar os prompts e referências do repositório, com edição contextual fiel à pregação e evidência real de render. **Objetivo ativo e incompleto.**
 
-A prévia completa da etapa de recorte foi validada e permanece disponível. A rodada atual acrescenta âncoras por frase, proteção das saídas e localização facial; seus MP4 curtos e galeria passaram nos testes, e uma nova prévia completa está em processamento. Cada relatório registra seu próprio fingerprint. A aprovação humana permanece aberta.
+A rodada atual acrescenta âncoras por frase, proteção das saídas e localização facial. Os MP4 curtos, galeria e nova prévia completa de 4321 frames passaram nos testes. A âncora reproduziu o tempo visual anterior e o MP4 completo permaneceu idêntico por hash; os recibos foram atualizados para o código e job atuais. A aprovação humana permanece aberta.
 
 ## Correção da auditoria anterior
 

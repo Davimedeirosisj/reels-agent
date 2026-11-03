@@ -1,0 +1,12 @@
+{
+  "scope": "Complete encoded MP4 comparison: prior explicit timing versus current speech-phrase anchor; no general reference equivalence claim",
+  "priorRendererFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
+  "currentRendererFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+  "priorSha256": "941d04c1e8f50ae5e9ddd95adb9b3428aaf9a394142e7047f40755624f5b985f",
+  "currentSha256": "941d04c1e8f50ae5e9ddd95adb9b3428aaf9a394142e7047f40755624f5b985f",
+  "bitwiseIdentical": true,
+  "frames": 4321,
+  "width": 1080,
+  "height": 1920,
+  "editorialApproval": false
+}

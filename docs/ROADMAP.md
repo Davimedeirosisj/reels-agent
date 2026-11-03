@@ -22,6 +22,8 @@ Não guardar tokens de API no repositório. Verificar licenças e scripts antes 
 - [x] Renderizar modelos GLB e geometria própria com luzes/câmera Three.js
 - [x] Implementar e testar cor por tomada, duas linhas medidas e revisão editável de transcrição
 - [x] Corrigir transcrição por tempo/ocorrência, rejeitar ambiguidades e proteger os arquivos de entrada na criação do job
+- [x] Sincronizar motions por frase/ocorrência e preservar entradas na exportação; testar intervalos no MP4
+- [x] Acrescentar localização facial por amostragem e auditoria ligada à tomada preparada; cobertura contínua permanece não comprovada
 - [ ] Validar uma pregação real e registrar revisão de fidelidade
 - [x] Renderizar uma pregação real completa e validar MP4, áudio e amostras visuais; revisão editorial humana continua aberta
 

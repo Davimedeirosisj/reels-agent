@@ -1,32 +1,48 @@
 {
-  "recordedAtUtc": "2026-11-03T10:34:32.062Z",
-  "scope": "Runtime verification from the original user checkout; technical aggregates only",
-  "testedCodeCommit": "1c3e6d9b3c2cfbac71f28e2877b6efa89f884fcc",
-  "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
-  "javascriptTestsPassed": 57,
-  "pythonTestsPassed": 21,
-  "foregroundPreview": {
-    "status": "passed",
-    "frames": 120,
-    "width": 1080,
-    "height": 1920,
-    "sha256": "21b5665d180274669fa3f1609fe026999bf7bcd08a8e2727f86aaf13bed80398",
-    "identicalToDevelopmentCheckout": true
-  },
-  "scopeLimitation": "Four-second technical occlusion sample; no human editorial or full edge approval",
-  "transcriptCorrectionCli": {
+  "recordedAtUtc": "2026-11-03T11:22:28.496Z",
+  "scope": "Original checkout runtime verification; technical aggregates only",
+  "testedCodeCommit": "e9b72c6a9e8cfae6f1ba25dd88f7aa40b74531fc",
+  "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+  "javascriptTestsPassed": 65,
+  "pythonTestsPassed": 24,
+  "speechAnchorPreview": {
     "passed": true,
-    "scope": "Synthetic TTS/Whisper CLI correction and input preservation; no editorial approval",
-    "knownAsrSpellingCorrected": true,
-    "realWordTimesRetained": true,
-    "originalTranscriptUnchanged": true,
-    "inputOverwriteAttemptsRejected": 4,
-    "correctionToolSha256": "106043881f17ec236b160d3df29a38f4618fc459b56f5c298fc9d04231688614",
-    "createJobToolSha256": "db862f0284ba6416bd2d9138a1e6d362eb137b2e8817723b977fef544e6c605d"
+    "frames": 150,
+    "sha256": "24b11de498d4d3c6d93ee6dbfa281b0aadea74bd64a5bcabf321c05a018780f0",
+    "identicalToDevelopmentCheckout": true,
+    "audioComparison": {
+      "passed": true,
+      "minimumCorrelation": 0.9999715306353901,
+      "maximumAbsoluteLagMs": 0
+    }
+  },
+  "outputProtection": {
+    "passed": true,
+    "scope": "Actual engine CLI rejects source/job collisions before media probing or writes",
+    "collisionsRejected": 7,
+    "allOriginalBytesPreserved": true,
+    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1"
+  },
+  "faceLocalization": {
+    "passed": true,
+    "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+    "scope": "Authorized short real sample; model inference and rectangle collision detection only, not continuous face or raster approval",
+    "decodedFrames": 120,
+    "sampledFrames": 16,
+    "samplesWithFaces": 16,
+    "modelSha256": "b4578f35940bf5a1a655214a1cce5cab13eba73c1297cd78e1a04c2380b0152f",
+    "sourceVideoSha256": "7c7abdf6b8758202306d5de05cce2313eaba4e8a1b1fc70d3ec4b28cdfaac951",
+    "actualFaceOverlapFlagged": true,
+    "separateRectangleNotFlagged": true,
+    "mismatchedVideoRejected": true,
+    "continuousFaceCoverageProven": false,
+    "trackerToolSha256": "ea6413049588fe95d7192e852c15aa67c5ed366afe4c3fe020df9666d8d56194",
+    "auditToolSha256": "46789c8bd72d8504d73c3383eb09c385a63ff70ccb7b1218cf4c4ebef1d9c253"
   },
   "fullPreviewArchive": {
     "sha256": "941d04c1e8f50ae5e9ddd95adb9b3428aaf9a394142e7047f40755624f5b985f",
     "identicalToDevelopmentRender": true,
     "copiedArchiveOnly": true
-  }
+  },
+  "editorialApproval": false
 }

@@ -11,5 +11,6 @@ O objetivo continua sendo implementar os prompts e referências do repositório.
 7. Concluir revisão humana da pregação e das legendas. Os testes técnicos e recibos sintéticos não são aprovação editorial real.
 8. Âncoras por frase/ocorrência e localização facial por amostragem foram implementadas e testadas. Completar a revisão espacial com limites dos pixels animados/legendas e tratamento das incertezas; legenda móvel, alternância FULL/card e cortes J/L com conferência das emendas por fala continuam pendentes. Ver `references/skill-reel-felpborges.md`. O motor externo não foi copiado nem executado.
 9. Proteção dos destinos de `preview`/`final` e estabilidade do código implementadas. Sete colisões foram rejeitadas pelo CLI; aliases físicos também são conferidos. A nova rodada de regressões/render completo valida a integração com as âncoras.
+10. Melhorar a orientação/reconciliação de âncoras após correções no editor de transcrição: remover o alinhamento de um segmento invalida suas âncoras por palavra. Realinhamento ou tempo visual explícito continuam necessários; não inventar um novo onset.
 
 Evidência da etapa atual: `ETAPA-RECORTE-AUTOMATICO.md`, `validation/render-results.json` e `validation/real-sermon-results.json`. O projeto não está declarado integralmente concluído.
