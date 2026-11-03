@@ -1,115 +1,126 @@
 {
-  "recordedAtUtc": "2026-11-03T12:35:37.434Z",
-  "scope": "Original checkout runtime verification; synthetic test results only",
-  "testedCodeCommit": "40c326d",
-  "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
-  "javascriptTestsPassed": 71,
+  "recordedAtUtc": "2026-11-03T15:31:40.129Z",
+  "scope": "Original checkout: actual 3D render, seed repeatability, voice and technical foreground test; no editorial approval",
+  "testedCodeCommit": "436a4a9c351c9ffa0932c050f3af0065a9547288",
+  "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
+  "fingerprintScheme": "normalized-source-and-lock-v2",
+  "javascriptTestsPassed": 76,
   "pythonTestsPassed": 24,
-  "review": {
-    "passed": true,
-    "syntheticBindingOnly": true,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
-    "checks": [
-      "HTML correction controls ran in Chrome",
-      "Approval blocked while transcript edits are pending",
-      "Corrected job clears old approval and word alignment",
-      "Real phrase timestamp retained",
-      "Review binds only the unchanged preview",
-      "Seek time remapped from the source EDL",
-      "Edited speech anchors require realignment by default",
-      "Explicit checkbox keeps prior visual times without word timing invention"
-    ]
+  "libraries": {
+    "@react-three/postprocessing": "2.19.1",
+    "postprocessing": "6.39.6"
   },
-  "speechAnchor": {
+  "postprocessing": {
+    "passed": true,
+    "syntheticOnly": true,
+    "referenceId": "M016",
+    "exactReferenceReproduction": false,
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
+    "outputHash": "6914eff6a2b080224dc78ef3a7af49a9a05191415a4dc01907d955647e117305",
+    "frames": 180,
+    "disabledIdentical": true,
+    "additionalHaloPixels": 20415,
+    "emptyCornerMeanRgbDifference": 0,
+    "chromaticRedBlueSeparationPixels": -8.792047586311014,
+    "grainMaterialMeanRgbDifference": 7.315416666666667,
+    "grainBackgroundMeanRgbDifference": 0,
+    "repeatedFrameSha256": "b48e6d9ab8b17cda724c67e49e33dbda49ffd98767fa6c83370cedb10e63f299",
+    "sameFrameRepeatIdentical": true,
+    "frameVariationObserved": true,
+    "seedVariationObserved": true,
+    "phoneAssetStaged": true,
+    "phoneAssetChangeInvalidatedReview": true,
+    "orbitalCameraFromFrame": true,
+    "orbitalMotionMeanRgbDifference": 10.062715617715618,
+    "heroStillSha256": "9d6c543a35319ab6d7e2e4874f3e5d0a3a5929e362cf2dcbc453834936d2c447",
+    "audioComparison": {
+      "passed": true,
+      "minimumCorrelation": 0.9999658560014,
+      "maximumAbsoluteLagMs": 0
+    },
+    "scope": "Authored phone/panels/orbit and isolated bloom/chromatic/grain tests, not the original creator assets or a premium-equivalence approval",
+    "identicalMp4AndSeededFramesToDevelopment": true
+  },
+  "scene3d": {
     "passed": true,
     "synthetic": true,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
-    "scope": "Synthetic TTS/ASR phrase anchor tested in encoded MP4; not proof of semantic accuracy of a real sermon transcript",
-    "frames": "150",
-    "sourceTrimSeconds": 5.5,
-    "originalAnchorStart": 6.32,
-    "editedAnchorStart": 0.8333333333333334,
-    "editedEventEnd": 2.3333333333333335,
+    "gl": "angle",
+    "threeVersion": "0.187.0",
     "samples": [
       {
-        "time": 0.7333333333333334,
-        "whitePixels": 0
+        "time": 0.4,
+        "foregroundPixels": 1029
       },
       {
-        "time": 1.3333333333333335,
-        "whitePixels": 3064
+        "time": 1.6,
+        "foregroundPixels": 32380
       },
       {
-        "time": 2.4333333333333336,
-        "whitePixels": 0
+        "time": 2.8,
+        "foregroundPixels": 964
+      },
+      {
+        "time": 4,
+        "foregroundPixels": 3179
       }
     ],
-    "outputHash": "24b11de498d4d3c6d93ee6dbfa281b0aadea74bd64a5bcabf321c05a018780f0",
-    "correctedCaptionRoundtrip": {
-      "passed": true,
-      "outputHash": "f8415148f2e87ed804d070d5024509db5615da3b40a3aef383ab7381c38d24fd",
-      "explicitPriorVisualTimesPreserved": true,
-      "editedSegmentWordAlignmentRemoved": true,
-      "approvalStillRequired": true
-    },
-    "audioComparison": {
-      "passed": true,
-      "minimumCorrelation": 0.9999715306353901,
-      "maximumAbsoluteLagMs": 0
-    },
-    "identicalToDevelopmentCheckout": true
+    "meanRgbDifferenceDuringCameraMove": 3.8985050505050505,
+    "repeatedFrameHashes": [
+      "633a291fc7cf4d100888942527b22fb092b2f0d8c3712f1c2e62e9321eed200e",
+      "633a291fc7cf4d100888942527b22fb092b2f0d8c3712f1c2e62e9321eed200e"
+    ],
+    "outputHash": "7e1fcaf54c8e7e9dd7c13aa576234f5437cedb704135520358b812964d7c6cf0",
+    "checks": [
+      "Procedural book with real geometry and materials",
+      "Original self-contained GLB imported and staged",
+      "UI image/label textures loaded before capture",
+      "Lit geometry and shadow receivers rendered",
+      "Camera movement visible in MP4",
+      "Repeated frame PNGs match exactly",
+      "Full decode and MP4 format validated"
+    ],
+    "scope": "Original technical fixtures; no visual equivalence claim for third-party product models, UI assets or postprocessing examples",
+    "reviewRendererFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6"
   },
-  "captionLegibilityAndPace": {
+  "foreground": {
     "passed": true,
-    "synthetic": true,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
-    "outputHash": "d45d49c71f29ee7cdd885589c4360d5e63dd8d8fc117430ec7523398d9b70bac",
-    "frames": 150,
-    "nominalWorstCaseContrast": 21,
-    "whiteBackground": {
-      "black": 66465,
-      "magenta": 0
+    "scope": "Authorized real-video technical sample only; not editorial approval or proof of all mask edges",
+    "seconds": 4,
+    "frames": 120,
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6",
+    "width": 1080,
+    "height": 1920,
+    "alphaSample": {
+      "frame": 0,
+      "minimum": 0,
+      "maximum": 255
     },
-    "darkBackground": {
-      "black": 55082,
-      "magenta": 0
-    },
-    "adjustedDecorationStart": 4.2,
-    "flashLumaSamples": {
-      "during": 55,
-      "after": 17.333333333333332
-    },
-    "nativeSrtDecodePassed": true,
-    "nativeBrowserTrack": {
-      "loaded": true,
-      "cues": 2,
-      "firstStart": 0,
-      "inlineBlob": true
-    },
-    "srtSha256": "49857024149484adede25a49a12094c0c8143bb50648c52403054b41ac9bc414",
-    "vttSha256": "789ef049e3da8a33861eecf115d34203c440b354edaa5c5f88b90ca2acce7a43",
-    "audioComparison": {
-      "passed": true,
-      "minimumCorrelation": 0.9999631450730527,
-      "maximumAbsoluteLagMs": 0
-    },
-    "scope": "Caption legibility/sidecar/visual pace fixture; not complete accessibility certification, sound description or editorial approval",
-    "identicalToDevelopmentCheckout": true
+    "fullAlphaDecodePassed": true,
+    "cacheReuseVerified": true,
+    "occludedLetterPixels": 4743,
+    "visibleLetterPixels": 507,
+    "meanRgbErrorInOpaqueCore": 6.030922763370581,
+    "meanRgbErrorInTransparentBackground": 0.45825115055884286,
+    "editedSourceSha256": "7c7abdf6b8758202306d5de05cce2313eaba4e8a1b1fc70d3ec4b28cdfaac951",
+    "foregroundSha256": "8db832acecd4fd283c8868a7a9f4c8dd8c28c0e58a58b35d5db69731ebacdabb",
+    "previewSha256": "21b5665d180274669fa3f1609fe026999bf7bcd08a8e2727f86aaf13bed80398",
+    "staleGeometryRejected": true,
+    "manualEdgeReviewRequired": true,
+    "checks": [
+      "Edited camera/color/trim prepared before segmentation",
+      "Actual VP9 alpha decoded",
+      "Text visible in the background and occluded on the person core",
+      "Fresh preparation reused without recomputation",
+      "Stale camera geometry rejected"
+    ]
   },
   "outputProtection": {
     "passed": true,
     "scope": "Actual engine CLI rejects source/job collisions before media probing or writes",
     "collisionsRejected": 11,
     "allOriginalBytesPreserved": true,
-    "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472"
+    "sourceFingerprint": "6aa00fb9e911aff43a9d092ee96cdd947166a598fb74b39a56612a81861f29f6"
   },
   "editorialApproval": false,
-  "fullPreviewArchive": {
-    "sha256": "369bf119fe65767b77cb2e520074330ae85799a53b514b16175d6131d38d904d",
-    "identicalToDevelopmentRender": true,
-    "copiedArchiveOnly": true,
-    "fullRenderExecutedInOriginalCheckout": false
-  },
-  "historicalEvidence": true,
-  "currentPhaseNote": "Prior original-checkout verification; new 3D dependencies and runtime are being synchronized and verified separately"
+  "fullRealSermonRenderInCurrentCodeVerified": false
 }

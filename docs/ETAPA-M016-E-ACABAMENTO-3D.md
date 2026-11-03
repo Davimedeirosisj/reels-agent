@@ -18,6 +18,8 @@ Os controles pertencem ao evento e permanecem no mesmo JSON da edição. Nada at
   ],
   "scene": {
     "phone": { "asset": "tela-autorizada.png" },
+    "spin": 0,
+    "rotation": [0, 0, 0],
     "orbit": { "radius": 9.5, "elevation": 0.6, "angle": -0.3, "speed": 0.1 },
     "postprocessing": {
       "bloom": { "intensity": 0.35, "luminanceThreshold": 1, "levels": 4 },
@@ -29,6 +31,8 @@ Os controles pertencem ao evento e permanecem no mesmo JSON da edição. Nada at
 ```
 
 `orbit` usa radianos e segundos relativos ao evento. Raio, elevação, alvo e FOV podem mudar; use órbita ou keyframes de câmera, evitando configurações sobrepostas. Luzes continuam em `scene.lights`. Para materiais luminosos, os nodes aceitam `emissive`, `emissiveIntensity` e `toneMapped`; um material emissivo acima do limiar pode produzir o halo de bloom.
+
+O exemplo desativa a rotação contínua do grupo com `spin: 0`, para mostrar o movimento da câmera. Câmera e grupo podem ter movimentos independentes quando essa combinação ajudar a direção visual.
 
 Cada efeito aceita opções ou `false`; `bloom: true`/`grain: true` usam os valores iniciais documentados no módulo `src/postprocessing.mjs`. Um objeto vazio não ativa um acabamento. `postprocessing.enabled: false` desativa a cadeia. A intensidade de grão é medida em sRGB perceptual, com cobertura do material; tons escuros conservam sua aparência em intensidades pequenas. `animate: false` mantém a textura do grão fixa. O estado deriva de `random(seed + frame)` do Remotion; voltar ao mesmo frame reproduz a mesma imagem no ambiente testado.
 
@@ -58,5 +62,7 @@ Use `REELS_BROWSER` para apontar ao Chrome Headless Shell disponível, se necess
 Hashes, bibliotecas e escopo ficam em `validation/postprocessing-results.json`; o catálogo registra implementação própria de técnicas em `prompts/reference-implementations.json`. `originalReproduced` permanece `false`. A repetibilidade foi medida nesta máquina com Windows/Chrome/ANGLE, sem garantia de igualdade entre GPUs ou navegadores distintos.
 
 Uma execução da regressão de recorte parou após 20s sem receber dados de um arquivo servido localmente. O processo encerrou com erro; sua repetição idêntica e a rodada final passaram, mantendo os timeouts e critérios originais. A causa da interrupção de leitura não foi isolada. Os testes de mídia continuam necessários em cada exportação.
+
+Na pasta original, as novas dependências foram instaladas sem remover o navegador em cache. Passaram 76 testes JavaScript, 24 Python e as regressões de M016, 3D, recorte real e proteção de saídas. O MP4 de seis segundos, o quadro da cena e os frames de grão repetidos ficaram idênticos aos da pasta de desenvolvimento por SHA-256. A amostra real de quatro segundos passou; a pregação integral continua vinculada à etapa anterior. Evidência: `validation/original-folder-results.json`.
 
 A prévia integral da pregação validada no commit `57b16d5` permanece como evidência histórica de sua própria composição. Esta etapa valida o novo acabamento em fixtures e amostras técnicas. A escolha da cena depende do conteúdo e das referências da edição. Revisão espacial de pixels, acessibilidade integral, comparação de cada referência, layouts/cortes adicionais e aprovação humana seguem no objetivo ativo.
