@@ -1,0 +1,181 @@
+{
+  "language": "en",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.4,
+      "text": "This is a demonstration of the reals agent editing engine.",
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.3,
+          "word": "This"
+        },
+        {
+          "start": 0.3,
+          "end": 0.52,
+          "word": "is"
+        },
+        {
+          "start": 0.52,
+          "end": 0.68,
+          "word": "a"
+        },
+        {
+          "start": 0.68,
+          "end": 1.12,
+          "word": "demonstration"
+        },
+        {
+          "start": 1.12,
+          "end": 1.48,
+          "word": "of"
+        },
+        {
+          "start": 1.48,
+          "end": 1.62,
+          "word": "the"
+        },
+        {
+          "start": 1.62,
+          "end": 2.0,
+          "word": "reals"
+        },
+        {
+          "start": 2.0,
+          "end": 2.24,
+          "word": "agent"
+        },
+        {
+          "start": 2.24,
+          "end": 2.58,
+          "word": "editing"
+        },
+        {
+          "start": 2.58,
+          "end": 3.4,
+          "word": "engine."
+        }
+      ]
+    },
+    {
+      "start": 6.24,
+      "end": 8.7,
+      "text": "The original words and their order must be preserved.",
+      "words": [
+        {
+          "start": 6.24,
+          "end": 6.32,
+          "word": "The"
+        },
+        {
+          "start": 6.32,
+          "end": 6.72,
+          "word": "original"
+        },
+        {
+          "start": 6.72,
+          "end": 7.04,
+          "word": "words"
+        },
+        {
+          "start": 7.04,
+          "end": 7.3,
+          "word": "and"
+        },
+        {
+          "start": 7.3,
+          "end": 7.5,
+          "word": "their"
+        },
+        {
+          "start": 7.5,
+          "end": 7.72,
+          "word": "order"
+        },
+        {
+          "start": 7.72,
+          "end": 7.96,
+          "word": "must"
+        },
+        {
+          "start": 7.96,
+          "end": 8.22,
+          "word": "be"
+        },
+        {
+          "start": 8.22,
+          "end": 8.7,
+          "word": "preserved."
+        }
+      ]
+    },
+    {
+      "start": 11.9,
+      "end": 14.94,
+      "text": "Visual effects should help the message and keep the speaker visible.",
+      "words": [
+        {
+          "start": 11.9,
+          "end": 12.1,
+          "word": "Visual"
+        },
+        {
+          "start": 12.1,
+          "end": 12.52,
+          "word": "effects"
+        },
+        {
+          "start": 12.52,
+          "end": 12.86,
+          "word": "should"
+        },
+        {
+          "start": 12.86,
+          "end": 13.1,
+          "word": "help"
+        },
+        {
+          "start": 13.1,
+          "end": 13.26,
+          "word": "the"
+        },
+        {
+          "start": 13.26,
+          "end": 13.56,
+          "word": "message"
+        },
+        {
+          "start": 13.56,
+          "end": 13.84,
+          "word": "and"
+        },
+        {
+          "start": 13.84,
+          "end": 14.04,
+          "word": "keep"
+        },
+        {
+          "start": 14.04,
+          "end": 14.3,
+          "word": "the"
+        },
+        {
+          "start": 14.3,
+          "end": 14.52,
+          "word": "speaker"
+        },
+        {
+          "start": 14.52,
+          "end": 14.94,
+          "word": "visible."
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "backend": "whisper",
+    "model": "tiny",
+    "human_reviewed": false
+  }
+}

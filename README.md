@@ -18,13 +18,13 @@ Transformar vídeos brutos em Reels verticais com cortes inteligentes, transcri�
 - Orquestração: ChatGPT/Codex e Claude Code
 
 ## Status
-**Planejamento / protótipo.** Ainda não há pipeline de edição validado ponta a ponta. As ferramentas externas citadas são referências, não dependências instaladas.
+**Motor executável em desenvolvimento.** Existe uma linha do tempo com cortes reais, remapeamento de legendas, biblioteca de eventos Remotion e render MP4. Uma prévia sintética, uma galeria de 37 componentes e uma regressão de corte de vídeo/áudio foram executadas. As últimas correções ainda precisam de render; a cobertura completa das referências e a validação pastoral permanecem abertas.
 
 ## Próximos passos
-1. Implementar ingestão e transcrição.
-2. Criar cortes orientados por transcrição.
-3. Gerar legendas e títulos.
-4. Adicionar motion graphics com Remotion.
-5. Renderizar e revisar MP4.
+1. Seguir [Execução](docs/EXECUCAO.md) para transcrever, preparar EDL e renderizar prévia.
+2. Revisar contexto, legendas, enquadramento e áudio em `review.html`.
+3. Conferir [Cobertura individual](docs/COBERTURA.md) antes de selecionar uma receita.
+4. Acompanhar [Estado e evidências](docs/STATUS-IMPLEMENTACAO.md), incluindo o trabalho restante.
+5. Aprovar a edição para exportar `final.mp4`.
 
 Consulte `AGENTS.md` e `SKILL.md` para as instruções do agente.

@@ -1,13 +1,13 @@
+---
+name: reels-agent
+description: Editar cortes de cultos e pregações com EDL revisável, legendas, motion graphics contextuais e exportação MP4 validada, preservando a mensagem original.
+---
+
 > **PRIORIDADE MÁXIMA — PROMPTS ORIGINAIS DOS SITES**
 >
 > Para selecionar motion graphics, consulte **primeiro** os prompts originais publicados em [Prompt Motion](https://prompt-motion.com/) e as referências de [Motif](https://createmotion.io/prompts/) e [Revid](https://www.revid.ai/claude-motion-graphics). A meta editorial é curar **100 prompts originais de sites, com links individuais e autoria**, que serão a biblioteca principal do agente **quando verificados**.
 >
 > **Atenção à procedência:** o arquivo `prompts/100-motion-graphics.md` contém **100 prompts autorais**, não 100 prompts copiados ou testados dos sites. **Não apresentá-los como os 100 originais.** Até completar a curadoria, priorizar os originais verificáveis já referenciados em `prompts/prompt-motion-referencias.md`, `prompts/motif-45-referencias.md` e `prompts/revid-64-referencias.md`; usar os autorais apenas como alternativa, com rótulo explícito. Não afirmar teste prático sem evidência.
-
----
-name: reels-agent
-description: Planejamento e edição assistida de vídeos brutos em Reels verticais com transcrição, cortes, legendas, motion graphics e revisão.
----
 
 # Reels Agent — Skill principal
 
@@ -32,7 +32,7 @@ Vertical 1080×1920; títulos em maiúsculas, fonte GoBold Bold quando licenciad
 Conferir cortes, sincronia, safe areas, legibilidade, picos de áudio, erros de renderização e fidelidade à mensagem.
 
 ## Status
-Especificação inicial. Não pressupõe integração instalada ou execução bem-sucedida.
+Motor executável em desenvolvimento. A entrada atual usa `clips`, `transcript`, `motions`, câmera, tema e áudio em JSON. Consulte `docs/EXECUCAO.md` para comandos; `docs/COBERTURA.md` para cobertura individual e `docs/STATUS-IMPLEMENTACAO.md` para testes/pendências. Componentes renderizados com mídia sintética não comprovam todos os prompts nem fidelidade de uma pregação real. A revisão atual de PNG/BT.709 e legendas ainda requer render.
 
 ## REGRA FUNDAMENTAL: NÃO ENGESSAR A EDIÇÃO
 

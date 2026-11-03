@@ -1,5 +1,7 @@
 # Teste do pipeline — 02/11/2026
 
+Registro histórico da implementação inicial. Para o código atual e suas pendências, consulte `STATUS-IMPLEMENTACAO.md`; este teste não comprova a cobertura integral dos prompts.
+
 Núcleo em `tools/reels_pipeline.py`: FFprobe, transcrição opcional com faster-whisper/Whisper, legendas ASS e render vertical com FFmpeg. `tools/create_test_media.ps1` gera mídia sintética, executa o pipeline e valida o MP4.
 
 Verificado: FFmpeg 9.0.1, FFprobe, Python 3.12, `whisper`, `faster_whisper` e `torch`; Node/npm; Remotion 4.0.540 com CLI, bundler e renderer.

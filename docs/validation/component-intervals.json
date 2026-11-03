@@ -1,0 +1,229 @@
+{
+  "frameStep": 54,
+  "fps": 30,
+  "items": [
+    {
+      "kind": "title",
+      "startFrame": 0,
+      "endFrame": 53,
+      "inspectionFrame": 42
+    },
+    {
+      "kind": "kinetic",
+      "startFrame": 54,
+      "endFrame": 107,
+      "inspectionFrame": 96
+    },
+    {
+      "kind": "tracking",
+      "startFrame": 108,
+      "endFrame": 161,
+      "inspectionFrame": 150
+    },
+    {
+      "kind": "perspective",
+      "startFrame": 162,
+      "endFrame": 215,
+      "inspectionFrame": 204
+    },
+    {
+      "kind": "mask",
+      "startFrame": 216,
+      "endFrame": 269,
+      "inspectionFrame": 258
+    },
+    {
+      "kind": "trail",
+      "startFrame": 270,
+      "endFrame": 323,
+      "inspectionFrame": 312
+    },
+    {
+      "kind": "impact",
+      "startFrame": 324,
+      "endFrame": 377,
+      "inspectionFrame": 366
+    },
+    {
+      "kind": "lines",
+      "startFrame": 378,
+      "endFrame": 431,
+      "inspectionFrame": 420
+    },
+    {
+      "kind": "parallax",
+      "startFrame": 432,
+      "endFrame": 485,
+      "inspectionFrame": 474
+    },
+    {
+      "kind": "particles",
+      "startFrame": 486,
+      "endFrame": 539,
+      "inspectionFrame": 528
+    },
+    {
+      "kind": "shapes",
+      "startFrame": 540,
+      "endFrame": 593,
+      "inspectionFrame": 582
+    },
+    {
+      "kind": "blueprint",
+      "startFrame": 594,
+      "endFrame": 647,
+      "inspectionFrame": 636
+    },
+    {
+      "kind": "terminal",
+      "startFrame": 648,
+      "endFrame": 701,
+      "inspectionFrame": 690
+    },
+    {
+      "kind": "steps",
+      "startFrame": 702,
+      "endFrame": 755,
+      "inspectionFrame": 744
+    },
+    {
+      "kind": "timeline",
+      "startFrame": 756,
+      "endFrame": 809,
+      "inspectionFrame": 798
+    },
+    {
+      "kind": "connections",
+      "startFrame": 810,
+      "endFrame": 863,
+      "inspectionFrame": 852
+    },
+    {
+      "kind": "circle",
+      "startFrame": 864,
+      "endFrame": 917,
+      "inspectionFrame": 906
+    },
+    {
+      "kind": "compare",
+      "startFrame": 918,
+      "endFrame": 971,
+      "inspectionFrame": 960
+    },
+    {
+      "kind": "chart",
+      "startFrame": 972,
+      "endFrame": 1025,
+      "inspectionFrame": 1014
+    },
+    {
+      "kind": "counter",
+      "startFrame": 1026,
+      "endFrame": 1079,
+      "inspectionFrame": 1068
+    },
+    {
+      "kind": "kpi",
+      "startFrame": 1080,
+      "endFrame": 1133,
+      "inspectionFrame": 1122
+    },
+    {
+      "kind": "quote",
+      "startFrame": 1134,
+      "endFrame": 1187,
+      "inspectionFrame": 1176
+    },
+    {
+      "kind": "verse",
+      "startFrame": 1188,
+      "endFrame": 1241,
+      "inspectionFrame": 1230
+    },
+    {
+      "kind": "lower-third",
+      "startFrame": 1242,
+      "endFrame": 1295,
+      "inspectionFrame": 1284
+    },
+    {
+      "kind": "cta",
+      "startFrame": 1296,
+      "endFrame": 1349,
+      "inspectionFrame": 1338
+    },
+    {
+      "kind": "brand",
+      "startFrame": 1350,
+      "endFrame": 1403,
+      "inspectionFrame": 1392
+    },
+    {
+      "kind": "frame",
+      "startFrame": 1404,
+      "endFrame": 1457,
+      "inspectionFrame": 1446
+    },
+    {
+      "kind": "broll",
+      "startFrame": 1458,
+      "endFrame": 1511,
+      "inspectionFrame": 1500
+    },
+    {
+      "kind": "subject",
+      "startFrame": 1512,
+      "endFrame": 1565,
+      "inspectionFrame": 1554
+    },
+    {
+      "kind": "cards3d",
+      "startFrame": 1566,
+      "endFrame": 1619,
+      "inspectionFrame": 1608
+    },
+    {
+      "kind": "cube3d",
+      "startFrame": 1620,
+      "endFrame": 1673,
+      "inspectionFrame": 1662
+    },
+    {
+      "kind": "light",
+      "startFrame": 1674,
+      "endFrame": 1727,
+      "inspectionFrame": 1716
+    },
+    {
+      "kind": "wipe",
+      "startFrame": 1728,
+      "endFrame": 1781,
+      "inspectionFrame": 1770
+    },
+    {
+      "kind": "radial",
+      "startFrame": 1782,
+      "endFrame": 1835,
+      "inspectionFrame": 1824
+    },
+    {
+      "kind": "whip",
+      "startFrame": 1836,
+      "endFrame": 1889,
+      "inspectionFrame": 1878
+    },
+    {
+      "kind": "flash",
+      "startFrame": 1890,
+      "endFrame": 1943,
+      "inspectionFrame": 1932
+    },
+    {
+      "kind": "morph",
+      "startFrame": 1944,
+      "endFrame": 1997,
+      "inspectionFrame": 1986
+    }
+  ],
+  "note": "Esses renders comprovam os componentes com dados sintéticos; não comprovam cada receita ou equivalência às referências."
+}

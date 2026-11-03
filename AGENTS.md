@@ -17,3 +17,7 @@ Você trabalha no projeto Reels Agent. Priorize fidelidade ao conteúdo original
 6. Exportar MP4 1080x1920 após revisão.
 
 Não invente citações, trechos falados, timestamps ou resultados de testes. Não modifique o sentido de pregações. Nunca execute scripts de repositórios externos sem inspeção de segurança e licença.
+
+## Implementação atual
+
+Use `tools/engine.mjs` para validar EDL, propor cortes, gerar prévia e exportar após revisão. `src/editorial.mjs` define os mesmos frames para vídeo, áudio e legendas. `src/recipes.mjs` mantém cada prompt autoral e suas condições; `public/catalog.json` inclui todas as referências. Confira `docs/STATUS-IMPLEMENTACAO.md` antes de afirmar cobertura. O trim Remotion e sua renderização montam vídeo/áudio, e FFmpeg realiza inspeção, normalização e validação integral. O fallback FFmpeg anterior permanece disponível.

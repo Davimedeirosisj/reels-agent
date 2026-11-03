@@ -1,0 +1,82 @@
+{
+  "clientDate": "2026-11-02",
+  "scope": "Synthetic fixtures only",
+  "demo": {
+    "statusAtTimeOfRender": "passed",
+    "sha256": "512e3fcaf8b76dcf0d5830c01cf71a0626cef113261fdc85943598b4e0a96f00",
+    "duration": 9.685,
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "pixelFormat": "yuvj420p",
+      "frames": "290"
+    },
+    "audio": {
+      "codec": "aac",
+      "sampleRate": "48000",
+      "channels": 2,
+      "peakDb": -2.2,
+      "meanDb": -18.5
+    }
+  },
+  "showcase": {
+    "statusAtTimeOfRender": "passed",
+    "sha256": "614caf51ffdb84c968aeffcaea0ca7813f4aa8a1b1696646fd5afd0c2901c3c7",
+    "duration": 66.603,
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "pixelFormat": "yuvj420p",
+      "frames": "1998"
+    },
+    "audio": {
+      "codec": "aac",
+      "sampleRate": "48000",
+      "channels": 2,
+      "peakDb": -37.5,
+      "meanDb": -40.6
+    }
+  },
+  "regression": {
+    "passed": true,
+    "colors": [
+      [
+        255,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        255
+      ]
+    ],
+    "frequencies": [
+      440,
+      878.3333333333334
+    ],
+    "removedSourceInterval": [
+      1,
+      2
+    ],
+    "checks": [
+      "Red shot then blue shot",
+      "440 Hz then 880 Hz",
+      "Green shot and 660 Hz removed"
+    ],
+    "synthetic": true
+  },
+  "latestSourceValidatedByRender": false,
+  "pending": "Renderer was changed after these renders: caption pagination/ducking, layout fixes, explicit BT.709 + PNG and stricter pixel checks. Rerender required. Escalation approval review failed due to account usage limit.",
+  "asr": {
+    "backend": "whisper",
+    "model": "tiny",
+    "language": "en",
+    "segments": 3,
+    "words": 30,
+    "observedError": "Reels transcribed as reals",
+    "humanReviewed": false
+  }
+}

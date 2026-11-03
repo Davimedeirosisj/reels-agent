@@ -1,1 +1,316 @@
-{"videoSrc":"/demo-input.mp4","title":"Fidelidade à mensagem","segments":[{"start":0.5,"end":2.5,"text":"Teste de render do Reels Agent."},{"start":2.6,"end":4.6,"text":"A mensagem deve permanecer fiel."}],"zooms":[{"from":0,"to":75,"scale":1},{"from":75,"to":150,"scale":1.06}],"accent":"#d9a441","showGrid":false,"motion":"kinetic"}
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "fixture": {
+    "source": "FFmpeg testsrc2 + Windows Zira local TTS",
+    "isSermon": false
+  },
+  "clips": [
+    {
+      "source": "demo-input.mp4",
+      "start": 0,
+      "end": 3.55,
+      "reason": "Unidade contínua; conferir contexto anterior e posterior.",
+      "camera": [
+        {
+          "time": 0,
+          "scale": 1,
+          "x": 50,
+          "y": 45
+        },
+        {
+          "time": 3.55,
+          "scale": 1.03,
+          "x": 50,
+          "y": 45
+        }
+      ]
+    },
+    {
+      "source": "demo-input.mp4",
+      "start": 6.09,
+      "end": 8.85,
+      "reason": "Unidade contínua; conferir contexto anterior e posterior.",
+      "camera": [
+        {
+          "time": 0,
+          "scale": 1,
+          "x": 50,
+          "y": 45
+        },
+        {
+          "time": 2.76,
+          "scale": 1.03,
+          "x": 50,
+          "y": 45
+        }
+      ]
+    },
+    {
+      "source": "demo-input.mp4",
+      "start": 11.75,
+      "end": 15.09,
+      "reason": "Unidade contínua; conferir contexto anterior e posterior.",
+      "camera": [
+        {
+          "time": 0,
+          "scale": 1,
+          "x": 50,
+          "y": 45
+        },
+        {
+          "time": 3.34,
+          "scale": 1.03,
+          "x": 50,
+          "y": 45
+        }
+      ]
+    }
+  ],
+  "transcript": {
+    "language": "en",
+    "segments": [
+      {
+        "start": 0,
+        "end": 3.4,
+        "text": "This is a demonstration of the reals agent editing engine.",
+        "words": [
+          {
+            "start": 0,
+            "end": 0.3,
+            "word": "This"
+          },
+          {
+            "start": 0.3,
+            "end": 0.52,
+            "word": "is"
+          },
+          {
+            "start": 0.52,
+            "end": 0.68,
+            "word": "a"
+          },
+          {
+            "start": 0.68,
+            "end": 1.12,
+            "word": "demonstration"
+          },
+          {
+            "start": 1.12,
+            "end": 1.48,
+            "word": "of"
+          },
+          {
+            "start": 1.48,
+            "end": 1.62,
+            "word": "the"
+          },
+          {
+            "start": 1.62,
+            "end": 2,
+            "word": "reals"
+          },
+          {
+            "start": 2,
+            "end": 2.24,
+            "word": "agent"
+          },
+          {
+            "start": 2.24,
+            "end": 2.58,
+            "word": "editing"
+          },
+          {
+            "start": 2.58,
+            "end": 3.4,
+            "word": "engine."
+          }
+        ]
+      },
+      {
+        "start": 6.24,
+        "end": 8.7,
+        "text": "The original words and their order must be preserved.",
+        "words": [
+          {
+            "start": 6.24,
+            "end": 6.32,
+            "word": "The"
+          },
+          {
+            "start": 6.32,
+            "end": 6.72,
+            "word": "original"
+          },
+          {
+            "start": 6.72,
+            "end": 7.04,
+            "word": "words"
+          },
+          {
+            "start": 7.04,
+            "end": 7.3,
+            "word": "and"
+          },
+          {
+            "start": 7.3,
+            "end": 7.5,
+            "word": "their"
+          },
+          {
+            "start": 7.5,
+            "end": 7.72,
+            "word": "order"
+          },
+          {
+            "start": 7.72,
+            "end": 7.96,
+            "word": "must"
+          },
+          {
+            "start": 7.96,
+            "end": 8.22,
+            "word": "be"
+          },
+          {
+            "start": 8.22,
+            "end": 8.7,
+            "word": "preserved."
+          }
+        ]
+      },
+      {
+        "start": 11.9,
+        "end": 14.94,
+        "text": "Visual effects should help the message and keep the speaker visible.",
+        "words": [
+          {
+            "start": 11.9,
+            "end": 12.1,
+            "word": "Visual"
+          },
+          {
+            "start": 12.1,
+            "end": 12.52,
+            "word": "effects"
+          },
+          {
+            "start": 12.52,
+            "end": 12.86,
+            "word": "should"
+          },
+          {
+            "start": 12.86,
+            "end": 13.1,
+            "word": "help"
+          },
+          {
+            "start": 13.1,
+            "end": 13.26,
+            "word": "the"
+          },
+          {
+            "start": 13.26,
+            "end": 13.56,
+            "word": "message"
+          },
+          {
+            "start": 13.56,
+            "end": 13.84,
+            "word": "and"
+          },
+          {
+            "start": 13.84,
+            "end": 14.04,
+            "word": "keep"
+          },
+          {
+            "start": 14.04,
+            "end": 14.3,
+            "word": "the"
+          },
+          {
+            "start": 14.3,
+            "end": 14.52,
+            "word": "speaker"
+          },
+          {
+            "start": 14.52,
+            "end": 14.94,
+            "word": "visible."
+          }
+        ]
+      }
+    ],
+    "provenance": {
+      "backend": "whisper",
+      "model": "tiny",
+      "human_reviewed": false
+    }
+  },
+  "title": {
+    "text": "DEMONSTRAÇÃO\nDO MOTOR",
+    "start": 0,
+    "duration": 2.5,
+    "fontSize": 72
+  },
+  "captionStyle": {
+    "box": true,
+    "fontSize": 50
+  },
+  "theme": {
+    "fit": "cover",
+    "accent": "#e7bd78"
+  },
+  "audio": {
+    "normalize": true
+  },
+  "motions": [
+    {
+      "kind": "lower-third",
+      "start": 0,
+      "end": 3,
+      "text": "MÍDIA SINTÉTICA",
+      "subtitle": "Voz TTS • transcrição Whisper real",
+      "position": {
+        "x": 85,
+        "y": 1290,
+        "width": 880
+      },
+      "fontSize": 36
+    },
+    {
+      "kind": "terminal",
+      "start": 3,
+      "end": 5.5,
+      "text": "Preservar as palavras e a sequência.",
+      "position": {
+        "x": 85,
+        "y": 660,
+        "width": 880
+      }
+    },
+    {
+      "kind": "steps",
+      "start": 5.5,
+      "end": 8,
+      "items": [
+        "Inspecionar",
+        "Editar",
+        "Conferir"
+      ],
+      "position": {
+        "x": 85,
+        "y": 650,
+        "width": 880
+      }
+    },
+    {
+      "kind": "particles",
+      "start": 8,
+      "end": 9.666666666666666,
+      "count": 18
+    }
+  ]
+}
