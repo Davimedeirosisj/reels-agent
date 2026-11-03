@@ -1,5 +1,5 @@
 {
-  "recordedAtUtc": "2026-11-03T12:12:01.649Z",
+  "recordedAtUtc": "2026-11-03T12:35:37.434Z",
   "scope": "Original checkout runtime verification; synthetic test results only",
   "testedCodeCommit": "40c326d",
   "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
@@ -103,5 +103,11 @@
     "allOriginalBytesPreserved": true,
     "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472"
   },
-  "editorialApproval": false
+  "editorialApproval": false,
+  "fullPreviewArchive": {
+    "sha256": "369bf119fe65767b77cb2e520074330ae85799a53b514b16175d6131d38d904d",
+    "identicalToDevelopmentRender": true,
+    "copiedArchiveOnly": true,
+    "fullRenderExecutedInOriginalCheckout": false
+  }
 }

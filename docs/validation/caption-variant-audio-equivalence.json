@@ -1,0 +1,11 @@
+{
+  "recordedAtUtc": "2026-11-03T12:33:50.993Z",
+  "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+  "previousPreviewSha256": "941d04c1e8f50ae5e9ddd95adb9b3428aaf9a394142e7047f40755624f5b985f",
+  "currentPreviewSha256": "369bf119fe65767b77cb2e520074330ae85799a53b514b16175d6131d38d904d",
+  "fullDecodedAudioIdentical": true,
+  "decodedPcmSha256": "8c497cc57b2a66aa9e24f3de004782dfe2b579ffbe0d40d877f18036effbc0ec",
+  "pcmFormat": "signed 16-bit, 48000 Hz, stereo",
+  "scope": "Full decoded PCM identity between the two previews; fidelity to the original source is separately measured in nine sampled windows",
+  "editorialApproval": false
+}

@@ -51,6 +51,30 @@ for (const format of ['srt', 'vtt']) {
     throw new Error('Subtitle sidecar is missing or does not match this timeline: ' + format);
   subtitleSidecars[format] = { sha256: fileDigest(file), cueCount: pages.length };
 }
+const browserFile = path.join(folder, 'browser-validation.json');
+let nativeReviewPlayback = null;
+if (fs.existsSync(browserFile)) {
+  const browser = read(browserFile);
+  if (
+    !browser.passed ||
+    !browser.played ||
+    !browser.seekCompleted ||
+    !browser.nativeCaptionsLoaded ||
+    browser.sourceFingerprint !== sourceFingerprint ||
+    browser.outputHash !== report.sha256 ||
+    browser.cueCount !== pages.length
+  )
+    throw new Error('Native browser review evidence is stale');
+  nativeReviewPlayback = {
+    passed: true,
+    videoStarted: browser.played,
+    seekCompleted: browser.seekCompleted,
+    nativeCaptionsLoaded: browser.nativeCaptionsLoaded,
+    cueCount: browser.cueCount,
+    editableSegments: browser.editableSegments,
+    scope: browser.scope,
+  };
+}
 let foreground = null;
 let spatialReview = null;
 if (job.foregroundPreparation) {
@@ -199,6 +223,7 @@ const result = {
     fullAccessibilityCertification: false,
   },
   visualPace: quality.visualPace,
+  nativeReviewPlayback,
   audioComparison: {
     passed: fidelity.passed,
     sampledWindows: fidelity.windows.length,

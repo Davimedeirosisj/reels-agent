@@ -1,7 +1,7 @@
 {
-  "rendererFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+  "rendererFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
   "fingerprintScheme": "normalized-source-and-lock-v2",
-  "checkedAtUtc": "2026-11-03T11:04:33.062Z",
+  "checkedAtUtc": "2026-11-03T12:29:39.806Z",
   "platform": "win32",
   "node": "v26.13.0",
   "ffmpeg": {

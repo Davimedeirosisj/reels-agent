@@ -26,7 +26,7 @@ Vídeo bruto, preferências visuais, duração-alvo e referências autorizadas.
 Vertical 1080×1920; títulos em maiúsculas, fonte GoBold Bold quando licenciada e disponível, branco, sem contorno. Priorizar curiosidade, identificação e tensão no título, sem sensacionalismo nem distorção bíblica.
 
 ## Saídas propostas
-`transcript.json`, `edit_decisions.json`, `preview.mp4`, `final.mp4`, `quality_report.md`.
+`transcript.json`, `edit_decisions.json`, `preview.mp4`, `captions.srt`, `captions.vtt`, `final.mp4`, `quality_report.md`.
 
 ## Critérios de aprovação
 Conferir cortes, sincronia, safe areas, legibilidade, picos de áudio, erros de renderização e fidelidade à mensagem.
@@ -37,6 +37,8 @@ Motor executável em desenvolvimento. A entrada atual usa `clips`, `transcript`,
 Para gráficos atrás da pessoa, use `foreground` antes de `preview`; o comando prepara câmera/cortes/cor, calcula alpha e recusa uma camada desatualizada. Veja `docs/ETAPA-RECORTE-AUTOMATICO.md`. Use o efeito somente quando fizer sentido para a mensagem e confira bordas e legibilidade.
 
 Para sincronizar gráficos com a fala, use `anchor` por frase/ocorrência nos eventos. A revisão facial por amostragem é uma ajuda para conferir posições, não aprovação de enquadramento. Veja `docs/ETAPA-ANCORAS-E-EXPORTACAO.md` para os limites e as evidências.
+
+Para legendas de maior legibilidade, arquivos SRT/WebVTT e controle opcional do espaçamento de decorações, consulte `docs/ETAPA-LEGENDAS-E-RITMO.md`. A050 não certifica acessibilidade integral; A096 não retima fala, cortes ou legendas. Ao corrigir texto com âncoras, realinhe a fala ou escolha explicitamente conservar os tempos visuais da prévia para nova revisão; não estime tempos por palavra. Esses recursos continuam sendo escolhas contextuais.
 
 Curadoria: `prompts/external-verified.json` registra 124 publicações Prompt Motion com autoria e links, correspondendo a 111 textos normalizados distintos. `prompts/motif-attribution.json` verifica 45 páginas individuais Motif. Consulte os originais antes de criar a direção visual. Os fingerprints comprovam disponibilidade dos textos, não execução nem licença para republicá-los.
 

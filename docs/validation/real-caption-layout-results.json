@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "pageCount": 66,
+  "overflowCount": 0,
+  "maximumLines": 2,
+  "minimumActualFontSize": 56,
+  "maximumActualFontSize": 64,
+  "fontFamily": "Arial, sans-serif",
+  "textTransform": "uppercase",
+  "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
+  "scope": "All caption pages measured using actual Chrome font widths; preflight only, not full raster/face collision review"
+}

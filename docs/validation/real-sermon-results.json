@@ -1,12 +1,12 @@
 {
-  "recordedAtUtc": "2026-11-03T11:15:44.426Z",
+  "recordedAtUtc": "2026-11-03T12:39:11.277Z",
   "scope": "User-authorized real sermon preview; technical metadata only",
-  "sourceFingerprint": "4d546713d343ea56608103cc906462b9c6baad6c2fec388bd295e7a6ad9f6ae1",
+  "sourceFingerprint": "c82fa74ea7482dd549ae212a327e993c91d0eb7aa6f495192c526b732f3b0472",
   "fingerprintScheme": "normalized-source-and-lock-v2",
   "latestSourceValidatedByRender": true,
   "mp4": {
     "status": "passed",
-    "sha256": "941d04c1e8f50ae5e9ddd95adb9b3428aaf9a394142e7047f40755624f5b985f",
+    "sha256": "369bf119fe65767b77cb2e520074330ae85799a53b514b16175d6131d38d904d",
     "duration": 144.1,
     "expectedVideoDuration": 144.03333333333333,
     "video": {
@@ -50,6 +50,43 @@
     "pointTimestampHandling": "Text retained on adjacent caption pages; no estimated word duration or active highlight",
     "allAlignedTranscriptWordsRetainedInCaptionPages": true
   },
+  "captions": {
+    "mode": "accessible",
+    "burnedIn": true,
+    "pageCount": 66,
+    "sidecars": {
+      "srt": {
+        "sha256": "5ede870b9b34a19db511ae6ab610a9221a56cd310ec34916682d032d352eaf2d",
+        "cueCount": 66
+      },
+      "vtt": {
+        "sha256": "576925a31669f9bd4fcada335c78e473f0f2f6670feb000f99f9cb64e7aec8e7",
+        "cueCount": 66
+      }
+    },
+    "nominalWorstCaseContrast": 21,
+    "contrastScope": "Worst-case nominal sRGB colors over arbitrary SDR video; not a complete accessibility certification",
+    "speakerAndSignificantSoundAnnotationsReviewed": false,
+    "fullAccessibilityCertification": false
+  },
+  "visualPace": {
+    "mode": "review",
+    "eventCount": 4,
+    "maximumConcurrent": 1,
+    "crowdedStarts": [],
+    "concurrencyWarning": false,
+    "adjustmentCount": 0,
+    "scope": "Visual entrance spacing only; speech, cuts, captions, anchored events and SFX are not retimed"
+  },
+  "nativeReviewPlayback": {
+    "passed": true,
+    "videoStarted": true,
+    "seekCompleted": true,
+    "nativeCaptionsLoaded": true,
+    "cueCount": 66,
+    "editableSegments": 20,
+    "scope": "Native browser playback, seek and caption loading on the actual full preview; no semantic or complete accessibility approval"
+  },
   "audioComparison": {
     "passed": true,
     "sampledWindows": 9,
@@ -71,7 +108,7 @@
     "missingRangeCount": 0,
     "meanForegroundFraction": 0.5565498868663947,
     "modelSha256": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
-    "layerSha256": "fda50114c99c6b9cdbe41634910d8b7b2ba66aeb2edd7e47bb3c36eac9ed089b",
+    "layerSha256": "5ec6d0b6181a8763969481762dde7fe3d19a95914936b30c839cd832a116befc",
     "motionCompensated": true,
     "smoothing": 0.15,
     "encoding": {
@@ -82,7 +119,7 @@
       "threads": 8,
       "transparentRgbZeroed": true
     },
-    "elapsedSeconds": 523.0469999999987,
+    "elapsedSeconds": 567.4069999999992,
     "outputBytes": 137721843,
     "fullAlphaDecodePassed": true,
     "manualEdgeReviewRequired": true,
@@ -114,6 +151,7 @@
   "limitations": [
     "Human listening and full transcript review remain required; ASR is a draft.",
     "Sampled waveform agreement does not certify full semantic/theological fidelity.",
+    "Caption contrast and subtitle files do not certify complete accessibility; speaker identification, meaningful sounds and reading pace still require review.",
     "Full-timeline foreground inferred and decoded; composited only during behind events. Lectern/glass/finger edges still require full human review.",
     "No premium equivalence claim for all external references; their assets and exact timing remain separately unverified.",
     "GoBold was unavailable; installed Arial was used. Source media, transcript and stills remain local."
