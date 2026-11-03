@@ -48,6 +48,11 @@ export const MOTION_VARIANTS = [
   'topic-montage',
   'depth-scene',
   'isometric',
+  'flowchart',
+  'network',
+  'question-answer',
+  'interface',
+  'definition',
 ];
 export const MEDIA_KINDS = [
   'broll',

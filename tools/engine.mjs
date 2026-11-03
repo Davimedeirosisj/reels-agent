@@ -211,7 +211,11 @@ async function main() {
       metadata = probe(localFile(source));
     job.clips = proposeCuts(job.transcript, source);
     for (const c of job.clips) c.end = Math.min(c.end, Number(metadata.format.duration));
-    if (job.brief?.suggestMotions) job.motions = suggestMotions(job);
+    if (job.brief?.suggestMotions) {
+      const verifiedPath = path.join(root, 'prompts', 'external-verified.json');
+      const verifiedReferences = fs.existsSync(verifiedPath) ? read(verifiedPath).entries : [];
+      job.motions = suggestMotions(job, { verifiedReferences });
+    }
     delete job.approval;
     write(args[0] || jobPath.replace(/\.json$/, '.proposed.json'), job);
     return;
@@ -284,6 +288,7 @@ async function main() {
   });
   const raw = path.join(dir, `${command}.raw.mp4`),
     file = path.join(dir, `${command}.mp4`);
+  let lastProgress = 0;
   await renderMedia({
     composition,
     serveUrl,
@@ -296,8 +301,14 @@ async function main() {
     outputLocation: raw,
     inputProps: props,
     concurrency: 2,
-    onProgress: ({ progress }) => {
-      if (progress === 1) console.log('Frames renderizados');
+    onProgress: ({ progress, renderedFrames, encodedFrames }) => {
+      const now = Date.now();
+      if (progress === 1 || now - lastProgress >= 10000) {
+        console.log(
+          `Render ${Math.round(progress * 100)}% — frames ${renderedFrames}/${composition.durationInFrames}, codificados ${encodedFrames}`,
+        );
+        lastProgress = now;
+      }
     },
   });
   if (job.audio?.normalize === false) fs.copyFileSync(raw, file);

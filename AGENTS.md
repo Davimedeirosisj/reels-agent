@@ -21,3 +21,5 @@ Não invente citações, trechos falados, timestamps ou resultados de testes. N�
 ## Implementação atual
 
 Use `tools/engine.mjs` para validar EDL, propor cortes, gerar prévia e exportar após revisão. `src/editorial.mjs` define os mesmos frames para vídeo, áudio e legendas. `src/recipes.mjs` mantém cada prompt autoral e suas condições; `public/catalog.json` inclui todas as referências. Confira `docs/STATUS-IMPLEMENTACAO.md` antes de afirmar cobertura. O trim Remotion e sua renderização montam vídeo/áudio, e FFmpeg realiza inspeção, normalização e validação integral. O fallback FFmpeg anterior permanece disponível.
+
+`prompts/external-verified.json` e `prompts/motif-attribution.json` registram fontes individuais verificadas. A curadoria não é teste de reprodução. Em transcrições ASR, preserve também palavras com duração zero: exiba seu texto na página adjacente, sem inventar duração nem destaque sincronizado. Mídia, transcrição e quadros de pregações reais ficam locais; registre no Git apenas agregados técnicos e limitações, salvo autorização específica de publicação.

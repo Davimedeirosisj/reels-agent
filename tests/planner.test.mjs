@@ -26,3 +26,40 @@ test('explicit references guide proposals using verbatim excerpts', () => {
 test('does not manufacture quantitative claims from a numeric-looking visual reference', () => {
   assert.deepEqual(suggestMotions({ ...job, brief: { references: ['V04'] } }), []);
 });
+test('question-answer annotations use exact words and mapped answer timing', () => {
+  const source = {
+    clips: [{ source: 'v', start: 5, end: 15 }],
+    transcript: {
+      segments: [
+        { start: 6, end: 8, text: 'Por que preservar o contexto?' },
+        { start: 10, end: 13, text: 'Para compreender a mensagem.' },
+      ],
+    },
+    brief: {
+      visualAnnotations: [
+        { kind: 'question-answer', questionCaptionIndex: 0, answerCaptionIndex: 1 },
+      ],
+    },
+  };
+  const e = suggestMotions(source)[0];
+  assert.equal(e.question, source.transcript.segments[0].text);
+  assert.equal(e.answer, source.transcript.segments[1].text);
+  assert.equal(e.start, 1);
+  assert.equal(e.answerAt, 4);
+});
+test('verified source IDs guide adaptable techniques without claiming reproduction', () => {
+  const events = suggestMotions(
+    { ...job, brief: { references: ['PMV-TEST'] } },
+    {
+      verifiedReferences: [
+        {
+          id: 'PMV-TEST',
+          runtimeTechniqueCandidates: ['kinetic'],
+          implementationStatus: 'reference-only',
+        },
+      ],
+    },
+  );
+  assert.equal(events[0].kind, 'kinetic');
+  assert.equal(events[0].referenceId, 'PMV-TEST');
+});

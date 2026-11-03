@@ -12,6 +12,8 @@ const own = [...text('prompts/100-motion-graphics.md').matchAll(/^### (\d{3}) �
     sourceAnchor: m[1],
   }),
 );
+const motifAttributionPath = path.join(root, 'prompts/motif-attribution.json');
+const motifAttribution = fs.existsSync(motifAttributionPath) ? read(motifAttributionPath) : null;
 const motif = [
   ...text('prompts/motif-45-referencias.md').matchAll(
     /^(\d+)\. \*\*(.+?)\*\*.*?categoria \*\*(.+?)\*\*/gm,
@@ -23,7 +25,11 @@ const motif = [
   sourceUrl: 'https://createmotion.io/prompts/',
   status: 'reference-indexed',
   originalReproduced: false,
-  individualAttribution: 'pending',
+  ...(motifAttribution?.entries.find((r) => r.id === `M${m[1].padStart(3, '0')}`) || {}),
+  individualAttribution: motifAttribution?.entries.find((r) => r.id === `M${m[1].padStart(3, '0')}`)
+    ?.individualPromptAvailable
+    ? 'individual-page-verified'
+    : 'pending',
 }));
 const revid = [
   ...text('prompts/revid-64-referencias.md').matchAll(
@@ -45,6 +51,8 @@ const pm = read(path.join(root, 'prompts/prompt-motion-verificados.json')).entri
   status: 'reference-indexed',
   originalReproduced: false,
 }));
+const verificationPath = path.join(root, 'prompts/external-verified.json');
+const externalVerification = fs.existsSync(verificationPath) ? read(verificationPath) : null;
 const kinds = [
   'kinetic',
   'title',
@@ -73,10 +81,20 @@ const result = {
     revid: revid.length,
     promptMotion: pm.length,
     visual: visual.length,
+    verifiedExternalPublications: externalVerification?.entries.length || 0,
+    verifiedExternalDistinctTexts: externalVerification?.distinctTextHashes || 0,
   },
   authored: own,
   external: [...motif, ...revid, ...pm],
   visual,
+  verifiedExternalPrompts: externalVerification?.entries || [],
+  verification: externalVerification
+    ? {
+        verifiedAtUtc: externalVerification.verifiedAtUtc,
+        deduplicationScope: externalVerification.deduplicationScope,
+        unverified: externalVerification.unverified,
+      }
+    : null,
   note: 'Mapeamento não comprova render ou equivalência visual. partial/pending preservam lacunas; originais externos permanecem atribuídos. Veja docs/COBERTURA.md.',
 };
 if (
@@ -93,6 +111,46 @@ const rows = own
   .join('\n');
 fs.writeFileSync(
   path.join(root, 'docs/COBERTURA.md'),
-  `# Cobertura rastreável\n\nGerada por npm run catalog. ${own.length} prompts autorais, ${motif.length} Motif, ${revid.length} Revid, ${pm.length} Prompt Motion e ${visual.length} referências visuais.\n\nOs 100 autorais têm uma entrada individual. Mapeamento é uma especificação executável onde houver componente, e não evidência de conclusão. Estados pending, partial e requires-asset mantêm o trabalho restante explícito. implemented-unverified exige teste de render e avaliação visual.\n\n| ID | Pedido | Implementação / condição | Estado |\n|---|---|---|---|\n${rows}\n\n## Fontes externas e visuais\n\n${result.external.map((x) => `- ${x.id}: ${x.title} — ${x.sourceUrl || x.source_url}; referência indexada, reprodução não executada.`).join('\n')}\n\n${visual.map((x) => `- ${x.id}: ${x.title} → ${x.kind}; imagem original ausente, timing não verificado.`).join('\n')}\n\n## Pendências de fontes\n\nOs 45 índices Motif ainda precisam de autoria/URL individual; os 64 Revid são vídeos de referência, não 64 prompts textuais. O objetivo de curar 100 prompts externos originais continua em aberto. Assets 3D, fontes GoBold e mídia do culto devem ser fornecidos com autorização. Nenhum código externo sem licença foi copiado.\n`,
+  [
+    '# Cobertura rastreável',
+    `Gerada por npm run catalog. ${own.length} autorais, ${motif.length} Motif, ${revid.length} Revid, ${pm.length} referências legadas Prompt Motion e ${visual.length} visuais.`,
+    'Os 100 autorais têm uma entrada individual. Mapeamento não é evidência de conclusão. partial/pending/requires-asset preservam lacunas; implemented-unverified requer teste da receita e avaliação visual.',
+    `| ID | Pedido | Implementação / condição | Estado |\n|---|---|---|---|\n${rows}`,
+    '## Fontes externas e visuais',
+    result.external
+      .map(
+        (x) => `- ${x.id}: ${x.title} — ${x.sourceUrl || x.source_url}; reprodução não executada.`,
+      )
+      .join('\n'),
+    visual
+      .map(
+        (x) => `- ${x.id}: ${x.title} → ${x.kind}; imagem original ausente, timing não verificado.`,
+      )
+      .join('\n'),
+    '## Estado das fontes',
+    motifAttribution
+      ? `Os 45 índices Motif possuem autores e links individuais extraídos da galeria; ${motifAttribution.individualPromptsVerified} páginas individuais tiveram prompt público e link do post original verificados. A associação segue categoria/posição definida pelo índice local; não comprova reprodução.`
+      : 'Os 45 índices Motif ainda precisam de autoria/URL individual.',
+    externalVerification
+      ? `Foram verificadas ${externalVerification.entries.length} publicações externas, com ${externalVerification.distinctTextHashes} hashes distintos de texto; ver FONTES-ORIGINAIS-VERIFICADAS.md.`
+      : 'O alvo de 100 textos originais externos ainda não foi verificado.',
+    'Os 64 Revid são referências de vídeos, não 64 prompts textuais. Assets 3D e fontes devem ter autorização. Nenhum código externo sem licença foi copiado.\n',
+  ].join('\n\n'),
 );
+if (externalVerification) {
+  const sources = externalVerification.entries
+    .map(
+      (e) =>
+        `| ${e.id} | ${e.title.replace(/\|/g, '/')} | ${e.author} | [Página original](${e.sourceUrl}) | ${e.exactDuplicateOf ? 'texto repetido' : 'hash novo'} |`,
+    )
+    .join('\n');
+  fs.writeFileSync(
+    path.join(root, 'docs/FONTES-ORIGINAIS-VERIFICADAS.md'),
+    `# Fontes originais verificadas\n\n${externalVerification.entries.length} publicações com texto público e autoria; ${externalVerification.distinctTextHashes} hashes de texto distintos após normalização. Verificação em ${externalVerification.verifiedAtUtc}.\n\nO objetivo numérico de verificar pelo menos 100 textos foi atingido. Isso não estabelece 100 famílias semânticas diferentes, não é avaliação de qualidade e não comprova execução desses prompts. Cada fonte permanece como reference-only no catálogo, com link do post original e fingerprint. Nenhum texto integral foi republicado.\n\n| ID | Título abreviado | Criador | Fonte | Deduplicação |\n|---|---|---|---|---|\n${sources}\n\nFalhas/ausências de prompt: ${externalVerification.unverified.length}. Os registros acima provêm do Prompt Motion. Além deles, ${motifAttribution?.individualPromptsVerified || 0} páginas Motif tiveram prompt e post original verificados; os 64 Revid continuam como referências audiovisuais, sem alegação de prompt textual ou reprodução. Técnicas sugeridas por palavras-chave são apenas pistas de curadoria e podem exigir direção/asset específico.\n`,
+  );
+  fs.appendFileSync(
+    path.join(root, 'docs/COBERTURA.md'),
+    `\n## Atualização de originais externos\n\nVerificados ${externalVerification.entries.length} registros e ${externalVerification.distinctTextHashes} textos normalizados distintos, com autoria e links individuais. Veja [Fontes verificadas](FONTES-ORIGINAIS-VERIFICADAS.md). A disponibilidade dos originais está comprovada; a reprodução e implementação integral de cada referência continuam em aberto.\n`,
+  );
+}
 console.log(result.counts);

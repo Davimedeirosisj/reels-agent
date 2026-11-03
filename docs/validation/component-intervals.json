@@ -289,6 +289,36 @@
       "startFrame": 2538,
       "endFrame": 2591,
       "inspectionFrame": 2580
+    },
+    {
+      "kind": "flowchart",
+      "startFrame": 2592,
+      "endFrame": 2645,
+      "inspectionFrame": 2634
+    },
+    {
+      "kind": "network",
+      "startFrame": 2646,
+      "endFrame": 2699,
+      "inspectionFrame": 2688
+    },
+    {
+      "kind": "question-answer",
+      "startFrame": 2700,
+      "endFrame": 2753,
+      "inspectionFrame": 2742
+    },
+    {
+      "kind": "interface",
+      "startFrame": 2754,
+      "endFrame": 2807,
+      "inspectionFrame": 2796
+    },
+    {
+      "kind": "definition",
+      "startFrame": 2808,
+      "endFrame": 2861,
+      "inspectionFrame": 2850
     }
   ],
   "note": "Esses renders comprovam os componentes com dados sintéticos; não comprovam cada receita ou equivalência às referências."

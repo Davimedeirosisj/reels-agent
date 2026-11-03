@@ -54,7 +54,10 @@ for (const [name, file] of Object.entries(files)) {
   if (actual !== expected.sha256) throw new Error(`Hash divergiu: ${name}`);
 }
 write(path.join(dir, 'render-results.json'), {
-  clientDate: '2026-11-02',
+  clientDate: new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo' }).format(
+    new Date(),
+  ),
+  recordedAtUtc: new Date().toISOString(),
   scope: 'Synthetic fixtures only',
   demo: brief(demo),
   showcase: brief(showcase),
@@ -63,7 +66,7 @@ write(path.join(dir, 'render-results.json'), {
   sourceFingerprint: currentFingerprint,
   latestSourceValidatedByRender: true,
   pending:
-    'Full individual recipe/reference coverage and real sermon validation remain incomplete. Segmentation has only technical fixtures; no preacher cutout has been approved.',
+    'Full individual recipe/reference coverage and human editorial approval remain incomplete. This file records synthetic fixtures; real-sermon-results.json records real preview tests separately.',
   asr: {
     backend: 'whisper',
     model: 'tiny',

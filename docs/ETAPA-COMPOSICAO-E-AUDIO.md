@@ -1,5 +1,7 @@
 # Composição e áudio — 02/11/2026
 
+Registro histórico desta etapa. Para os 53 componentes, curadoria ampliada e testes com pregação real posteriores, consulte [Pregação real](ETAPA-PREGACAO-REAL.md) e [Estado atual](STATUS-IMPLEMENTACAO.md).
+
 ## Implementação e resultados
 
 - 48 componentes visuais renderizados em galeria de 86,4s / 2592 frames, H.264/AAC, 1080×1920, yuv420p, BT.709. Contatos inspecionados após corrigir clipping no blueprint e diferenciar timeline/conexões.

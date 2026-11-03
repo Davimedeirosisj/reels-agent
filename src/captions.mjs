@@ -4,13 +4,15 @@ export function captionPages(segments, { maxChars = 42, maxWords = 8, mode = 'ka
     const pages = [];
     let group = [];
     const flush = () => {
+      const timed = group.filter((w) => w.to > w.from);
+      if (!timed.length) return;
       if (group.length)
         pages.push({
           ...s,
           words: group,
           text: group.map((w) => w.word || w.text).join(' '),
-          from: group[0].from,
-          to: group.at(-1).to,
+          from: timed[0].from,
+          to: timed.at(-1).to,
         });
       group = [];
     };
@@ -29,6 +31,15 @@ export function captionPages(segments, { maxChars = 42, maxWords = 8, mode = 'ka
       if (/[.!?;:]$/.test(w.word || w.text)) flush();
     }
     flush();
+    if (group.length) {
+      // A trailing point timestamp has no display interval of its own. Keep its
+      // text on the preceding page without changing or inventing word times.
+      if (pages.length) {
+        const last = pages.at(-1);
+        last.words = [...last.words, ...group];
+        last.text = last.words.map((w) => w.word || w.text).join(' ');
+      } else return [{ ...s }];
+    }
     return pages;
   });
 }

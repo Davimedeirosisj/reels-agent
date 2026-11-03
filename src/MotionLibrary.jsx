@@ -13,6 +13,8 @@ const textStyle = {
 import { MOTION_VARIANTS, MEDIA_KINDS } from './motion-kinds.mjs';
 import { MediaPanels } from './MediaPanels';
 import { Transition, TRANSITION_KINDS } from './Transitions';
+import { DiagramGraphic } from './DiagramGraphic';
+import { EducationalGraphic } from './EducationalGraphic';
 export { MOTION_VARIANTS } from './motion-kinds.mjs';
 export function MotionLibrary({
   variant = 'kinetic',
@@ -49,6 +51,31 @@ export function MotionLibrary({
       color: '#fff',
     };
   const words = text.split(/\s+/).filter(Boolean);
+  if (['flowchart', 'network'].includes(variant))
+    return (
+      <DiagramGraphic
+        {...options}
+        variant={variant}
+        frame={f}
+        fps={fps}
+        durationInFrames={durationInFrames}
+        accent={accent}
+        position={position}
+        fontSize={Math.min(fontSize, 30)}
+      />
+    );
+  if (['question-answer', 'interface', 'definition'].includes(variant))
+    return (
+      <EducationalGraphic
+        {...options}
+        variant={variant}
+        frame={f}
+        fps={fps}
+        accent={accent}
+        position={position}
+        text={text}
+      />
+    );
   if (MEDIA_KINDS.includes(variant))
     return (
       <MediaPanels

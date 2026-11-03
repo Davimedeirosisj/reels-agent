@@ -1,4 +1,6 @@
 import { MOTION_VARIANTS } from './motion-kinds.mjs';
+import { validateGraph, graphLayout } from './diagrams.mjs';
+import { validateEducation } from './education.mjs';
 export const frames = (seconds, fps) => Math.round(seconds * fps);
 const finite = (n) => typeof n === 'number' && Number.isFinite(n);
 // One source of truth for video, audio, captions and the review.
@@ -29,7 +31,9 @@ export function captionsForTimeline(segments, clips, fps) {
         const words = (s.words || []).flatMap((w) => {
           const a = Math.max(start, frames(w.start, fps)),
             b = Math.min(end, frames(w.end, fps));
-          return b > a
+          const pointInside =
+            a === b && frames(w.start, fps) >= start && frames(w.start, fps) < end;
+          return b > a || pointInside
             ? [{ ...w, from: c.from + a - c.trimBefore, to: c.from + b - c.trimBefore }]
             : [];
         });
@@ -111,10 +115,29 @@ export function validateJob(job) {
       )
         errors.push(`legenda ${i}: word timestamps inválidos`);
       end = w.end;
+      if (frames(w.end, fps) === frames(w.start, fps))
+        warnings.push(
+          `legenda ${i}: palavra sem duração mensurável; preservar o texto sem estimar alinhamento`,
+        );
     }
   }
   const duration = timeline(job.clips || [], fps).reduce((a, c) => a + c.durationInFrames, 0) / fps;
   for (const [i, m] of (job.motions || []).entries()) {
+    if (['flowchart', 'network'].includes(m.kind))
+      for (const e of validateGraph(m.graph)) errors.push(`motion ${i}: ${e}`);
+    if (['flowchart', 'network'].includes(m.kind) && !validateGraph(m.graph).length) {
+      try {
+        graphLayout(m.graph, { kind: m.kind });
+      } catch (e) {
+        errors.push(`motion ${i}: ${e.message}`);
+      }
+    }
+    for (const e of validateEducation(m, m.end - m.start)) errors.push(`motion ${i}: ${e}`);
+    if (
+      ['flowchart', 'network', 'question-answer', 'interface', 'definition'].includes(m.kind) &&
+      !m.evidence
+    )
+      errors.push(`motion ${i}: registrar origem dos conceitos/relações ilustrados em evidence`);
     if (!MOTION_VARIANTS.includes(m.kind)) errors.push(`motion ${i}: tipo desconhecido ${m.kind}`);
     if (
       !finite(m.start) ||

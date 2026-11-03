@@ -1,5 +1,6 @@
 {
-  "clientDate": "2026-11-02",
+  "clientDate": "2026-11-03",
+  "recordedAtUtc": "2026-11-03T03:06:07.991Z",
   "scope": "Synthetic fixtures only",
   "demo": {
     "statusAtTimeOfRender": "passed",
@@ -22,14 +23,14 @@
   },
   "showcase": {
     "statusAtTimeOfRender": "passed",
-    "sha256": "43bb97b7be2da02cd8373f2c05032e19520d97799e73c1f53c61ac2f82e0fa90",
-    "duration": 86.4,
+    "sha256": "b77138bb8e80856f342911861d5ee8df1121b9515e5cca2ba15979bff9ba01e5",
+    "duration": 95.403,
     "video": {
       "codec": "h264",
       "width": 1080,
       "height": 1920,
       "pixelFormat": "yuv420p",
-      "frames": "2592"
+      "frames": "2862"
     },
     "audio": {
       "codec": "aac",
@@ -94,9 +95,9 @@
     ],
     "synthetic": true
   },
-  "sourceFingerprint": "bb462cddacd4d20311ad3eadd9d5f5501e476511ecb32c0ca06aea7b40bbd758",
+  "sourceFingerprint": "bd20ec30b834b341ed51b8a2a9eae442778be182be8b5d56bf23a3ada8a64ab8",
   "latestSourceValidatedByRender": true,
-  "pending": "Full individual recipe/reference coverage and real sermon validation remain incomplete. Segmentation has only technical fixtures; no preacher cutout has been approved.",
+  "pending": "Full individual recipe/reference coverage and human editorial approval remain incomplete. This file records synthetic fixtures; real-sermon-results.json records real preview tests separately.",
   "asr": {
     "backend": "whisper",
     "model": "tiny",

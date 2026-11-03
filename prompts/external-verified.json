@@ -1,0 +1,2025 @@
+{
+  "source": "https://prompt-motion.com/",
+  "verifiedAtUtc": "2026-11-03T02:32:49.065653+00:00",
+  "publicationsVerified": 124,
+  "distinctTextHashes": 111,
+  "targetDistinctTexts": 100,
+  "deduplicationScope": "Exact normalized text only; semantic prompt families require review",
+  "rights": "Metadata, attribution and fingerprints only. Original text stays on source pages.",
+  "runtimeNote": "Verification of text availability is not reproduction or a render test.",
+  "entries": [
+    {
+      "title": "Pixel wizard crypto animation",
+      "author": "@0xEvinho",
+      "sourceUrl": "https://prompt-motion.com/0xevinho-3777d8",
+      "creatorPostUrl": "https://x.com/0xEvinho/status/2103212966703436195",
+      "promptSha256": "1fc62db506749db63276d1d45709585688abd67f34852d6a15e896c1cac81ed0",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-001"
+    },
+    {
+      "title": "AIsa API key promo",
+      "author": "@0xfemyn",
+      "sourceUrl": "https://prompt-motion.com/0xfemyn-e114d3",
+      "creatorPostUrl": "https://x.com/0xfemyn/status/2103796337041137833",
+      "promptSha256": "8f8ee7c55ea7d1387020f05e53c6148d81e9e05c7a7b2dd36d0609b9dcf80b37",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-002"
+    },
+    {
+      "title": "Celld job ownership explainer",
+      "author": "@0xnfrith",
+      "sourceUrl": "https://prompt-motion.com/0xnfrith-5be616",
+      "creatorPostUrl": "https://x.com/0xnfrith/status/2103358957050068999",
+      "promptSha256": "5490cf6e08167a72cd4f610ac871dbfa7551789affa263d5d6d03a697e24cf94",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-003"
+    },
+    {
+      "title": "Claude self-intro motion graphic",
+      "author": "@1littlecoder",
+      "sourceUrl": "https://prompt-motion.com/1littlecoder-9fef89",
+      "creatorPostUrl": "https://x.com/1littlecoder/status/2103587706999914649",
+      "promptSha256": "ad0640f5a267dc2f24d7990a7dd4dab524b6b5dcc64514ddbcdc1887a2b49d3a",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-004"
+    },
+    {
+      "title": "Sotto reading app explainer",
+      "author": "@1stnoel_",
+      "sourceUrl": "https://prompt-motion.com/1stnoel-c20a89",
+      "creatorPostUrl": "https://x.com/1stnoel_/status/2103247530259603851",
+      "promptSha256": "4b8d2bbe724e9b4274be6b22a2cfa878950ada3ace989fcb4371fab1dbb84db0",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-005"
+    },
+    {
+      "title": "Claude motion designer showreel",
+      "author": "@3xtihor",
+      "sourceUrl": "https://prompt-motion.com/3xtihor-0f6911",
+      "creatorPostUrl": "https://x.com/3xtihor/status/2103551886272159839",
+      "promptSha256": "037a3e48d03f3f3c28d160383edf98b33dae8babbfb5ae30d95ae3c2e802058c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-006"
+    },
+    {
+      "title": "Sketchbook animals come alive",
+      "author": "@abderrahmen_g",
+      "sourceUrl": "https://prompt-motion.com/abderrahmen-g-9e8ed0",
+      "creatorPostUrl": "https://x.com/abderrahmen_g/status/2103103836541899031",
+      "promptSha256": "58d9290ee9f508830edab31711dd7e63a3a4681571b1b0938078e2c559717aad",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-007"
+    },
+    {
+      "title": "Fitters Bible app promo",
+      "author": "@Adamdesgns",
+      "sourceUrl": "https://prompt-motion.com/adamdesgns-478d6d",
+      "creatorPostUrl": "https://x.com/Adamdesgns/status/2103542756555768014",
+      "promptSha256": "d681c632b16e022fdc1dcff547b5510ec5f464ec6c85bcef67a50095b5bafffc",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-008"
+    },
+    {
+      "title": "Trezio app motion reel",
+      "author": "@agonaliu_",
+      "sourceUrl": "https://prompt-motion.com/agonaliu-466a8f",
+      "creatorPostUrl": "https://x.com/agonaliu_/status/2104117465475326227",
+      "promptSha256": "378c41a2a57a92dc7095fd3ef618e32c0c634bdf4aa2410b75f4e5d6a18b6377",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-009"
+    },
+    {
+      "title": "FigPad product promo",
+      "author": "@Ai_Baymax",
+      "sourceUrl": "https://prompt-motion.com/ai-baymax-0ef9dd",
+      "creatorPostUrl": "https://x.com/Ai_Baymax/status/2103411004902416787",
+      "promptSha256": "1a6d7817feb4c1d4e2a51e11bc9851fc77b2f222df0ec17245595c057bceed0d",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-010"
+    },
+    {
+      "title": "Pixel art card battle game",
+      "author": "@aisongman",
+      "sourceUrl": "https://prompt-motion.com/aisongman-71ffac",
+      "creatorPostUrl": "https://x.com/aisongman/status/2103763192971461057",
+      "promptSha256": "df55fab8aa6076acb45c48e0983d783561b8476e4685d1c326873b3933acebd8",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-011"
+    },
+    {
+      "title": "Stock analysis app promo",
+      "author": "@AIStockSavvy",
+      "sourceUrl": "https://prompt-motion.com/aistocksavvy-3fb9f5",
+      "creatorPostUrl": "https://x.com/AIStockSavvy/status/2103482258774483320",
+      "promptSha256": "6d7ba8ed1a2c66f923ee8b275b7c666edac35c2d69e4ddba1a4c2df4c2616491",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-012"
+    },
+    {
+      "title": "Distilbook promo showreel",
+      "author": "@ajith_io",
+      "sourceUrl": "https://prompt-motion.com/ajith-io-4c248f",
+      "creatorPostUrl": "https://x.com/ajith_io/status/2103800569584562538",
+      "promptSha256": "ff00a1be1d15b6eb0839c230355e43560bc3736f92ab08f3d15efe001a5fdc3a",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-013"
+    },
+    {
+      "title": "Abstract motion design reel",
+      "author": "@ajith_io",
+      "sourceUrl": "https://prompt-motion.com/ajith-io-b5626e",
+      "creatorPostUrl": "https://x.com/ajith_io/status/2103449416325890146",
+      "promptSha256": "037a3e48d03f3f3c28d160383edf98b33dae8babbfb5ae30d95ae3c2e802058c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/3xtihor-0f6911",
+      "id": "PMV-014"
+    },
+    {
+      "title": "Distilbook product video",
+      "author": "@ajith_io",
+      "sourceUrl": "https://prompt-motion.com/ajith-io-c52e09",
+      "creatorPostUrl": "https://x.com/ajith_io/status/2103469807375208546",
+      "promptSha256": "355e3cfd6dcb3a46c24cf41784ad2d8a26b467a094a78a53db0bc004fbfdb9c4",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-015"
+    },
+    {
+      "title": "Distilbook motion showreel",
+      "author": "@ajith_io",
+      "sourceUrl": "https://prompt-motion.com/ajith-io-ea7f2d",
+      "creatorPostUrl": "https://x.com/ajith_io/status/2103541149709615243",
+      "promptSha256": "27bf955b614d2d5d7243bf528e218b76fbb3a3ae0d39016e27bebe7e000f0ebe",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-016"
+    },
+    {
+      "title": "Animated business explainer",
+      "author": "@alex_prompter",
+      "sourceUrl": "https://prompt-motion.com/alex-prompter-1ea044",
+      "creatorPostUrl": "https://x.com/alex_prompter/status/2103499977632997524",
+      "promptSha256": "d1d642e049b38b1dbf021930dab6ce9b44bfc5ec4fcdcaea26c817a73e819f91",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-017"
+    },
+    {
+      "title": "Anime robot combining sequence",
+      "author": "@allforbigfire",
+      "sourceUrl": "https://prompt-motion.com/allforbigfire-86ff3c",
+      "creatorPostUrl": "https://x.com/allforbigfire/status/2104193522715029657",
+      "promptSha256": "fa70fcecb5e7fbb05a385c98716a214b5d713ea5db210c0800a77d6c68a3b42b",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-018"
+    },
+    {
+      "title": "Handwoven textiles brand explainer",
+      "author": "@AmitSingha89",
+      "sourceUrl": "https://prompt-motion.com/amitsingha89-150378",
+      "creatorPostUrl": "https://x.com/AmitSingha89/status/2103737604277780553",
+      "promptSha256": "37b6de0dd538b5fb72794c385f4515ff441219a8f133e0bd53be45985f7c829d",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-019"
+    },
+    {
+      "title": "Commotion app showreel",
+      "author": "@Amol909S",
+      "sourceUrl": "https://prompt-motion.com/amol909s-27533e",
+      "creatorPostUrl": "https://x.com/Amol909S/status/2103456534768607293",
+      "promptSha256": "321e82f2ab5a2501db2e0a6672bb233877a841e7c4d2ef4744a48662a75f061c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-020"
+    },
+    {
+      "title": "Shop chatbot mascot promo",
+      "author": "@anas0ra",
+      "sourceUrl": "https://prompt-motion.com/anas0ra-e57aea",
+      "creatorPostUrl": "https://x.com/anas0ra/status/2103490331815952637",
+      "promptSha256": "d69670357f71a16a090dd35c7d5e6edcfbc19edbbb432f1eae18ea6283b9e6ab",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-021"
+    },
+    {
+      "title": "Studio website showreel",
+      "author": "@andginja",
+      "sourceUrl": "https://prompt-motion.com/andginja-333d32",
+      "creatorPostUrl": "https://x.com/andginja/status/2103492000733618685",
+      "promptSha256": "707f8ebcbf1ba66aafcc3d97c9b2ba6eec718b4f75f98550820a3109fc628513",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-022"
+    },
+    {
+      "title": "Scrabble tile character story",
+      "author": "@Anilraok",
+      "sourceUrl": "https://prompt-motion.com/anilraok-eff262",
+      "creatorPostUrl": "https://x.com/Anilraok/status/2103087766662009118",
+      "promptSha256": "db924c3cab0f96252dff2cffd8393af293b8b15997fdee40a91d10b54f9ff53f",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-023"
+    },
+    {
+      "title": "Prompt Motion site promo",
+      "author": "@antonio_kodheli",
+      "sourceUrl": "https://prompt-motion.com/antonio-kodheli-490109",
+      "creatorPostUrl": "https://x.com/antonio_kodheli/status/2107518066615582893",
+      "promptSha256": "be9c11263ebb7dcb8007799d254f2e1ad96ceffae6f14d532cafd956e83c3546",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "interface"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-024"
+    },
+    {
+      "title": "Photon journey from the Sun",
+      "author": "@apoorvjain25",
+      "sourceUrl": "https://prompt-motion.com/apoorvjain25-d24184",
+      "creatorPostUrl": "https://x.com/apoorvjain25/status/2104818940467945542",
+      "promptSha256": "a507a7d4f69f60031a2907522b42385e9cbcaa4c5502743ab5d861cd9c139030",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-025"
+    },
+    {
+      "title": "Pixelup Labs studio showreel",
+      "author": "@arjunsh1607",
+      "sourceUrl": "https://prompt-motion.com/arjunsh1607-93005d",
+      "creatorPostUrl": "https://x.com/arjunsh1607/status/2104295133432922126",
+      "promptSha256": "644362b82821644cb5e13fcd82d2ee4567bcafbf66c359af5976222a2d3c687a",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-026"
+    },
+    {
+      "title": "SaaS launch video",
+      "author": "@aschapmann",
+      "sourceUrl": "https://prompt-motion.com/aschapmann-131210",
+      "creatorPostUrl": "https://x.com/aschapmann/status/2104230888812724497",
+      "promptSha256": "1db0590370b39f6c6fd000014a4fc3f4128a20f4d1ae40133874e472e4e9d901",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "kinetic"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-027"
+    },
+    {
+      "title": "Studio1 intro showreel",
+      "author": "@Astrodevil_",
+      "sourceUrl": "https://prompt-motion.com/astrodevil-3f2054",
+      "creatorPostUrl": "https://x.com/Astrodevil_/status/2103600734017392708",
+      "promptSha256": "e2aa4964c2a4e819164cf7b597ca121ae7a4cf14afced5f50097798f0992f57e",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-028"
+    },
+    {
+      "title": "Pelican riding a bicycle",
+      "author": "@AxtonLiu",
+      "sourceUrl": "https://prompt-motion.com/axtonliu-0b861d",
+      "creatorPostUrl": "https://x.com/AxtonLiu/status/2103119648271290566",
+      "promptSha256": "094f5d6538b394a1ca7fab556d19e47d8726b43fc9e8b0872f638022d9437824",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-029"
+    },
+    {
+      "title": "Claude motion design showreel",
+      "author": "@ayushunleashed",
+      "sourceUrl": "https://prompt-motion.com/ayushunleashed-ece3e3",
+      "creatorPostUrl": "https://x.com/ayushunleashed/status/2103794962257084755",
+      "promptSha256": "b877dbfab23d65d772ace22c81cf885730dad86aadc9a46c0c05c8b42321e350",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-030"
+    },
+    {
+      "title": "Bento.surf product video",
+      "author": "@bizibeast",
+      "sourceUrl": "https://prompt-motion.com/bizibeast-10f264",
+      "creatorPostUrl": "https://x.com/bizibeast/status/2103696876130505124",
+      "promptSha256": "819376b3d38cbeee83489b160aa981ae2b70c4a5e8e83937e420f1723bb7ec0e",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-031"
+    },
+    {
+      "title": "Particle sphere motion reel",
+      "author": "@blue_clarity",
+      "sourceUrl": "https://prompt-motion.com/blue-clarity-ef56d0",
+      "creatorPostUrl": "https://x.com/blue_clarity/status/2103564589065449603",
+      "promptSha256": "037a3e48d03f3f3c28d160383edf98b33dae8babbfb5ae30d95ae3c2e802058c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/3xtihor-0f6911",
+      "id": "PMV-032"
+    },
+    {
+      "title": "First & 10 yellow line explainer",
+      "author": "@blueoctopusai",
+      "sourceUrl": "https://prompt-motion.com/blueoctopusai-dd17bd",
+      "creatorPostUrl": "https://x.com/blueoctopusai/status/2105116391439270222",
+      "promptSha256": "748781e45a735208749c8d41555b8ff0f437d39ec82f0d488ea464f1a45d49a3",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-033"
+    },
+    {
+      "title": "Recruiter self-intro reel",
+      "author": "@blushpetal795",
+      "sourceUrl": "https://prompt-motion.com/blushpetal795-0c85c2",
+      "creatorPostUrl": "https://x.com/blushpetal795/status/2103744870041170220",
+      "promptSha256": "b350375499fc168443ed804e0565082c39ca66b348055a3dac281d00be304227",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-034"
+    },
+    {
+      "title": "Product intro synced to music",
+      "author": "@BogdanDragomir",
+      "sourceUrl": "https://prompt-motion.com/bogdandragomir-35e024",
+      "creatorPostUrl": "https://x.com/BogdanDragomir/status/2104045641538412658",
+      "promptSha256": "6b84717e433d35e5143e2fb3b2f644d2700778baa45348bf8b7af403abef7a8b",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-035"
+    },
+    {
+      "title": "Spotify product film",
+      "author": "@brainextends",
+      "sourceUrl": "https://prompt-motion.com/brainextends-e19ac3",
+      "creatorPostUrl": "https://x.com/brainextends/status/2103801834930606193",
+      "promptSha256": "f88775f0ea6af7a7613dc055fda9da8604a52a7699bcb74d08a87d06dd01fc7f",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "kinetic",
+        "interface",
+        "particles"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-036"
+    },
+    {
+      "title": "Badge unlock screen animation",
+      "author": "@BThreeAgency",
+      "sourceUrl": "https://prompt-motion.com/bthreeagency-b9b8d9",
+      "creatorPostUrl": "https://x.com/BThreeAgency/status/2103739079745827092",
+      "promptSha256": "1b4a6248e2abc5216fc1c9dac4aaea19e7b995e4dbb7ca95d32b6513610654ed",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "particles",
+        "3d"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-037"
+    },
+    {
+      "title": "Indian civilisation history film",
+      "author": "@BuildFastWithAI",
+      "sourceUrl": "https://prompt-motion.com/buildfastwithai-53234e",
+      "creatorPostUrl": "https://x.com/BuildFastWithAI/status/2104451249269780900",
+      "promptSha256": "612a39c2e58232384c0f1887ba5e97cb13973f100c1bfd728c257e25186d6f0a",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-038"
+    },
+    {
+      "title": "Three.js Skyraider aircraft model",
+      "author": "@BuildFastWithAI",
+      "sourceUrl": "https://prompt-motion.com/buildfastwithai-ed9447",
+      "creatorPostUrl": "https://x.com/BuildFastWithAI/status/2103152898708582551",
+      "promptSha256": "b36ee5463294952655e08d85397b04475e9b15353bfff1a7c25e2f4a9eea47be",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "3d"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-039"
+    },
+    {
+      "title": "Lidlezz app promo",
+      "author": "@cansincengiz_me",
+      "sourceUrl": "https://prompt-motion.com/cansincengiz-me-cf68dd",
+      "creatorPostUrl": "https://x.com/cansincengiz_me/status/2103532681774424245",
+      "promptSha256": "0bd5dd86b5a8821a21375695ecafc8a41f45ed0833afb7e0abed1f43eb040767",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-040"
+    },
+    {
+      "title": "Amazon wholesale pitch video",
+      "author": "@ceowinkz",
+      "sourceUrl": "https://prompt-motion.com/ceowinkz-7c776b",
+      "creatorPostUrl": "https://x.com/ceowinkz/status/2103647124126683602",
+      "promptSha256": "a205102c563114ffe40ed012d59e55af6926aae3163fbeb37cdb91f03014c6b3",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-041"
+    },
+    {
+      "title": "Datagran ChatGPT ads explainer",
+      "author": "@charlesmendez",
+      "sourceUrl": "https://prompt-motion.com/charlesmendez-73b6e4",
+      "creatorPostUrl": "https://x.com/charlesmendez/status/2102847039415476517",
+      "promptSha256": "627e9a71592e87986f03af1d1a7eb43613739a41776f5c83d6e576d643f6dc2a",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-042"
+    },
+    {
+      "title": "Fiery samurai kata",
+      "author": "@chrisjdimarco",
+      "sourceUrl": "https://prompt-motion.com/chrisjdimarco-f068db",
+      "creatorPostUrl": "https://x.com/chrisjdimarco/status/2103232192847524106",
+      "promptSha256": "f5c94b9784cf90fb983c07d445486911eb73e11eee68ef08004525b433168c03",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-043"
+    },
+    {
+      "title": "Claude motion reel",
+      "author": "@codeSTACKr",
+      "sourceUrl": "https://prompt-motion.com/codestackr-c071bf",
+      "creatorPostUrl": "https://x.com/codeSTACKr/status/2103656229717328129",
+      "promptSha256": "f510787da77b308adb20128291a8d7e2bb4e32422e5c275d38f2ece74ae20e63",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-044"
+    },
+    {
+      "title": "Claude motion designer showreel",
+      "author": "@CrazyAlphaaa",
+      "sourceUrl": "https://prompt-motion.com/crazyalphaaa-bc7e75",
+      "creatorPostUrl": "https://x.com/CrazyAlphaaa/status/2103568486249480622",
+      "promptSha256": "037a3e48d03f3f3c28d160383edf98b33dae8babbfb5ae30d95ae3c2e802058c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/3xtihor-0f6911",
+      "id": "PMV-045"
+    },
+    {
+      "title": "Sahi trading terminal reveal",
+      "author": "@dale_vaz",
+      "sourceUrl": "https://prompt-motion.com/dale-vaz-cc612a",
+      "creatorPostUrl": "https://x.com/dale_vaz/status/2103290592679879074",
+      "promptSha256": "69ee637eabf1f4158dd9da7e564711fd772ccc4d0778abe0a0e305158daea619",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "chart"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-046"
+    },
+    {
+      "title": "Taxtello bookkeeping app film",
+      "author": "@daniel_haida",
+      "sourceUrl": "https://prompt-motion.com/daniel-haida-8691d4",
+      "creatorPostUrl": "https://x.com/daniel_haida/status/2104139720829636937",
+      "promptSha256": "3afe4bf6fcdb7ac1eaf48b7af23f15788db33386c3ea52d17c16e6a956911c2d",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "kinetic",
+        "interface",
+        "chart",
+        "particles",
+        "3d"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-047"
+    },
+    {
+      "title": "Motion designer showreel",
+      "author": "@danilowm",
+      "sourceUrl": "https://prompt-motion.com/danilowm-d3720d",
+      "creatorPostUrl": "https://x.com/danilowm/status/2103661844661412022",
+      "promptSha256": "26deb72efa13086c1a8037e208c6ea92f6b450624249d88327b67fef020da5e6",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-048"
+    },
+    {
+      "title": "Lightspark social promo video",
+      "author": "@davidmarcus",
+      "sourceUrl": "https://prompt-motion.com/davidmarcus-a28a60",
+      "creatorPostUrl": "https://x.com/davidmarcus/status/2103275618045686217",
+      "promptSha256": "986f0a9ca3b13a0554a43439dd918df72a1c4d7fcdcdceb324deaacaa27819e8",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-049"
+    },
+    {
+      "title": "Clay-style music video",
+      "author": "@DavidShulmanFL",
+      "sourceUrl": "https://prompt-motion.com/davidshulmanfl-371638",
+      "creatorPostUrl": "https://x.com/DavidShulmanFL/status/2103336310089842921",
+      "promptSha256": "de7afbc56b2bae5722564c2263476e16a2289739ee3a3bb3f9c777d2e92755ee",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-050"
+    },
+    {
+      "title": "Lism CSS 1.0 release video",
+      "author": "@ddryo_loos",
+      "sourceUrl": "https://prompt-motion.com/ddryo-loos-300829",
+      "creatorPostUrl": "https://x.com/ddryo_loos/status/2105824736072925621",
+      "promptSha256": "882e7651c11436c41218a02872c8b6909d4e5bc95f8ea856a4d4e05bf419754c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-051"
+    },
+    {
+      "title": "Recipe brand 20th anniversary",
+      "author": "@deebeeeff",
+      "sourceUrl": "https://prompt-motion.com/deebeeeff-50fcd0",
+      "creatorPostUrl": "https://x.com/deebeeeff/status/2104952364365234301",
+      "promptSha256": "6c0746e6761fba61419656a1bacdc83364970b34582f6d3fd63fe15382e0af33",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-052"
+    },
+    {
+      "title": "Tennis game launch video",
+      "author": "@deifosv",
+      "sourceUrl": "https://prompt-motion.com/deifosv-04e4d3",
+      "creatorPostUrl": "https://x.com/deifosv/status/2103197522382786581",
+      "promptSha256": "b7cb7a0dfe0afd421df27e4024006eae4a0335f3cae0c09d2362f1567cc77a42",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-053"
+    },
+    {
+      "title": "Tengwang Pavilion moonlit river",
+      "author": "@DemitiyaGeekzen",
+      "sourceUrl": "https://prompt-motion.com/demitiyageekzen-7770ad",
+      "creatorPostUrl": "https://x.com/DemitiyaGeekzen/status/2103517910274818523",
+      "promptSha256": "e164cdd780b9797290ddadf80b7176489d382fa77200b314b95a807c73d89151",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-054"
+    },
+    {
+      "title": "Morphing UI states loop",
+      "author": "@demonugc",
+      "sourceUrl": "https://prompt-motion.com/demonugc-4c5753",
+      "creatorPostUrl": "https://x.com/demonugc/status/2103526713208525162",
+      "promptSha256": "ccec571e3a04fd3456431436318554ccc4475b8848bbfa78e79b47c9d723b098",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "interface",
+        "chart",
+        "particles"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-055"
+    },
+    {
+      "title": "Dubz Up motion showreel",
+      "author": "@Devius_Maximus",
+      "sourceUrl": "https://prompt-motion.com/devius-maximus-beab45",
+      "creatorPostUrl": "https://x.com/Devius_Maximus/status/2105069053521887428",
+      "promptSha256": "56dd38acd354228866486f5a6aac41b70ade95a903b6c2ba40666e1b1ba25ef1",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-056"
+    },
+    {
+      "title": "Muse connector tracker promo",
+      "author": "@elliot_garreffa",
+      "sourceUrl": "https://prompt-motion.com/elliot-garreffa-f334bc",
+      "creatorPostUrl": "https://x.com/elliot_garreffa/status/2104213514944446825",
+      "promptSha256": "72a0612af393604ae3b1c3608a26ea1a5cecd8ac4f1b7f6aba6f53c1e2618216",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-057"
+    },
+    {
+      "title": "Recursion explained in genres",
+      "author": "@emollick",
+      "sourceUrl": "https://prompt-motion.com/emollick-8661a8",
+      "creatorPostUrl": "https://x.com/emollick/status/2103688362960019567",
+      "promptSha256": "9d2bceb6edd9f4cad85134a32a599fd049320b05a610977b1b8707014850cafd",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-058"
+    },
+    {
+      "title": "Website analyzer product promo",
+      "author": "@en______ra",
+      "sourceUrl": "https://prompt-motion.com/en-ra-81c6dd",
+      "creatorPostUrl": "https://x.com/en______ra/status/2104035188061986980",
+      "promptSha256": "c6aff387e1dae9614d99c559a6fb06d0701d5389d336d4f670d57ba89efa1cf7",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-059"
+    },
+    {
+      "title": "Five scroll-based sections",
+      "author": "@ercankeskinx",
+      "sourceUrl": "https://prompt-motion.com/ercankeskinx-ec2568",
+      "creatorPostUrl": "https://x.com/ercankeskinx/status/2102995443818897906",
+      "promptSha256": "979dc2c9593c471f58026e8869ccbe76d4dfd6dab1b620b672d15e1e0f578cd5",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-060"
+    },
+    {
+      "title": "Motion designer showreel",
+      "author": "@eyishazyer",
+      "sourceUrl": "https://prompt-motion.com/eyishazyer-af035b",
+      "creatorPostUrl": "https://x.com/eyishazyer/status/2103816865852129686",
+      "promptSha256": "037a3e48d03f3f3c28d160383edf98b33dae8babbfb5ae30d95ae3c2e802058c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/3xtihor-0f6911",
+      "id": "PMV-061"
+    },
+    {
+      "title": "AI Arena product promo",
+      "author": "@ezshine",
+      "sourceUrl": "https://prompt-motion.com/ezshine-c90d73",
+      "creatorPostUrl": "https://x.com/ezshine/status/2103501705698750731",
+      "promptSha256": "16166d93810ce404c56c8de59a75009ef50ea99b7ce2b3ab2b9f790da24e2ad0",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-062"
+    },
+    {
+      "title": "The Last Light animated short",
+      "author": "@faroukzy",
+      "sourceUrl": "https://prompt-motion.com/faroukzy-9ff23e",
+      "creatorPostUrl": "https://x.com/faroukzy/status/2103387771180138551",
+      "promptSha256": "904668b5d0fc36435e444582cc08096b83c70a9283658703d64448f6e4f6d872",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-063"
+    },
+    {
+      "title": "Blue editorial motion showreel",
+      "author": "@fionntobin",
+      "sourceUrl": "https://prompt-motion.com/fionntobin-97b7af",
+      "creatorPostUrl": "https://x.com/fionntobin/status/2103510776690479597",
+      "promptSha256": "037a3e48d03f3f3c28d160383edf98b33dae8babbfb5ae30d95ae3c2e802058c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/3xtihor-0f6911",
+      "id": "PMV-064"
+    },
+    {
+      "title": "Voice agent SaaS launch",
+      "author": "@FractaDev",
+      "sourceUrl": "https://prompt-motion.com/fractadev-149adc",
+      "creatorPostUrl": "https://x.com/FractaDev/status/2103941789744861266",
+      "promptSha256": "7495db6bf6d005be295e0466ff53f714807725cd6103ccb6e3aaae44756e3ae6",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "interface"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-065"
+    },
+    {
+      "title": "Parenting app hype video",
+      "author": "@francoxavier33",
+      "sourceUrl": "https://prompt-motion.com/francoxavier33-d2dfd2",
+      "creatorPostUrl": "https://x.com/francoxavier33/status/2103486218323341663",
+      "promptSha256": "5b5750f844a8b5f8a6cfc27fa36c35f2f9232ba48def1f0ebb2e7f529cef2338",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-066"
+    },
+    {
+      "title": "Enxovaly baby app promo",
+      "author": "@gabrielbuzziv",
+      "sourceUrl": "https://prompt-motion.com/gabrielbuzziv-4ff0c6",
+      "creatorPostUrl": "https://x.com/gabrielbuzziv/status/2103590703289057430",
+      "promptSha256": "037a3e48d03f3f3c28d160383edf98b33dae8babbfb5ae30d95ae3c2e802058c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/3xtihor-0f6911",
+      "id": "PMV-067"
+    },
+    {
+      "title": "Matra caption app promo",
+      "author": "@gautam_mer1",
+      "sourceUrl": "https://prompt-motion.com/gautam-mer1-2ae354",
+      "creatorPostUrl": "https://x.com/gautam_mer1/status/2103703336780530003",
+      "promptSha256": "4f4e354e66c4d4a77599bc88f6fbb4f99cccb808c58646fdabcfdc0e6635ffa6",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-068"
+    },
+    {
+      "title": "Speech built as architecture",
+      "author": "@Gdgtify",
+      "sourceUrl": "https://prompt-motion.com/gdgtify-287ddf",
+      "creatorPostUrl": "https://x.com/Gdgtify/status/2103458245213929495",
+      "promptSha256": "b5837c8759a5e56d808b5b7ba91ff77d8657c099f002a174cdd3b3475ecb09bb",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "kinetic"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-069"
+    },
+    {
+      "title": "Claude motion design reel",
+      "author": "@ghinaiya_nirmal",
+      "sourceUrl": "https://prompt-motion.com/ghinaiya-nirmal-5d8fec",
+      "creatorPostUrl": "https://x.com/ghinaiya_nirmal/status/2103540656182308943",
+      "promptSha256": "6811d65dd80e5aa9c750337e0abc0899dd1b2827de16fef8cbf97d8e3f7e14d3",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-070"
+    },
+    {
+      "title": "Steam new releases news recap",
+      "author": "@gigabit_million",
+      "sourceUrl": "https://prompt-motion.com/gigabit-million-16b3a0",
+      "creatorPostUrl": "https://x.com/gigabit_million/status/2104068536041959719",
+      "promptSha256": "950960d224a0644eb524111d4a3e56ccec3a5e3123f6fc583f99b889cc3df79a",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-071"
+    },
+    {
+      "title": "Overthinking motion study",
+      "author": "@gizakdag",
+      "sourceUrl": "https://prompt-motion.com/gizakdag-cf4ae6",
+      "creatorPostUrl": "https://x.com/gizakdag/status/2103566030916239768",
+      "promptSha256": "70845f5d780a02db759afbb2e10f301aa7be332f3ec511235ad3a2dbafc931e2",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-072"
+    },
+    {
+      "title": "Festival lineup promo reel",
+      "author": "@GonzaloMacagno",
+      "sourceUrl": "https://prompt-motion.com/gonzalomacagno-2de1a9",
+      "creatorPostUrl": "https://x.com/GonzaloMacagno/status/2102897651008344202",
+      "promptSha256": "1190ed150e76b107c9f82ccb7de3fca0113993b0a0a5d828b6788da73fc680a1",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-073"
+    },
+    {
+      "title": "Beat-synced bouncing 3D ball",
+      "author": "@Gorden_Sun",
+      "sourceUrl": "https://prompt-motion.com/gorden-sun-041f56",
+      "creatorPostUrl": "https://x.com/Gorden_Sun/status/2105302007896797351",
+      "promptSha256": "48ddb39174479fafaccfa4217b387871b0faa7cbacdef074acf901593a654d9a",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "3d"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-074"
+    },
+    {
+      "title": "Keyframe motion design reel",
+      "author": "@Grace_sunnyy",
+      "sourceUrl": "https://prompt-motion.com/grace-sunnyy-29bc61",
+      "creatorPostUrl": "https://x.com/Grace_sunnyy/status/2106532575712022677",
+      "promptSha256": "48d406a29819537911421945f526d234cb02967cc8e862536342f23c83f83264",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-075"
+    },
+    {
+      "title": "Motion designer showreel",
+      "author": "@hanifproduktif",
+      "sourceUrl": "https://prompt-motion.com/hanifproduktif-54bdee",
+      "creatorPostUrl": "https://x.com/hanifproduktif/status/2103404901451829311",
+      "promptSha256": "2baf4a2bdc1cd233ca40bf8ab16f37eab11d5fed48a4fee6258cd4e149272771",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-076"
+    },
+    {
+      "title": "Full Stop figure sequence",
+      "author": "@HBCoop_",
+      "sourceUrl": "https://prompt-motion.com/hbcoop-de365c",
+      "creatorPostUrl": "https://x.com/HBCoop_/status/2107139305324122491",
+      "promptSha256": "dfd6e8480a5a2962d14292936280882da14282dc456704eefef01008d088c50f",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-077"
+    },
+    {
+      "title": "Deliberately terrible motion showreel",
+      "author": "@HenkPoley",
+      "sourceUrl": "https://prompt-motion.com/henkpoley-3d3407",
+      "creatorPostUrl": "https://x.com/HenkPoley/status/2104220387613761980",
+      "promptSha256": "b70c020241a61370e2f89e19252e516d2edc57fa50f5fed4b21f572cd59785fd",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-078"
+    },
+    {
+      "title": "Prompting mistakes video tutorial",
+      "author": "@henkvaness",
+      "sourceUrl": "https://prompt-motion.com/henkvaness-0e06af",
+      "creatorPostUrl": "https://x.com/henkvaness/status/2103801351993975279",
+      "promptSha256": "c3fbced6f1fa555e357ec07e448c45efca4958ac46c7c84514ffad3dbfd26ff2",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-079"
+    },
+    {
+      "title": "Portfolio motion reel",
+      "author": "@heyiammallik",
+      "sourceUrl": "https://prompt-motion.com/heyiammallik-e72d17",
+      "creatorPostUrl": "https://x.com/heyiammallik/status/2103837803587293397",
+      "promptSha256": "770445570030a1187f2e77d03e2a11eedbb29f58593f65bef1094043e83ed2d9",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-080"
+    },
+    {
+      "title": "Motion designer showreel",
+      "author": "@himanshutwtxs",
+      "sourceUrl": "https://prompt-motion.com/himanshutwtxs-5f4b43",
+      "creatorPostUrl": "https://x.com/himanshutwtxs/status/2103495232637882858",
+      "promptSha256": "b877dbfab23d65d772ace22c81cf885730dad86aadc9a46c0c05c8b42321e350",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/ayushunleashed-ece3e3",
+      "id": "PMV-081"
+    },
+    {
+      "title": "mdfor.dev product intro video",
+      "author": "@HO_BA",
+      "sourceUrl": "https://prompt-motion.com/ho-ba-f3f0e9",
+      "creatorPostUrl": "https://x.com/HO_BA/status/2103845264649761062",
+      "promptSha256": "277e558092eec98727973de21980b7ecd2b2d217aa0f949f44c3d610842d4064",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-082"
+    },
+    {
+      "title": "Chuseok pixel night scene",
+      "author": "@hoyoyoda",
+      "sourceUrl": "https://prompt-motion.com/hoyoyoda-3a5c08",
+      "creatorPostUrl": "https://x.com/hoyoyoda/status/2103400046922543147",
+      "promptSha256": "8b67684797af73f4df30add1eb447d8db026245cb37f8f06b8bc2bbe2c5aef46",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-083"
+    },
+    {
+      "title": "Browser automation skill launch",
+      "author": "@hqmank",
+      "sourceUrl": "https://prompt-motion.com/hqmank-7c61f1",
+      "creatorPostUrl": "https://x.com/hqmank/status/2103831140033241156",
+      "promptSha256": "6a3b48de6d78d869e2be0db5eee0a2e263cb62b685baace6a18e5c3e7455563f",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-084"
+    },
+    {
+      "title": "Database client launch video",
+      "author": "@iamMXFSCHR",
+      "sourceUrl": "https://prompt-motion.com/iammxfschr-d68f90",
+      "creatorPostUrl": "https://x.com/iamMXFSCHR/status/2103619221296955831",
+      "promptSha256": "32d352fb7d07699b0fc56b68e6cc0deac7f527a9a8f0c1381437f855ade206ef",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-085"
+    },
+    {
+      "title": "Personal skills showreel",
+      "author": "@ibrahimwasim240",
+      "sourceUrl": "https://prompt-motion.com/ibrahimwasim240-809370",
+      "creatorPostUrl": "https://x.com/ibrahimwasim240/status/2103943233432940763",
+      "promptSha256": "9f06a9d9b86c4cf5b04f1f1f92e2d59d72d868bf37daccd2425ce3298d342c82",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-086"
+    },
+    {
+      "title": "Paper-style product launch film",
+      "author": "@ik_builds",
+      "sourceUrl": "https://prompt-motion.com/ik-builds-b8bdcf",
+      "creatorPostUrl": "https://x.com/ik_builds/status/2103890476885585923",
+      "promptSha256": "f78eba4903fd24098badc1cbcaa5f7bcceb9191b4fe95533ec4c2e1b85a5cb10",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "kinetic"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-087"
+    },
+    {
+      "title": "Sherwood agentic hedge fund explainer",
+      "author": "@imthatcarlos",
+      "sourceUrl": "https://prompt-motion.com/imthatcarlos-e04bfe",
+      "creatorPostUrl": "https://x.com/imthatcarlos/status/2102849219388133592",
+      "promptSha256": "ded07a30d1d43fbf7a76ab82d8e1f6ce5e0bf990bddd0dab48c1e47d324c1a3e",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-088"
+    },
+    {
+      "title": "fal motion design showreel",
+      "author": "@influencer_seo",
+      "sourceUrl": "https://prompt-motion.com/influencer-seo-ce8c33",
+      "creatorPostUrl": "https://x.com/influencer_seo/status/2104827314400026936",
+      "promptSha256": "2032c4d9f91886450ecc3c4fb9635668ce67b4fb4617136a7a93befe1056f5ef",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-089"
+    },
+    {
+      "title": "Drone Emprit showreel",
+      "author": "@ismailfahmi",
+      "sourceUrl": "https://prompt-motion.com/ismailfahmi-557268",
+      "creatorPostUrl": "https://x.com/ismailfahmi/status/2103557833153466403",
+      "promptSha256": "74ffd81c4aa769ccc8b6c3f0511e8e28cb249cf35c753adeddb0c0cf29cadcec",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-090"
+    },
+    {
+      "title": "Distilbook motion showreel",
+      "author": "@itisRazak",
+      "sourceUrl": "https://prompt-motion.com/itisrazak-3ad902",
+      "creatorPostUrl": "https://x.com/itisRazak/status/2103517930424332386",
+      "promptSha256": "355e3cfd6dcb3a46c24cf41784ad2d8a26b467a094a78a53db0bc004fbfdb9c4",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/ajith-io-c52e09",
+      "id": "PMV-091"
+    },
+    {
+      "title": "Four seasons train window",
+      "author": "@itsolelehmann",
+      "sourceUrl": "https://prompt-motion.com/itsolelehmann-e47532",
+      "creatorPostUrl": "https://x.com/itsolelehmann/status/2103124033365762215",
+      "promptSha256": "0941b35c83a738dd2ff15289baddb975e9f0781afdee7e49bed3bcc894f1bc9c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-092"
+    },
+    {
+      "title": "Kinetic type showreel",
+      "author": "@itsuki_dev",
+      "sourceUrl": "https://prompt-motion.com/itsuki-dev-10942d",
+      "creatorPostUrl": "https://x.com/itsuki_dev/status/2103438087204618392",
+      "promptSha256": "037a3e48d03f3f3c28d160383edf98b33dae8babbfb5ae30d95ae3c2e802058c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/3xtihor-0f6911",
+      "id": "PMV-093"
+    },
+    {
+      "title": "Branding agency showreel",
+      "author": "@jacksonfall",
+      "sourceUrl": "https://prompt-motion.com/jacksonfall-54b2ac",
+      "creatorPostUrl": "https://x.com/jacksonfall/status/2103925420211229164",
+      "promptSha256": "13d735a6cc137497f76f2beccf9c3166286b8b84223da6a468d28a5cb6d1d47e",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-094"
+    },
+    {
+      "title": "Claude motion reel",
+      "author": "@jasonzhou1993",
+      "sourceUrl": "https://prompt-motion.com/jasonzhou1993-8595e0",
+      "creatorPostUrl": "https://x.com/jasonzhou1993/status/2103663364958515541",
+      "promptSha256": "037a3e48d03f3f3c28d160383edf98b33dae8babbfb5ae30d95ae3c2e802058c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/3xtihor-0f6911",
+      "id": "PMV-095"
+    },
+    {
+      "title": "FundMyCompute platform overview",
+      "author": "@JayScambler",
+      "sourceUrl": "https://prompt-motion.com/jayscambler-3f8889",
+      "creatorPostUrl": "https://x.com/JayScambler/status/2104634653491495095",
+      "promptSha256": "f800af6fdb9857f2322d89489666323f66d7e808a9fffd0e37620bbf6695b17f",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-096"
+    },
+    {
+      "title": "AgentHud project motion video",
+      "author": "@Jazzen_Chen",
+      "sourceUrl": "https://prompt-motion.com/jazzen-chen-4542ae",
+      "creatorPostUrl": "https://x.com/Jazzen_Chen/status/2103751442393894989",
+      "promptSha256": "4d64c4528281c37860f170d29f2a042bab3df1a5ba855ea4536c72f180fa52c9",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-097"
+    },
+    {
+      "title": "Ondefica app motion reel",
+      "author": "@jesscaroline7",
+      "sourceUrl": "https://prompt-motion.com/jesscaroline7-1ff7cb",
+      "creatorPostUrl": "https://x.com/jesscaroline7/status/2104336637752955094",
+      "promptSha256": "93cbba5e01c29a8169c8dee723852d6736010c58f04e739e4c5bbe6d9828ab4a",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-098"
+    },
+    {
+      "title": "Supademo launch video",
+      "author": "@jhylee95",
+      "sourceUrl": "https://prompt-motion.com/jhylee95-e1152f",
+      "creatorPostUrl": "https://x.com/jhylee95/status/2103604431627452427",
+      "promptSha256": "2fa85760a20e5739a94b8db3ffced786dc24df79f55f4df39db38e351915a2d4",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "interface"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-099"
+    },
+    {
+      "title": "Code-only motion design reel",
+      "author": "@johnsavage_ai",
+      "sourceUrl": "https://prompt-motion.com/johnsavage-ai-b091c0",
+      "creatorPostUrl": "https://x.com/johnsavage_ai/status/2103600308010041677",
+      "promptSha256": "ac4ee14706de8cd728c6267eaeab4f6eee8921f72e58ac0854cceaeeb68c7a65",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-100"
+    },
+    {
+      "title": "Tented image gen product video",
+      "author": "@justincooperman",
+      "sourceUrl": "https://prompt-motion.com/justincooperman-e7bbc4",
+      "creatorPostUrl": "https://x.com/justincooperman/status/2103201167367188876",
+      "promptSha256": "07594eda72ccac05e2faf6c1d74258c02586f60e27c657d2faf269e57ce31463",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-101"
+    },
+    {
+      "title": "Lighthouse keeper silent short",
+      "author": "@KamStudioLabs",
+      "sourceUrl": "https://prompt-motion.com/kamstudiolabs-0b0824",
+      "creatorPostUrl": "https://x.com/KamStudioLabs/status/2102908742518100086",
+      "promptSha256": "eda81fab6a69585e076d9e089de7979c843c7f0961c977efb5b90b361d45a2b9",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-102"
+    },
+    {
+      "title": "Collision-driven music machine",
+      "author": "@KamStudioLabs",
+      "sourceUrl": "https://prompt-motion.com/kamstudiolabs-447565",
+      "creatorPostUrl": "https://x.com/KamStudioLabs/status/2102899866762440893",
+      "promptSha256": "01512f6f97a76c44ed86f12e8f8e2d35c6c601b42049e2d9c84663647874291f",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-103"
+    },
+    {
+      "title": "Animated short about a bug",
+      "author": "@KamStudioLabs",
+      "sourceUrl": "https://prompt-motion.com/kamstudiolabs-c9bb28",
+      "creatorPostUrl": "https://x.com/KamStudioLabs/status/2102903173161877996",
+      "promptSha256": "f2baebf83eab3ddef554da39545c7adb18f9c87751ecabdb9b920c51997af793",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-104"
+    },
+    {
+      "title": "Motion designer showreel",
+      "author": "@KangarooHere",
+      "sourceUrl": "https://prompt-motion.com/kangaroohere-b10f8d",
+      "creatorPostUrl": "https://x.com/KangarooHere/status/2103617278671818789",
+      "promptSha256": "090ef6574129102ef10b07fd45c5d11ffcfa93a281981287b61b3c1b8875fc04",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-105"
+    },
+    {
+      "title": "Ball escaping twelve rings",
+      "author": "@kantamk",
+      "sourceUrl": "https://prompt-motion.com/kantamk-61f410",
+      "creatorPostUrl": "https://x.com/kantamk/status/2103148907228176511",
+      "promptSha256": "7924109adda0f7a5ca918187817b53cc4d96a862f8faa7f1389ba23eb0649deb",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-106"
+    },
+    {
+      "title": "Design portfolio video reel",
+      "author": "@kikelopezdesign",
+      "sourceUrl": "https://prompt-motion.com/kikelopezdesign-7cc9e8",
+      "creatorPostUrl": "https://x.com/kikelopezdesign/status/2103527289619173471",
+      "promptSha256": "8d2fbbf6ff10a82762d222996f63791e1d7c7cc841e44e64db36b34f0b9bc5c6",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-107"
+    },
+    {
+      "title": "Chaotic Claude POV video",
+      "author": "@kloss_xyz",
+      "sourceUrl": "https://prompt-motion.com/kloss-xyz-15182a",
+      "creatorPostUrl": "https://x.com/kloss_xyz/status/2103664956482941143",
+      "promptSha256": "55dcee2d37c7435de8a62016fc8c762f578c55f1a4497c95b8b8e9f713ebe062",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-108"
+    },
+    {
+      "title": "History of AI timeline",
+      "author": "@kloss_xyz",
+      "sourceUrl": "https://prompt-motion.com/kloss-xyz-fe0c31",
+      "creatorPostUrl": "https://x.com/kloss_xyz/status/2103652674336067876",
+      "promptSha256": "f4704ae287535870dee1378251e7740e6074ff37cc4a01b927086cabb87a21a3",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-109"
+    },
+    {
+      "title": "Email verification tool promo",
+      "author": "@KmAsiff",
+      "sourceUrl": "https://prompt-motion.com/kmasiff-cc72cb",
+      "creatorPostUrl": "https://x.com/KmAsiff/status/2103810247131549880",
+      "promptSha256": "b18a5225a9526c249c4b691c1bcbe0e30841ac477a2574935a25a0f43b3c8817",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "interface"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-110"
+    },
+    {
+      "title": "org2html product showreel",
+      "author": "@kyonax_on_tech",
+      "sourceUrl": "https://prompt-motion.com/kyonax-on-tech-aabc1d",
+      "creatorPostUrl": "https://x.com/kyonax_on_tech/status/2103482598144049316",
+      "promptSha256": "ec01c8181b23ae675eb60b5f83e05546572202bdfd9bf150b2e09f23ab77253b",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-111"
+    },
+    {
+      "title": "PicTwin AI app ad",
+      "author": "@l3d1c",
+      "sourceUrl": "https://prompt-motion.com/l3d1c-0e35a3",
+      "creatorPostUrl": "https://x.com/l3d1c/status/2103536553930752011",
+      "promptSha256": "f6b7924d8359243c9608a907ab1d6ea1d8587deced98eb709735ced018b7ca30",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-112"
+    },
+    {
+      "title": "Lead Notifi product ad",
+      "author": "@leadnotifi",
+      "sourceUrl": "https://prompt-motion.com/leadnotifi-e83f94",
+      "creatorPostUrl": "https://x.com/leadnotifi/status/2103628028391960983",
+      "promptSha256": "037a3e48d03f3f3c28d160383edf98b33dae8babbfb5ae30d95ae3c2e802058c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/3xtihor-0f6911",
+      "id": "PMV-113"
+    },
+    {
+      "title": "Whiteboard skill tutorial",
+      "author": "@lemomo_ai",
+      "sourceUrl": "https://prompt-motion.com/lemomo-ai-0d9cff",
+      "creatorPostUrl": "https://x.com/lemomo_ai/status/2104070024575242622",
+      "promptSha256": "3d91ae7e93e0cfa3287590fd321f532d5714fd4903482bd724c29fa2e0cf4954",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-114"
+    },
+    {
+      "title": "Geometric motion designer showreel",
+      "author": "@LeonKohli",
+      "sourceUrl": "https://prompt-motion.com/leonkohli-6dc01b",
+      "creatorPostUrl": "https://x.com/LeonKohli/status/2103517696038191220",
+      "promptSha256": "037a3e48d03f3f3c28d160383edf98b33dae8babbfb5ae30d95ae3c2e802058c",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/3xtihor-0f6911",
+      "id": "PMV-115"
+    },
+    {
+      "title": "CloudJoi search showcase",
+      "author": "@lester_tyy",
+      "sourceUrl": "https://prompt-motion.com/lester-tyy-f897f7",
+      "creatorPostUrl": "https://x.com/lester_tyy/status/2103733819568480587",
+      "promptSha256": "be694f97a2df1408363ba6753f20b336a54230cbec2a41711d168f419a464ffc",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-116"
+    },
+    {
+      "title": "Swiss-style motion showreel",
+      "author": "@levabashidze",
+      "sourceUrl": "https://prompt-motion.com/levabashidze-2d713a",
+      "creatorPostUrl": "https://x.com/levabashidze/status/2103786742520184909",
+      "promptSha256": "72a81b40cd9315a5a2817dbc04d37ca6f671cee065b97f65b4fb413a92bdb292",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-117"
+    },
+    {
+      "title": "Engraving-style Claude ad",
+      "author": "@LexnLin",
+      "sourceUrl": "https://prompt-motion.com/lexnlin-038035",
+      "creatorPostUrl": "https://x.com/LexnLin/status/2106101651010449796",
+      "promptSha256": "8059f5d5289ed888f64ac77dd8c1a84d35c6b47d0729799808dd606c0d144d1e",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "3d"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-118"
+    },
+    {
+      "title": "Derivative concept explainer",
+      "author": "@LinearUncle",
+      "sourceUrl": "https://prompt-motion.com/linearuncle-5d2bae",
+      "creatorPostUrl": "https://x.com/LinearUncle/status/2103128559174971663",
+      "promptSha256": "b292b91e4a7841cf8a5c2555ade571ab78dd16aab0d83bc232d505ae93fa3518",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-119"
+    },
+    {
+      "title": "GenVizu product launch",
+      "author": "@listudio",
+      "sourceUrl": "https://prompt-motion.com/listudio-820c7b",
+      "creatorPostUrl": "https://x.com/listudio/status/2104431418114023803",
+      "promptSha256": "f4bbe1057f90964a7c2388fd2fc21a13ba29262fb78251d70c6c09d0c3faf15f",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-120"
+    },
+    {
+      "title": "Cycle of life animation",
+      "author": "@loicRambo",
+      "sourceUrl": "https://prompt-motion.com/loicrambo-ad6830",
+      "creatorPostUrl": "https://x.com/loicRambo/status/2103428454355980558",
+      "promptSha256": "b407065f8c77efb6f25c5a7ae4c01c2d1aedda41c88e1075ac0272c7b4e1e9ce",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-121"
+    },
+    {
+      "title": "Motion techniques showreel",
+      "author": "@lukasersil",
+      "sourceUrl": "https://prompt-motion.com/lukasersil-0ed38e",
+      "creatorPostUrl": "https://x.com/lukasersil/status/2103742861971726495",
+      "promptSha256": "5591d71e296ee8d61d20dc47f1edf09315b51ba4ae024d5660e74ee847e4e853",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "kinetic",
+        "particles",
+        "3d"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-122"
+    },
+    {
+      "title": "Kinetic type and particle showreel",
+      "author": "@m1n9_k7",
+      "sourceUrl": "https://prompt-motion.com/m1n9-k7-ff9ab9",
+      "creatorPostUrl": "https://x.com/m1n9_k7/status/2103580011882295601",
+      "promptSha256": "b877dbfab23d65d772ace22c81cf885730dad86aadc9a46c0c05c8b42321e350",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": "https://prompt-motion.com/ayushunleashed-ece3e3",
+      "id": "PMV-123"
+    },
+    {
+      "title": "Ren app launch video",
+      "author": "@macrohou",
+      "sourceUrl": "https://prompt-motion.com/macrohou-33959d",
+      "creatorPostUrl": "https://x.com/macrohou/status/2103545787875733862",
+      "promptSha256": "fab2bb77cfb6faf2aeef0cbda15a68ffff40b300a904e156803e5b4efbea6a49",
+      "originalPromptAvailable": true,
+      "fullPromptStored": false,
+      "runtimeTechniqueCandidates": [
+        "custom-direction"
+      ],
+      "implementationStatus": "reference-only",
+      "reproduced": false,
+      "exactDuplicateOf": null,
+      "id": "PMV-124"
+    }
+  ],
+  "unverified": [
+    {
+      "url": "https://prompt-motion.com/anthonyriera-9b1b2a",
+      "status": "no-verifiable-prompt"
+    },
+    {
+      "url": "https://prompt-motion.com/chatgptastra-0d95c7",
+      "status": "no-verifiable-prompt"
+    },
+    {
+      "url": "https://prompt-motion.com/jake11moran-a269c4",
+      "status": "no-verifiable-prompt"
+    },
+    {
+      "url": "https://prompt-motion.com/lexnlin-6161a6",
+      "status": "no-verifiable-prompt"
+    }
+  ]
+}

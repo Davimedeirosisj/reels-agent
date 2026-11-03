@@ -6,6 +6,7 @@ Requisitos: Node/npm, FFmpeg e FFprobe no PATH. Para ASR local, Python com Whisp
 npm ci
 npm test
 npm run catalog
+node tools/doctor.mjs output/environment.json
 ```
 
 ## Demonstrações reproduzíveis
@@ -35,11 +36,15 @@ node tools/engine.mjs preview output/proposta.json output/meu-reel
 
 Crie `meu-job.json` a partir de `public/demo-props.json`. Use um caminho absoluto em `clips[].source`, ou um caminho relativo a `public/`. Copie o conteúdo de `transcript.json` para `transcript`. Os intervalos de `clips` são segundos na mídia original. Os intervalos de `motions` são segundos na edição resultante. Os keyframes de `clips[].camera` são relativos a cada corte.
 
+Para montar o job a partir de uma transcrição e configurações em `meu-brief.json`, use `node tools/create_job.mjs "VIDEO.mp4" output/transcript.json meu-brief.json output/job.json`. Sem `clips` no brief, o vídeo inteiro é preservado. Correções de texto fornecidas em `transcriptCorrections: [{"from":"grafia original","to":"grafia corrigida"}]` ficam registradas como propostas, ainda sem revisão humana.
+
+Após exportar, `python tools/audio_fidelity.py output/job.json output/revisao/preview.mp4 output/revisao/audio-fidelity.json` compara janelas da voz com a EDL e mede atraso. Não certifica fidelidade semântica. A segmentação pode ser inspecionada em quadros com `python tools/inspect_segmentation.py "VIDEO.mp4" output/mascaras`; a conferência de bordas continua necessária.
+
 As sugestões de `plan` agrupam unidades contínuas da transcrição. Não detectam com certeza erros de fala ou importância teológica. Para sugestões visuais, defina `brief.suggestMotions: true`, `brief.references: ["V08"]`, por exemplo. `brief.motion: "none"` ou `brief.style: "contemplative"` permitem nenhuma animação. A EDL permanece editável antes do render. As novas operações por receita, análise de batidas, B-roll e recorte de pessoas estão em [Composição e áudio](ETAPA-COMPOSICAO-E-AUDIO.md).
 
 Um evento pode conter `recipeId: "A008"`, `start`, `end` e `text`; o motor resolve a receita de tracking. Os IDs de câmera, legendas, tema e pós-produção pertencem às respectivas configurações, não são overlays. Consulte `src/recipes.mjs` e `docs/COBERTURA.md` para condições e pendências. Cada receita parcial preserva esse estado no catálogo.
 
-Todos os componentes aceitam dados atuais do vídeo. Gráficos e citações exigem `evidence`; B-roll exige `asset`. `foregroundSrc` deve ser um vídeo com alpha já alinhado à edição para pôr texto atrás do sujeito. A segmentação automática ainda está pendente. `theme.fit: "contain"` preserva o quadro original; `cover` precisa de revisão de rosto/mãos/Bíblia.
+Todos os componentes aceitam dados atuais do vídeo. Gráficos e citações exigem `evidence`; B-roll exige `asset`. Fluxogramas/redes usam `graph.nodes` e `graph.edges`; pergunta/resposta usa `question`, `answer` e `answerAt` relativo ao evento; interface usa `ui.rows`/`ui.steps`; definição usa `term`/`text`. Conceitos e relações exigem origem em `evidence`. O planejador aceita anotações explícitas em `brief.visualAnnotations`, sem inventar relações. `foregroundSrc` deve ser um vídeo com alpha já alinhado à edição para pôr texto atrás do sujeito. A preparação automática desse vídeo ainda está pendente. `theme.fit: "contain"` preserva o quadro original; `cover` precisa de revisão de rosto/mãos/Bíblia.
 
 Legendas: `captionStyle.mode` aceita `word`, `karaoke`, `block`, `semantic`, `mask` e `accessible`. `semanticWords` e `icon` são dados explícitos. `maxChars` e `maxWords` controlam páginas de leitura sem fabricar alinhamento. Sem timestamps de palavras, o modo por palavra usa o segmento inteiro e não estima tempos. `music` aceita `source`, `volume`, `duckVolume` e `duck`; a redução durante a fala usa os intervalos da transcrição. O áudio final recebe normalização em duas passagens; `audio.normalize: false` desativa.
 

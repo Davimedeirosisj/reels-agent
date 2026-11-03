@@ -17,14 +17,47 @@ const referenceStyles = {
   'PM-004': 'particles',
   'PM-005': 'chart',
 };
-export function suggestMotions(job) {
+export function suggestMotions(job, { verifiedReferences = [] } = {}) {
   const brief = job.brief || {},
     fps = job.fps || 30;
   if (brief.motion === 'none' || brief.style === 'contemplative') return [];
   const captions = captionsForTimeline(job.transcript?.segments || [], job.clips, fps),
     events = [];
-  const explicit = brief.references?.find((r) => referenceStyles[r]),
-    requested = referenceStyles[explicit];
+  const verified = new Map(verifiedReferences.map((r) => [r.id, r]));
+  const explicit = brief.references?.find((r) => referenceStyles[r] || verified.has(r)),
+    requested =
+      referenceStyles[explicit] || verified.get(explicit)?.runtimeTechniqueCandidates?.[0];
+  for (const annotation of brief.visualAnnotations || []) {
+    if (annotation.kind === 'question-answer') {
+      const q = captions[annotation.questionCaptionIndex],
+        a = captions[annotation.answerCaptionIndex];
+      if (!q || !a || q.partial || a.partial || a.from <= q.from) continue;
+      events.push({
+        kind: 'question-answer',
+        start: q.from / fps,
+        end: a.to / fps,
+        question: q.text,
+        answer: a.text,
+        answerAt: (a.from - q.from) / fps,
+        evidence:
+          'Trechos literais da transcrição; relação pergunta/resposta indicada no briefing.',
+        referenceId: annotation.referenceId || explicit || 'A074',
+        reason: 'Pergunta e resposta fornecidas como anotação editorial; conferir contexto.',
+        position: annotation.position || brief.motionPosition,
+      });
+    } else if (['flowchart', 'network', 'interface', 'definition'].includes(annotation.kind)) {
+      const c = captions[annotation.captionIndex];
+      if (!c || c.partial || !annotation.evidence) continue;
+      events.push({
+        ...annotation,
+        start: c.from / fps,
+        end: c.to / fps,
+        referenceId: annotation.referenceId || explicit,
+        reason:
+          'Relações e conteúdo visual fornecidos no briefing, sem inferir causalidade da fala.',
+      });
+    }
+  }
   for (const [index, c] of captions.entries()) {
     const clean = c.text.trim(),
       words = clean.split(/\s+/),

@@ -17,9 +17,48 @@ function Example({ kind }) {
     frame,
     fps,
     durationInFrames: 54,
-    text: ['counter', 'kpi', 'chart'].includes(kind)
-      ? 'Dados de demonstração'
-      : 'A MENSAGEM\nORIENTA O VISUAL',
+    graph: {
+      nodes: [
+        { id: 'a', label: 'Contexto' },
+        { id: 'b', label: 'Ensino' },
+        { id: 'c', label: 'Aplicação' },
+        { id: 'd', label: 'Reflexão' },
+      ],
+      edges: [
+        { from: 'a', to: 'b' },
+        { from: 'a', to: 'c' },
+        { from: 'b', to: 'd' },
+        { from: 'c', to: 'd' },
+      ],
+    },
+    question: 'O que orienta o visual?',
+    answer: 'A mensagem e seu contexto.',
+    answerAt: 0.7,
+    term: 'Contexto',
+    ui: {
+      title: 'Ilustração do fluxo de edição',
+      rows: [
+        { id: 'speech', label: 'Trecho', value: '' },
+        { id: 'review', label: 'Revisar o contexto', kind: 'check', checked: false },
+      ],
+      steps: [
+        {
+          at: 0,
+          target: 'speech',
+          action: 'type',
+          value: 'Preservar a mensagem',
+          charsPerSecond: 25,
+        },
+        { at: 0.8, target: 'review', action: 'select' },
+        { at: 1.1, target: 'review', action: 'toggle', value: true },
+      ],
+    },
+    text:
+      kind === 'definition'
+        ? 'O trecho anterior e posterior que ajuda a compreender a fala.'
+        : ['counter', 'kpi', 'chart'].includes(kind)
+          ? 'Dados de demonstração'
+          : 'A MENSAGEM\nORIENTA O VISUAL',
     items: ['image-sequence', 'topic-montage'].includes(kind)
       ? [
           { asset: 'demo-art.svg', duration: 0.9, label: 'Primeiro tópico' },

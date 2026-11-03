@@ -1,0 +1,37 @@
+{
+  "checkedAtUtc": "2026-11-03T03:08:02.455Z",
+  "platform": "win32",
+  "node": "v26.13.0",
+  "ffmpeg": {
+    "available": true,
+    "version": "ffmpeg version 9.0.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers"
+  },
+  "ffprobe": {
+    "available": true,
+    "version": "ffprobe version 9.0.1-full_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "packages": {
+    "remotion": "4.0.540",
+    "@remotion/renderer": "4.0.540",
+    "@remotion/bundler": "4.0.540",
+    "react": "18.3.1"
+  },
+  "python": {
+    "version": "3.12.10",
+    "packages": {
+      "openai-whisper": "20250625",
+      "faster-whisper": "1.2.1",
+      "torch": "2.14.0+cu126",
+      "mediapipe": "1.0.1",
+      "opencv-python": "5.0.0.93",
+      "numpy": "2.5.3"
+    },
+    "cachedWhisperModels": [
+      "small",
+      "tiny"
+    ]
+  },
+  "configuredBrowserExists": true,
+  "segmentationModelAvailable": true,
+  "note": "Installed versions and local files only. See render results for runtime proof. A missing browser environment variable does not mean Remotion cannot manage its own browser."
+}

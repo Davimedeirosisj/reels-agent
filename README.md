@@ -11,14 +11,16 @@ Agente de edição de Reels com IA — projeto em desenvolvimento.
 ## Objetivo
 Transformar vídeos brutos em Reels verticais com cortes inteligentes, transcrição, legendas dinâmicas, motion graphics, processamento de áudio e revisão antes da exportação.
 
-## Arquitetura planejada
+## Ferramentas do motor
 - Transcrição: Whisper/faster-whisper
 - Edição e render: FFmpeg
 - Animações: Remotion
 - Orquestração: ChatGPT/Codex e Claude Code
 
 ## Status
-**Motor executável em desenvolvimento.** Existe uma linha do tempo com cortes reais, remapeamento de legendas, biblioteca de eventos Remotion e render MP4. Uma prévia sintética, uma galeria de 48 componentes e regressões de cortes, B-roll e ducking foram executadas com vídeo BT.709/yuv420p. A cobertura completa das referências e a validação pastoral permanecem abertas. Recorte local de pessoas foi integrado como ferramenta auxiliar e ainda precisa de validação em um pregador real.
+**Motor executável em desenvolvimento, com renderização comprovada.** Existe uma linha do tempo com cortes reais, remapeamento de legendas e eventos Remotion. Uma galeria de 53 componentes e regressões de cortes, B-roll e ducking foram executadas com vídeo BT.709/yuv420p. Uma prévia completa de pregação real também foi renderizada em 1080×1920, com voz comparada ao original. A revisão humana e a cobertura integral das referências permanecem abertas.
+
+A curadoria verificou 124 publicações Prompt Motion / 111 textos normalizados distintos e 45 páginas individuais Motif, com autoria e links. Isso comprova as fontes, não a reprodução de todos os exemplos. Os resultados técnicos e limites estão em [Validação com pregação real](docs/ETAPA-PREGACAO-REAL.md); a gravação e sua transcrição permanecem locais.
 
 ## Próximos passos
 1. Seguir [Execução](docs/EXECUCAO.md) para transcrever, preparar EDL e renderizar prévia.
