@@ -1,5 +1,7 @@
 {
-  "checkedAtUtc": "2026-11-03T03:08:02.455Z",
+  "rendererFingerprint": "d47fade9ba3675235b6251fa8e5762ef9f1dfb876d8840d1fd09773dbc9f4b3f",
+  "fingerprintScheme": "normalized-source-and-lock-v2",
+  "checkedAtUtc": "2026-11-03T03:54:01.713Z",
   "platform": "win32",
   "node": "v26.13.0",
   "ffmpeg": {
@@ -14,6 +16,9 @@
     "remotion": "4.0.540",
     "@remotion/renderer": "4.0.540",
     "@remotion/bundler": "4.0.540",
+    "@remotion/three": "4.0.540",
+    "@react-three/fiber": "8.18.0",
+    "three": "0.187.0",
     "react": "18.3.1"
   },
   "python": {

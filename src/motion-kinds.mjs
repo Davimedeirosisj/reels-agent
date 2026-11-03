@@ -53,6 +53,9 @@ export const MOTION_VARIANTS = [
   'question-answer',
   'interface',
   'definition',
+  'product3d',
+  'ui3d',
+  'light3d',
 ];
 export const MEDIA_KINDS = [
   'broll',

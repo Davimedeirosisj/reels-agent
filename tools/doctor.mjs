@@ -3,12 +3,21 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { root, write } from './engine.mjs';
+import { rendererFingerprint, FINGERPRINT_SCHEME } from './fingerprint.mjs';
 const probe = (command, args) => {
   const r = spawnSync(command, args, { encoding: 'utf8', windowsHide: true, timeout: 30000 });
   return { available: r.status === 0, version: r.status === 0 ? r.stdout.split(/\r?\n/)[0] : null };
 };
 const packages = Object.fromEntries(
-  ['remotion', '@remotion/renderer', '@remotion/bundler', 'react'].map((name) => {
+  [
+    'remotion',
+    '@remotion/renderer',
+    '@remotion/bundler',
+    '@remotion/three',
+    '@react-three/fiber',
+    'three',
+    'react',
+  ].map((name) => {
     const file = path.join(root, 'node_modules', name, 'package.json');
     return [name, fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')).version : null];
   }),
@@ -31,6 +40,8 @@ const python = spawnSync(
   { encoding: 'utf8', windowsHide: true, timeout: 30000 },
 );
 const report = {
+  rendererFingerprint: rendererFingerprint(root),
+  fingerprintScheme: FINGERPRINT_SCHEME,
   checkedAtUtc: new Date().toISOString(),
   platform: process.platform,
   node: process.version,

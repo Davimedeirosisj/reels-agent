@@ -17,6 +17,27 @@ function Example({ kind }) {
     frame,
     fps,
     durationInFrames: 54,
+    scene: {
+      product: 'book',
+      spin: 0.18,
+      camera: [
+        { time: 0, position: [2, 1, 6] },
+        { time: 1.8, position: [-1, 1, 6] },
+      ],
+      nodes:
+        kind === 'light3d'
+          ? [
+              {
+                geometry: 'sphere',
+                position: [0, 0.15, 0],
+                color: '#e7bd78',
+                metalness: 0.6,
+                roughness: 0.25,
+              },
+              { geometry: 'box', args: [2.2, 0.25, 2.2], position: [0, -1.2, 0], color: '#143248' },
+            ]
+          : [],
+    },
     graph: {
       nodes: [
         { id: 'a', label: 'Contexto' },
@@ -78,7 +99,7 @@ function Example({ kind }) {
     value: 24,
     evidence: 'Dados sintéticos, não atribuídos a uma pregação',
     subtitle: 'ENSAIO VISUAL • NÃO É CITAÇÃO BÍBLICA',
-    asset: 'demo-art.svg',
+    asset: ['product3d', 'ui3d', 'light3d'].includes(kind) ? undefined : 'demo-art.svg',
     position: { x: 85, y: 650, width: 880 },
   };
   return (

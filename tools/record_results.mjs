@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
+import { rendererFingerprint, FINGERPRINT_SCHEME } from './fingerprint.mjs';
 import { root, read, write, fileDigest } from './engine.mjs';
 const dir = path.join(root, 'docs', 'validation');
 fs.mkdirSync(dir, { recursive: true });
@@ -9,22 +9,42 @@ const demo = read(path.join(root, demoFolder, 'preview-validation.json'));
 const showcase = read(path.join(root, 'output/showcase/validation.json'));
 const regression = read(path.join(root, 'output/regression/assertions.json'));
 const composition = read(path.join(root, 'output/composition-regression/assertions.json'));
-const currentFingerprint = crypto
-  .createHash('sha256')
-  .update(
-    Buffer.concat(
-      fs
-        .readdirSync(path.join(root, 'src'))
-        .sort()
-        .map((s) => fs.readFileSync(path.join(root, 'src', s))),
-    ),
-  )
-  .digest('hex');
-const renderFingerprint = fs
-  .readFileSync(path.join(root, demoFolder, 'review.html'), 'utf8')
-  .match(/"rendererHash":"([a-f0-9]{64})"/)?.[1];
+const currentFingerprint = rendererFingerprint(root);
+const currentBinding = (folder) => {
+  const html = fs.readFileSync(path.join(root, folder, 'review.html'), 'utf8');
+  const payload = html.match(/,binding=(\{[^\n;]*\}),keys=/)?.[1];
+  if (!payload) throw new Error('Current review binding not found: ' + folder);
+  return JSON.parse(payload);
+};
+const renderFingerprint = currentBinding(demoFolder).rendererHash;
 if (currentFingerprint !== renderFingerprint)
   throw new Error('Source changed after preview; rerender before publishing current evidence');
+const additional = {};
+for (const [name, folder] of [
+  ['color', 'color-regression'],
+  ['captionLayout', 'caption-layout-regression'],
+  ['three', 'scene3d-regression'],
+]) {
+  const place = path.join('output', folder),
+    assertions = read(path.join(root, place, 'assertions.json'));
+  if (
+    !assertions.passed ||
+    currentBinding(place).rendererHash !== currentFingerprint ||
+    fileDigest(path.join(root, place, 'preview.mp4')) !== assertions.outputHash
+  )
+    throw new Error('Additional render evidence mismatched: ' + name);
+  additional[name] = assertions;
+}
+const review = read(path.join(root, 'output/review-regression/assertions.json'));
+if (!review.passed || review.sourceFingerprint !== currentFingerprint)
+  throw new Error('Review browser test is stale');
+const approval = read(path.join(root, 'output/approval-regression/assertions.json'));
+if (
+  !approval.passed ||
+  approval.sourceFingerprint !== currentFingerprint ||
+  fileDigest(path.join(root, 'output/approval-regression/final.mp4')) !== approval.finalSha256
+)
+  throw new Error('Final export regression is stale');
 const brief = (r) => ({
   statusAtTimeOfRender: r.status,
   sha256: r.sha256,
@@ -63,7 +83,11 @@ write(path.join(dir, 'render-results.json'), {
   showcase: brief(showcase),
   regression,
   composition,
+  ...additional,
+  review,
+  approval,
   sourceFingerprint: currentFingerprint,
+  fingerprintScheme: FINGERPRINT_SCHEME,
   latestSourceValidatedByRender: true,
   pending:
     'Full individual recipe/reference coverage and human editorial approval remain incomplete. This file records synthetic fixtures; real-sermon-results.json records real preview tests separately.',

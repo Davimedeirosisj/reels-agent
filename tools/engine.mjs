@@ -8,6 +8,9 @@ import { suggestMotions } from '../src/planner.mjs';
 import { applyOperations } from '../src/operations.mjs';
 import { qualityReview } from '../src/quality.mjs';
 import { mediaReferences, mapMedia } from '../src/media-layout.mjs';
+import { SCENE3D_KINDS, inspectGlb } from '../src/scene3d.mjs';
+import { makeReviewPage } from './review_page.mjs';
+import { rendererFingerprint, FINGERPRINT_SCHEME } from './fingerprint.mjs';
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const read = (p) => JSON.parse(fs.readFileSync(p, 'utf8').replace(/^\uFEFF/, ''));
 export const write = (p, data) => {
@@ -18,11 +21,12 @@ export const hash = (job) => {
   const { approval, ...body } = job;
   return crypto.createHash('sha256').update(JSON.stringify(body)).digest('hex');
 };
-function run(program, args) {
+function run(program, args, options = {}) {
   const r = spawnSync(program, args, {
     encoding: 'utf8',
     maxBuffer: 64 * 1024 * 1024,
     windowsHide: true,
+    ...options,
   });
   if (r.error) throw r.error;
   if (r.status !== 0) throw new Error(`${program} falhou (${r.status}): ${r.stderr || r.stdout}`);
@@ -60,14 +64,13 @@ function assetHash(job) {
   return crypto.createHash('sha256').update(JSON.stringify(entries)).digest('hex');
 }
 function rendererHash() {
-  const files = fs
-    .readdirSync(path.join(root, 'src'))
-    .sort()
-    .map((s) => fs.readFileSync(path.join(root, 'src', s)));
-  return crypto.createHash('sha256').update(Buffer.concat(files)).digest('hex');
+  return rendererFingerprint(root);
 }
 function inspectAssets(job) {
   const inspections = {};
+  for (const event of job.motions || [])
+    if (SCENE3D_KINDS.includes(event.kind) && event.asset)
+      inspectGlb(fs.readFileSync(localFile(event.asset)));
   for (const c of job.clips) {
     const p = localFile(c.source);
     const m = (inspections[c.source] ??= probe(p));
@@ -178,34 +181,41 @@ function normalize(input, output, options = {}) {
   return { measured, processing: second.stderr };
 }
 function reviewPage(dir, job, check, id) {
-  const escape = (s) =>
-    String(s).replace(
-      /[&<>"']/g,
-      (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
-    );
-  const binding = { jobHash: id, assetHash: assetHash(job), rendererHash: rendererHash() };
-  const checklist = ['messageFaithful', 'captionsCorrect', 'framingSafe', 'audioClear'];
-  fs.writeFileSync(
-    path.join(dir, 'review.html'),
-    `<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Revisão — Reels Agent</title>
- <style>body{font:18px system-ui;background:#101820;color:#eee;max-width:1000px;margin:40px auto;padding:20px}video{max-height:70vh;max-width:100%}label{display:block;margin:20px 0}button{padding:16px}pre{white-space:pre-wrap}</style>
- <h1>Revisar o corte</h1><video controls src="preview.mp4"></video><p>Compare com a gravação original antes de aprovar.</p><pre>${escape(JSON.stringify({ clips: job.clips, warnings: check.warnings }, null, 2))}</pre>
- ${checklist.map((k, i) => `<label><input type="checkbox" id="${k}"> ${['A fala e o contexto foram preservados', 'As legendas estão corretas e sincronizadas', 'O rosto e os textos estão visíveis', 'O áudio está claro'][i]}</label>`).join('')}
- <button id="save">Salvar revisão</button><script>document.getElementById('save').onclick=()=>{
- const keys=${JSON.stringify(checklist)},checks=Object.fromEntries(keys.map(k=>[k,document.getElementById(k).checked]));
- if(!keys.every(k=>checks[k]))return alert('Conclua a revisão dos quatro pontos.');
- const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({...${JSON.stringify(binding)},...checks},null,2)],{type:'application/json'}));a.download='review.json';a.click();};</script></html>`,
-  );
+  const binding = {
+    jobHash: id,
+    assetHash: assetHash(job),
+    rendererHash: rendererHash(),
+    fingerprintScheme: FINGERPRINT_SCHEME,
+  };
+  fs.writeFileSync(path.join(dir, 'review.html'), makeReviewPage(job, binding, check));
 }
 async function main() {
   const [command, jobPath, ...args] = process.argv.slice(2);
   if (!command || !jobPath)
     throw new Error(
-      'Uso: node tools/engine.mjs validate|plan|preview|approve|final job.json [diretório ou review.json]',
+      'Uso: node tools/engine.mjs validate|plan|color-plan|preview|approve|final job.json [diretório ou review.json]',
     );
   const job = applyOperations(read(jobPath));
   const check = validateJob(job);
   if (check.errors.length) throw new Error(check.errors.join('\n'));
+  if (command === 'color-plan') {
+    const output = path.resolve(args[0] || jobPath.replace(/\.json$/, '.color-proposed.json'));
+    const measured = run(
+      'python',
+      [
+        path.join(root, 'tools/match_color.py'),
+        '-',
+        output,
+        '--public-dir',
+        path.join(root, 'public'),
+      ],
+      { input: JSON.stringify(job) },
+    );
+    const proposed = validateJob(read(output));
+    if (proposed.errors.length) throw new Error(proposed.errors.join('\n'));
+    console.log(measured.stdout.trim());
+    return;
+  }
   if (command === 'plan') {
     const source = job.clips[0].source,
       metadata = probe(localFile(source));
@@ -280,11 +290,15 @@ async function main() {
     onProgress: () => {},
   });
   const browserExecutable = process.env.REELS_BROWSER;
+  const chromiumOptions = SCENE3D_KINDS.some((kind) => job.motions?.some((m) => m.kind === kind))
+    ? { gl: process.env.REELS_GL || 'angle' }
+    : undefined;
   const composition = await selectComposition({
     serveUrl,
     id: 'PastoralReel',
     inputProps: props,
     browserExecutable,
+    chromiumOptions,
   });
   const raw = path.join(dir, `${command}.raw.mp4`),
     file = path.join(dir, `${command}.mp4`);
@@ -293,6 +307,7 @@ async function main() {
     composition,
     serveUrl,
     browserExecutable,
+    chromiumOptions,
     codec: 'h264',
     audioCodec: 'aac',
     pixelFormat: 'yuv420p',

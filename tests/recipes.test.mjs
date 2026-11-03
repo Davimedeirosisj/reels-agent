@@ -6,7 +6,7 @@ test('100 authored prompts retain distinct records and explicitly expose missing
   assert.equal(recipes.length, 100);
   assert.equal(new Set(recipes.map((r) => r.id)).size, 100);
   assert.equal(recipes[3].behavior, 'requires-alpha');
-  assert.equal(recipes[96].status, 'pending');
+  assert.equal(recipes[96].behavior, 'per-clip-color-matrix-and-measured-neutral-patch-match');
   assert.throws(() => recipeEvent('A097', {}), /etapa/);
 });
 test('approval fingerprint changes when editorial content or styling is edited', () => {

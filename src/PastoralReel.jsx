@@ -14,6 +14,7 @@ import { MotionLibrary } from './MotionLibrary';
 import { Captions } from './Captions';
 import { musicGain } from './captions.mjs';
 import { cameraAt, transitionAt } from './camera.mjs';
+import { ColorGrade } from './ColorGrade';
 export const media = (src) =>
   /^(https?:|data:|blob:)/.test(src) ? src : staticFile(src.replace(/^\//, ''));
 const lerp = (f, a, b, x, y) =>
@@ -31,18 +32,20 @@ function Shot({ clip, fit }) {
         transformOrigin: `${v('x', 50)}% ${v('y', 50)}%`,
       }}
     >
-      <OffthreadVideo
-        src={media(clip.source)}
-        trimBefore={clip.trimBefore}
-        trimAfter={clip.trimAfter}
-        volume={clip.volume ?? 1}
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: fit,
-          objectPosition: `${v('x', 50)}% ${v('y', 50)}%`,
-        }}
-      />
+      <ColorGrade grade={clip.color}>
+        <OffthreadVideo
+          src={media(clip.source)}
+          trimBefore={clip.trimBefore}
+          trimAfter={clip.trimAfter}
+          volume={clip.volume ?? 1}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: fit,
+            objectPosition: `${v('x', 50)}% ${v('y', 50)}%`,
+          }}
+        />
+      </ColorGrade>
     </AbsoluteFill>
   );
 }

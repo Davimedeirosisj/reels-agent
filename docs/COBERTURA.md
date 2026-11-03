@@ -29,11 +29,11 @@ Os 100 autorais têm uma entrada individual. Mapeamento não é evidência de co
 | A021 | câmera orbital | cube3d: css3d-orbit | implemented-unverified |
 | A022 | profundidade em camadas | cards3d: css3d-depth | implemented-unverified |
 | A023 | painéis flutuantes | cards3d: floating-panels | implemented-unverified |
-| A024 | produto giratório | cube3d: partial-product-model | partial |
+| A024 | produto giratório | product3d: procedural-or-self-contained-glb-model | implemented-unverified |
 | A025 | dolly in virtual | camera: dolly-keyframes | implemented-unverified |
 | A026 | perspectiva isométrica | isometric: isometric-panels | implemented-unverified |
-| A027 | câmera atravessando UI | cards3d: partial-ui-camera | partial |
-| A028 | luz volumétrica | light: approximate-light | partial |
+| A027 | câmera atravessando UI | ui3d: three-dimensional-ui-panels-and-camera | implemented-unverified |
+| A028 | luz volumétrica | light3d: three-dimensional-lit-materials-and-shadows | implemented-unverified |
 | A029 | parallax 2.5D | depth-scene: requires-layer-assets | requires-asset |
 | A030 | câmera em trilha | camera: camera-keyframe-path | implemented-unverified |
 | A031 | contador numérico | counter: counter | implemented-unverified |
@@ -48,7 +48,7 @@ Os 100 autorais têm uma entrada individual. Mapeamento não é evidência de co
 | A040 | revelação de dados | chart: data-reveal | implemented-unverified |
 | A041 | legenda por palavra | captions: word-timestamps | implemented-unverified |
 | A042 | destaque semântico | captions: provided-semantic-keywords | implemented-unverified |
-| A043 | legenda em duas linhas | captions: partial-two-lines | partial |
+| A043 | legenda em duas linhas | captions: font-measured-balanced-two-line-layout | implemented-unverified |
 | A044 | legenda com pausa | captions: gaps | implemented-unverified |
 | A045 | legenda com ícone contextual | captions: provided-contextual-icon | implemented-unverified |
 | A046 | legenda com máscara | captions: caption-mask | implemented-unverified |
@@ -100,9 +100,9 @@ Os 100 autorais têm uma entrada individual. Mapeamento não é evidência de co
 | A092 | normalização de voz | post: loudnorm | implemented-unverified |
 | A093 | efeitos sonoros sutis | post: sfx | implemented-unverified |
 | A094 | revisão de safe areas | post: partial-safe-areas | partial |
-| A095 | checagem de legendas | post: partial-caption-review | partial |
+| A095 | checagem de legendas | post: editable-transcript-review-with-alignment-reset | implemented-unverified |
 | A096 | controle de ritmo | post: partial-pace | partial |
-| A097 | continuidade de cor | post: pending-color-match | pending |
+| A097 | continuidade de cor | post: per-clip-color-matrix-and-measured-neutral-patch-match | implemented-unverified |
 | A098 | validação de frames | post: decode-validation | implemented-unverified |
 | A099 | prévia com aprovação | post: review-hash | implemented-unverified |
 | A100 | exportação vertical | post: export | implemented-unverified |

@@ -16,13 +16,20 @@ const serveUrl = await bundle({
   publicDir: showcaseAssets,
 });
 const browserExecutable = process.env.REELS_BROWSER,
-  composition = await selectComposition({ serveUrl, id: 'MotionShowcase', browserExecutable });
+  chromiumOptions = { gl: process.env.REELS_GL || 'angle' },
+  composition = await selectComposition({
+    serveUrl,
+    id: 'MotionShowcase',
+    browserExecutable,
+    chromiumOptions,
+  });
 const file = path.join(dir, 'motions.mp4');
 let checkpoint = -1;
 await renderMedia({
   serveUrl,
   composition,
   browserExecutable,
+  chromiumOptions,
   codec: 'h264',
   audioCodec: 'aac',
   pixelFormat: 'yuv420p',

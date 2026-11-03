@@ -19,6 +19,8 @@ Não guardar tokens de API no repositório. Verificar licenças e scripts antes 
 - [x] Verificar ao menos 100 textos originais externos com autoria/URL individual (111 hashes distintos Prompt Motion; mais 45 páginas Motif)
 - [x] Validar PNG/BT.709, legendas, relógios de B-roll e ducking no render
 - [ ] Integrar segmentação, rastreamento e modelos/assets 3D próprios
+- [x] Renderizar modelos GLB e geometria própria com luzes/câmera Three.js
+- [x] Implementar e testar cor por tomada, duas linhas medidas e revisão editável de transcrição
 - [ ] Validar uma pregação real e registrar revisão de fidelidade
 - [x] Renderizar uma pregação real completa e validar MP4, áudio e amostras visuais; revisão editorial humana continua aberta
 

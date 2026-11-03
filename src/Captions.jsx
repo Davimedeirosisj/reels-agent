@@ -1,7 +1,9 @@
 import React from 'react';
-import { useCurrentFrame } from 'remotion';
+import { useCurrentFrame, useVideoConfig } from 'remotion';
 import { captionPages } from './captions.mjs';
+import { layoutCaptionTokens, browserTextMeasurer } from './caption-layout.mjs';
 export function Captions({ segments, style = {}, accent }) {
+  const { width: videoWidth } = useVideoConfig();
   const f = useCurrentFrame(),
     s = captionPages(segments, style).find((x) => f >= x.from && f < x.to);
   if (!s) return null;
@@ -13,6 +15,8 @@ export function Captions({ segments, style = {}, accent }) {
     maxWords,
     semanticWords = [],
     icon,
+    maxLines,
+    minFontSize = 38,
     ...custom
   } = style;
   const base = {
@@ -31,40 +35,75 @@ export function Captions({ segments, style = {}, accent }) {
     ...custom,
   };
   const tokens = s.words?.length ? s.words : [{ word: s.text, from: s.from, to: s.to }];
+  // Untimed segment text may wrap visually; all pieces retain the segment's
+  // original timing rather than pretending to be individually aligned words.
+  const layoutTokens = !s.words?.length
+    ? s.text.split(/\s+/).map((word) => ({ ...tokens[0], word }))
+    : tokens;
+  const layout = maxLines
+    ? layoutCaptionTokens(layoutTokens, browserTextMeasurer(base), {
+        width: base.width ?? videoWidth - Number(base.left) - Number(base.right),
+        maxLines,
+        fontSize: base.fontSize,
+        minFontSize,
+        prefix: icon || '',
+      })
+    : { rows: [tokens], fontSize: base.fontSize };
+  if (layout.overflow)
+    throw new Error(
+      'Legenda não cabe nas linhas configuradas. Revise palavras por página, largura ou tamanho mínimo; nenhum texto foi omitido.',
+    );
+  const renderTokens = (row) =>
+    row.map((w, i) => {
+      const semantic = semanticWords.some((k) =>
+        (w.word || w.text).toLocaleLowerCase().includes(k.toLocaleLowerCase()),
+      );
+      const highlight =
+        mode === 'semantic'
+          ? semantic
+          : mode === 'block' || mode === 'accessible'
+            ? false
+            : f >= w.from && f < w.to;
+      return (
+        <span
+          key={i}
+          style={{
+            color: highlight ? accent : '#fff',
+            background: box || mode === 'accessible' ? 'rgba(0,0,0,.86)' : undefined,
+            padding: '4px 3px',
+            textShadow: mode === 'accessible' ? 'none' : '0 2px 8px #000',
+          }}
+        >
+          {w.word || w.text}
+          {i < row.length - 1 ? ' ' : ''}
+        </span>
+      );
+    });
   return (
     <div
+      data-caption-font-size={layout.fontSize}
+      data-caption-lines={layout.rows.length}
       style={{
         ...base,
+        fontSize: layout.fontSize,
         clipPath:
           mode === 'mask' ? `inset(0 ${Math.max(0, 100 - (f - s.from) * 20)}% 0 0)` : undefined,
       }}
     >
-      {icon && <span aria-hidden="true">{icon} </span>}
-      {tokens.map((w, i) => {
-        const semantic = semanticWords.some((k) =>
-          (w.word || w.text).toLocaleLowerCase().includes(k.toLocaleLowerCase()),
-        );
-        const highlight =
-          mode === 'semantic'
-            ? semantic
-            : mode === 'block' || mode === 'accessible'
-              ? false
-              : f >= w.from && f < w.to;
-        return (
-          <span
-            key={i}
-            style={{
-              color: highlight ? accent : '#fff',
-              background: box || mode === 'accessible' ? 'rgba(0,0,0,.86)' : undefined,
-              padding: '4px 3px',
-              textShadow: mode === 'accessible' ? 'none' : '0 2px 8px #000',
-            }}
-          >
-            {w.word || w.text}
-            {i < tokens.length - 1 ? ' ' : ''}
-          </span>
-        );
-      })}
+      {maxLines
+        ? layout.rows.map((row, i) => (
+            <div key={i} style={{ whiteSpace: 'nowrap' }}>
+              {i === 0 && icon && <span aria-hidden="true">{icon} </span>}
+              {renderTokens(row)}
+            </div>
+          ))
+        : layout.rows.map((row, i) => (
+            <React.Fragment key={i}>
+              {i > 0 && <br />}
+              {i === 0 && icon && <span aria-hidden="true">{icon} </span>}
+              {renderTokens(row)}
+            </React.Fragment>
+          ))}
     </div>
   );
 }

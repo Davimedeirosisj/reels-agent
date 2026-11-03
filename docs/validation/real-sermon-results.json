@@ -1,11 +1,12 @@
 {
-  "recordedAtUtc": "2026-11-03T03:09:12.477Z",
+  "recordedAtUtc": "2026-11-03T03:56:01.585Z",
   "scope": "User-authorized real sermon preview; technical metadata only",
-  "sourceFingerprint": "bd20ec30b834b341ed51b8a2a9eae442778be182be8b5d56bf23a3ada8a64ab8",
+  "sourceFingerprint": "d47fade9ba3675235b6251fa8e5762ef9f1dfb876d8840d1fd09773dbc9f4b3f",
+  "fingerprintScheme": "normalized-source-and-lock-v2",
   "latestSourceValidatedByRender": true,
   "mp4": {
     "status": "passed",
-    "sha256": "85999c3b3702ff6c66231001fe8683435b1af517b27a73f8458248d324e5340e",
+    "sha256": "986558a0e858e566121fefc7e4eb71801ac7683aa5991e0766d624214b23bdd9",
     "duration": 144.1,
     "expectedVideoDuration": 144.03333333333333,
     "video": {

@@ -1,6 +1,6 @@
 {
   "clientDate": "2026-11-03",
-  "recordedAtUtc": "2026-11-03T03:06:07.991Z",
+  "recordedAtUtc": "2026-11-03T03:51:45.032Z",
   "scope": "Synthetic fixtures only",
   "demo": {
     "statusAtTimeOfRender": "passed",
@@ -23,14 +23,14 @@
   },
   "showcase": {
     "statusAtTimeOfRender": "passed",
-    "sha256": "b77138bb8e80856f342911861d5ee8df1121b9515e5cca2ba15979bff9ba01e5",
-    "duration": 95.403,
+    "sha256": "6c8da10763f903d00a5cffeffbc476fd827f00cb64b7ccb0972f1bb27db4ce53",
+    "duration": 100.8,
     "video": {
       "codec": "h264",
       "width": 1080,
       "height": 1920,
       "pixelFormat": "yuv420p",
-      "frames": "2862"
+      "frames": "3024"
     },
     "audio": {
       "codec": "aac",
@@ -95,7 +95,225 @@
     ],
     "synthetic": true
   },
-  "sourceFingerprint": "bd20ec30b834b341ed51b8a2a9eae442778be182be8b5d56bf23a3ada8a64ab8",
+  "color": {
+    "passed": true,
+    "synthetic": true,
+    "sourceGains": [
+      1.2,
+      0.9,
+      0.75
+    ],
+    "proposedGains": [
+      0.8613524115860781,
+      1.1565934940344296,
+      1.3503296778350862
+    ],
+    "meanAbsoluteRgbErrorBefore": 11.38888888888889,
+    "meanAbsoluteRgbErrorAfter": 1.5,
+    "referencePatches": [
+      [
+        173,
+        173,
+        173
+      ],
+      [
+        200,
+        87,
+        85
+      ],
+      [
+        88,
+        89,
+        202
+      ],
+      [
+        184,
+        136,
+        111
+      ],
+      [
+        87,
+        187,
+        87
+      ],
+      [
+        55,
+        55,
+        55
+      ]
+    ],
+    "castPatches": [
+      [
+        187,
+        164,
+        151
+      ],
+      [
+        219,
+        83,
+        76
+      ],
+      [
+        95,
+        84,
+        178
+      ],
+      [
+        200,
+        128,
+        94
+      ],
+      [
+        95,
+        177,
+        74
+      ],
+      [
+        61,
+        50,
+        46
+      ]
+    ],
+    "correctedPatches": [
+      [
+        175,
+        175,
+        173
+      ],
+      [
+        206,
+        89,
+        89
+      ],
+      [
+        89,
+        90,
+        203
+      ],
+      [
+        187,
+        137,
+        110
+      ],
+      [
+        88,
+        188,
+        86
+      ],
+      [
+        55,
+        55,
+        55
+      ]
+    ],
+    "outputHash": "7f42b951769f8dbfbf9b7f216e73344d47f837ade344f61e0c0d6e4872ca8f0c",
+    "checks": [
+      "Measured shared neutral patch from decoded source frames",
+      "Correction applies only to the selected shot",
+      "RGB patch error reduced in the rendered MP4",
+      "Full decode, video/audio formats and frame count checked"
+    ],
+    "scope": "SDR synthetic multi-camera calibration; skin-tone judgment and actual mixed lighting require visual review"
+  },
+  "captionLayout": {
+    "passed": true,
+    "syntheticMedia": true,
+    "actualWordTimestamps": true,
+    "lineBands": [
+      {
+        "start": 1538,
+        "end": 1576
+      },
+      {
+        "start": 1602,
+        "end": 1649
+      }
+    ],
+    "inkBounds": {
+      "minX": 89,
+      "maxX": 972
+    },
+    "requestedMaximumFontSize": 90,
+    "maximumLines": 2,
+    "alignedTranscriptWordCount": 10,
+    "outputHash": "39e0a5385b611e585e2cc2f6502f902dc56b2701f0062db4e8a0d21bad99acba",
+    "checks": [
+      "Real font measurement in Chrome",
+      "Two caption ink rows in decoded H.264 MP4",
+      "Glyphs stayed inside configured margins",
+      "No truncation or fabricated word times in layout"
+    ],
+    "scope": "One Latin-font sample; reading pace, different fonts/scripts and editorial correctness require further review"
+  },
+  "three": {
+    "passed": true,
+    "synthetic": true,
+    "gl": "angle",
+    "threeVersion": "0.187.0",
+    "samples": [
+      {
+        "time": 0.4,
+        "foregroundPixels": 1029
+      },
+      {
+        "time": 1.6,
+        "foregroundPixels": 32380
+      },
+      {
+        "time": 2.8,
+        "foregroundPixels": 964
+      },
+      {
+        "time": 4,
+        "foregroundPixels": 3179
+      }
+    ],
+    "meanRgbDifferenceDuringCameraMove": 3.8985050505050505,
+    "repeatedFrameHashes": [
+      "633a291fc7cf4d100888942527b22fb092b2f0d8c3712f1c2e62e9321eed200e",
+      "633a291fc7cf4d100888942527b22fb092b2f0d8c3712f1c2e62e9321eed200e"
+    ],
+    "outputHash": "7e1fcaf54c8e7e9dd7c13aa576234f5437cedb704135520358b812964d7c6cf0",
+    "checks": [
+      "Procedural book with real geometry and materials",
+      "Original self-contained GLB imported and staged",
+      "UI image/label textures loaded before capture",
+      "Lit geometry and shadow receivers rendered",
+      "Camera movement visible in MP4",
+      "Repeated frame PNGs match exactly",
+      "Full decode and MP4 format validated"
+    ],
+    "scope": "Original technical fixtures; no visual equivalence claim for third-party product models, UI assets or postprocessing examples"
+  },
+  "review": {
+    "passed": true,
+    "syntheticBindingOnly": true,
+    "sourceFingerprint": "d47fade9ba3675235b6251fa8e5762ef9f1dfb876d8840d1fd09773dbc9f4b3f",
+    "checks": [
+      "HTML correction controls ran in Chrome",
+      "Approval blocked while transcript edits are pending",
+      "Corrected job clears old approval and word alignment",
+      "Real phrase timestamp retained",
+      "Review binds only the unchanged preview",
+      "Seek time remapped from the source EDL"
+    ]
+  },
+  "approval": {
+    "passed": true,
+    "syntheticFixtureOnly": true,
+    "realSermonApproved": false,
+    "sourceFingerprint": "d47fade9ba3675235b6251fa8e5762ef9f1dfb876d8840d1fd09773dbc9f4b3f",
+    "finalSha256": "bc6704b3bd0f9d04b355a287c8dad1d0dd33fc8e09ee67c5fada90112a5f9f93",
+    "frames": "60",
+    "checks": [
+      "Final export rejected before approval",
+      "Known synthetic color/tone fixture accepted with its matching receipt",
+      "Final MP4 fully decoded and validated",
+      "Changed editorial job rejected after approval"
+    ]
+  },
+  "sourceFingerprint": "d47fade9ba3675235b6251fa8e5762ef9f1dfb876d8840d1fd09773dbc9f4b3f",
+  "fingerprintScheme": "normalized-source-and-lock-v2",
   "latestSourceValidatedByRender": true,
   "pending": "Full individual recipe/reference coverage and human editorial approval remain incomplete. This file records synthetic fixtures; real-sermon-results.json records real preview tests separately.",
   "asr": {

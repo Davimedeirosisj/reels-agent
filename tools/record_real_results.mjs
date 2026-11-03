@@ -2,11 +2,13 @@
 // footage paths, sermon stills or editorial job through this report.
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
+import { rendererFingerprint, FINGERPRINT_SCHEME } from './fingerprint.mjs';
 import { root, read, write, fileDigest } from './engine.mjs';
 import { captionsForTimeline } from '../src/editorial.mjs';
 import { captionPages } from '../src/captions.mjs';
-const folder = path.resolve(process.argv[2] || 'output/real-validation/render-v2');
+if (!process.argv[2])
+  throw new Error('Uso: node tools/record_real_results.mjs DIRETORIO_DA_PREVIA');
+const folder = path.resolve(process.argv[2]);
 const report = read(path.join(folder, 'preview-validation.json'));
 const fidelity = read(path.join(folder, 'audio-fidelity.json'));
 const job = read(path.join(folder, 'edit_decisions.json'));
@@ -16,21 +18,12 @@ const loudnessJson = fs.existsSync(loudnessLog)
   ? fs.readFileSync(loudnessLog, 'utf8').match(/\{\s*"input_i"[\s\S]*?\}/)?.[0]
   : null;
 const loudness = loudnessJson ? JSON.parse(loudnessJson) : null;
-const sourceFingerprint = crypto
-  .createHash('sha256')
-  .update(
-    Buffer.concat(
-      fs
-        .readdirSync(path.join(root, 'src'))
-        .sort()
-        .map((s) => fs.readFileSync(path.join(root, 'src', s))),
-    ),
-  )
-  .digest('hex');
+const sourceFingerprint = rendererFingerprint(root);
 const binding = fs
   .readFileSync(path.join(folder, 'review.html'), 'utf8')
-  .match(/"rendererHash":"([a-f0-9]{64})"/)?.[1];
-if (sourceFingerprint !== binding) throw new Error('Source changed since this render');
+  .match(/,binding=(\{[^\n;]*\}),keys=/)?.[1];
+if (!binding || sourceFingerprint !== JSON.parse(binding).rendererHash)
+  throw new Error('Source changed since this render');
 if (report.status !== 'passed' || !fidelity.passed)
   throw new Error('Validation must pass before archiving');
 if (fileDigest(path.join(folder, 'preview.mp4')) !== report.sha256)
@@ -53,6 +46,7 @@ const result = {
   recordedAtUtc: new Date().toISOString(),
   scope: 'User-authorized real sermon preview; technical metadata only',
   sourceFingerprint,
+  fingerprintScheme: FINGERPRINT_SCHEME,
   latestSourceValidatedByRender: true,
   mp4: {
     status: report.status,

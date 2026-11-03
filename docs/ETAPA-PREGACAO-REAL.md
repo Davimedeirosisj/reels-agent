@@ -1,5 +1,7 @@
 # Pregação real, componentes educacionais e curadoria — 03/11/2026
 
+Registro da primeira validação real. A versão posterior acrescenta duas linhas medidas, editor de legendas e cenas Three.js; veja [Cor, 3D e revisão](ETAPA-COR-3D-E-REVISAO.md) para o estado mais recente.
+
 ## Entrega testada
 
 O usuário autorizou uma gravação real de aproximadamente 2min24s. Foi gerada uma prévia completa em Remotion, com título, quatro ênfases tipográficas, legendas alinhadas pelo Whisper small em português e áudio normalizado em duas passagens. Nenhum trecho foi retirado, reordenado ou redublado; não foi adicionada música. O enquadramento vertical de origem foi mantido com `contain`.

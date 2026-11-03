@@ -1,6 +1,8 @@
 import { MOTION_VARIANTS } from './motion-kinds.mjs';
 import { validateGraph, graphLayout } from './diagrams.mjs';
 import { validateEducation } from './education.mjs';
+import { validateColor } from './color.mjs';
+import { validateScene3d } from './scene3d.mjs';
 export const frames = (seconds, fps) => Math.round(seconds * fps);
 const finite = (n) => typeof n === 'number' && Number.isFinite(n);
 // One source of truth for video, audio, captions and the review.
@@ -60,7 +62,23 @@ export function validateJob(job) {
       errors.push(`${k} deve ser inteiro par >=64`);
   if (!Array.isArray(job.clips) || !job.clips.length) errors.push('clips não pode estar vazio');
   const last = new Map();
+  const style = job.captionStyle || {};
+  if (
+    style.maxLines !== undefined &&
+    (!Number.isInteger(style.maxLines) || style.maxLines < 1 || style.maxLines > 4)
+  )
+    errors.push('captionStyle.maxLines deve ser inteiro entre 1 e 4');
+  if (style.maxLines !== undefined) {
+    const max = style.fontSize ?? (style.mode === 'accessible' ? 64 : 56),
+      min = style.minFontSize ?? 38;
+    if (!finite(max) || !finite(min) || min < 16 || max < min)
+      errors.push('Tamanhos de legenda inválidos para medição em pixels');
+    for (const key of ['left', 'right', 'width', 'letterSpacing'])
+      if (style[key] !== undefined && !finite(style[key]))
+        errors.push(`captionStyle.${key} deve ser numérico para medição em pixels`);
+  }
   for (const [i, c] of (job.clips || []).entries()) {
+    for (const error of validateColor(c.color)) errors.push(`clip ${i}: ${error}`);
     if (typeof c.source !== 'string' || !c.source) errors.push(`clip ${i}: source ausente`);
     if (
       !finite(c.start) ||
@@ -123,6 +141,7 @@ export function validateJob(job) {
   }
   const duration = timeline(job.clips || [], fps).reduce((a, c) => a + c.durationInFrames, 0) / fps;
   for (const [i, m] of (job.motions || []).entries()) {
+    for (const error of validateScene3d(m)) errors.push(`motion ${i}: ${error}`);
     if (['flowchart', 'network'].includes(m.kind))
       for (const e of validateGraph(m.graph)) errors.push(`motion ${i}: ${e}`);
     if (['flowchart', 'network'].includes(m.kind) && !validateGraph(m.graph).length) {

@@ -18,9 +18,11 @@ Transformar vídeos brutos em Reels verticais com cortes inteligentes, transcri�
 - Orquestração: ChatGPT/Codex e Claude Code
 
 ## Status
-**Motor executável em desenvolvimento, com renderização comprovada.** Existe uma linha do tempo com cortes reais, remapeamento de legendas e eventos Remotion. Uma galeria de 53 componentes e regressões de cortes, B-roll e ducking foram executadas com vídeo BT.709/yuv420p. Uma prévia completa de pregação real também foi renderizada em 1080×1920, com voz comparada ao original. A revisão humana e a cobertura integral das referências permanecem abertas.
+**Motor executável em desenvolvimento, com renderização comprovada.** Existe uma linha do tempo com cortes reais, remapeamento de legendas e eventos Remotion. A biblioteca tem 56 componentes, incluindo cenas Three.js com modelos, luzes e câmera. Cor por tomada, duas linhas medidas, editor de legendas, B-roll, ducking e exportação possuem testes próprios. Uma prévia completa de pregação real foi renderizada em 1080×1920, com voz comparada ao original. A revisão humana e a cobertura integral das referências permanecem abertas.
 
 A curadoria verificou 124 publicações Prompt Motion / 111 textos normalizados distintos e 45 páginas individuais Motif, com autoria e links. Isso comprova as fontes, não a reprodução de todos os exemplos. Os resultados técnicos e limites estão em [Validação com pregação real](docs/ETAPA-PREGACAO-REAL.md); a gravação e sua transcrição permanecem locais.
+
+Novos comandos, provas de render e limites: [Cor, 3D e revisão](docs/ETAPA-COR-3D-E-REVISAO.md).
 
 ## Próximos passos
 1. Seguir [Execução](docs/EXECUCAO.md) para transcrever, preparar EDL e renderizar prévia.

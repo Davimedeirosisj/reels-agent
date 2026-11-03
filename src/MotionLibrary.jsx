@@ -15,6 +15,8 @@ import { MediaPanels } from './MediaPanels';
 import { Transition, TRANSITION_KINDS } from './Transitions';
 import { DiagramGraphic } from './DiagramGraphic';
 import { EducationalGraphic } from './EducationalGraphic';
+import { SceneThree } from './SceneThree';
+import { SCENE3D_KINDS } from './scene3d.mjs';
 export { MOTION_VARIANTS } from './motion-kinds.mjs';
 export function MotionLibrary({
   variant = 'kinetic',
@@ -51,6 +53,20 @@ export function MotionLibrary({
       color: '#fff',
     };
   const words = text.split(/\s+/).filter(Boolean);
+  if (SCENE3D_KINDS.includes(variant))
+    return (
+      <SceneThree
+        {...options}
+        variant={variant}
+        frame={f}
+        fps={fps}
+        position={position}
+        asset={asset}
+        panels={options.panels}
+        text={text}
+        accent={accent}
+      />
+    );
   if (['flowchart', 'network'].includes(variant))
     return (
       <DiagramGraphic

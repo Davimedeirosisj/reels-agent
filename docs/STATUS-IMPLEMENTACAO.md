@@ -12,18 +12,20 @@ O antigo `segments` só acionava legendas; não cortava a mídia. A demonstraç�
 - Propostas de corte mantendo unidades contínuas e ordem cronológica; EDL manual editável.
 - ASR local com timestamps de palavras; Whisper tiny em TTS e small em pregação real. Palavras com duração zero permanecem no texto, sem duração inventada.
 - Eventos visuais com duração e posição independentes, sem animação obrigatória.
-- Biblioteca com 53 componentes visuais e uma opção de pausa. Além de tipografia, dados, mídia, CSS 3D e transições, inclui fluxogramas com ramificações, redes, perguntas/respostas temporizadas, interfaces e definições com dados e origem explícitos. Não infere causalidade nem respostas da pregação.
+- Biblioteca com 56 componentes visuais e uma opção de pausa. Inclui tipografia, dados, mídia, transições, grafos, interfaces e cenas Three.js com câmera/luzes/modelos GLB. Os conceitos e relações ilustrados exigem origem explícita.
 - Paginação de legendas, destaque por palavra, palavras semânticas fornecidas, máscara, modo de alto contraste e ícone fornecido.
+- Tipografia medida no navegador, composição equilibrada em até duas linhas e editor local de transcrição. Correções invalidam alinhamento por palavra e aprovação, mantendo o intervalo da frase.
+- Cor por tomada e proposta de correspondência por área neutra explícita; ajuste opcional, com intensidade e proveniência.
 - Música/SFX opcionais, redução de música durante a fala e loudnorm em duas passagens.
 - Prévia com revisão local, aprovação vinculada a EDL/mídias/composição e final condicionado a essa aprovação.
 - Catálogo individual: 100 autorais + 45 Motif + 64 Revid + 5 Prompt Motion legados + 10 visuais. Curadoria adicional de 124 publicações Prompt Motion com 111 hashes de texto distintos. As 45 páginas Motif tiveram prompt, autoria e link do post original verificados. Disponibilidade de texto não comprova execução, equivalência visual ou licença de republicação.
 
 ## Evidência e limite dos testes
 
-- 34 testes JavaScript e 16 testes Python passaram: cortes, palavras, ordem, validação, planejamento, legenda, mídia, câmeras, áudio, máscaras, grafos, UI, curadoria e comparação de voz.
+- 45 testes JavaScript e 19 testes Python passaram. As integrações verificam também cor, duas linhas no MP4, cenas 3D repetíveis, editor no navegador e exportação final de fixture técnico.
 - Regressão de render: vermelho/440 Hz → azul/~878,33 Hz; intervalo verde/660 Hz removido. Resultado em `docs/validation/render-results.json`.
 - Prévia atual validada: 9,685s, H.264/AAC, 1080×1920, pico -2,2 dBFS, média -18,5 dBFS.
-- Galeria atual: 53 componentes, 95,4s de vídeo, 2862 frames, H.264/AAC, 1080×1920.
+- Galeria atual: 56 componentes, 100,8s de vídeo, 3024 frames, H.264/AAC, 1080×1920.
 - Contatos visuais corrigidos foram inspecionados. B-roll local e ducking também passaram em testes no MP4 exportado.
 - Os renders atuais foram feitos com PNG/BT.709, resultando em `yuv420p`, range TV. A decodificação integral passou.
 - O bloqueio anterior da revisão automática por limite de uso foi superado. Os renders posteriores e seus hashes estão em `docs/validation/render-results.json`.
@@ -35,12 +37,14 @@ O antigo `segments` só acionava legendas; não cortava a mídia. A demonstraç�
 
 ## Trabalho restante, preservando o escopo
 
-1. Completar cada entrada `partial`/`pending` de `docs/COBERTURA.md`, incluindo normalização de cor e comportamentos específicos ainda aproximados.
+Casos de borda e sequência concreta: [Próximas implementações](PROXIMAS-IMPLEMENTACOES.md).
+
+1. Completar as receitas parciais de acessibilidade, revisão espacial e controle de ritmo. Cor, duas linhas, editor e cenas 3D receberam implementação e regressões próprias nesta etapa.
 2. Ampliar validação de legibilidade e fidelidade das receitas e a escolha contextual de motions; parâmetros e testes sintéticos não provam acabamento premium em cada referência.
-3. Integrar automaticamente preparo/segmentação/rastreamento e assets/modelos próprios de 3D. O recorte local ainda exige entrada alinhada à edição; CSS 3D não comprova reprodução de produtos de terceiros.
+3. Integrar automaticamente preparo/segmentação/rastreamento. O recorte local ainda exige entrada alinhada à edição. Modelos GLB e geometrias próprias já são renderizados em Three.js; decodificadores comprimidos e pós-processamento das referências ainda faltam.
 4. Comparar cada referência externa com sua direção visual e MP4 específico. A meta numérica de fontes foi atingida; hashes e técnicas genéricas não comprovam reprodução de 100 exemplos. Os 64 Revid continuam como referências audiovisuais.
 5. Conferir imagens originais V01–V10, que não estão no repositório. O timing desses screenshots nunca foi verificado.
 6. Concluir revisão humana da pregação autorizada: fidelidade bíblica, qualificações da fala, grafia, voz, enquadramento, sincronia e escolha visual contextual. Ver [Pregação real](ETAPA-PREGACAO-REAL.md).
-7. Acompanhar a sincronização pelo commit Git. As evidências, comandos e limites desta etapa estão em `ETAPA-COMPOSICAO-E-AUDIO.md`.
+7. Acompanhar a sincronização pelo commit Git. A etapa atual está em [Cor, 3D e revisão](ETAPA-COR-3D-E-REVISAO.md); os registros anteriores continuam disponíveis.
 
 O código de terceiros sem licença não foi copiado. Os componentes são implementação própria das técnicas; equivalência visual premium exige comparação com a referência autorizada e o vídeo real.

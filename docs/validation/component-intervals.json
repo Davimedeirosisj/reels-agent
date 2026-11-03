@@ -319,6 +319,24 @@
       "startFrame": 2808,
       "endFrame": 2861,
       "inspectionFrame": 2850
+    },
+    {
+      "kind": "product3d",
+      "startFrame": 2862,
+      "endFrame": 2915,
+      "inspectionFrame": 2904
+    },
+    {
+      "kind": "ui3d",
+      "startFrame": 2916,
+      "endFrame": 2969,
+      "inspectionFrame": 2958
+    },
+    {
+      "kind": "light3d",
+      "startFrame": 2970,
+      "endFrame": 3023,
+      "inspectionFrame": 3012
     }
   ],
   "note": "Esses renders comprovam os componentes com dados sintéticos; não comprovam cada receita ou equivalência às referências."
