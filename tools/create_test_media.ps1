@@ -1,0 +1,5 @@
+$ErrorActionPreference='Stop'; $root=Split-Path -Parent $PSScriptRoot; $out=Join-Path $root 'output'; New-Item -ItemType Directory -Force -Path $out|Out-Null
+ffmpeg -y -f lavfi -i "color=c=0x182432:s=1920x1080:d=5" -f lavfi -i "sine=frequency=440:duration=5" -c:v libx264 -c:a aac -shortest (Join-Path $out 'test-input.mp4')
+'{"language":"pt","segments":[{"start":0.5,"end":2.5,"text":"Teste de render do Reels Agent."},{"start":2.6,"end":4.6,"text":"A mensagem deve permanecer fiel."}]}'|Set-Content -Encoding utf8 (Join-Path $out 'test-transcript.json')
+python (Join-Path $root 'tools\reels_pipeline.py') (Join-Path $out 'test-input.mp4') --output (Join-Path $out 'test-preview.mp4') --transcript (Join-Path $out 'test-transcript.json') --title 'Fidelidade à mensagem' --duration 5
+$preview=Join-Path $out 'test-preview.mp4'; if (!(Test-Path $preview)) { throw 'Render não gerou o MP4 de teste.' }; ffprobe -v error -show_entries format=duration:stream=width,height,codec_name -of json $preview|Set-Content -Encoding utf8 (Join-Path $out 'test-validation.json')
