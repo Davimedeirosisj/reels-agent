@@ -27,6 +27,7 @@ export function MotionLibrary({
   text = '',
   position = { x: 85, y: 650, width: 880 },
   fontSize = 82,
+  fontFamily = 'Arial, sans-serif',
   mode = 'words',
   items = [],
   values = [],
@@ -119,7 +120,7 @@ export function MotionLibrary({
       />
     );
   if (variant === 'zoom-transition')
-    return (
+    return !text ? null : (
       <div
         style={{
           ...box,
@@ -153,6 +154,7 @@ export function MotionLibrary({
         style={{
           ...box,
           ...textStyle,
+          fontFamily,
           fontSize,
           letterSpacing: variant === 'tracking' ? ease(f, 0, 30, 20, 0) : -1,
           transform: `perspective(900px) rotateY(${variant === 'perspective' ? ease(f, 0, 35, -35, 0) : 0}deg) translateX(${variant === 'parallax' ? Math.sin(f / 40) * 22 : 0}px)`,

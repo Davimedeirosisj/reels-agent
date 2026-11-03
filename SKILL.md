@@ -36,6 +36,8 @@ Motor executável em desenvolvimento. A entrada atual usa `clips`, `transcript`,
 
 Para gráficos atrás da pessoa, use `foreground` antes de `preview`; o comando prepara câmera/cortes/cor, calcula alpha e recusa uma camada desatualizada. Veja `docs/ETAPA-RECORTE-AUTOMATICO.md`. Use o efeito somente quando fizer sentido para a mensagem e confira bordas e legibilidade.
 
+Uma edição real foi finalizada com cortes de pausas, motions, transições, SFX, áudio tratado e legendas Whisper large-v3. O MP4 entregue tem 4133 frames e validação integral; a revisão foi feita pelo agente sob delegação do usuário, com `humanReviewed: false`. Consulte `docs/ETAPA-ENTREGA-FINAL.md` para medidas, procedência e limites. O fechamento desta edição não declara a biblioteca inteira concluída.
+
 Para sincronizar gráficos com a fala, use `anchor` por frase/ocorrência nos eventos. A revisão facial por amostragem é uma ajuda para conferir posições, não aprovação de enquadramento. Veja `docs/ETAPA-ANCORAS-E-EXPORTACAO.md` para os limites e as evidências.
 
 Para legendas de maior legibilidade, arquivos SRT/WebVTT e controle opcional do espaçamento de decorações, consulte `docs/ETAPA-LEGENDAS-E-RITMO.md`. A050 não certifica acessibilidade integral; A096 não retima fala, cortes ou legendas. Ao corrigir texto com âncoras, realinhe a fala ou escolha explicitamente conservar os tempos visuais da prévia para nova revisão; não estime tempos por palavra. Esses recursos continuam sendo escolhas contextuais.

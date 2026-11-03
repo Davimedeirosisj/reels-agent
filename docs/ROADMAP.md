@@ -9,6 +9,7 @@
 - [x] Integrar Remotion e composição base de motion graphics
 - [x] Gerar prévia e interface local de revisão; fluxo final depende de aprovação editorial
 - [x] Adicionar teste reproduzível e vídeo de demonstração local
+- [x] Entregar uma edição real com cortes, motions, transições, SFX e legendas, após revisão delegada e validação do MP4; ver `ETAPA-ENTREGA-FINAL.md`
 
 ## Segurança
 Não guardar tokens de API no repositório. Verificar licenças e scripts antes de integrar código de terceiros.
@@ -31,4 +32,4 @@ Não guardar tokens de API no repositório. Verificar licenças e scripts antes 
 - [ ] Validar uma pregação real e registrar revisão de fidelidade
 - [x] Renderizar uma pregação real completa e validar MP4, áudio e amostras visuais; revisão editorial humana continua aberta
 
-Estado detalhado: `STATUS-IMPLEMENTACAO.md`. A biblioteca não está declarada completa.
+Estado detalhado: `STATUS-IMPLEMENTACAO.md`. A edição real entregue tem revisão do agente e métricas em `validation/final-sermon-edit-results.json`; não equivale a escuta humana ou cobertura de todas as referências. A biblioteca não está declarada completa.

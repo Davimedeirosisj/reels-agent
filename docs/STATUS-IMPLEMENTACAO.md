@@ -1,6 +1,8 @@
 # Estado da implementação — 03/11/2026
 
-Objetivo completo: implementar os prompts e referências do repositório, com edição contextual fiel à pregação e evidência real de render. **Objetivo ativo e incompleto.**
+Uma edição real solicitada pelo usuário foi finalizada e entregue: MP4 de aproximadamente 2min18s com cortes de pausas, título, 12 destaques gráficos, transições, SFX e legendas large-v3. Render integral, áudio e cópia final foram verificados; a revisão foi delegada ao agente, sem escuta humana atestada. Veja [Entrega final](ETAPA-ENTREGA-FINAL.md).
+
+A implementação de todos os prompts e referências continua **parcial**; a entrega deste vídeo não certifica a cobertura integral da biblioteca.
 
 A rodada atual integra telefone/tela e painéis em cena 3D, câmera orbital e acabamento opcional com bloom transparente, aberração cromática e grão por frame/semente. Um novo MP4 de 180 frames passou com medições isoladas dos efeitos e comparação de voz. Veja [M016 e acabamento](ETAPA-M016-E-ACABAMENTO-3D.md). A prévia integral da pregação da etapa anterior, validada no commit `57b16d5`, permanece como evidência histórica da sua composição; seus recibos não aprovam o código novo. A aprovação humana continua aberta.
 

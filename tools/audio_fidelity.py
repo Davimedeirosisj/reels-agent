@@ -10,6 +10,8 @@ import subprocess
 from pathlib import Path
 import numpy as np
 
+REFERENCE_SAMPLE_RATE = 48000
+
 
 def decode(file, rate=16000):
     result = subprocess.run(
@@ -69,7 +71,10 @@ def main():
                         default=Path(__file__).parents[1] / 'public')
     args = parser.parse_args()
     job = json.loads(args.job.read_text(encoding='utf-8-sig'))
-    rate, search, seconds = 16000, 1920, 4
+    # Common production frame rates divide 48kHz exactly. At 16kHz a 30fps
+    # cut can round to a third of a sample and cause false correlation failures.
+    rate, seconds = REFERENCE_SAMPLE_RATE, 4
+    search = round(rate * .12)
     expected = expected_audio(job, args.public_dir, rate)
     actual = decode(args.render, rate)
     duration = min(len(expected), len(actual)) / rate
