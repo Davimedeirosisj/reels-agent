@@ -1,9 +1,9 @@
 {
-  "recordedAtUtc": "2026-11-03T10:18:26.510Z",
+  "recordedAtUtc": "2026-11-03T10:34:32.062Z",
   "scope": "Runtime verification from the original user checkout; technical aggregates only",
-  "testedCodeCommit": "8273eb0e9a647e187c0e30f30dfb0a01cac487fa",
+  "testedCodeCommit": "1c3e6d9b3c2cfbac71f28e2877b6efa89f884fcc",
   "sourceFingerprint": "a78961276fedaeacc6d514cc6acec13dbe6d926c83625e586acc0e8a2a693da8",
-  "javascriptTestsPassed": 52,
+  "javascriptTestsPassed": 57,
   "pythonTestsPassed": 21,
   "foregroundPreview": {
     "status": "passed",
@@ -13,5 +13,20 @@
     "sha256": "21b5665d180274669fa3f1609fe026999bf7bcd08a8e2727f86aaf13bed80398",
     "identicalToDevelopmentCheckout": true
   },
-  "scopeLimitation": "Four-second technical occlusion sample; no human editorial or full edge approval"
+  "scopeLimitation": "Four-second technical occlusion sample; no human editorial or full edge approval",
+  "transcriptCorrectionCli": {
+    "passed": true,
+    "scope": "Synthetic TTS/Whisper CLI correction and input preservation; no editorial approval",
+    "knownAsrSpellingCorrected": true,
+    "realWordTimesRetained": true,
+    "originalTranscriptUnchanged": true,
+    "inputOverwriteAttemptsRejected": 4,
+    "correctionToolSha256": "106043881f17ec236b160d3df29a38f4618fc459b56f5c298fc9d04231688614",
+    "createJobToolSha256": "db862f0284ba6416bd2d9138a1e6d362eb137b2e8817723b977fef544e6c605d"
+  },
+  "fullPreviewArchive": {
+    "sha256": "941d04c1e8f50ae5e9ddd95adb9b3428aaf9a394142e7047f40755624f5b985f",
+    "identicalToDevelopmentRender": true,
+    "copiedArchiveOnly": true
+  }
 }
