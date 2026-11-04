@@ -1,3 +1,4 @@
+import { MotionsAtencao } from './MotionsAtencao';
 import React from 'react';
 import { AbsoluteFill, Img, OffthreadVideo, staticFile, interpolate, spring } from 'remotion';
 const ease = (f, a, b, x = 0, y = 1) =>
@@ -45,7 +46,14 @@ export function MotionLibrary({
   seed = 7,
   ...options
 }) {
+  if (variant === 'blueprint' && options.design === 'atencao')
+    return <MotionsAtencao {...options} frame={f} fps={fps} position={position} text={text} items={items}/>;
   if (!MOTION_VARIANTS.includes(variant)) throw new Error(`Motion inconnu: ${variant}`);
+  if (variant === 'ui3d' && options.design === 'atencao-phone')
+    return <AbsoluteFill style={{background:'#0B111B'}}>
+      <div style={{position:'absolute',left:110,top:255,color:'#F4F1E9',fontFamily:'Arial',fontWeight:800,fontSize:60}}>O IMPULSO DE PEGAR</div>
+      <SceneThree {...options} variant={variant} frame={f} fps={fps} position={position} panels={options.panels} text={text} accent={accent}/>
+    </AbsoluteFill>;
   if (options.design === 'casa-hotel' && ['blueprint','product3d'].includes(variant))
     return <CasaHotelGraphic {...options} mode={mode === 'words' ? 'separate' : mode} frame={f} fps={fps} position={position} text={text} subtitle={subtitle} items={items}/>;
   if (variant === 'blueprint' && options.design === 'pastoral-tech')

@@ -1,0 +1,255 @@
+{
+  "recordedAtUtc": "2026-11-04T13:52:08.910Z",
+  "rendererFingerprint": "1ab9dca928515d671cc0ddca8d6f5a0bc5d5ba4df7e546bd1b871daa5a2947c2",
+  "mp4": {
+    "sha256": "934deace0165a146948c0f1b830e6376f04b48c333e06beb1dfeddf15cdf6794",
+    "bytes": 30454408,
+    "frames": 1079,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "videoDuration": 35.96666666666667,
+    "fileDuration": 36,
+    "codec": "h264",
+    "audioCodec": "aac",
+    "audioSampleRate": "48000",
+    "fullDecodePassed": true
+  },
+  "editorial": {
+    "originalWholeSourceRetained": true,
+    "sourceChronologyPreserved": true,
+    "graphics": 6,
+    "threeDimensionalInserts": 1,
+    "sfx": 4,
+    "words": 101,
+    "captionPages": 23,
+    "wordOrderPreserved": true,
+    "zeroDurationWordsPreserved": 1
+  },
+  "audio": {
+    "integratedLufs": -16.08,
+    "truePeakDbtp": -1.44,
+    "wholeAudio": {
+      "passed": true,
+      "windowCount": 18,
+      "minimumCorrelation": 0.9758014631285074,
+      "maximumAbsoluteLagMs": 0,
+      "windows": [
+        {
+          "status": "compared",
+          "correlation": 0.9985095591016453,
+          "lagSamples": 0,
+          "startSeconds": 0,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9992477123541175,
+          "lagSamples": 0,
+          "startSeconds": 2,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9987164489743557,
+          "lagSamples": 0,
+          "startSeconds": 4,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9993849829189451,
+          "lagSamples": 0,
+          "startSeconds": 6,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9985330155740154,
+          "lagSamples": 0,
+          "startSeconds": 8,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9973991947574011,
+          "lagSamples": 0,
+          "startSeconds": 10,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9758014631285074,
+          "lagSamples": 0,
+          "startSeconds": 12,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9976885609331729,
+          "lagSamples": 0,
+          "startSeconds": 14,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9936242197074905,
+          "lagSamples": 0,
+          "startSeconds": 16,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9996775861072489,
+          "lagSamples": 0,
+          "startSeconds": 18,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9960565743693053,
+          "lagSamples": 0,
+          "startSeconds": 20,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9993157797358138,
+          "lagSamples": 0,
+          "startSeconds": 22,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9993867118412999,
+          "lagSamples": 0,
+          "startSeconds": 24,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9995000108455727,
+          "lagSamples": 0,
+          "startSeconds": 26,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9997298952372755,
+          "lagSamples": 0,
+          "startSeconds": 28,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9995745728115996,
+          "lagSamples": 0,
+          "startSeconds": 30,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9992372392125606,
+          "lagSamples": 0,
+          "startSeconds": 32,
+          "durationSeconds": 2,
+          "lagMs": 0
+        },
+        {
+          "status": "compared",
+          "correlation": 0.9992409965523664,
+          "lagSamples": 0,
+          "startSeconds": 34,
+          "durationSeconds": 1.9666666666666666,
+          "lagMs": 0
+        }
+      ]
+    },
+    "sfx": {
+      "passed": true,
+      "events": [
+        {
+          "index": 0,
+          "startSeconds": 3.92,
+          "correlation": 0.9932183097783894,
+          "effectGain": 3.8085647647819165,
+          "passed": true
+        },
+        {
+          "index": 1,
+          "startSeconds": 8.96,
+          "correlation": 0.8132589922842924,
+          "effectGain": 3.2223599542888954,
+          "passed": true
+        },
+        {
+          "index": 2,
+          "startSeconds": 14.3,
+          "correlation": 0.9890502320055206,
+          "effectGain": 2.4707526190154696,
+          "passed": true
+        },
+        {
+          "index": 3,
+          "startSeconds": 24.4,
+          "correlation": 0.9658683992385908,
+          "effectGain": 2.0414640523335663,
+          "passed": true
+        }
+      ],
+      "count": 4,
+      "comparisonBandHz": 7000
+    },
+    "music": {
+      "passed": true,
+      "residualCorrelation": 0.996190003537131,
+      "recoveredGain": 3.2749493577339206,
+      "windowStartSeconds": 1.4,
+      "windowDurationSeconds": 1,
+      "expectedMusicToVoicePowerRatio": 0.8958423382402589,
+      "selection": "Highest expected music/voice energy ratio in a one-second SFX-free window; smooth voice-gain nuisance terms account for dynamic loudnorm. Selection does not inspect final output.",
+      "duckingGainRange": [
+        0.025,
+        0.055
+      ]
+    }
+  },
+  "spatial": {
+    "sampleCount": 121,
+    "faceSamples": 113,
+    "conflicts": 0,
+    "continuousCoverageProven": false
+  },
+  "visual": {
+    "framesInspected": 16
+  },
+  "tests": {
+    "javascriptPassed": 81
+  },
+  "review": {
+    "humanReviewed": false,
+    "deliveryByteIdenticalToReviewedRender": true,
+    "limitations": [
+      "ASR and word alignment may contain errors.",
+      "Some original frames already crop the speaker.",
+      "Face localization and visual review are sampled.",
+      "Exact equivalence with external references is not claimed."
+    ]
+  }
+}
