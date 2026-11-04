@@ -18,6 +18,7 @@ import { EducationalGraphic } from './EducationalGraphic';
 import { SceneThree } from './SceneThree';
 import { SCENE3D_KINDS } from './scene3d.mjs';
 import { TechGraphic } from './TechGraphic';
+import { CasaHotelGraphic } from './CasaHotelGraphic';
 export { MOTION_VARIANTS } from './motion-kinds.mjs';
 export function MotionLibrary({
   variant = 'kinetic',
@@ -45,6 +46,8 @@ export function MotionLibrary({
   ...options
 }) {
   if (!MOTION_VARIANTS.includes(variant)) throw new Error(`Motion inconnu: ${variant}`);
+  if (options.design === 'casa-hotel' && ['blueprint','product3d'].includes(variant))
+    return <CasaHotelGraphic {...options} mode={mode === 'words' ? 'separate' : mode} frame={f} fps={fps} position={position} text={text} subtitle={subtitle} items={items}/>;
   if (variant === 'blueprint' && options.design === 'pastoral-tech')
     return <TechGraphic {...options} frame={f} fps={fps} position={position} text={text} subtitle={subtitle} items={items} accent={accent}/>;
   const p = ease(f, 0, 25),

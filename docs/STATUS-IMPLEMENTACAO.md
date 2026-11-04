@@ -1,6 +1,8 @@
-# Estado da implementação — 03/11/2026
+# Estado da implementação — 04/11/2026
 
-A reedição mais recente segue o JSON fornecido pelo usuário: 70,3s, direção em preto/verde/ciano, 13 composições gráficas, 20 efeitos verificados, trilha com ducking, legendas cinéticas e projeto com trilhas separadas. MP4 e mixagem integral validados; revisão do agente, com `humanReviewed: false`. Veja [Reedição pelo prompt](ETAPA-PROMPT-VERDE.md).
+A produção Casa Hotel foi entregue em 1080×1920/60fps, com 63,367s, casa procedural Three.js, ilustrações próprias, 43 páginas de legenda e 15 efeitos sonoros. Render integral e mixagem validados; 81 testes JavaScript passaram. Revisão do agente, com humanReviewed: false. Veja [Produção Casa Hotel](ETAPA-CASA-HOTEL.md).
+
+Uma reedição anterior segue o JSON fornecido pelo usuário: 70,3s, direção em preto/verde/ciano, 13 composições gráficas, 20 efeitos verificados, trilha com ducking, legendas cinéticas e projeto com trilhas separadas. MP4 e mixagem integral validados; revisão do agente, com `humanReviewed: false`. Veja [Reedição pelo prompt](ETAPA-PROMPT-VERDE.md).
 
 Uma edição real solicitada pelo usuário foi finalizada e entregue: MP4 de aproximadamente 2min18s com cortes de pausas, título, 12 destaques gráficos, transições, SFX e legendas large-v3. Render integral, áudio e cópia final foram verificados; a revisão foi delegada ao agente, sem escuta humana atestada. Veja [Entrega final](ETAPA-ENTREGA-FINAL.md).
 

@@ -33,3 +33,5 @@ Não guardar tokens de API no repositório. Verificar licenças e scripts antes 
 - [x] Renderizar uma pregação real completa e validar MP4, áudio e amostras visuais; revisão editorial humana continua aberta
 
 Estado detalhado: `STATUS-IMPLEMENTACAO.md`. A edição real entregue tem revisão do agente e métricas em `validation/final-sermon-edit-results.json`; não equivale a escuta humana ou cobertura de todas as referências. A biblioteca não está declarada completa.
+
+- [x] Executar pré-produção aprovada com casa procedural 3D, B-roll ilustrado, legendas revisadas por sentido e mixagem verificada no MP4; ver [Casa Hotel](ETAPA-CASA-HOTEL.md). Revisão humana continua aberta.

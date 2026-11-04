@@ -33,11 +33,20 @@ export function captionsForTimeline(segments, clips, fps) {
           end = Math.min(frames(s.end, fps), c.trimAfter);
         if (end <= start) return [];
         const words = (s.words || []).flatMap((w) => {
-          const a = Math.max(start, frames(w.start, fps)),
-            b = Math.min(end, frames(w.end, fps));
+          const wordStart = frames(w.start, fps),
+            wordEnd = frames(w.end, fps),
+            a = Math.max(start, wordStart),
+            b = Math.min(end, wordEnd);
           const pointInside =
-            a === b && frames(w.start, fps) >= start && frames(w.start, fps) < end;
-          return b > a || pointInside
+            a === b && wordStart >= start && wordStart < end;
+          // ASR may place an untimed final word at the segment's natural end.
+          // Keep that text, but never cross the clip's exclusive trim boundary.
+          const pointAtSegmentEnd =
+            wordStart === wordEnd &&
+            wordStart === end &&
+            end === frames(s.end, fps) &&
+            end < c.trimAfter;
+          return b > a || pointInside || pointAtSegmentEnd
             ? [{ ...w, from: c.from + a - c.trimBefore, to: c.from + b - c.trimBefore }]
             : [];
         });

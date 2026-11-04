@@ -16,6 +16,7 @@ import { musicGain } from './captions.mjs';
 import { cameraAt, transitionAt } from './camera.mjs';
 import { ColorGrade } from './ColorGrade';
 import { foregroundAvailable, foregroundActive } from './foreground.mjs';
+import {graphicWindowState} from './house-motion.mjs';
 export const media = (src) =>
   /^(https?:|data:|blob:)/.test(src) ? src : staticFile(src.replace(/^\//, ''));
 const lerp = (f, a, b, x, y) =>
@@ -54,9 +55,10 @@ function TimedMotion({ event, accent }) {
   const frame = useCurrentFrame(),
     { fps } = useVideoConfig(),
     n = Math.round((event.end - event.start) * fps);
+  const fade=event.transitionSeconds ? Math.max(1,Math.round(event.transitionSeconds*fps)) : 7;
   const opacity = Math.min(
-    lerp(frame, 0, 7, 0, 1),
-    lerp(frame, Math.max(8, n - 8), Math.max(9, n), 1, 0),
+    lerp(frame, 0, fade, 0, 1),
+    lerp(frame, Math.max(fade+1, n-fade), Math.max(fade+2,n), 1, 0),
   );
   return (
     <AbsoluteFill style={{ opacity: event.layout==='hook' ? lerp(frame,Math.max(0,n-8),n,1,0) : opacity, pointerEvents: 'none' }}>
@@ -91,10 +93,8 @@ export const PastoralReel = ({
     captions = captionsForTimeline(transcript.segments, clips, fps);
   const frame = useCurrentFrame(),
     transition = transitionAt(frame, motions, fps, width);
-  const inset = Math.max(0,...(theme.graphicWindows || []).map(w=>{
-    const a=Math.round(w.start*fps), b=Math.round(w.end*fps);
-    return frame<a||frame>b?0:Math.min(lerp(frame,a,a+10,0,1),lerp(frame,b-10,b,1,0));
-  }));
+  const windowState=graphicWindowState(theme.graphicWindows,frame,fps);
+  const inset=windowState.progress;
   const layers = (layer) =>
     motions
       .filter(
@@ -123,7 +123,7 @@ export const PastoralReel = ({
       {theme.techBackground && <AbsoluteFill style={{background:'radial-gradient(ellipse at 50% 65%,#00D08418,transparent 65%),#07100F'}}/>}
       <AbsoluteFill
         style={{
-          transform: `translateX(${transition.x}px) translateY(${-210*inset}px) scale(${transition.scale*(1-.28*inset)})`,
+          transform: `translateX(${transition.x}px) translateY(${windowState.y}px) scale(${transition.scale*windowState.scale})`,
           borderRadius: inset ? 28*inset : 0,
           overflow: 'hidden',
           filter: transition.blur ? `blur(${transition.blur}px)` : undefined,

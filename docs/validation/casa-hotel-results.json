@@ -1,0 +1,119 @@
+{
+  "recordedAtUtc": "2026-11-04T12:19:58.437Z",
+  "scope": "Production of approved Casa Hotel preproduction v3; technical aggregates only",
+  "sourceFingerprint": "0aa5754e32c4d5b9b6471e31e05140c917f839e5fac82e8ec53aeee774f17c47",
+  "fingerprintScheme": "normalized-source-and-lock-v2",
+  "latestSourceValidatedByRender": true,
+  "mp4": {
+    "sha256": "1a55e38fbe41d62fbea6671ad61e36ab044ccbb2a9ad4e5b616302bcf5bc7161",
+    "bytes": 59155305,
+    "videoDuration": 63.36666666666667,
+    "fileDuration": 63.4,
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "frames": 3802,
+    "codec": "h264",
+    "pixelFormat": "yuv420p",
+    "colorSpace": "bt709",
+    "audioCodec": "aac",
+    "audioSampleRate": "48000",
+    "fullDecodePassed": true
+  },
+  "direction": {
+    "palette": [
+      "#07100F",
+      "#050606",
+      "#00D084",
+      "#49E6D1",
+      "#FFB36B",
+      "#F5F7F6"
+    ],
+    "graphics": 13,
+    "sfxEntries": 15,
+    "sourceClips": 4,
+    "quietCuts": 3,
+    "maximumDigitalPunchIn": 1.03,
+    "threeDimensionalInserts": 2,
+    "illustratedInserts": 3,
+    "illustratedBroll": true,
+    "techniques": [
+      "Animated house outline and editorial hook",
+      "Progressive architectural diagrams",
+      "Four original procedural Three.js rooms separating and reuniting",
+      "Original illustrated table and open book",
+      "Animated portrait inset",
+      "Speech-anchored typography",
+      "Original ambient music with ducking and soft original SFX"
+    ],
+    "sourceChronologyPreserved": true,
+    "statisticsInvented": false,
+    "exactExternalReferenceReproduction": false,
+    "plannedDuration": 62.916666667,
+    "actualDuration": 63.36666666666667,
+    "productionChanges": [
+      "Added 0.20 seconds before first phrase.",
+      "Recovered 0.25 seconds before third quiet cut.",
+      "Used approved illustrated B-roll fallback.",
+      "Used inset and opacity transitions; no claim of a custom wall wipe."
+    ]
+  },
+  "captions": {
+    "words": 149,
+    "pages": 43,
+    "maxLines": 2,
+    "tokenOrderPreserved": true,
+    "untimedFinalWordsPreserved": 1,
+    "source": "Whisper large-v3, forced alignment and independent second ASR pass on selected source",
+    "readingSpeedWarnings": 23,
+    "humanReviewed": false
+  },
+  "audio": {
+    "integratedLufs": -15.79,
+    "truePeakDbtp": -1.27,
+    "waveformWindows": 32,
+    "minimumCorrelation": 0.9920717062992284,
+    "maximumAbsoluteLagMs": 0,
+    "sfxVerified": 15,
+    "sfxMinimumCorrelation": 0.8883978380784443,
+    "musicVerified": true,
+    "musicResidualCorrelation": 0.9452983221446417,
+    "duckingGainRange": [
+      0.027999999999999997,
+      0.065
+    ],
+    "comparisonBandHz": 7000
+  },
+  "spatial": {
+    "sampleCount": 160,
+    "faceSamples": 141,
+    "conflicts": 0,
+    "continuousCoverageProven": false,
+    "fullGraphicInsertsExcludedFromFaceOcclusionChecks": true
+  },
+  "visual": {
+    "framesInspected": 24,
+    "agentReviewed": true,
+    "humanReviewed": false
+  },
+  "tests": {
+    "javascriptPassed": 81
+  },
+  "review": {
+    "type": "Agent review under user delegation",
+    "humanReviewed": false,
+    "deliveryByteIdenticalToReviewedRender": true,
+    "limitations": [
+      "ASR can contain errors.",
+      "Some source frames already crop the person at the left edge.",
+      "Spatial checks are sampled, not continuous."
+    ]
+  },
+  "organizedProject": {
+    "separateAudioStems": 3,
+    "editableSubtitles": true,
+    "graphicEvents": true,
+    "promptCopy": true,
+    "sourceVideoExternal": true
+  }
+}

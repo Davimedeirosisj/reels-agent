@@ -93,6 +93,7 @@ export function validateScene3d(event) {
     event.kind === 'product3d' &&
     !event.asset &&
     scene.product !== 'book' &&
+    !(event.design === 'casa-hotel' && scene.product === 'house') &&
     !scene.nodes?.length
   )
     errors.push('Produto 3D precisa de GLB, book procedural ou nodes explícitos');

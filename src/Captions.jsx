@@ -4,7 +4,7 @@ import { captionPages } from './captions.mjs';
 import { layoutCaptionTokens, browserTextMeasurer } from './caption-layout.mjs';
 import { captionAppearance } from './accessibility.mjs';
 export function Captions({ segments, style = {}, accent }) {
-  const { width: videoWidth } = useVideoConfig();
+  const { width: videoWidth, fps } = useVideoConfig();
   const f = useCurrentFrame(),
     s = captionPages(segments, style).find((x) => f >= x.from && f < x.to);
   if (!s) return null;
@@ -14,6 +14,7 @@ export function Captions({ segments, style = {}, accent }) {
     mode = 'karaoke',
     maxChars,
     maxWords,
+    gapFrames,
     semanticWords = [],
     icon,
     maxLines = mode === 'accessible' ? 2 : undefined,
@@ -70,7 +71,7 @@ export function Captions({ segments, style = {}, accent }) {
             ? false
             : f >= w.from && f < w.to;
       const impact=motion && semantic && highlight
-        ? Math.sin(Math.PI*Math.min(1,Math.max(0,(f-w.from)/Math.min(6,Math.max(1,w.to-w.from))))) : 0;
+        ? Math.sin(Math.PI*Math.min(1,Math.max(0,(f-w.from)/Math.min(motion.impactSeconds ? Math.round(motion.impactSeconds*fps) : 6,Math.max(1,w.to-w.from))))) : 0;
       return (
         <span
           key={i}
@@ -96,7 +97,7 @@ export function Captions({ segments, style = {}, accent }) {
       style={{
         ...base,
         fontSize: layout.fontSize,
-        transform: motion ? `translateY(${Math.max(0,1-(f-s.from)/7)*(motion.slidePx||8)}px)` : base.transform,
+        transform: motion ? `translateY(${Math.max(0,1-(f-s.from)/(motion.enterSeconds ? Math.round(motion.enterSeconds*fps) : 7))*(motion.slidePx||8)}px)` : base.transform,
         clipPath:
           mode === 'mask' ? `inset(0 ${Math.max(0, 100 - (f - s.from) * 20)}% 0 0)` : undefined,
       }}

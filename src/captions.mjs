@@ -1,4 +1,4 @@
-export function captionPages(segments, { maxChars = 42, maxWords = 8, mode = 'karaoke' } = {}) {
+export function captionPages(segments, { maxChars = 42, maxWords = 8, mode = 'karaoke', gapFrames = 10 } = {}) {
   return segments.flatMap((s) => {
     if (!s.words?.length) return [s];
     const pages = [];
@@ -24,7 +24,7 @@ export function captionPages(segments, { maxChars = 42, maxWords = 8, mode = 'ka
         (mode === 'word' ||
           group.length >= maxWords ||
           text.length + (w.word || w.text).length + 1 > maxChars ||
-          w.from - prev.to > 10)
+          w.from - prev.to > gapFrames)
       )
         flush();
       group.push(w);
